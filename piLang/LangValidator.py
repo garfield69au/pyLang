@@ -181,7 +181,7 @@ class LangValidator(AbstractLangValidator):
                 max = float(meta["Max"])
             except Exception as e:
                 pass
-   
+
         if (min != -1):
             if (float(value) < min):
                 # error
