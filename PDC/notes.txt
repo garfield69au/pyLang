@@ -1,0 +1,24 @@
+* State of usual residence - defaults to 3, Judy has to manually fix inter-state/OS. JC looks at the postcode, excluds anything starting with 4 
+* JC has a mor detailed error check 
+* Discharge dates being different between mother and baby record
+* Number of ultrasounds - range check 00-50 or 99,mandatory
+* Baby detail: baby DOB must equal babies date of date of confinement. Check logic as there should be none returned.Actually it looks like a data load problem!!!
+
+Code Files:
+* Error: Field 'Mothers code' with value 'MCCardiac scimitar anomalies' is longer than size '7' - if the first 2 letters is a code, then text can be up to 120 chars.
+* JC looks at these individually, determine the appropriate ICD10-AM code, enter that into the ICD10-AM box in Matrix (if there isn't a hard coded one available), & delete the text. If there's a hard coded option (e.g. Anaemia), then JC ticks that box & deletes the text.
+* JC will also check other items within that folder and correct any other issues (one problem might become 6 problems)
+* *might* be possible to parse the text to ICD10 for example Addison's disease = ICD10 code E271
+POPrenatal surgery for spina bifida - MMC closure' is longer than size '7' - different codes depedning on where the problem is. JC has to look at the ultrasounds to make that determination. ICD10 book has a number of sub-items to indciate the location but this detail isn't captured in MAtrix. The paper record would have this level of detail. To go paperless would require a Matrix refactor.
+
+Insulin commenced 29/12/17' is longer than size. JC doesn't know if this is pre-existing or gestational diabetes without looking at the paper record. Some of these codes lead to other codes that may be required but requires extensive manual effort to annalyse these.
+
+
+Some codes are pre-gestational period, some codes are during, and some codes are duirng labour & delivery. Problem is once the staff go down one pathway there's no return so if they get it wrong, JC has to basiclaly rmeove all the codes and rekey.
+
+
+* Midwives don't always use the paper record when entering data into Matrix which has lead to mistakes such as the baby gender or DOB being entered incorrectly. This also means printed documentation in the chart are incorrect. If the data is corrected in Matrix then the paper documentation needs to be destroyed and re-printed.
+
+* Silo attitude towards obstetric data. One area says "not my problem talk to other team".
+
+* Codes: Unspecified & Neoplasm are the only code sets to worry about for PDC

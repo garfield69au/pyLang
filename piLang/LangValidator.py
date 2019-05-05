@@ -2,6 +2,7 @@ from enum import Enum
 import re
 import time
 from prettytable import PrettyTable
+from piLang.piLang.Validator import Validator
 from piLang.piLang.AbstractLangValidator import AbstractLangValidator
 from piLang.piLang.LangError import ValidationError
 from piLang.piLang.Measurement import Measurement, MeasurementCategory
@@ -73,7 +74,7 @@ class LangValidator(AbstractLangValidator):
     def checkMandatory(self, meta:dict, key:str, value:str):
         # mandatory field check
         if (("Mandatory" in meta and not meta["Mandatory"] is None) and (meta["Mandatory"]==True)):
-            if ( (LangValidator.isBlankOrNull(value)) and (not LangValidator.isAllowBlank(meta, value)) ):
+            if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta, value)) ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.MANDATORYCOMPLETENESS.value))
                 self.errors.append("Error: Mandatory field '" + key + "' is BLANK or NULL. A value is required.")
                 
@@ -82,7 +83,7 @@ class LangValidator(AbstractLangValidator):
         else:
             # optional field check. According to LANG optional fields shpuld contain some sort of default value
             # i.e. no field shpould ever be blank or NULL.
-            if ( (LangValidator.isBlankOrNull(value)) and (not LangValidator.isAllowBlank(meta, value)) ):
+            if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta, value)) ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.OPTIONALCOMPLETENESS.value))
                 self.errors.append("Error: Optional field '" + key + "' is BLANK or NULL. A default value is required.")
             # turned off to reduce the amount of noise on the output
@@ -129,7 +130,7 @@ class LangValidator(AbstractLangValidator):
     def checkSize(self, meta:dict, key:str, value:str):
         # field length check
         if ("Size" in meta and not meta["Size"] is None):
-            if ( (len(value) > int(meta["Size"])) and (not LangValidator.isBlankOrNull(value)) ):
+            if ( (len(value) > int(meta["Size"])) and (not Validator.isBlankOrNull(value)) ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCESIZE.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' is longer than size '" + str(meta["Size"]) + "'")
                 
@@ -142,16 +143,16 @@ class LangValidator(AbstractLangValidator):
         
         if ("Type" in meta and not meta["Type"] is None):
             if (meta["Type"]=="int"):
-                if ( (LangValidator.isBlankOrNull(value)) or (not LangValidator.isInt(value)) ):
-                    if (not LangValidator.isAllowBlank(meta, value)):
+                if ( (Validator.isBlankOrNull(value)) or (not Validator.isInt(value)) ):
+                    if (not Validator.isAllowBlank(meta, value)):
                         self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value))
                         self.errors.append("Error: Field '" + key + "' with value '" + value + "' is not an int")
                 else:
                     isValidType = True
                     
             elif (meta["Type"]=="float"):
-                if ( (LangValidator.isBlankOrNull(value)) or (not LangValidator.isFloat(value)) ): 
-                    if (not LangValidator.isAllowBlank(meta, value)):
+                if ( (Validator.isBlankOrNull(value)) or (not Validator.isFloat(value)) ): 
+                    if (not Validator.isAllowBlank(meta, value)):
                         self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value))
                         self.errors.append("Error: Field '" + key + "' with value '" + value + "' is not a float")
                 else:
@@ -240,7 +241,7 @@ class LangValidator(AbstractLangValidator):
         if ("Format" in meta and not meta["Format"] is None):
             re.purge()
             isMatch = (not re.match(meta["Format"], value) is None)
-            if ( (not isMatch) and (not LangValidator.isAllowBlank(meta, value)) ):
+            if ( (not isMatch) and (not Validator.isAllowBlank(meta, value)) ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' does not match regex '" + meta["Format"] + "'")
             

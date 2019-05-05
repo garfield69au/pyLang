@@ -3,7 +3,7 @@ import numpy as np
 import plotly
 
 from plotly.graph_objs import Scatter,Layout,Marker,Bar
-from piLang.Measurement import Measurement, MeasurementCategory
+from piLang.piLang.Measurement import Measurement, MeasurementCategory
 
 
 
