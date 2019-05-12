@@ -21,7 +21,10 @@ class MatchResult(object):
         return self.__str__()
  
     def __str__(self):
-        return "{0}:{1}:{2}\n".format(self.code, self.score, self.tokens)
+        x=""
+        for s in self.tokens:
+            x =x + s + " "
+        return "Code: {0}, Score: {1}, Tokens: {2}\n".format(self.code, self.score, x)
 
         
 class ICD10TextSearch(object):
@@ -61,10 +64,19 @@ class ICD10TextSearch(object):
 
         match_list.sort(key=operator.attrgetter('score'))
         return match_list
+
+    def match(self:object, searchstr:str) -> str:   
+        match_list = self.search(searchstr)        
+
+        s="0"
+        if (match_list):
+            match_list.sort(key=operator.attrgetter('score'))
+            s=match_list[0]
+        return s
         
         
     def tokenize(self:object, text:str):
         tokenized_text = word_tokenize(text.strip().lower())
         cleaned_text = [self.ps.stem(t) for t in tokenized_text if t not in self.stop_words and re.match('[a-zA-Z\-][a-zA-Z\-]{2,}', t)]
-        #cleaned_text = [self.wnl.lemmatize(t,'v') for t in tokenized_text if t not in self.stop_words]
+        cleaned_text = [self.wnl.lemmatize(t,'v') for t in tokenized_text if t not in self.stop_words]
         return cleaned_text
