@@ -50,19 +50,26 @@ class ICD10TextSearch(object):
             code = row["code"]
             descr = row["description"]                 
             tokens = self.tokenize(descr)
-            self.code_set[code]=tokens
+            if (len(tokens)>0):
+                self.code_set[code]=tokens
 
             
-    def search(self:object, searchstr:str) -> dict:   
-        search_tokens = self.tokenize(searchstr)        
+    def search(self:object, searchstr:str) -> dict:           
         match_list=list()
-        for key in self.code_set:
-            row = self.code_set[key]
-            match_score=round(nltk.jaccard_distance(set(search_tokens), set(row)), 3)
-            if (match_score < 1.0):
-                match_list.append(MatchResult(match_score, key, row))    
-
-        match_list.sort(key=operator.attrgetter('score'))
+        search_tokens = self.tokenize(searchstr)
+        
+        if (len(search_tokens) > 0):
+            for key in self.code_set:
+                row = self.code_set[key]
+                try:
+                    match_score=round(nltk.jaccard_distance(set(search_tokens), set(row)), 3)
+                    if (match_score < 1.0):
+                        match_list.append(MatchResult(match_score, key, row))    
+                except Exception as e:
+                    print(str(e) + ", " + searchstr + ", " + str(search_tokens))
+                    
+            match_list.sort(key=operator.attrgetter('score'))
+        
         return match_list
 
     def match(self:object, searchstr:str) -> str:   
@@ -78,5 +85,5 @@ class ICD10TextSearch(object):
     def tokenize(self:object, text:str):
         tokenized_text = word_tokenize(text.strip().lower())
         cleaned_text = [self.ps.stem(t) for t in tokenized_text if t not in self.stop_words and re.match('[a-zA-Z\-][a-zA-Z\-]{2,}', t)]
-        cleaned_text = [self.wnl.lemmatize(t,'v') for t in tokenized_text if t not in self.stop_words]
+        cleaned_text = [self.wnl.lemmatize(t,'v') for t in cleaned_text if t not in self.stop_words]
         return cleaned_text
