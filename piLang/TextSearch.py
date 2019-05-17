@@ -63,7 +63,7 @@ class ICD10TextSearch(object):
                 row = self.code_set[key]
                 try:
                     match_score=round(nltk.jaccard_distance(set(search_tokens), set(row)), 3)
-                    if (match_score < 1.0):
+                    if (match_score <= 0.5):
                         match_list.append(MatchResult(match_score, key, row))    
                 except Exception as e:
                     print(str(e) + ", " + searchstr + ", " + str(search_tokens))
@@ -76,7 +76,7 @@ class ICD10TextSearch(object):
         match_list = self.search(searchstr)        
 
         s="0"
-        if (match_list):
+        if (len(match_list)>0):
             match_list.sort(key=operator.attrgetter('score'))
             s=match_list[0]
         return s
