@@ -73,8 +73,8 @@ class LangValidator(AbstractLangValidator):
         
     def checkMandatory(self, meta:dict, key:str, value:str):
         # mandatory field check
-        if (("Mandatory" in meta and not meta["Mandatory"] is None) and (meta["Mandatory"]==True)):
-            if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta, value)) ):
+        if (Validator.exists(meta, "Mandatory") and (Validator.isTrue(meta, "Mandatory")) ):
+            if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta)) ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.MANDATORYCOMPLETENESS.value))
                 self.errors.append("Error: Mandatory field '" + key + "' is BLANK or NULL. A value is required.")
                 
@@ -83,7 +83,7 @@ class LangValidator(AbstractLangValidator):
         else:
             # optional field check. According to LANG optional fields shpuld contain some sort of default value
             # i.e. no field shpould ever be blank or NULL.
-            if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta, value)) ):
+            if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta)) ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.OPTIONALCOMPLETENESS.value))
                 self.errors.append("Error: Optional field '" + key + "' is BLANK or NULL. A default value is required.")
             # turned off to reduce the amount of noise on the output
@@ -95,8 +95,7 @@ class LangValidator(AbstractLangValidator):
             
     def checkComposite(self, meta:dict, key:str):
         # unique field check
-        if ("Composite" in meta and not meta["Composite"] is None):
-            
+        if (Validator.exists(meta, "Composite")):
             # sum the number of times value appears in the row. this is faster than using list.count(value)
             listOfKeys = meta["Composite"]
             # Concatenate the list of keys into a composite key string
@@ -129,7 +128,7 @@ class LangValidator(AbstractLangValidator):
                         
     def checkSize(self, meta:dict, key:str, value:str):
         # field length check
-        if ("Size" in meta and not meta["Size"] is None):
+        if (Validator.exists(meta, "Size")):
             if ( (len(value) > int(meta["Size"])) and (not Validator.isBlankOrNull(value)) ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCESIZE.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' is longer than size '" + str(meta["Size"]) + "'")
@@ -141,10 +140,10 @@ class LangValidator(AbstractLangValidator):
         # field type check
         isValidType = False
         
-        if ("Type" in meta and not meta["Type"] is None):
+        if (Validator.exists(meta, "Type")):
             if (meta["Type"]=="int"):
                 if ( (Validator.isBlankOrNull(value)) or (not Validator.isInt(value)) ):
-                    if (not Validator.isAllowBlank(meta, value)):
+                    if (not Validator.isAllowBlank(meta)):
                         self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value))
                         self.errors.append("Error: Field '" + key + "' with value '" + value + "' is not an int")
                 else:
@@ -170,13 +169,13 @@ class LangValidator(AbstractLangValidator):
         min = -1
         max = -1
         
-        if ("Min" in meta and not meta["Min"] is None):
+        if (Validator.exists(meta, "Min")):
             try:
                 min = float(meta["Min"])
             except Exception as e:
                 pass
         
-        if ("Max" in meta and not meta["Max"] is None):
+        if (Validator.exists(meta, "Max")):
             try:
                 max = float(meta["Max"])
             except Exception as e:
@@ -185,21 +184,23 @@ class LangValidator(AbstractLangValidator):
         if (min != -1):
             if (float(value) < min):
                 # error
-                self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGE.value))
+                self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMIN.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' must be >= " + str(min))
-                self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGE.value))
+            
+            self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMIN.value))
                 
         if (max != -1):
             if (float(value) > max):
                 # error
-                self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGE.value))
+                self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMAX.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' must be <= " + str(max))
-                self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGE.value))
+            
+            self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMAX.value))
 
 
     def checkEnum(self, meta:dict, key:str, value:str):
         # enumerated field check
-        if ("Enum" in meta and not meta["Enum"] is None):
+        if (Validator.exists(meta, "Enum")):
             # enum is expected to be a list
             enum = meta["Enum"]
             
@@ -207,15 +208,15 @@ class LangValidator(AbstractLangValidator):
             # as we should have picked it up in the mandatory/optional test anyway
             # (i.e. if the field is optional but a value has been provided then we check it against the supplied list)
             if ( (len(value)>0) and (value not in enum) and (value != "(Null)") ):
-                self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGE.value))
+                self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCEENUM.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' is outside the range of: " + str(enum))
 
-            self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGE.value))
+            self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCEENUM.value))
 
 
     def checkStartsWith(self, meta:dict, key:str, value:str):
         # enumerated field check
-        if ("StartsWith" in meta and not meta["StartsWith"] is None):
+        if (Validator.exists(meta, "StartsWith")):
             # startsWith is expected to be a list
             startsWith = meta["StartsWith"]
             
@@ -230,18 +231,18 @@ class LangValidator(AbstractLangValidator):
                         break
                         
                 if (not found):
-                    self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGE.value))
+                    self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.FORMATCONSISTENCYPREFIX.value))
                     self.errors.append("Error: Field '" + key + "' with value '" + value + "' does not begin with any of: " + str(startsWith))
 
-            self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGE.value))
+            self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.FORMATCONSISTENCYPREFIX.value))
 
             
     def checkFormat(self, meta:dict, key:str, value:str):
         # format check (must provide a regex)
-        if ("Format" in meta and not meta["Format"] is None):
+        if (Validator.exists(meta, "Format")):
             re.purge()
             isMatch = (not re.match(meta["Format"], value) is None)
-            if ( (not isMatch) and (not Validator.isAllowBlank(meta, value)) ):
+            if ( (not isMatch) and (not Validator.isAllowBlank(meta)) ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' does not match regex '" + meta["Format"] + "'")
             
@@ -250,7 +251,7 @@ class LangValidator(AbstractLangValidator):
             
     def checkUnique(self, meta:dict, row:list, key:str, value:str):
         # unique field check
-        if (("Unique" in meta and not meta["Unique"] is None) and (meta["Unique"]==True)):
+        if (Validator.exists(meta, "Unique") and (Validator.isTrue(meta, "Unique")) ):
             # sum the number of times value appears in the row. this is faster than using list.count(value)
             counter = sum(1 for i in row if str(i) == value)
             
@@ -264,7 +265,7 @@ class LangValidator(AbstractLangValidator):
             
     def evaluateExpression(self, meta:dict, key:str):
         # evaluate any custom expressions
-        if ("Expression" in meta and not meta["Expression"] is None):
+        if (Validator.exists(meta, "Expression")):
             expr = meta["Expression"]
             
             # %1 is a placeholder for whatever the column name is owning the expression (it's just a shortcut)
