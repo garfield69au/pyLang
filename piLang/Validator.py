@@ -1,13 +1,5 @@
 
 class Validator(object):
-
-    @staticmethod
-    def exists(meta:dict, value:str) -> bool:
-        return ( value in meta and not meta[value] is None )
-    
-    @staticmethod
-    def isTrue(meta:dict, value:str) -> bool:
-        return ( meta[value]==True )
         
     @staticmethod
     def isBlankOrNull(value:str) -> bool:
@@ -15,7 +7,7 @@ class Validator(object):
 
         
     @staticmethod
-    def isAllowBlank(meta:dict) -> bool:
+    def isAllowBlank(meta:dict, value:str) -> bool:
         return ( ("AllowBlank" in meta and not meta["AllowBlank"] is None) and (meta["AllowBlank"]==True) )
      
      
