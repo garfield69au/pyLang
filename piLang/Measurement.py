@@ -38,13 +38,14 @@ class Measurement(object):
         return self.__repr__()
     
     def __repr__(self:object):
-        return "[Measurement: {0}\terrorCount: {1}\tattributeCount: {2}\tMean: {3}\terrorCategory: {4}]\n".format(self.attribute,self.errorCount,self.attributeCount,self.mean, self.errorCategory)
+        return "[Measurement: {0}\terrorCount: {1}\tattributeCount: {2}\tMean: {3}\terrorCategory: {4}\tdescription: {5}]\n".format(self.attribute,self.errorCount,self.attributeCount,self.mean, self.errorCategory, self.descr)
 
-    def __init__(self:object, attribute:str, attributeCount:int=0, errorCount:int=0, errorCategory:MeasurementCategory=None):
+    def __init__(self:object, attribute:str, attributeCount:int=0, errorCount:int=0, errorCategory:MeasurementCategory=None, description=""):
         self.attribute = attribute
         self.attributeCount = attributeCount
         self.errorCount = errorCount
         self.errorCategory = errorCategory
+        self.descr = description
         self.mean = -1.0
         self.percent=-1.0
         
@@ -70,6 +71,7 @@ class Measurement(object):
         l.append(self.attributeCount)
         l.append(self.errorCategory)
         l.append(self.errorCount)
+        l.append(self.descr)
         l.append(self.mean)
         l.append(self.percent)
         return l
@@ -80,6 +82,7 @@ class Measurement(object):
         l.append('attributeCount')
         l.append('errorCategory')
         l.append('errorCount')
+        l.append('description')
         l.append('Mean')
         l.append('Percent')
         return l
@@ -90,6 +93,7 @@ class Measurement(object):
         l['attributeCount'] = self.attributeCount
         l['errorCategory'] =self.errorCategory
         l['errorCount']= self.errorCount
+        l['description']=self.descr
         l['Mean']= self.mean
         l['Percent'] = self.percent
         return l

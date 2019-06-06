@@ -15,6 +15,7 @@ class Counters(dict):
 
     def __repr__(self):   
         pt = PrettyTable()
+        pt.align ="l"
         if (len(self)>0):
             c=next(iter(self.values()))
             pt.field_names = c.keys()

@@ -138,7 +138,7 @@ class LangValidator(AbstractLangValidator):
             
     def checkType(self, meta:dict, key:str, value:str):
         # field type check
-        isValidType = False
+        isValidType = True
         
         if (Validator.exists(meta, "Type")):
             if (meta["Type"]=="int"):
@@ -146,16 +146,14 @@ class LangValidator(AbstractLangValidator):
                     if (not Validator.isAllowBlank(meta)):
                         self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value))
                         self.errors.append("Error: Field '" + key + "' with value '" + value + "' is not an int")
-                else:
-                    isValidType = True
+                        isValidType = False
                     
             elif (meta["Type"]=="float"):
                 if ( (Validator.isBlankOrNull(value)) or (not Validator.isFloat(value)) ): 
                     if (not Validator.isAllowBlank(meta, value)):
                         self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value))
                         self.errors.append("Error: Field '" + key + "' with value '" + value + "' is not a float")
-                else:
-                    isValidType = True
+                        isValidType = False
                 
             self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value))
 
@@ -168,6 +166,8 @@ class LangValidator(AbstractLangValidator):
         # field value range check (int and float only although in theory we could specify min and max ranges for other attributes)
         min = -1
         max = -1
+        val = -1
+        default = -1
         
         if (Validator.exists(meta, "Min")):
             try:
@@ -181,8 +181,19 @@ class LangValidator(AbstractLangValidator):
             except Exception as e:
                 pass
 
+        if (Validator.exists(meta, "Default")):
+            try:
+                default = float(meta["Default"])
+            except Exception as e:
+                pass
+
+        try:
+            val = float(value)
+        except Exception as e:
+            pass
+
         if (min != -1):
-            if (float(value) < min):
+            if (val != -1 and val < min and val != default):
                 # error
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMIN.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' must be >= " + str(min))
@@ -190,7 +201,7 @@ class LangValidator(AbstractLangValidator):
             self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMIN.value))
                 
         if (max != -1):
-            if (float(value) > max):
+            if (val != -1 and val > max and val != default):
                 # error
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMAX.value))
                 self.errors.append("Error: Field '" + key + "' with value '" + value + "' must be <= " + str(max))
@@ -209,7 +220,7 @@ class LangValidator(AbstractLangValidator):
             # (i.e. if the field is optional but a value has been provided then we check it against the supplied list)
             if ( (len(value)>0) and (value not in enum) and (value != "(Null)") ):
                 self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCEENUM.value))
-                self.errors.append("Error: Field '" + key + "' with value '" + value + "' is outside the range of: " + str(enum))
+                self.errors.append("Error: Field '" + key + "' with value '" + value + "' is outside the enumeration set ")
 
             self.counters.add(Measurement(key,attributeCount=1,errorCategory=MeasurementCategory.METACOMPLIANCEENUM.value))
 
@@ -297,7 +308,7 @@ class LangValidator(AbstractLangValidator):
                 try:
                     result = eval(ev)
                 except Exception as e:
-                    print("Warning: An error occured while evaluating expression: '" + ev + "': " + str(e))
+                    #print("Warning: An error occured while evaluating expression: '" + ev + "': " + str(e))
                     
                     self.counters.add(Measurement(expr,errorCount=1,errorCategory=MeasurementCategory.RULECOMPLIANCE.value))
                     self.errors.append("Error: Expression '" + ev + "' returned an error '" + str(e) + "'")
