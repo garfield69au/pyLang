@@ -150,7 +150,7 @@ class LangValidator(AbstractLangValidator):
                     
             elif (meta["Type"]=="float"):
                 if ( (Validator.isBlankOrNull(value)) or (not Validator.isFloat(value)) ): 
-                    if (not Validator.isAllowBlank(meta, value)):
+                    if (not Validator.isAllowBlank(meta)):
                         self.counters.add(Measurement(key,errorCount=1,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value))
                         self.errors.append("Error: Field '" + key + "' with value '" + value + "' is not a float")
                         isValidType = False
