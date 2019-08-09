@@ -91,11 +91,28 @@ class SQLTools(object):
 
         for rowindex in rs:
             if (not col in rs[rowindex].keys()):
-                #raise ValidationError("LANG Error: The metadata column '" + col + "' not found in resultset.",None)
-                pass
+                raise ValidationError("LANG Error: The metadata column '" + col + "' not found in resultset.",None)
             else:
                 vals.append(rs[rowindex].get(col))
         return vals
+
+    @staticmethod
+    def getColValuesAsDict(rs: dict, *argv) -> dict:
+        """
+        Accepts an aribrtiary set of data columns as args and returns all the column values in a single dictionary.
+        """
+        if (rs is None):
+            raise ValidationError("LANG Exception: resultset has not been set", None)
+
+        if (argv is None):
+            raise ValidationError("LANG Exception: argv has not been set", None)
+
+        vals=dict()
+        for arg in argv:
+            vals[arg] =SQLTools.getColValues(rs, arg)
+            
+        return vals
+        
 
     @staticmethod
     def rowCount(rs:dict):
