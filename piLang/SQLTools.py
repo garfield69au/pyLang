@@ -58,8 +58,8 @@ class SQLTools(object):
                 It's important to note that Nulls are converted to "(Null)" so that routines that compare items
                 (like list.sort() don't break).
                 """
-
-                l[col] = ("(Null)" if row[colindex] is None else str(row[colindex]).strip())
+               
+                l[col] = ("(Null)" if row[colindex] is None else str(row[colindex]).strip().lstrip("0"))
                 colindex += 1
 
             data[rowindex]=l
