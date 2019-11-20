@@ -1,8 +1,8 @@
 ident = letter { letter | digit }.
 
-expression = "{" statement "}".
+expression = "{" statement "}" {"," expression }.
 
-statement = "{" term {"," term} "}".
+statement = "{" term { "," term }  "}".
 
 term = (
     "'Size'" ":" INT
