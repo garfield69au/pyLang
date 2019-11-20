@@ -1,0 +1,24 @@
+ident = letter { letter | digit }.
+
+expression = "{" statement "}".
+
+statement = "{" term {"," term} "}".
+
+term = (
+    "'Size'" ":" INT
+    | "'Type'" ":" ("'int'" | "'float'" | "'string'" | "'char'" | "'date'")
+    | "'Mandatory'" ":" ("True"|"False")
+    | "'AllowBlank'" ":" ("True"|"False")
+    | "'Enum'" ":" "["  "]"
+    | "'Composite'" ":" "[" "'" ident {"," "'" ident "'"} "'" "]"
+    | "'Min'" ":" INT
+    | "'Max'" ":" INT
+    | "'Default'" ":" INT
+    | "'Format'" ":" ident
+    | "'Unique'" ":" ("True"|"False")
+    | "'StartsWith'" ":" ident
+    ).
+ 
+INT = digit { digit }.
+
+    
