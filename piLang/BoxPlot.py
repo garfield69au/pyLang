@@ -3,7 +3,6 @@ import numpy as np
 import plotly
 
 from plotly.graph_objs import Scatter,Layout,Marker,Bar
-from piLang.piLang.Measurement import Measurement, MeasurementCategory
 
 
 
@@ -40,12 +39,14 @@ class BoxPlot(object):
             x= df["errorCategory"],
             marker= plotly.graph_objs.scatter.Marker(
                         symbol="circle",
-                        size=df["errorCount"],                        
+                        #size=df["errorCount"],
+                        size=50,                        
                         sizeref= 2.0*m / (100.0**2.0),
                         sizemode= 'area',
                         sizemin=10,
                         colorscale='Viridis',
-                        color=df["errorCount"],
+                        #color=df["errorCount"],
+                        color=50,
                         showscale= True,
                         opacity=0.4,
                         line=dict (

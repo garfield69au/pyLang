@@ -29,72 +29,51 @@ class Measurement(object):
     """
     Measurement: This class is used to record an instance of a discreet measurement. Every measurement has a label, an optional errorCounter and an optional value.
 
-    Example use:
-    m = Measurement("Frog")
-    m = Measurement("Frog",errorCount=1000)
     """
 
-    def __str__(self:object):
-        return self.__repr__()
-    
-    def __repr__(self:object):
-        return "[Measurement: {0}\terrorCount: {1}\tattributeCount: {2}\tMean: {3}\terrorCategory: {4}\tdescription: {5}]\n".format(self.attribute,self.errorCount,self.attributeCount,self.mean, self.errorCategory, self.descr)
-
-    def __init__(self:object, attribute:str, attributeCount:int=0, errorCount:int=0, errorCategory:MeasurementCategory=None, description=""):
+    def __init__(self:object, attribute:str, errorCategory:MeasurementCategory=None, description:str="<Unspecified>"):
         self.attribute = attribute
-        self.attributeCount = attributeCount
-        self.errorCount = errorCount
         self.errorCategory = errorCategory
         self.descr = description
-        self.mean = -1.0
-        self.percent=-1.0
-        
+
+    """
     def calcMean(self):
         try:
             # prevent divide by zero errors
-            self.mean = round (self.attributeCount / self.errorCount, 2)
+            
+            if (self.errorCount > 0):
+                self.mean = round (self.attributeCount / self.errorCount, 4)
+            
+            if (self.errorCount == 0 and self.attributeCount > 0):
+                self.confidenceScore = 1.0
+            else:
+                self.confidenceScore = round (1.0 - (self.errorCount / self.attributeCount), 4)
+            
             return self.mean
         except Exception as e:
             return -1.0
-
-    def calcPercent(self):
-        try:
-            # prevent divide by zero errors
-            self.percent = round(self.errorCount / self.attributeCount *100.0, 2)
-            return self.percent
-        except Exception as e:
-            return -1.0
+    """
+    
         
     def values(self):
         l = list()
         l.append(self.attribute)
-        l.append(self.attributeCount)
         l.append(self.errorCategory)
-        l.append(self.errorCount)
         l.append(self.descr)
-        l.append(self.mean)
-        l.append(self.percent)
         return l
-    
-    def keys(self):
+ 
+    @staticmethod 
+    def keys():
         l = list()
         l.append('attribute')
-        l.append('attributeCount')
-        l.append('errorCategory')
-        l.append('errorCount')
+        l.append('error_category')
         l.append('description')
-        l.append('Mean')
-        l.append('Percent')
         return l
     
     def asDict(self):
         l = dict()
         l['attribute']= self.attribute
-        l['attributeCount'] = self.attributeCount
-        l['errorCategory'] =self.errorCategory
-        l['errorCount']= self.errorCount
+        l['error_category'] =self.errorCategory
         l['description']=self.descr
-        l['Mean']= self.mean
-        l['Percent'] = self.percent
         return l
         

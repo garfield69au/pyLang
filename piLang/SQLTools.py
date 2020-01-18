@@ -23,7 +23,7 @@ class SQLTools(object):
         pt.field_names = row.keys()
         for i in self.rs:
             # pull the fields out of the resultset row and add as discreet elements to print
-            pt.add_row([f for f in self.rs[i].values()])
+            pt.add_row([field for field in self.rs[field].values()])
 
         return str(pt)
 
@@ -53,6 +53,7 @@ class SQLTools(object):
             colindex = 0
         
             l = dict()
+           
             for col in columns:
                 """
                 It's important to note that Nulls are converted to "(Null)" so that routines that compare items
@@ -61,7 +62,7 @@ class SQLTools(object):
                
                 l[col] = ("(Null)" if row[colindex] is None else str(row[colindex]).strip().lstrip("0"))
                 colindex += 1
-
+ 
             data[rowindex]=l
             rowindex+=1
             
@@ -96,6 +97,7 @@ class SQLTools(object):
                 vals.append(rs[rowindex].get(col))
         return vals
 
+
     @staticmethod
     def getColValuesAsDict(rs: dict, *argv) -> dict:
         """
@@ -109,7 +111,7 @@ class SQLTools(object):
 
         vals=dict()
         for arg in argv:
-            vals[arg] =SQLTools.getColValues(rs, arg)
+            vals[arg] = SQLTools.getColValues(rs, arg)
             
         return vals
         

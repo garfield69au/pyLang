@@ -7,7 +7,7 @@ class Validator(object):
     
     @staticmethod
     def isTrue(meta:dict, value:str) -> bool:
-        return ( meta[value]==True )
+        return ( Validator.exists(meta, value) and meta[value]==True )
         
     @staticmethod
     def isBlankOrNull(value:str) -> bool:
