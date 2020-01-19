@@ -27,26 +27,27 @@ class BoxPlot(object):
                 {'attribute' : 'mother_id', 'errorCategory':'Consistency', 'errorCount': 5, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': .5}
                ]
         """        
-        df = pd.DataFrame.from_records(l)
-        df.replace(-1,0,inplace=True)
 
-        df = df.sort_values(['errorCategory', 'attribute', 'errorCount'])
+        df = pd.DataFrame.from_dict(l)
+        df.replace(-1,0,inplace=True)
         
-        m = max(df["errorCount"])
+        df = df.sort_values(by=['attribute','error_category'])
+        
+        g = df.groupby(['error_category','attribute'])
+
+        m=max(g['error_category'].size())
         
         trace1 = Scatter(
-            y= df["errorCount"],
-            x= df["errorCategory"],
+            y= g['error_category'].size(),
+            x= list(g['error_category']),
             marker= plotly.graph_objs.scatter.Marker(
                         symbol="circle",
-                        #size=df["errorCount"],
-                        size=50,                        
+                        size=g['error_category'].size(),
                         sizeref= 2.0*m / (100.0**2.0),
                         sizemode= 'area',
                         sizemin=10,
                         colorscale='Viridis',
-                        #color=df["errorCount"],
-                        color=50,
+                        color=g['error_category'].size(),
                         showscale= True,
                         opacity=0.4,
                         line=dict (
@@ -56,7 +57,7 @@ class BoxPlot(object):
             ),
             mode= 'markers',
             showlegend= True,
-            text= "Attribute: " + "<b>" + df["attribute"] + "</b>"
+            text= "Attribute: " + "<b>" + str(g['attribute']) + "</b>"
         )
 
         # Create chart 

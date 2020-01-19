@@ -30,7 +30,6 @@ class AbstractLangValidator(abc.ABC):
     
     
     def clear(self:object):
-        self.counters.clear()
         self.profileList.clear()
     
     def profileData(self, meta:dict, col:dict, key:str):
@@ -45,6 +44,7 @@ class AbstractLangValidator(abc.ABC):
         c=self.profileList[0]
         headers = list(c.keys())
         sheet.append(headers)
+        
         for x in self.profileList:
             sheet.append(list(x.values()))
         
@@ -54,11 +54,11 @@ class AbstractLangValidator(abc.ABC):
     def saveCounters(self, outputFile):
         workbook = Workbook()
         sheet = workbook.active
-        headers = Measurement.keys()
+        headers = list(self.counters.counters[0].keys())
         sheet.append(headers)
-        for x in self.counters.values():
-            for y in x:
-                sheet.append(y.values())
+        
+        for y in self.counters.counters:
+            sheet.append(list(y.values()))
         
         workbook.save(filename=outputFile)
     
