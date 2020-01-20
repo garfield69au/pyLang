@@ -14,18 +14,12 @@ class BoxPlot(object):
     def plot(self, l:list):
         """
         example structure of l: 
-            l = [
-                {'attribute' : 'mother_id', 'errorCategory':'Completeness', 'errorCount': 5000, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 50},
-                {'attribute' : 'mother_id', 'errorCategory':'Completeness', 'errorCount': 15000, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 75},
-                {'attribute' : 'mother_id', 'errorCategory':'Completeness', 'errorCount': 700, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 12},
-                {'attribute' : 'mother_id', 'errorCategory':'Completeness', 'errorCount': 1000, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 35},
-                {'attribute' : 'mother_id', 'errorCategory':'Accuracy', 'errorCount': 1000, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 10},
-                {'attribute' : 'mother_id', 'errorCategory':'Accuracy', 'errorCount': 10, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 2},
-                {'attribute' : 'mother_id', 'errorCategory':'Accuracy', 'errorCount': 70, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 8},
-                {'attribute' : 'mother_id', 'errorCategory':'Consistency', 'errorCount': 8000, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 10},
-                {'attribute' : 'mother_id', 'errorCategory':'Consistency', 'errorCount': 20000, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': 100},
-                {'attribute' : 'mother_id', 'errorCategory':'Consistency', 'errorCount': 5, 'attributeCount': 20000, 'Mean': -1.0, 'Percent': .5}
-               ]
+        l = [
+                {'attribute' : 'mother_id', 'error_category':'Completeness'},
+                {'attribute' : 'mother_id', 'error_category':'Completeness'},
+                {'attribute' : 'frog', 'error_category':'Fishing'}
+                
+        ]
         """        
 
         df = pd.DataFrame.from_dict(l)
@@ -34,32 +28,37 @@ class BoxPlot(object):
         df = df.sort_values(by=['attribute','error_category'])
         
         g = df.groupby(['error_category','attribute'])
-
-        m=max(g['error_category'].size())
         
-        trace1 = Scatter(
-            y= g['error_category'].size(),
-            x= list(g['error_category']),
-            marker= plotly.graph_objs.scatter.Marker(
-                        symbol="circle",
-                        size=g['error_category'].size(),
-                        sizeref= 2.0*m / (100.0**2.0),
-                        sizemode= 'area',
-                        sizemin=10,
-                        colorscale='Viridis',
-                        color=g['error_category'].size(),
-                        showscale= True,
-                        opacity=0.4,
-                        line=dict (
-                            color= 'black',
-                            width= 2
-                        ),
-            ),
-            mode= 'markers',
-            showlegend= True,
-            text= "Attribute: " + "<b>" + str(g['attribute']) + "</b>"
-        )
-
+        traces = list()
+        
+        for title, group in g:
+            m=250
+            
+            traces.append(
+                Scatter(
+                    #name=str(title[0]),
+                    y= [group['error_category'].count()],
+                    x= group['error_category'],
+                    marker= plotly.graph_objs.scatter.Marker(
+                                symbol="circle",
+                                size=[group['error_category'].count()],
+                                sizeref= 2.0*m / (100.0**2.0),
+                                sizemode= 'area',
+                                sizemin=20,
+                                colorscale='Viridis',
+                                showscale= True,
+                                opacity=0.5,
+                                line=dict (
+                                    color= 'black',
+                                    width= 2
+                                ),
+                    ),
+                    mode= 'markers',
+                    showlegend= True,
+                    text= "Attribute: " + "<b>" + str(title[1]) + "</b>"
+                )
+            )
+            
         # Create chart 
 
         # Output will be stored as a html file. 
@@ -70,31 +69,31 @@ class BoxPlot(object):
         
         plotly.offline.plot(
         {
-                        "data": [trace1],
-                        "layout": Layout(
+            "data": traces,
+            "layout": Layout(
 
-                                            title="<b>Mater HEALTH<br>PDC Data Quality Analysis using LANG</b>",
-                                            autosize=True,
-                                            hovermode='closest',                                            
-                                            xaxis= dict(
-                                                title= '<b>Data Quality Dimensions</b>',
-                                                zeroline= False,
-                                                gridcolor='rgb(183,183,183)',
-                                                showline=True,
-                                                ticklen=5,
-                                                gridwidth= 2
-                                            ),
-                                            yaxis=dict(
-                                                title= '<b>Count of Data Quality Errors</b>',
-                                                gridcolor='rgb(183,183,183)',
-                                                zeroline=False,
-                                                showline=True,
-                                                ticklen=5,
-                                                gridwidth= 2
-                                            )
-                                        )
+                                title="<b>Mater HEALTH<br>PDC Data Quality Analysis using LANG</b>",
+                                autosize=True,
+                                hovermode='closest',                                            
+                                xaxis= dict(
+                                    title= '<b>Data Quality Dimensions</b>',
+                                    zeroline= False,
+                                    gridcolor='rgb(183,183,183)',
+                                    showline=True,
+                                    ticklen=5,
+                                    gridwidth= 2
+                                ),
+                                yaxis=dict(
+                                    title= '<b>Count of Data Quality Errors</b>',
+                                    gridcolor='rgb(183,183,183)',
+                                    zeroline=False,
+                                    showline=True,
+                                    ticklen=5,
+                                    gridwidth= 2
+                                )
+                            )
 
-                            },
-                            filename='bubble_chart.html',
-                            image='jpeg'
+                },
+                filename='bubble_chart.html',
+                image='jpeg'
         ) 
