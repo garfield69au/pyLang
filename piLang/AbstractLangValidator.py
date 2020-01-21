@@ -1,6 +1,5 @@
 import abc
 from enum import Enum
-from piLang.piLang.Counters import Counters
 from piLang.piLang.Measurement import Measurement
 from piLang.piLang.Profile import Profile
 from openpyxl import Workbook
@@ -25,12 +24,22 @@ class AbstractLangValidator(abc.ABC):
     def __init__(self:object, rs:dict, meta:dict):
         self.metaData = meta.copy()
         self.rs = rs.copy()
-        self.counters = Counters()
+        self.counters = list()
         self.profileList = list()
     
     
     def clear(self:object):
         self.profileList.clear()
+        self.counters.clear()
+        
+        
+    def addMeasurement(self, measurement:Measurement):
+        """
+        Add a new measurement.
+        """      
+        self.counters.append(measurement.asDict())
+        
+
     
     def profileData(self, meta:dict, col:dict, key:str):
         profile = Profile()
@@ -54,10 +63,10 @@ class AbstractLangValidator(abc.ABC):
     def saveCounters(self, outputFile):
         workbook = Workbook()
         sheet = workbook.active
-        headers = list(self.counters.counters[0].keys())
+        headers = list(self.counters[0].keys())
         sheet.append(headers)
         
-        for y in self.counters.counters:
+        for y in self.counters:
             sheet.append(list(y.values()))
         
         workbook.save(filename=outputFile)

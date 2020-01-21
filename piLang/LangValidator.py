@@ -4,7 +4,6 @@ from piLang.piLang.Validator import Validator
 from piLang.piLang.AbstractLangValidator import AbstractLangValidator
 from piLang.piLang.LangError import ValidationError
 from piLang.piLang.Measurement import Measurement, MeasurementCategory
-from piLang.piLang.Counters import Counters
 from piLang.piLang.ExpressionBuilder import ExpressionBuilder
 from piLang.piLang.SQLTools import SQLTools
 from piLang.piLang.Profile import Profile
@@ -72,12 +71,12 @@ class LangValidator(AbstractLangValidator):
         # mandatory field check
         if (Validator.isTrue(meta, "Mandatory") ):
             if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta)) ):
-                self.counters.add(Measurement(key,errorCategory=MeasurementCategory.MANDATORYCOMPLETENESS.value,description="Error: Mandatory field is BLANK or NULL. A value is required."))                             
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.MANDATORYCOMPLETENESS.value,description="Error: Mandatory field is BLANK or NULL. A value is required."))                             
         else:
             # optional field check. According to LANG optional fields shpuld contain some sort of default value
             # i.e. no field shpould ever be blank or NULL.
             if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta)) ):
-                self.counters.add(Measurement(key,errorCategory=MeasurementCategory.OPTIONALCOMPLETENESS.value, description="Error: Optional field is BLANK or NULL. A default value is required."))
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.OPTIONALCOMPLETENESS.value, description="Error: Optional field is BLANK or NULL. A default value is required."))
                 
             
     def checkComposite(self, meta:dict, key:str):
@@ -105,7 +104,7 @@ class LangValidator(AbstractLangValidator):
                 # join the values from the columns that make up the composite key to form a single value
                 s = ''.join(map(str, row.values()))
                 if (s in seen):
-                    self.counters.add(Measurement(keyStr,errorCategory=MeasurementCategory.UNIQUENESSCOMPOSITE.value, description="Error: Duplicate composite key: '" + keyStr + "', value: '" + s + "'"))
+                    self.addMeasurement(Measurement(keyStr,errorCategory=MeasurementCategory.UNIQUENESSCOMPOSITE.value, description="Error: Duplicate composite key: '" + keyStr + "', value: '" + s + "'"))
                 else:
                     seen.append(s)
                
@@ -114,7 +113,7 @@ class LangValidator(AbstractLangValidator):
         # field length check
         if (Validator.exists(meta, "Size")):
             if ( (len(value) > int(meta["Size"])) and (not Validator.isBlankOrNull(value)) ):
-                self.counters.add(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCESIZE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta["Size"]) + "'"))
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCESIZE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta["Size"]) + "'"))
                 
             
     def checkType(self, meta:dict, key:str, value:str):
@@ -125,12 +124,12 @@ class LangValidator(AbstractLangValidator):
             if (meta["Type"]=="int"):
                 if ( (Validator.isBlankOrNull(value)) or (not Validator.isInt(value)) ):
                     if (not Validator.isAllowBlank(meta)):
-                        self.counters.add(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
+                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
                         isValidType = False
             elif (meta["Type"]=="float"):
                 if ( (Validator.isBlankOrNull(value)) or (not Validator.isFloat(value)) ): 
                     if (not Validator.isAllowBlank(meta)):
-                        self.counters.add(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
+                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
                         isValidType = False
                 
         # given that min and max checks only apply to int and float values we may as well test for them now
@@ -171,13 +170,13 @@ class LangValidator(AbstractLangValidator):
         if (min != -1):
             if (val != -1 and val < min and val != default):
                 # error
-                self.counters.add(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMIN.value, description="Error: Value '" + value + "' must be >= " + str(min)))
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMIN.value, description="Error: Value '" + value + "' must be >= " + str(min)))
             
                 
         if (max != -1):
             if (val != -1 and val > max and val != default):
                 # error
-                self.counters.add(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMAX.value, description="Error: Value '" + value + "' must be <= " + str(max)))
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCERANGEMAX.value, description="Error: Value '" + value + "' must be <= " + str(max)))
             
 
     def checkEnum(self, meta:dict, key:str, value:str):
@@ -190,7 +189,7 @@ class LangValidator(AbstractLangValidator):
             # as we should have picked it up in the mandatory/optional test anyway
             # (i.e. if the field is optional but a value has been provided then we check it against the supplied list)
             if ( (len(value)>0) and (value not in enum) and (value != "(Null)") ):
-                self.counters.add(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCEENUM.value, description="Error: Value '" + value + "' is outside the enumeration set '" + enum + "'"))
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCEENUM.value, description="Error: Value '" + value + "' is outside the enumeration set '" + enum + "'"))
 
 
 
@@ -211,7 +210,7 @@ class LangValidator(AbstractLangValidator):
                         break
                         
                 if (not found):
-                    self.counters.add(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCYPREFIX.value, description="Error: Value '" + value + "' does not begin with any of: '" + str(startsWith) + "'"))
+                    self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCYPREFIX.value, description="Error: Value '" + value + "' does not begin with any of: '" + str(startsWith) + "'"))
 
 
             
@@ -221,7 +220,7 @@ class LangValidator(AbstractLangValidator):
             re.purge()
             isMatch = (not re.match(meta["Format"], value) is None)
             if ( (not isMatch) and (not Validator.isAllowBlank(meta)) ):
-                self.counters.add(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex '" + meta["Format"] + "'"))
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex '" + meta["Format"] + "'"))
             
 
             
@@ -233,7 +232,7 @@ class LangValidator(AbstractLangValidator):
             
             # create a list with every entry of value in the row. If there are duplicates then the resulting list will have >1 entries
             if (counter>1):
-                self.counters.add(Measurement(key,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
 
 
             
@@ -273,9 +272,9 @@ class LangValidator(AbstractLangValidator):
                 except Exception as e:
                     #print("Warning: An error occured while evaluating expression: '" + ev + "': " + str(e))
                     
-                    self.counters.add(Measurement(expr,errorCategory=MeasurementCategory.RULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
+                    self.addMeasurement(Measurement(expr,errorCategory=MeasurementCategory.RULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
 
                 if ( (not result is None) and (result == False) ):
-                    self.counters.add(Measurement(expr,errorCategory=MeasurementCategory.RULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
+                    self.addMeasurement(Measurement(expr,errorCategory=MeasurementCategory.RULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
 
     
