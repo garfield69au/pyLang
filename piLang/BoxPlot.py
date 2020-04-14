@@ -11,7 +11,7 @@ from plotly.graph_objs import Scatter,Layout,Marker,Bar
 # Dataset: Life Expectancy and per capita income (Rosling) 
 class BoxPlot(object):
 
-    def plot(self, l:list):
+    def plot(self, l:list, chartTitle:str=""):
         """
         example structure of l: 
         l = [
@@ -36,7 +36,6 @@ class BoxPlot(object):
             
             traces.append(
                 Scatter(
-                    #name=str(title[0]),
                     y= [group['error_category'].count()],
                     x= group['error_category'],
                     marker= plotly.graph_objs.scatter.Marker(
@@ -46,7 +45,7 @@ class BoxPlot(object):
                                 sizemode= 'area',
                                 sizemin=20,
                                 colorscale='Viridis',
-                                showscale= True,
+                                showscale= False,
                                 opacity=0.5,
                                 line=dict (
                                     color= 'black',
@@ -66,13 +65,17 @@ class BoxPlot(object):
         # Whenever we will open output html file, one popup option will ask us about if want to save it in jpeg format. #
         # If you want basic bubble chart with only one continent just include that particular trace while providing input. 
         
-        
+        if (chartTitle != ""):
+            titleStr = chartTitle
+        else:
+            titleStr = "<b>Chart of Data Quality Errors by Count</b>"
+            
         plotly.offline.plot(
         {
             "data": traces,
             "layout": Layout(
 
-                                title="<b>Mater HEALTH<br>PDC Data Quality Analysis using LANG</b>",
+                                title=titleStr,
                                 autosize=True,
                                 hovermode='closest',                                            
                                 xaxis= dict(

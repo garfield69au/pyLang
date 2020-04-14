@@ -144,7 +144,7 @@ class Profile(object):
         l['sum'] =self.sum
         l['mean'] =self.mean
         l['median'] =self.median
-        l['stddev'] =self.mean
+        l['stddev'] =self.stddev
         l['variance'] =self.variance
         l['min_value']= self.min_val
         l['max_value']=self.max_val

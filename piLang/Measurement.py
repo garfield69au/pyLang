@@ -35,24 +35,6 @@ class Measurement(object):
         self.attribute = attribute
         self.errorCategory = errorCategory
         self.descr = description
-
-    """
-    def calcMean(self):
-        try:
-            # prevent divide by zero errors
-            
-            if (self.errorCount > 0):
-                self.mean = round (self.attributeCount / self.errorCount, 4)
-            
-            if (self.errorCount == 0 and self.attributeCount > 0):
-                self.confidenceScore = 1.0
-            else:
-                self.confidenceScore = round (1.0 - (self.errorCount / self.attributeCount), 4)
-            
-            return self.mean
-        except Exception as e:
-            return -1.0
-    """
     
         
     def values(self):

@@ -2,6 +2,7 @@ import re
 import time
 from piLang.piLang.Validator import Validator
 from piLang.piLang.AbstractLangValidator import AbstractLangValidator
+from piLang.piLang.AbstractLangValidator import PatternFormat
 from piLang.piLang.LangError import ValidationError
 from piLang.piLang.Measurement import Measurement, MeasurementCategory
 from piLang.piLang.ExpressionBuilder import ExpressionBuilder
@@ -189,7 +190,7 @@ class LangValidator(AbstractLangValidator):
             # as we should have picked it up in the mandatory/optional test anyway
             # (i.e. if the field is optional but a value has been provided then we check it against the supplied list)
             if ( (len(value)>0) and (value not in enum) and (value != "(Null)") ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCEENUM.value, description="Error: Value '" + value + "' is outside the enumeration set '" + enum + "'"))
+                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCEENUM.value, description="Error: Value '" + value + "' is outside the enumeration set '" + str(enum) + "'"))
 
 
 
@@ -269,10 +270,9 @@ class LangValidator(AbstractLangValidator):
                 
                 try:
                     result = eval(ev)
-                except Exception as e:
-                    #print("Warning: An error occured while evaluating expression: '" + ev + "': " + str(e))
-                    
+                except Exception as e:                    
                     self.addMeasurement(Measurement(expr,errorCategory=MeasurementCategory.RULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
+                    result=None
 
                 if ( (not result is None) and (result == False) ):
                     self.addMeasurement(Measurement(expr,errorCategory=MeasurementCategory.RULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
