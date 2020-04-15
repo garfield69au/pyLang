@@ -1,4 +1,5 @@
 import csv
+import json
 from prettytable import PrettyTable
 from piLang.piLang.LangError import ValidationError
 
@@ -49,4 +50,13 @@ class FileTools(object):
                 rowindex+=1
                 
         return data
-    
+  
+    @staticmethod
+    def JSONtoMeta(fileName:str):
+        meta = dict()
+        
+        with open(fileName, 'r') as json_file:
+          meta = json.load(json_file)
+          
+        return meta
+  
