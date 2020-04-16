@@ -7,7 +7,7 @@ from piLang.piLang.LangError import ValidationError
 from piLang.piLang.Measurement import Measurement, MeasurementCategory
 from piLang.piLang.ExpressionBuilder import ExpressionBuilder
 from piLang.piLang.SQLTools import SQLTools
-from piLang.piLang.Profile import Profile
+from piLang.piLang.DataProfile import DataProfile
 
  
 class LangValidator(AbstractLangValidator):

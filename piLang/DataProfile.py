@@ -4,7 +4,7 @@ import statistics
 import collections
 from piLang.piLang.Validator import Validator
   
-class Profile(object):
+class DataProfile(object):
     """
     Profile: This class is used to profile a dataset and record various statistics about a set of data. The purpose of this class is to provide measurable
     values that can be used for explanation and comparison.
@@ -20,7 +20,9 @@ class Profile(object):
     def __init__(self:object):
         self.attribute=""
         self.type="<Unspecified>"
+        self.count=0
         self.attributeCount=0
+        self.position = 0
         self.sum = 0
         self.min_val = -1
         self.max_val = -1
@@ -34,6 +36,8 @@ class Profile(object):
         self.blankCount = 0
         self.distinctVals = 0
         self.mostFrequent = ""
+        self.position = -1
+        self.memory = 0
 
 
     def profileData(self, meta:dict, colData:dict, key:str):
@@ -49,9 +53,11 @@ class Profile(object):
         self.mostFrequent = max(set(colData), key=colData.count)
         
         vals = list()
+        self.count = len(colData)
         
         for value in colData:    
             
+            self.memory += len(value)
             val= math.nan
 
             if (len(value) < self.min_len or self.min_len == -1):
@@ -95,11 +101,15 @@ class Profile(object):
             self.variance = statistics.variance(vals)
                           
 
+    def setPosition(self, position:int):
+        self.position = position
         
     def values(self):
         l = list()
         l.append(self.attribute)
+        l.append(self.position)
         l.append(self.type)
+        l.append(self.count)
         l.append(self.attributeCount)
         l.append(self.sum)
         l.append(self.mean)
@@ -114,12 +124,15 @@ class Profile(object):
         l.append(self.blankCount)
         l.append(self.distinctVals)
         l.append(self.mostFrequent)
+        l.append(self.memory)
         return l
     
     def keys(self):
         l = list()
         l.append('attribute')
+        l.append('position')
         l.append('type')
+        l.append('count')
         l.append('attribute_count')
         l.append('sum')
         l.append('mean')
@@ -134,12 +147,15 @@ class Profile(object):
         l.append('blank_count')
         l.append('distinct_values')
         l.append('most_frequent_value')
+        l.append('memory_consumed_bytes')
         return l
     
     def asDict(self):
         l = dict()
         l['attribute']= self.attribute
+        l['position']= self.position
         l['type'] = self.type
+        l['count'] = self.count
         l['attribute_count'] = self.attributeCount
         l['sum'] =self.sum
         l['mean'] =self.mean
@@ -154,5 +170,6 @@ class Profile(object):
         l['blank_count']=self.blankCount
         l['distinct_values']=self.distinctVals
         l['most_frequent_value']=self.mostFrequent
+        l['memory_consumed_bytes']=self.memory
         return l
         

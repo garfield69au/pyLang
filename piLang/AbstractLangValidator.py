@@ -1,7 +1,7 @@
 import abc
 from enum import Enum
 from piLang.piLang.Measurement import Measurement
-from piLang.piLang.Profile import Profile
+from piLang.piLang.DataProfile import DataProfile
 from openpyxl import Workbook
 
 class PatternFormat(Enum):
@@ -42,8 +42,9 @@ class AbstractLangValidator(abc.ABC):
 
     
     def profileData(self, meta:dict, col:dict, key:str):
-        profile = Profile()
+        profile = DataProfile()
         profile.profileData(meta, col, key)
+        profile.setPosition(len(self.profileList)+1)
         self.profileList.append(profile.asDict())
 
 
