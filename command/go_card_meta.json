@@ -1,0 +1,114 @@
+{
+  "id": {
+    "Size": 4,
+    "Type": "int",
+    "Mandatory": true,
+    "Unique": true
+  },
+  "status": {
+    "Size": 10,
+    "Type": "string",
+    "Mandatory": true
+  },
+  "name": {
+    "Size": 70,
+    "Type": "string",
+    "Mandatory": true
+  },
+  "address": {
+    "Size": 140,
+    "Type": "date",
+    "Mandatory": true
+  },
+  "latitude": {
+    "Size": 10,
+    "Type": "string",
+    "Mandatory": true
+  },
+  "longitude": {
+    "Size": 10,
+    "Type": "string",
+    "Mandatory": true
+  },
+  "region1": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "type_id": {
+    "Size": 1,
+    "Type": "int",
+    "Mandatory": true
+  },
+  "type_name": {
+    "Size": 20,
+    "Type": "string",
+    "Mandatory": true
+  },
+  "notes": {
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "product1": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "product2": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "product3": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "service1": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "service2": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "service3": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "service4": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "service5": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "region2": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  },
+  "region3": {
+    "Size": 30,
+    "Type": "string",
+    "Mandatory": false,
+    "AllowBlank": true
+  }
+}

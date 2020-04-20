@@ -1,6 +1,8 @@
 import csv
 import json
 from prettytable import PrettyTable
+import dicttoxml
+from xml.dom.minidom import parseString
 from piLang.piLang.LangError import ValidationError
 
 class FileTools(object):
@@ -60,3 +62,19 @@ class FileTools(object):
           
         return meta
   
+    @staticmethod
+    def MetatoXMLFile(xml_filename:str, meta:dict):
+        xml = dicttoxml.dicttoxml(meta)
+        dom = parseString(xml)
+
+        with open(xml_filename, 'w') as w:
+            w.write(dom.toprettyxml())
+            
+    @staticmethod
+    def MetatoJSONFile(JSON_filename:str, meta:dict):
+        json_dict = json.dumps(meta, indent=4)
+        
+        with open(JSON_filename, 'w') as w:
+            w.write(json_dict)
+            
+            
