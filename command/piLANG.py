@@ -61,14 +61,14 @@ class piLANG(object):
     def loadCSV(self, inputFilename:str):
         self.dataset = FileTools.csvFileToDict(inputFilename)
     
-    def validate(self, inputFilename:str, outputFolder:str):
+    def validate(self, outputFolder:str):
         try:
             stime = time.time()
      
             lang_validator = LangValidator(self.dataset, self.meta)
             lang_validator.validate()
-            lang_validator.saveCounters(outputFolder + "counters.xlsx")
-            lang_validator.saveProfile(outputFolder + "profile.xlsx")
+            lang_validator.saveCounters(outputFolder + "\\counters.xlsx")
+            lang_validator.saveProfile(outputFolder + "\\profile.xlsx")
             
             print("Completed in " + str(time.time() - stime) + " secs")
 
@@ -162,24 +162,31 @@ def main(argv):
     profileFlag = args.profile
     validateFlag = args.validate
     
-    if (not args.sql is None):
-        if (len(args.sql) != 2) :
-            print("In order to run a SQL query you must provide the connection string followed by the SQL query.")
-            sys.exit()
-        
+    if (args.sql is not None):
         sqlURI = args.sql[0]
         sqlQuery = args.sql[1]
         
     if not os.path.isfile(inputFile):
-        print('The file specified does not exist')
+        print("The input file '" + inputFile + "' does not exist")
+        sys.exit()
+
+    if not os.path.isfile(metaFile):
+        print("The meta-data file '" + metaFile + "' does not exist")
         sys.exit()
 
     pl = piLANG()
     
-    #if (validateFlag):
+    if (validateFlag):
+        pass
+        
     pl.loadMeta(metaFile)
-    pl.loadSQL(sqlURI, sqlQuery)
-    pl.validate(inputFile, outputFolder)
+    
+    if (len(sqlURI) >0 ):
+        pl.loadSQL(sqlURI, sqlQuery)
+    elif (len(inputFile)>0):
+        pl.loadCSV(inputFile)
+        
+    pl.validate(outputFolder)
     
     if (profileFlag):
         pass
