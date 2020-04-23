@@ -1,6 +1,6 @@
 import abc
-from pyLang.pyLang.measurement import Measurement
-from pyLang.pyLang.dataprofile import DataProfile
+from pyLang.lib.measurement import Measurement
+from pyLang.lib.dataprofile import DataProfile
 from openpyxl import Workbook
 
    

@@ -1,9 +1,9 @@
 """
-piLANG.py
+pyLangMain.py
 
 Overview
 --------
-piLANG is a data quality validation tool that implements
+pyLang is a data quality validation tool that implements
 the LANG data quality algorithms 
 (see: Zhang, R., Indulska, M., & Sadiq, S. (2019). Discovering Data Quality Problems: The Case of Repurposed Data. Business and Information Systems Engineering, 61(5), 575–593. https://doi.org/10.1007/s12599-019-00608-0
 
@@ -11,11 +11,11 @@ the LANG data quality algorithms
 USAGE
 --------
 
-$ python piLANG -i <source_file_name> -m <meta_data_file_name> -o <outputfile_prefix> --profile --validate --custom <class_name>
+$ python pyLang -i <source_file_name> -m <meta_data_file_name> -o <outputfile_prefix> --profile --validate --custom <class_name>
 
 OUTPUT:
 --------
-The outout from piLANG depends on what you want to achieve.
+The outout from pyLang depends on what you want to achieve.
 the --profile switch will trigger a data profile the source data 
 and output the results as an Excel spreadsheet.
 
@@ -39,15 +39,15 @@ import os
 import importlib
 import argparse
 import pyodbc
-from piLang.piLang.SQLTools import SQLTools
-from piLang.piLang.AbstractLangValidator import AbstractLangValidator
-from piLang.piLang.LangValidator import LangValidator, PatternFormat
-from piLang.piLang.LangError import ValidationError
-from piLang.piLang.AbstractLangValidator import PatternFormat
-from piLang.piLang.FileTools import FileTools
 import time
+from pyLang.pyLang.SQLTools import SQLTools
+from pyLang.pyLang.ABCLangValidator import ABCLangValidator
+from pyLang.pyLang.langvalidator import LangValidator
+from pyLang.pyLang.patterns import Patterns
+from pyLang.pyLang.langerror import ValidationError
+from pyLang.pyLang.filetools import FileTools
 
-class piLANG(object):
+class pyLangMain(object):
     
     def loadSQL(self, URI:str, query:str):
         cnxn = pyodbc.connect(URI)
@@ -174,7 +174,7 @@ def main(argv):
         print("The meta-data file '" + metaFile + "' does not exist")
         sys.exit()
 
-    pl = piLANG()
+    pl = pyLangMain()
     
     if (validateFlag):
         pass
@@ -191,7 +191,7 @@ def main(argv):
     if (profileFlag):
         pass
         
-    #piLANG.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
+    #pyLang.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
     
     sys.exit()
 

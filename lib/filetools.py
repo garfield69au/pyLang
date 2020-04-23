@@ -3,7 +3,7 @@ import json
 from prettytable import PrettyTable
 import dicttoxml
 from xml.dom.minidom import parseString
-from pyLang.pyLang.langerror import ValidationError
+from pyLang.lib.langerror import ValidationError
 
 class FileTools(object):
     """
