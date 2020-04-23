@@ -1,16 +1,16 @@
 import re
 import time
-from piLang.piLang.Validator import Validator
-from piLang.piLang.AbstractLangValidator import AbstractLangValidator
-from piLang.piLang.AbstractLangValidator import PatternFormat
-from piLang.piLang.LangError import ValidationError
-from piLang.piLang.Measurement import Measurement, MeasurementCategory
-from piLang.piLang.ExpressionBuilder import ExpressionBuilder
-from piLang.piLang.SQLTools import SQLTools
-from piLang.piLang.DataProfile import DataProfile
+from pyLang.pyLang.validator import Validator
+from pyLang.pyLang.ABCLangValidator import ABCLangValidator
+from pyLang.pyLang.patterns import Patterns
+from pyLang.pyLang.langerror import ValidationError
+from pyLang.pyLang.measurement import Measurement, MeasurementCategory
+from pyLang.pyLang.expressionbuilder import ExpressionBuilder
+from pyLang.pyLang.SQLTools import SQLTools
+from pyLang.pyLang.dataprofile import DataProfile
 
  
-class LangValidator(AbstractLangValidator):
+class LangValidator(ABCLangValidator):
     """
     LangValidator: A generic validator for LANG. 
     The main execution method is validate().
