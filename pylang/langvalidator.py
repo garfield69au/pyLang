@@ -1,13 +1,13 @@
 import re
 import time
-from pyLang.lib.validator import Validator
-from pyLang.lib.ABCLangValidator import ABCLangValidator
-from pyLang.lib.patterns import Patterns
-from pyLang.lib.langerror import ValidationError
-from pyLang.lib.measurement import Measurement, MeasurementCategory
-from pyLang.lib.expressionbuilder import ExpressionBuilder
-from pyLang.lib.SQLTools import SQLTools
-from pyLang.lib.dataprofile import DataProfile
+from pylang.pylang.validator import Validator
+from pylang.pylang.ABCLangValidator import ABCLangValidator
+from pylang.pylang.patterns import Patterns
+from pylang.pylang.langerror import ValidationError
+from pylang.pylang.measurement import Measurement, MeasurementCategory
+from pylang.pylang.expressionbuilder import ExpressionBuilder
+from pylang.pylang.SQLTools import SQLTools
+from pylang.pylang.dataprofile import DataProfile
 
  
 class LangValidator(ABCLangValidator):

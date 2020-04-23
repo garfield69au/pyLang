@@ -1,6 +1,6 @@
 import pyodbc
 from prettytable import PrettyTable
-from pyLang.lib.langerror import ValidationError
+from pylang.pylang.langerror import ValidationError
 
 class SQLTools(object):
     """

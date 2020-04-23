@@ -2,7 +2,7 @@ import typing
 import math
 import statistics
 import collections
-from pyLang.lib.validator import Validator
+from pylang.pylang.validator import Validator
   
 class DataProfile(object):
     """

@@ -3,7 +3,7 @@ pyLangMain.py
 
 Overview
 --------
-pyLang is a data quality validation tool that implements
+pylang is a data quality validation tool that implements
 the LANG data quality algorithms 
 (see: Zhang, R., Indulska, M., & Sadiq, S. (2019). Discovering Data Quality Problems: The Case of Repurposed Data. Business and Information Systems Engineering, 61(5), 575–593. https://doi.org/10.1007/s12599-019-00608-0
 
@@ -11,11 +11,11 @@ the LANG data quality algorithms
 USAGE
 --------
 
-$ python pyLang -i <source_file_name> -m <meta_data_file_name> -o <outputfile_prefix> --profile --validate --custom <class_name>
+$ python pylang -i <source_file_name> -m <meta_data_file_name> -o <outputfile_prefix> --profile --validate --custom <class_name>
 
 OUTPUT:
 --------
-The outout from pyLang depends on what you want to achieve.
+The outout from pylang depends on what you want to achieve.
 the --profile switch will trigger a data profile the source data 
 and output the results as an Excel spreadsheet.
 
@@ -40,12 +40,12 @@ import importlib
 import argparse
 import pyodbc
 import time
-from pyLang.pyLang.SQLTools import SQLTools
-from pyLang.pyLang.ABCLangValidator import ABCLangValidator
-from pyLang.pyLang.langvalidator import LangValidator
-from pyLang.pyLang.patterns import Patterns
-from pyLang.pyLang.langerror import ValidationError
-from pyLang.pyLang.filetools import FileTools
+from pylang.pylang.SQLTools import SQLTools
+from pylang.pylang.ABCLangValidator import ABCLangValidator
+from pylang.pylang.langvalidator import LangValidator
+from pylang.pylang.patterns import Patterns
+from pylang.pylang.langerror import ValidationError
+from pylang.pylang.filetools import FileTools
 
 class pyLangMain(object):
     
@@ -191,7 +191,7 @@ def main(argv):
     if (profileFlag):
         pass
         
-    #pyLang.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
+    #pylang.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
     
     sys.exit()
 

@@ -1,7 +1,7 @@
 import abc
-from pyLang.lib.measurement import Measurement
-from pyLang.lib.dataprofile import DataProfile
 from openpyxl import Workbook
+from pylang.pylang.measurement import Measurement
+from pylang.pylang.dataprofile import DataProfile
 
    
 class ABCLangValidator(abc.ABC):
