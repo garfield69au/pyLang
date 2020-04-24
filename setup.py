@@ -11,7 +11,7 @@ setuptools.setup(
     description="A tool to validate data accoridng to the dimensions of data quality.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/sjdowney/pylang",
+    url="https://github.com/sjdowney/pyduq",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
