@@ -1,5 +1,5 @@
 """
-pyLangMain.py
+pyDUQMain.py
 
 Overview
 --------
@@ -40,14 +40,13 @@ import importlib
 import argparse
 import pyodbc
 import time
-from pylang.pylang.SQLTools import SQLTools
-from pylang.pylang.ABCLangValidator import ABCLangValidator
-from pylang.pylang.langvalidator import LangValidator
-from pylang.pylang.patterns import Patterns
-from pylang.pylang.langerror import ValidationError
-from pylang.pylang.filetools import FileTools
+from pyduq.pyduq.SQLTools import SQLTools
+from pyduq.pyduq.duqvalidator import DUQValidator
+from pyduq.pyduq.patterns import Patterns
+from pyduq.pyduq.langerror import ValidationError
+from pyduq.pyduq.filetools import FileTools
 
-class pyLangMain(object):
+class pyDUQMain(object):
     
     def loadSQL(self, URI:str, query:str):
         cnxn = pyodbc.connect(URI)
@@ -65,7 +64,7 @@ class pyLangMain(object):
         try:
             stime = time.time()
      
-            lang_validator = LangValidator(self.dataset, self.meta)
+            lang_validator = DUQValidator(self.dataset, self.meta)
             lang_validator.validate()
             lang_validator.saveCounters(outputFolder + "\\counters.xlsx")
             lang_validator.saveProfile(outputFolder + "\\profile.xlsx")
@@ -100,8 +99,8 @@ class pyLangMain(object):
         rs = dict()
         meta = dict()
 
-        if (not issubclass(custom_validator, AbstractLangValidator)):
-            raise(Exception("The custom validator '" + full_class_string + "' must inherit AbstractLangValidator."))
+        if (not issubclass(custom_validator, AbstractDUQValidator)):
+            raise(Exception("The custom validator '" + full_class_string + "' must inherit AbstractDUQValidator."))
         
         obj = custom_validator(rs, meta)
                 
@@ -174,7 +173,7 @@ def main(argv):
         print("The meta-data file '" + metaFile + "' does not exist")
         sys.exit()
 
-    pl = pyLangMain()
+    pl = pyDUQMain()
     
     if (validateFlag):
         pass
@@ -191,7 +190,7 @@ def main(argv):
     if (profileFlag):
         pass
         
-    #pylang.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
+    #pyDUQMain.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
     
     sys.exit()
 

@@ -1,16 +1,16 @@
 import re
 import time
-from pylang.pylang.validator import Validator
-from pylang.pylang.ABCLangValidator import ABCLangValidator
-from pylang.pylang.patterns import Patterns
-from pylang.pylang.langerror import ValidationError
-from pylang.pylang.measurement import Measurement, MeasurementCategory
-from pylang.pylang.expressionbuilder import ExpressionBuilder
-from pylang.pylang.SQLTools import SQLTools
-from pylang.pylang.dataprofile import DataProfile
+from pyduq.pyduq.metautils import MetaUtils
+from pyduq.pyduq.AbstractDUQValidator import AbstractDUQValidator
+from pyduq.pyduq.patterns import Patterns
+from pyduq.pyduq.langerror import ValidationError
+from pyduq.pyduq.measurement import Measurement, MeasurementCategory
+from pyduq.pyduq.expressionbuilder import ExpressionBuilder
+from pyduq.pyduq.SQLTools import SQLTools
+from pyduq.pyduq.dataprofile import DataProfile
 
  
-class LangValidator(ABCLangValidator):
+class DUQValidator(AbstractDUQValidator):
     """
     LangValidator: A generic validator for LANG. 
     The main execution method is validate().
@@ -70,19 +70,19 @@ class LangValidator(ABCLangValidator):
         
     def checkMandatory(self, meta:dict, key:str, value:str):
         # mandatory field check
-        if (Validator.isTrue(meta, "Mandatory") ):
-            if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta)) ):
+        if (MetaUtils.isTrue(meta, "Mandatory") ):
+            if ( (MetaUtils.isBlankOrNull(value)) and (not MetaUtils.isAllowBlank(meta)) ):
                 self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.MANDATORYCOMPLETENESS.value,description="Error: Mandatory field is BLANK or NULL. A value is required."))                             
         else:
             # optional field check. According to LANG optional fields shpuld contain some sort of default value
             # i.e. no field shpould ever be blank or NULL.
-            if ( (Validator.isBlankOrNull(value)) and (not Validator.isAllowBlank(meta)) ):
+            if ( (MetaUtils.isBlankOrNull(value)) and (not MetaUtils.isAllowBlank(meta)) ):
                 self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.OPTIONALCOMPLETENESS.value, description="Error: Optional field is BLANK or NULL. A default value is required."))
                 
             
     def checkComposite(self, meta:dict, key:str):
         # unique field check
-        if (Validator.exists(meta, "Composite")):
+        if (MetaUtils.exists(meta, "Composite")):
             # sum the number of times value appears in the row. this is faster than using list.count(value)
             listOfKeys = meta["Composite"]
             # Concatenate the list of keys into a composite key string
@@ -112,8 +112,8 @@ class LangValidator(ABCLangValidator):
                         
     def checkSize(self, meta:dict, key:str, value:str):
         # field length check
-        if (Validator.exists(meta, "Size")):
-            if ( (len(value) > int(meta["Size"])) and (not Validator.isBlankOrNull(value)) ):
+        if (MetaUtils.exists(meta, "Size")):
+            if ( (len(value) > int(meta["Size"])) and (not MetaUtils.isBlankOrNull(value)) ):
                 self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCESIZE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta["Size"]) + "'"))
                 
             
@@ -121,15 +121,15 @@ class LangValidator(ABCLangValidator):
         # field type check
         isValidType = True
         
-        if (Validator.exists(meta, "Type")):
+        if (MetaUtils.exists(meta, "Type")):
             if (meta["Type"]=="int"):
-                if ( (Validator.isBlankOrNull(value)) or (not Validator.isInt(value)) ):
-                    if (not Validator.isAllowBlank(meta)):
+                if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isInt(value)) ):
+                    if (not MetaUtils.isAllowBlank(meta)):
                         self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
                         isValidType = False
             elif (meta["Type"]=="float"):
-                if ( (Validator.isBlankOrNull(value)) or (not Validator.isFloat(value)) ): 
-                    if (not Validator.isAllowBlank(meta)):
+                if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isFloat(value)) ): 
+                    if (not MetaUtils.isAllowBlank(meta)):
                         self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
                         isValidType = False
                 
@@ -145,19 +145,19 @@ class LangValidator(ABCLangValidator):
         val = -1
         default = -1
         
-        if (Validator.exists(meta, "Min")):
+        if (MetaUtils.exists(meta, "Min")):
             try:
                 min = float(meta["Min"])
             except Exception as e:
                 pass
         
-        if (Validator.exists(meta, "Max")):
+        if (MetaUtils.exists(meta, "Max")):
             try:
                 max = float(meta["Max"])
             except Exception as e:
                 pass
 
-        if (Validator.exists(meta, "Default")):
+        if (MetaUtils.exists(meta, "Default")):
             try:
                 default = float(meta["Default"])
             except Exception as e:
@@ -182,7 +182,7 @@ class LangValidator(ABCLangValidator):
 
     def checkEnum(self, meta:dict, key:str, value:str):
         # enumerated field check
-        if (Validator.exists(meta, "Enum")):
+        if (MetaUtils.exists(meta, "Enum")):
             # enum is expected to be a list
             enum = meta["Enum"]
             
@@ -196,7 +196,7 @@ class LangValidator(ABCLangValidator):
 
     def checkStartsWith(self, meta:dict, key:str, value:str):
         # enumerated field check
-        if (Validator.exists(meta, "StartsWith")):
+        if (MetaUtils.exists(meta, "StartsWith")):
             # startsWith is expected to be a list
             startsWith = meta["StartsWith"]
             
@@ -217,17 +217,17 @@ class LangValidator(ABCLangValidator):
             
     def checkFormat(self, meta:dict, key:str, value:str):
         # format check (must provide a regex)
-        if (Validator.exists(meta, "Format")):
+        if (MetaUtils.exists(meta, "Format")):
             re.purge()
             isMatch = (not re.match(meta["Format"], value) is None)
-            if ( (not isMatch) and (not Validator.isAllowBlank(meta)) ):
+            if ( (not isMatch) and (not MetaUtils.isAllowBlank(meta)) ):
                 self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex '" + meta["Format"] + "'"))
             
 
             
     def checkUnique(self, meta:dict, row:list, key:str, value:str):
         # unique field check
-        if (Validator.isTrue(meta, "Unique")):
+        if (MetaUtils.isTrue(meta, "Unique")):
             # sum the number of times value appears in the row. this is faster than using list.count(value)
             counter = sum(1 for i in row if str(i) == value)
             
@@ -239,7 +239,7 @@ class LangValidator(ABCLangValidator):
             
     def evaluateExpression(self, meta:dict, key:str):
         # evaluate any custom expressions
-        if (Validator.exists(meta, "Expression")):
+        if (MetaUtils.exists(meta, "Expression")):
             expr = meta["Expression"]
             
             # %1 is a placeholder for whatever the column name is owning the expression (it's just a shortcut)

@@ -1,12 +1,12 @@
 import abc
 from openpyxl import Workbook
-from pylang.pylang.measurement import Measurement
-from pylang.pylang.dataprofile import DataProfile
+from pyduq.pyduq.measurement import Measurement
+from pyduq.pyduq.dataprofile import DataProfile
 
    
-class ABCLangValidator(abc.ABC):
-    """ ABCLangValidator: 
-    Base class that any LANG validation class should implement. It provides some basic structure for a validator.
+class AbstractDUQValidator(abc.ABC):
+    """ AbstractDQValidator: 
+    Base class that any data quality validation class should implement. It provides some basic structure for a validator.
     The constructor expects a resultset dictionary and a metadata disctionary. Classes that implement this base class will have access to
     a copy of both of those objects.
     The cobstructor will also create an empty list of errors and a empty list of measurement counters.

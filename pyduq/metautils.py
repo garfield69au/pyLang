@@ -1,5 +1,5 @@
 
-class Validator(object):
+class MetaUtils(object):
 
     @staticmethod
     def exists(meta:dict, value:str) -> bool:
@@ -7,7 +7,7 @@ class Validator(object):
     
     @staticmethod
     def isTrue(meta:dict, value:str) -> bool:
-        return ( Validator.exists(meta, value) and meta[value]==True )
+        return ( MetaUtils.exists(meta, value) and meta[value]==True )
         
     @staticmethod
     def isBlankOrNull(value:str) -> bool:

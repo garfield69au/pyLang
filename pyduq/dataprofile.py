@@ -2,7 +2,7 @@ import typing
 import math
 import statistics
 import collections
-from pylang.pylang.validator import Validator
+from pyduq.pyduq.metautils import MetaUtils
   
 class DataProfile(object):
     """
@@ -46,7 +46,7 @@ class DataProfile(object):
         """
         
         self.attribute = key
-        if (Validator.exists(meta, "Type")):
+        if (MetaUtils.exists(meta, "Type")):
             self.type = meta["Type"]
         
         self.distinctVals = len(set(colData))
