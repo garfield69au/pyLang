@@ -40,11 +40,11 @@ import importlib
 import argparse
 import pyodbc
 import time
-from pyduq.pyduq.SQLTools import SQLTools
-from pyduq.pyduq.duqvalidator import DUQValidator
-from pyduq.pyduq.patterns import Patterns
-from pyduq.pyduq.langerror import ValidationError
-from pyduq.pyduq.filetools import FileTools
+from pyduq.SQLTools import SQLTools
+from pyduq.duqvalidator import DUQValidator
+from pyduq.patterns import Patterns
+from pyduq.langerror import ValidationError
+from pyduq.filetools import FileTools
 
 class pyDUQMain(object):
     
@@ -52,10 +52,10 @@ class pyDUQMain(object):
         cnxn = pyodbc.connect(URI)
         cursor = cnxn.cursor()
         cursor.execute(query) 
-        self.dataset = SQLTools(cursor).rs
+        self.dataset = SQLTools(cursor).dataset
 
     def loadMeta(self, metaFilename:str):
-        self.meta = FileTools.JSONtoMeta(metaFilename)        
+        self.metaData = FileTools.JSONtoMeta(metaFilename)        
 
     def loadCSV(self, inputFilename:str):
         self.dataset = FileTools.csvFileToDict(inputFilename)
@@ -64,7 +64,7 @@ class pyDUQMain(object):
         try:
             stime = time.time()
      
-            lang_validator = DUQValidator(self.dataset, self.meta)
+            lang_validator = DUQValidator(self.dataset, self.metaData)
             lang_validator.validate()
             lang_validator.saveCounters(outputFolder + "\\counters.xlsx")
             lang_validator.saveProfile(outputFolder + "\\profile.xlsx")
@@ -96,13 +96,13 @@ class pyDUQMain(object):
             print(e)
             return
         
-        rs = dict()
-        meta = dict()
+        dataset = dict()
+        metaData = dict()
 
         if (not issubclass(custom_validator, AbstractDUQValidator)):
             raise(Exception("The custom validator '" + full_class_string + "' must inherit AbstractDUQValidator."))
         
-        obj = custom_validator(rs, meta)
+        obj = custom_validator(dataset, metaData)
                 
         obj.validate()
         print(obj.counters)
@@ -133,13 +133,13 @@ def main(argv):
     my_parser.add_argument('-m',
                            '--mfile',
                            type=str,
-                           help='the filename of the meta-data file to use for validation.')
+                           help='the filename of the metaData-data file to use for validation.')
                            
     my_parser.add_argument('-s',
                            '--sql',
                            nargs=2,
                            type=str,
-                           help='the filename of the meta-data file to use for validation.')
+                           help='the filename of the metaData-data file to use for validation.')
                            
 
     my_parser.add_argument('-p',
@@ -170,7 +170,7 @@ def main(argv):
         sys.exit()
 
     if not os.path.isfile(metaFile):
-        print("The meta-data file '" + metaFile + "' does not exist")
+        print("The metaData-data file '" + metaFile + "' does not exist")
         sys.exit()
 
     pl = pyDUQMain()
@@ -184,11 +184,12 @@ def main(argv):
         pl.loadSQL(sqlURI, sqlQuery)
     elif (len(inputFile)>0):
         pl.loadCSV(inputFile)
-        
-    pl.validate(outputFolder)
+
+    if (validateFlag):
+        pl.validate(outputFolder)
     
     if (profileFlag):
-        pass
+        pl.profile(outputFolder)
         
     #pyDUQMain.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
     

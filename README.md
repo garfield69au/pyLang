@@ -14,3 +14,12 @@ data quality.
 pyduq has been provided as open source unde the GNU licence. 
 
 pyduq - get all your data ducks in a row!
+
+
+References
+----------
+Jayawardene, V., Sadiq, S., & Indulska, M. (2013). An Analysis of Data Quality Dimensions. Retrieved from http://espace.library.uq.edu.au/view/UQ:312314/n2013-01_TechnicalReport_Jayawardene.pdf
+
+Zhang, R., Jayawardene, V., Indulska, M., Sadiq, S., & Zhou, X. (2014). A Data Driven Approach for Discovering Data Quality Requirements. 
+ICIS 2014 Proceedings, 1–10. Retrieved from http://aisel.aisnet.org/icis2014/proceedings/DecisionAnalytics/13
+

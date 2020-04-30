@@ -3,7 +3,7 @@ import json
 from prettytable import PrettyTable
 import dicttoxml
 from xml.dom.minidom import parseString
-from pyduq.pyduq.langerror import ValidationError
+from pyduq.langerror import ValidationError
 
 class FileTools(object):
     """
@@ -14,8 +14,7 @@ class FileTools(object):
 
     @staticmethod
     def csvFileToDict(fileName:str):
-        """
-        method csvToDict:
+        """ csvFileToDict:
         Converts a csv file into a dictionary of dictionaries.
         Each row is its own dictionary with each attribute recorded as a tupple,
         indexed by a row counter.
@@ -77,4 +76,5 @@ class FileTools(object):
         with open(JSON_filename, 'w') as w:
             w.write(json_dict)
             
-            
+
+        

@@ -2,7 +2,7 @@ import typing
 import math
 import statistics
 import collections
-from pyduq.pyduq.metautils import MetaUtils
+from pyduq.metautils import MetaUtils
   
 class DataProfile(object):
     """
@@ -34,26 +34,31 @@ class DataProfile(object):
         self.stddev = 0
         self.nullCount = 0
         self.blankCount = 0
-        self.distinctVals = 0
         self.mostFrequent = ""
         self.position = -1
         self.memory = 0
+        self.pattern_count = 0
+        self.patterns = ""
 
 
-    def profileData(self, meta:dict, colData:dict, key:str):
+    def profileData(self, metaAttributeDefinition:dict, colData:dict, key:str):
         """
         For a given column, calculate a variety of statistics.
         """
         
         self.attribute = key
-        if (MetaUtils.exists(meta, "Type")):
-            self.type = meta["Type"]
+        if (MetaUtils.exists(metaAttributeDefinition, "Type")):
+            self.type = metaAttributeDefinition["Type"]
         
-        self.distinctVals = len(set(colData))
         self.mostFrequent = max(set(colData), key=colData.count)
         
         vals = list()
         self.count = len(colData)
+
+        s=set(colData)
+        s.discard("")
+        self.patterns = str(sorted(s))
+        self.patternCount = len(s)
         
         for value in colData:    
             
@@ -99,8 +104,8 @@ class DataProfile(object):
         if (len(vals)>=2):
             self.stddev = statistics.stdev(vals)
             self.variance = statistics.variance(vals)
-                          
 
+                
     def setPosition(self, position:int):
         self.position = position
         
@@ -122,9 +127,10 @@ class DataProfile(object):
         l.append(self.max_len)
         l.append(self.nullCount)
         l.append(self.blankCount)
-        l.append(self.distinctVals)
         l.append(self.mostFrequent)
         l.append(self.memory)
+        l.append(self.patternCount)
+        l.append(self.patterns)
         return l
     
     def keys(self):
@@ -145,9 +151,10 @@ class DataProfile(object):
         l.append('max_len')
         l.append('null_count')
         l.append('blank_count')
-        l.append('distinct_values')
         l.append('most_frequent_value')
         l.append('memory_consumed_bytes')
+        l.append('pattern_count')
+        l.append('patterns')
         return l
     
     def asDict(self):
@@ -168,8 +175,9 @@ class DataProfile(object):
         l['max_len']=self.max_len
         l['null_count']=self.nullCount
         l['blank_count']=self.blankCount
-        l['distinct_values']=self.distinctVals
         l['most_frequent_value']=self.mostFrequent
         l['memory_consumed_bytes']=self.memory
+        l['pattern_count']=self.patternCount
+        l['patterns']=self.patterns
         return l
         
