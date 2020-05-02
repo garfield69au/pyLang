@@ -28,7 +28,7 @@ class FileTools(object):
         data = dict()
         
         # first we load the data into a simple 
-        with open(fileName) as f:
+        with open(fileName, errors='ignore') as f:
             reader = csv.DictReader(f)
                                
             # Get a list of the column names returned from the file
@@ -57,7 +57,7 @@ class FileTools(object):
     def JSONtoMeta(fileName:str):
         meta = dict()
         
-        with open(fileName, 'r') as json_file:
+        with open(fileName, 'r', errors='ignore') as json_file:
           meta = json.load(json_file)
           
         return meta
@@ -77,5 +77,3 @@ class FileTools(object):
         with open(JSON_filename, 'w') as w:
             w.write(json_dict)
             
-
-        
