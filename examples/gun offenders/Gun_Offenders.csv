@@ -1,0 +1,25 @@
+caseNumber,sentence,registrationDate,category,firstName,middleName,lastName,age,sex,race,district,post,neighborhood,Location 1
+106A12593,Guilty,,Incarcerated,Joshua,Malcolm,Porter,20,Male,Black,NORTHWESTERN,612,Central Park Heights,"(39.34058323510, -76.66650766080)"
+106D13687,Guilty,12/27/2011,Incarcerated,Brian,Timothy,Mcclurkin,23,Male,Black,NORTHWESTERN,612,Park Circle,"(39.33026869930, -76.66134014310)"
+106D13999,Guilty,02/18/2011,Incarcerated,Joseph,Woodard,Griffin,19,Male,Black,WESTERN,733,Penn North,"(39.31261200620, -76.64367365640)"
+106D88900,guilty,07/26/2010,Incarcerated,Sterling,Anton,Melton,23,Male,Black,,,,
+ƒ??,Guilty,,Incarcerated,Corey,,Alston,21,Male,Black,NORTHWESTERN,621,Panway/Braddish Avenue,"(39.31453005690, -76.66321280780)"
+ƒ??,Guilty,8/09/2012,Baltimore,Mark,Donnell,Taylor,25,Male,Black,NORTHWESTERN,624,Dolfield,"(39.33514308290, -76.68253455510)"
+ƒ??,Guilty,,Incarcerated,Abram,,Hall,19,Male,Black,NORTHERN,522,Glen Oaks,"(39.36795070060, -76.59786994640)"
+ƒ??,Guilty,10/23/2012,Baltimore,Donald,Costello,Actie,22,Male,Black,NORTHWESTERN,623,Purnell,"(39.32026313800, -76.70992740660)"
+ƒ??,GIUTLY,04/13/2012,Incarcerated,Terrell,Leroy,Kennedy,22,Male,Black,NORTHWESTERN,634,Arlington,"(39.34671664470, -76.68137170660)"
+ƒ??,Guilty,,Incarcerated,Kevin,Taylor,Barber,27,Male,Black,EASTERN,321,Oliver,"(39.30950718280, -76.59628873780)"
+106F10599,Guilty,,Incarcerated,Jonathan,Van,Oliver,22,Male,Black,NORTHWESTERN,632,Fallstaff,"(39.36324635090, -76.70866424490)"
+106F11867,Guilty,1/11/2013,Baltimore,James,Lowell,Hamlet,21,Male,Black,NORTHWESTERN,622,Windsor Hills,"(39.31895779670, -76.68905693920)"
+106F14206,Guilty,1/02/2013,Baltimore,Damien,Robert,Saunders,30,Male,Black,NORTHWESTERN,624,Dorchester,"(39.33354300370, -76.68324117770)"
+01K04873,60,10/24/2012,Baltimore,Joseph,Lee,Griffin,18,Male,Black,EASTERN,334,Madison-Eastend,"(39.29925861590, -76.57811432180)"
+023A10838,Guilty,,Incarcerated,Markie,,Cole,24,Male,Black,NORTHEASTERN,435,Cedmont,"(39.34570941610, -76.53174310380)"
+026C09059,Guilty,1/02/2013,Baltimore,Kali,Alexander,Moulton,33,Male,Black,SOUTHEASTERN,211,Jonestown,"(39.29332478400, -76.60628205430)"
+026K19034,Guilty,,Incarcerated,Melvin,Dante,Cummings,3119,Male,Black,NORTHWESTERN,622,West Forest Park,"(39.31590114090, -76.69209786750)"
+ƒ??,Guilty,,Incarcerated,Bobby,Clinton,Williams,19,Male,Black,SOUTHEASTERN,213,Washington Hill,"(39.29153626510, -76.59283389250)"
+ƒ??,Guilty,03/28/2012,Incarcerated,Harold,Malcolm,Singfield,23,Male,Black,,,,
+036G07553,Guilty,,Incarcerated,Jason,Beau,Moody,37,Male,Black,,,,
+039H04732,Guilty,,Incarcerated,Damaim,,Thompson,31,Male,Black,,,,
+03L03830,Guilty,,Incarcerated,Demetrius,Domminick,Mayes,21,Male,Black,NORTHEASTERN,421,New Northwood,"(39.35086409000, -76.59773732820)"
+043L16294,Guilty,07/18/2012,Baltimore,Antonio,Mendell,Bowens,19,Male,Black,SOUTHWESTERN,834,Millhill,"(39.27776397470, -76.65970139070)"
+044J12261,Guilty,,Incarcerated,Percy,,Johnson,20,Male,Black,EASTERN,315,Johnston Square,"(39.30124191480, -76.61067474690)"
