@@ -37,7 +37,7 @@ class DUQValidator(AbstractDUQValidator):
             else:
                 #In the case of null data, we throw an exception so it can be addressed immediately. You might want to change this to just log an error and continue 
                 #in a future build this behaviour would be controlled at runtime via a switch.
-                raise ValidationError("LANG Exception: Could not locate column '" + col + "' in resultset", None)
+                raise ValidationError("LANG Exception: Could not locate attribute '" + col + "' in resultset", None)
             
             colData = None
             
@@ -120,23 +120,28 @@ class DUQValidator(AbstractDUQValidator):
     def checkType(self, metaAttributeDefinition:dict, key:str, value:str):
         # field type check
         isValidType = True
-        
+
         if (MetaUtils.exists(metaAttributeDefinition, "Type")):
-            if (metaAttributeDefinition["Type"]=="int"):
-                if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isInt(value)) ):
-                    if (not MetaUtils.isAllowBlank(metaAttributeDefinition)):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
-                        isValidType = False
-            elif (metaAttributeDefinition["Type"]=="float"):
-                if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isFloat(value)) ): 
-                    if (not MetaUtils.isAllowBlank(metaAttributeDefinition)):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
-                        isValidType = False
+            # if a default value has been specified then ignore the type check if the value matches the default
+            if (MetaUtils.exists(metaAttributeDefinition, "Default")):
+                if (value==metaAttributeDefinition["Default"]):
+                    pass
+            else:
+                if (metaAttributeDefinition["Type"]=="int"):
+                    if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isInt(value)) ):
+                        if (not MetaUtils.isAllowBlank(metaAttributeDefinition)):
+                            self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
+                            isValidType = False
+                elif (metaAttributeDefinition["Type"]=="float"):
+                    if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isFloat(value)) ): 
+                        if (not MetaUtils.isAllowBlank(metaAttributeDefinition)):
+                            self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
+                            isValidType = False
+                    
+                # given that min and max checks only apply to int and float values we may as well test for them now
+                if (isValidType):
+                    self.checkMinMax(metaAttributeDefinition, key, value)
                 
-        # given that min and max checks only apply to int and float values we may as well test for them now
-        if (isValidType):
-            self.checkMinMax(metaAttributeDefinition, key, value)
-            
 
     def checkMinMax(self, metaAttributeDefinition:dict, key:str, value:str):
         # field value range check (int and float only although in theory we could specify min and max ranges for other attributes)

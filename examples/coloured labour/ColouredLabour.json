@@ -1,0 +1,12 @@
+{
+    "Family Name": {"Type": "string", "Size": 30, "Mandatory": true},
+    "": {"Type": "string", "Size": 30, "Mandatory": true},
+    "Birthplace": {"Type": "string", "Size": 30, "Mandatory": true},	
+    "Naturalized": {"Type": "string", "Size": 3, "Mandatory": true, "Enum": "['Yes', 'No', 'n/a']"},	
+    "Age": {"Type": "string", "Size": 10, "Mandatory": true},	
+    "Occupation": {"Type": "string", "Size": 35, "Mandatory": true},	
+    "Year of Arrival in Queensland": {"Type": "int", "Size": 4, "Mandatory": true, "Default": "n/a"},	
+    "Residence": {"Type": "string", "Size": 45, "Mandatory": true},	
+    "Police District": {"Type": "string", "Size": 15, "Mandatory": true},	
+    "Police Subdistrict": {"Type": "string", "Size": 20, "Mandatory": true}
+}
