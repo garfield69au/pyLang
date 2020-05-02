@@ -45,7 +45,8 @@ class FileTools(object):
                     (like list.sort() don't break).
                     """
             
-                    l[col] = ("(Null)" if row[col] is None else str(row[col]).strip().lstrip("0"))
+                    #l[col] = ("(Null)" if row[col] is None else str(row[col]).strip().lstrip("0"))
+                    l[col] = ("(Null)" if row[col] is None else str(row[col]).strip())
      
                 data[rowindex]=l
                 rowindex+=1

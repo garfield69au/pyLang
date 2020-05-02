@@ -1,0 +1,9 @@
+{
+    "APPID": {"Type": "string", "Size": 7, "Mandatory": true},	
+    "TypeOfViolence": {"Type": "string", "Size": 25, "Mandatory": true},	
+    "VictimType": {"Type": "string", "Size": 20, "Mandatory": true},
+    "Gender": {"Type": "char", "Size": 1, "Mandatory": true, "Enum": "['M','F','U']"},
+    "Indigenous": {"Type": "string", "Size": 30, "Mandatory": true, "Enum": "['Aboriginal', 'Aboriginal and Torres Strait', 'No', 'Torres Strait Islander', 'Unknown']"},
+    "AgeAtHappenedTo": {"Type": "string", "Size": 5, "Mandatory": true},
+    "Granted": {"Type": "float", "Size": 8, "Mandatory": true, "Default": "0"}
+}
