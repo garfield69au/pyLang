@@ -1,0 +1,12 @@
+{
+    "Family Name": {"Type": "string", "Size": 30, "Mandatory": true},	
+    "First Name": {"Type": "string", "Size": 30, "Mandatory": true},	
+    "Mess No/ Category": {"Type": "string", "Size": 35, "Mandatory": true},	
+    "Ship / Page No": {"Type": "string", "Size": 16, "Mandatory": true},	
+    "Date": {"Type": "date", "Size": 12, "Mandatory": true, "Format": "^((([0-9])|([0-2][0-9])|([3][0-1]))\\s)*(((Jan|January)|(Feb|February)|(Mar|March)|(Apr|April)|May|(Jun|June)|(Jul|July)|(Aug|August)|(Sep|September)|(Oct|October)|(Nov|November)|(|Dec|December))\\s)*(\\d{4})$"},	
+    "Item ID": {"Type": "string", "Size": 5, "Mandatory": true},	
+    "Pre Sys": {"Type": "string", "Size": 7, "Mandatory": true},	
+    "M/Film No": {"Type": "string", "Size": 5, "Mandatory": true}
+}
+
+
