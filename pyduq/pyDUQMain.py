@@ -68,6 +68,7 @@ class pyDUQMain(object):
             lang_validator.validate()
             lang_validator.saveCounters(outputFolder + "\\counters.xlsx")
             lang_validator.saveProfile(outputFolder + "\\profile.xlsx")
+            lang_validator.saveCountersSummary(outputFolder + "\\counters_summary.xlsx")
             
             print("Completed in " + str(time.time() - stime) + " secs")
 

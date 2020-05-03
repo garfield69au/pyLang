@@ -24,7 +24,17 @@ class MeasurementCategory(Enum):
     AVAILABILITY = "Availability & Accessibility"
     CONFORMANCE = "Conformance to meta data (missing column)"
     
-    
+    @staticmethod
+    def namesAsList() ->list:
+        names = list()
+        categories = list(MeasurementCategory)
+        
+        for fullname in categories:
+            names.append(fullname.name)
+            
+        return names
+        
+        
 class Measurement(object):
     """
     Measurement: This class is used to record an instance of a discreet measurement. Every measurement has a label, an optional errorCounter and an optional value.

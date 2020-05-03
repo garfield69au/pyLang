@@ -1,6 +1,6 @@
 import abc
 from openpyxl import Workbook
-from pyduq.measurement import Measurement
+from pyduq.measurement import Measurement, MeasurementCategory
 from pyduq.dataprofile import DataProfile
 from pyduq.langerror import ValidationError
    
@@ -58,12 +58,69 @@ class AbstractDUQValidator(abc.ABC):
             c=self.profileList[0]
             headers = list(c.keys())
             sheet.append(headers)
-        
+            
             for x in self.profileList:
                 sheet.append(list(x.values()))
         
             workbook.save(filename=outputFile)
 
+
+    def saveCountersSummary(self, outputFile):
+        workbook = Workbook()
+        sheet = workbook.active
+        headers = list()
+        headers.append("attribute")
+        
+        headers += MeasurementCategory.namesAsList()
+        
+        sheet.append(headers)
+
+        errors = self.summariseCounters()
+    
+        for x in errors:
+            for y in errors[x]:
+                sheet.append(list(y.values()))
+        
+        
+        workbook.save(filename=outputFile)
+
+
+    def summariseCounters(self) ->dict:
+        
+        # get the MeasurementCategory Enum as a list
+        categories = list(MeasurementCategory)
+        summary = dict()
+        attributeErrors = dict()
+ 
+        # Construct a list of errors per attribute and store in a dict 
+        for item in self.counters:
+            key = item['attribute']
+            if (not key in attributeErrors):
+                attributeErrors[key] = list()
+            
+            attributeErrors[key].append(item)
+        
+        # now count how many times each category appears for each attribute
+        for item, data in attributeErrors.items():
+            summaryRow = dict()
+            summaryRow['attribute'] = item
+
+            summary[item]=list()
+                
+            for name in categories:    
+                errorCount=0
+                
+                for d in data:
+                    if (d['error_category'] == name.value):
+                        errorCount+=1
+                
+                # for each attribute create a list of dictionaries contaning a count of each category
+                summaryRow[name.name] = str(errorCount)
+                        
+            summary[item].append(summaryRow)
+                                
+        return summary
+        
 
     def saveCounters(self, outputFile):
         if (len(self.counters)>0):
