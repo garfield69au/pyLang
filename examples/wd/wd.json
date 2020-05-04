@@ -1,0 +1,23 @@
+{
+    "prj_cd": {"Type": "int", "Size": 56, "Mandatory": true, "Composite": ["%1", "prd_cd"]},
+    "prd_cd": {"Type": "int", "Size": 1, "Mandatory": true},
+    "proj_dsc": {"Type": "string", "Size": 90, "Mandatory": true},
+    "proj_dsc_fr": {"Type": "string", "Size": 128, "Mandatory": true},
+    "fin_sta": {"Type": "int", "Size": 10, "Mandatory": true},
+    "contract_app_dt": {"Type": "date", "Size": 10, "Mandatory": true},
+    "off_acc_dt": {"Type": "date", "Size": 10, "Mandatory": true},
+    "cond_rep_amt": {"Type": "int", "Size": 10, "Mandatory": true},
+    "grant_amt": {"Type": "int", "Size": 10, "Mandatory": true},
+    "non_rep_amt": {"Type": "int", "Size": 10, "Mandatory": true},
+    "uncond_rep_amt": {"Type": "int", "Size": 10, "Mandatory": true},
+    "wd_assistance": {"Type": "string", "Size": 10, "Mandatory": true},
+    "oth_fed_amt": {"Type": "int", "Size": 10, "Mandatory": true},
+    "prj_costs": {"Type": "int", "Size": 10, "Mandatory": true},
+    "region": {"Type": "string", "Size": 10, "Mandatory": true},
+    "sup_cd": {"Type": "string", "Size": 6, "Mandatory": true},
+    "cln_lnm": {"Type": "string", "Size": 80, "Mandatory": true},
+    "cln_lnm_fr": {"Type": "string", "Size": 106, "Mandatory": true},
+    "prov_cd": {"Type": "string", "Size": 2, "Mandatory": true},
+    "sup_city": {"Type": "string", "Size": 21, "Mandatory": true},
+    "multiyrfund": {"Type": "int", "Size": 2, "Mandatory": true}
+}

@@ -32,15 +32,14 @@ class DUQValidator(AbstractDUQValidator):
         #either the metadata defintion or the source data. 
         for metaAttributeKey in self.metaData:        
             colData = SQLTools.getCol(self.dataset, metaAttributeKey)
+        
             if ( (not colData is None) and (len(colData[metaAttributeKey]) > 0) ):
                 self.validateList(colData, self.metaData[metaAttributeKey])
             else:
                 #In the case of null data, we throw an exception so it can be addressed immediately. You might want to change this to just log an error and continue 
                 #in a future build this behaviour would be controlled at runtime via a switch.
                 raise ValidationError("LANG Exception: Could not locate attribute '" + col + "' in resultset", None)
-            
-            colData = None
-            
+                        
     def validateList(self:object, colData:dict, metaAttributeDefinition:dict):
 
         """

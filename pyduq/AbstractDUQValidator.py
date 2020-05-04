@@ -75,11 +75,11 @@ class AbstractDUQValidator(abc.ABC):
         
         sheet.append(headers)
 
-        errors = self.summariseCounters()
+        summary = self.summariseCounters()
     
-        for x in errors:
-            for y in errors[x]:
-                sheet.append(list(y.values()))
+        for datarow in summary.values():
+            for row in datarow:
+                sheet.append(list(row.values()))
         
         
         workbook.save(filename=outputFile)
@@ -101,13 +101,18 @@ class AbstractDUQValidator(abc.ABC):
             attributeErrors[key].append(item)
         
         # now count how many times each category appears for each attribute
-        for item, data in attributeErrors.items():
+        #for item, data in attributeErrors.items():
+        for item in self.metaData:
             summaryRow = dict()
             summaryRow['attribute'] = item
 
             summary[item]=list()
-                
-            for name in categories:    
+            data = dict()
+            
+            if (item in attributeErrors):
+                data = attributeErrors[item]
+            
+            for name in categories:
                 errorCount=0
                 
                 for d in data:
@@ -115,7 +120,7 @@ class AbstractDUQValidator(abc.ABC):
                         errorCount+=1
                 
                 # for each attribute create a list of dictionaries contaning a count of each category
-                summaryRow[name.name] = str(errorCount)
+                summaryRow[name.name] = errorCount
                         
             summary[item].append(summaryRow)
                                 

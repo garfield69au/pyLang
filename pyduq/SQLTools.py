@@ -46,10 +46,8 @@ class SQLTools(object):
         # Get a list of the column names returned from the query
         columns = [column[0] for column in cursor.description]
         rowindex=1
-
-        dataset = cursor.fetchall()
      
-        for row in dataset:
+        for row in cursor.fetchall():
             colindex = 0
         
             l = dict()
@@ -60,7 +58,7 @@ class SQLTools(object):
                 (like list.sort() don't break).
                 """
                
-                l[col] = ("(Null)" if row[colindex] is None else str(row[colindex]).strip().lstrip("0"))
+                l[col] = ("(Null)" if row[colindex] is None else str(row[colindex]).strip())
                 colindex += 1
  
             data[rowindex]=l
@@ -75,8 +73,8 @@ class SQLTools(object):
         Slice a column out of the resultset based on col.
         The result is a dictionary of col and a list of values
         """
-        result=dict()    
-        result[col]=SQLTools.getColValues(dataset, col)
+        result = dict()
+        result[col] = SQLTools.getColValues(dataset, col)
         return result
        
 
@@ -88,14 +86,12 @@ class SQLTools(object):
         if (dataset is None):
             raise ValidationError("LANG Exception: DataSet has not been set", None)
 
-        vals=list()
-
-        for rowindex in dataset:
-            if (not col in dataset[rowindex].keys()):
-                raise ValidationError("LANG Error: The metadata column '" + col + "' not found in the dataset.",None)
-            else:
-                vals.append(dataset[rowindex].get(col))
-        return vals
+        result = list()
+        for row in dataset:
+            if (col in dataset[row].keys()):
+                result.append(dataset[row].get(col))
+            
+        return result
 
 
     @staticmethod
@@ -108,13 +104,13 @@ class SQLTools(object):
 
         if (argv is None):
             raise ValidationError("LANG Exception: argv has not been set", None)
-
-        vals=dict()
-        for arg in argv:
-            vals[arg] = SQLTools.getColValues(dataset, arg)
-            
-        return vals
         
+        result = dict()
+        
+        for arg in argv:
+            result[arg] = SQLTools.getColValues(dataset, arg)
+            
+        return result
 
     @staticmethod
     def rowCount(dataset:dict):
