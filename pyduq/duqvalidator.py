@@ -30,41 +30,37 @@ class DUQValidator(AbstractDUQValidator):
 
         #metadata defines the data, so we iterate over the metadata and use it to extract columns from our resultset. If the column data is null then we need to check
         #either the metadata defintion or the source data. 
-        for metaAttributeKey in self.metaData:        
-            colData = SQLTools.getCol(self.dataset, metaAttributeKey)
-        
-            if ( (not colData is None) and (len(colData[metaAttributeKey]) > 0) ):
-                self.validateList(colData, self.metaData[metaAttributeKey])
+        for metaAttributeKey in self.metaData:                
+            if (metaAttributeKey in self.dataset):
+                self.validateList(metaAttributeKey)
             else:
                 #In the case of null data, we throw an exception so it can be addressed immediately. You might want to change this to just log an error and continue 
                 #in a future build this behaviour would be controlled at runtime via a switch.
                 raise ValidationError("LANG Exception: Could not locate attribute '" + col + "' in resultset", None)
                         
-    def validateList(self:object, colData:dict, metaAttributeDefinition:dict):
+    def validateList(self:object, key:str):
 
         """
         Execute a series of validations against the supplied column of data and the metadata for the column.
         Which validation is run is determined by entries in the metadata.
         """        
         # As there is only one column in the dictionay, obtain that column
-        key = next(iter(colData))
-        col = colData[key]
         
-        for value in col:
-            self.checkMandatory(metaAttributeDefinition, key, value)                  
-            self.checkSize(metaAttributeDefinition, key, value)
-            self.checkType(metaAttributeDefinition, key, value)
-            self.checkEnum(metaAttributeDefinition, key, value)
-            self.checkStartsWith(metaAttributeDefinition, key, value)
-            self.checkFormat(metaAttributeDefinition, key, value)                        
-            self.checkUnique(metaAttributeDefinition, col, key, value)
+        for value in self.dataset[key]:
+            self.checkMandatory(self.metaData[key], key, value)                  
+            self.checkSize(self.metaData[key], key, value)
+            self.checkType(self.metaData[key], key, value)
+            self.checkEnum(self.metaData[key], key, value)
+            self.checkStartsWith(self.metaData[key], key, value)
+            self.checkFormat(self.metaData[key], key, value)                        
+            self.checkUnique(self.metaData[key], key, value)
 
-        self.checkComposite(metaAttributeDefinition, key)            
+        self.checkComposite(self.metaData[key], key)            
         # expression evaluation is different to processing field specific validations as it could link in other columns from the resultset
-        self.evaluateExpression(metaAttributeDefinition, key)
+        self.evaluateExpression(self.metaData[key], key)
         
         # gather some statistical measurememnts for our column
-        self.profileData(metaAttributeDefinition, col, key)
+        self.profileData(self.metaData[key], self.dataset[key], key)
             
         
     def checkMandatory(self, metaAttributeDefinition:dict, key:str, value:str):
@@ -229,11 +225,11 @@ class DUQValidator(AbstractDUQValidator):
             
 
             
-    def checkUnique(self, metaAttributeDefinition:dict, row:list, key:str, value:str):
+    def checkUnique(self, metaAttributeDefinition:dict, key:str, value:str):
         # unique field check
         if (MetaUtils.isTrue(metaAttributeDefinition, "Unique")):
             # sum the number of times value appears in the row. this is faster than using list.count(value)
-            counter = sum(1 for i in row if str(i) == value)
+            counter = sum(1 for i in self.dataset[key] if str(i) == value)
             
             # create a list with every entry of value in the row. If there are duplicates then the resulting list will have >1 entries
             if (counter>1):

@@ -31,39 +31,20 @@ class SQLTools(object):
     def resultsetToDict(cursor):
         """
         method resultsetToDict:
-        Converts a SQL result set into a dictionary of dictionaries.
-        Each row is its own dictionary with each attribute recorded as a tupple,
-        indexed by a row counter.
-        e.g.
-        {
-            0: {'col1': 1, 'col2': None},
-            1: {'col1': 1, 'col2': ""},
-            2: {'col1': 1, 'col2': 1}
-        }
+        Converts a SQL result set into a dictionary of lists keyed on the column name.
         """
         data = dict()
 
         # Get a list of the column names returned from the query
         columns = [column[0] for column in cursor.description]
-        rowindex=1
      
-        for row in cursor.fetchall():
-            colindex = 0
+        resultset = cursor.fetchall()
+        colindex = 0
+     
+        for col in columns:
+            data[col]= [("(Null)" if row[colindex] is None else str(row[colindex]).strip()) for row in resultset]            
+            colindex += 1
         
-            l = dict()
-           
-            for col in columns:
-                """
-                It's important to note that Nulls are converted to "(Null)" so that routines that compare items
-                (like list.sort() don't break).
-                """
-               
-                l[col] = ("(Null)" if row[colindex] is None else str(row[colindex]).strip())
-                colindex += 1
- 
-            data[rowindex]=l
-            rowindex+=1
-            
         return data
     
     
@@ -73,9 +54,7 @@ class SQLTools(object):
         Slice a column out of the resultset based on col.
         The result is a dictionary of col and a list of values
         """
-        result = dict()
-        result[col] = SQLTools.getColValues(dataset, col)
-        return result
+        return {col:SQLTools.getColValues(dataset, col)}
        
 
     @staticmethod
@@ -85,13 +64,8 @@ class SQLTools(object):
         """
         if (dataset is None):
             raise ValidationError("LANG Exception: DataSet has not been set", None)
-
-        result = list()
-        for row in dataset:
-            if (col in dataset[row].keys()):
-                result.append(dataset[row].get(col))
-            
-        return result
+   
+        return dataset[col]
 
 
     @staticmethod
