@@ -24,14 +24,9 @@ class AbstractDUQValidator(abc.ABC):
         self.dataset = dataset.copy()
         self.counters = list()
         self.profileList = list()
-    
-    
-    def clear(self:object):
-        self.profileList.clear()
-        self.counters.clear()
+            
         
-        
-    def addMeasurement(self, measurement:Measurement):
+    def addMeasurement(self:object, measurement:Measurement):
         """
         Add a new measurement.
         """
@@ -41,7 +36,7 @@ class AbstractDUQValidator(abc.ABC):
         self.counters.append(measurement.asDict())
         
     
-    def profileData(self, metaAttributeDefinition:dict, colData:dict, key:str):
+    def profileData(self:object, metaAttributeDefinition:dict, colData:dict, key:str):
         if (colData is None):
             raise ValidationError("LANG Exception: Coldata has not been set", None)
         
@@ -51,7 +46,7 @@ class AbstractDUQValidator(abc.ABC):
         self.profileList.append(profile.asDict())
 
 
-    def saveProfile(self, outputFile):
+    def saveProfile(self:object, outputFile):
         if (len(self.profileList)>0):
             workbook = Workbook()
             sheet = workbook.active
@@ -65,7 +60,7 @@ class AbstractDUQValidator(abc.ABC):
             workbook.save(filename=outputFile)
 
 
-    def saveCountersSummary(self, outputFile):
+    def saveCountersSummary(self:object, outputFile):
         workbook = Workbook()
         sheet = workbook.active
         headers = list()
@@ -85,7 +80,7 @@ class AbstractDUQValidator(abc.ABC):
         workbook.save(filename=outputFile)
 
 
-    def summariseCounters(self) ->dict:
+    def summariseCounters(self:object) ->dict:
         
         # get the MeasurementCategory Enum as a list
         categories = list(MeasurementCategory)
@@ -127,7 +122,7 @@ class AbstractDUQValidator(abc.ABC):
         return summary
         
 
-    def saveCounters(self, outputFile):
+    def saveCounters(self:object, outputFile):
         if (len(self.counters)>0):
             workbook = Workbook()
             sheet = workbook.active
@@ -146,6 +141,6 @@ class AbstractDUQValidator(abc.ABC):
 
         
     @abc.abstractmethod
-    def validateList(self:object, colData:dict, metaAttributeDefinition:dict):
+    def validateList(self:object, key:str):
         pass        
 

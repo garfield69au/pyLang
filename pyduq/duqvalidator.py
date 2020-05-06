@@ -20,9 +20,6 @@ class DUQValidator(AbstractDUQValidator):
         """
         Validate a resultset against predefined metadata based on the LANG rules of data quality.
         """
-        self.clear()
-
-        
         if (self.metaData is None):
             raise ValidationError("LANG Exception: meta-data has not been set", None)
         elif (self.dataset is None):
@@ -30,23 +27,26 @@ class DUQValidator(AbstractDUQValidator):
 
         #metadata defines the data, so we iterate over the metadata and use it to extract columns from our resultset. If the column data is null then we need to check
         #either the metadata defintion or the source data. 
-        for metaAttributeKey in self.metaData:                
+        for metaAttributeKey in self.metaData.keys():                
             if (metaAttributeKey in self.dataset):
                 self.validateList(metaAttributeKey)
             else:
                 #In the case of null data, we throw an exception so it can be addressed immediately. You might want to change this to just log an error and continue 
                 #in a future build this behaviour would be controlled at runtime via a switch.
                 raise ValidationError("LANG Exception: Could not locate attribute '" + col + "' in resultset", None)
+
                         
     def validateList(self:object, key:str):
 
         """
         Execute a series of validations against the supplied column of data and the metadata for the column.
         Which validation is run is determined by entries in the metadata.
-        """        
-        # As there is only one column in the dictionay, obtain that column
+        """         
+        value = ""
         
-        for value in self.dataset[key]:
+        #for value in self.dataset[key]:
+        for i in range (len(self.dataset[key])):
+            value = self.dataset[key][i]
             self.checkMandatory(self.metaData[key], key, value)                  
             self.checkSize(self.metaData[key], key, value)
             self.checkType(self.metaData[key], key, value)
@@ -122,12 +122,12 @@ class DUQValidator(AbstractDUQValidator):
                 if (value==metaAttributeDefinition["Default"]):
                     pass
             else:
-                if (metaAttributeDefinition["Type"]=="int"):
+                if (metaAttributeDefinition["Type"] in ["int","integer"]):
                     if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isInt(value)) ):
                         if (not MetaUtils.isAllowBlank(metaAttributeDefinition)):
                             self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
                             isValidType = False
-                elif (metaAttributeDefinition["Type"]=="float"):
+                elif (metaAttributeDefinition["Type"] in ["float","number"]):
                     if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isFloat(value)) ): 
                         if (not MetaUtils.isAllowBlank(metaAttributeDefinition)):
                             self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METACOMPLIANCETYPE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
@@ -228,9 +228,14 @@ class DUQValidator(AbstractDUQValidator):
     def checkUnique(self, metaAttributeDefinition:dict, key:str, value:str):
         # unique field check
         if (MetaUtils.isTrue(metaAttributeDefinition, "Unique")):
-            # sum the number of times value appears in the row. this is faster than using list.count(value)
-            counter = sum(1 for i in self.dataset[key] if str(i) == value)
-            
+            # quick count the number of times values occurs in the column. Assumes possibly sorted so breaks the loop if >1 occurences to save time
+            i = 0
+            counter = 0
+            while (i < len(self.dataset[key]) and counter <= 1):
+                if (str(self.dataset[key][i]) == value):
+                    counter+=1
+                i+=1
+                
             # create a list with every entry of value in the row. If there are duplicates then the resulting list will have >1 entries
             if (counter>1):
                 self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
