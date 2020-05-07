@@ -41,7 +41,7 @@ class DataProfile(object):
         self.patterns = ""
 
 
-    def profileData(self, metaAttributeDefinition:dict, colData:dict, key:str):
+    def profileData(self, metaAttributeDefinition:dict, colData, key:str):
         """
         For a given column, calculate a variety of statistics.
         """
@@ -50,7 +50,7 @@ class DataProfile(object):
         if (MetaUtils.exists(metaAttributeDefinition, "Type")):
             self.type = metaAttributeDefinition["Type"]
         
-        self.mostFrequent = max(set(colData), key=colData.count)
+        self.mostFrequent = max(set(colData))
         
         vals = list()
         self.count = len(colData)
@@ -60,7 +60,7 @@ class DataProfile(object):
         self.patterns = str(sorted(s))
         self.patternCount = len(s)
         
-        for value in colData:    
+        for value in colData:
             
             self.memory += len(value)
             val= math.nan

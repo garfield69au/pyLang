@@ -1,8 +1,0 @@
-{
-    "Naptan No": {"Type": "string", "Size": 11, "Format": "^[0-9]{1,4}[A-Z]{3}[0-9]{1,5}", "Mandatory": true, "Unique": true},	
-    "Stop Location": {"Type": "string", "Size": 25, "Mandatory": true, "Composite": ["%1", "Stop Name"]},	
-    "Stop Name": {"Type": "string", "Size": 25, "Mandatory": true},	
-    "Shelter Pole or Lamp Post ": {"Type": "string", "Size": 10, "Mandatory": true, "Enum": "['Shelter','Pole','Lamp Post']"}, 
-    "Seat": {"Type": "string", "Size": 3, "Mandatory": true, "Enum": "['Yes','No','N/A']"},	
-    "Raised Kerb": {"Type": "string", "Size": 10, "Mandatory": true, "Enum": "['Yes','No']"}
-}

@@ -1,9 +1,0 @@
-{
-    "Code_Institution_Type": {"Type": "int", "Size": 2, "Mandatory": true},	
-    "Institution_Type": {"Type": "string", "Size": 25, "Mandatory": true},	
-    "Code_Institution_Name": {"Type": "string", "Size": 8, "Mandatory": true},	
-    "Institution_Name": {"Type": "string", "Size": 90, "Mandatory": true},	
-    "Code_Classification_of_Instructional_Program_6digit_Name": {"Type": "string", "Size": 7, "Mandatory": true},	
-    "Classification_of_Instructional_Program_6digit_Name": {"Type": "string", "Size": 115, "Mandatory": true},	
-    "Program_offered_2011": {"Type": "string", "Size": 3, "Mandatory": true, "Enum": "['yes', 'no']"}
-}

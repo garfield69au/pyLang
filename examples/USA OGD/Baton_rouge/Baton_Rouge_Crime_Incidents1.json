@@ -1,0 +1,23 @@
+{
+    "FILE NUMBER": {"Type": "int", "Size": 10, "Mandatory": true},
+    "OFFENSE DATE": {"Type": "date", "Size": 10, "Mandatory": true},
+    "OFFENSE TIME": {"Type": "int", "Size": 9, "Mandatory": true},
+    "CRIME": {"Type": "string", "Size": 27, "Mandatory": true},
+    "COMMITTED": {"Type": "string", "Size": 9, "Mandatory": true, "Enum": "['ATTEMPTED', 'COMMITTED']"},
+    "OFFENSE": {"Type": "string", "Size": 15, "Mandatory": true},
+    "OFFENSE DESC": {"Type": "string", "Size": 52, "Mandatory": true},
+    "ADDRESS": {"Type": "string", "Size": 37, "Mandatory": true},
+    "ST NUMBER": {"Type": "string", "Size": 5, "Mandatory": true},
+    "ST DIR": {"Type": "string", "Size": 1, "Mandatory": true, "Enum": "['N','S','E',W']"},
+    "ST NAME": {"Type": "string", "Size": 28, "Mandatory": true},
+    "ST TYPE": {"Type": "string", "Size": 2, "Mandatory": true},
+    "CITY": {"Type": "string", "Size": 11, "Mandatory": true},
+    "STATE": {"Type": "string", "Size": 2, "Mandatory": true},
+    "ZIP": {"Type": "string", "Size": 11, "Mandatory": true},
+    "DISTRICT": {"Type": "string", "Size": 1, "Mandatory": true},
+    "ZONE": {"Type": "string", "Size": 1, "Mandatory": true},
+    "SUBZONE": {"Type": "string", "Size": 1, "Mandatory": true},
+    "COMPLETE DISTRICT": {"Type": "string", "Size": 8, "Mandatory": true},
+    "GEOLOCATION": {"Type": "string", "Size": 90, "Mandatory": true}
+}
+

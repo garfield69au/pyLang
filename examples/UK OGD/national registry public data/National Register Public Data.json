@@ -1,0 +1,17 @@
+{
+    "Operator_Name": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Operator_Legal_Form": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Operator_Licence_Number": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Operator_Address": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Operator_Post_Code": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Operator_Town": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Operator_Country": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Operator_Licence_Type": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Operator_Vehicles_Authorised": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Community_Licence_Number": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Transport_Manager_First_Name": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Transport_Manager_Surname": {"Type": "string", "Size": 10, "Mandatory": true}
+}
+
+
+

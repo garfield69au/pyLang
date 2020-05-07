@@ -42,26 +42,26 @@ class DUQValidator(AbstractDUQValidator):
         Execute a series of validations against the supplied column of data and the metadata for the column.
         Which validation is run is determined by entries in the metadata.
         """         
-        value = ""
+        print("Processing attribute \t'" + key + "'...", end='\r')
         
-        #for value in self.dataset[key]:
-        for i in range (len(self.dataset[key])):
-            value = self.dataset[key][i]
+        for value in self.dataset[key]:
             self.checkMandatory(self.metaData[key], key, value)                  
             self.checkSize(self.metaData[key], key, value)
             self.checkType(self.metaData[key], key, value)
             self.checkEnum(self.metaData[key], key, value)
             self.checkStartsWith(self.metaData[key], key, value)
             self.checkFormat(self.metaData[key], key, value)                        
-            self.checkUnique(self.metaData[key], key, value)
-
+        
+        self.checkUnique(self.metaData[key], key)
+     
         self.checkComposite(self.metaData[key], key)            
         # expression evaluation is different to processing field specific validations as it could link in other columns from the resultset
         self.evaluateExpression(self.metaData[key], key)
-        
+
+        print("Processing attribute \t'" + key + "'...\t\t..Profiling data...", end='\r')
         # gather some statistical measurememnts for our column
         self.profileData(self.metaData[key], self.dataset[key], key)
-            
+        print("Processing attribute \t'" + key + "'...\t\t..Profiling data...\tComplete.")
         
     def checkMandatory(self, metaAttributeDefinition:dict, key:str, value:str):
         # mandatory field check
@@ -224,21 +224,32 @@ class DUQValidator(AbstractDUQValidator):
                 self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex '" + metaAttributeDefinition["Format"] + "'"))
             
 
-            
-    def checkUnique(self, metaAttributeDefinition:dict, key:str, value:str):
+   
+    def checkUnique(self, metaAttributeDefinition:dict, key:str):
         # unique field check
         if (MetaUtils.isTrue(metaAttributeDefinition, "Unique")):
-            # quick count the number of times values occurs in the column. Assumes possibly sorted so breaks the loop if >1 occurences to save time
-            i = 0
-            counter = 0
-            while (i < len(self.dataset[key]) and counter <= 1):
-                if (str(self.dataset[key][i]) == value):
-                    counter+=1
-                i+=1
+            # quick count the number of times values occurs in the column. Assumes possibly sorted so breaks the loop if >1 occurences to save time0
+
+            sortedList = sorted(self.dataset[key])
+            seen = set()
+            
+
+            for i in range(len(sortedList)):
+                counter = 0
+
+                value = sortedList[i]
                 
-            # create a list with every entry of value in the row. If there are duplicates then the resulting list will have >1 entries
-            if (counter>1):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
+                if (not value in seen):
+                    seen.add(value) #only process a value once 
+                    
+                    j = i
+                    
+                    while ( (j < len(sortedList)) and (sortedList[j] == value) ):
+                        counter +=1
+                        j+=1
+                    
+                    if (counter>1):
+                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
 
 
             

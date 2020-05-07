@@ -4,6 +4,7 @@ from prettytable import PrettyTable
 import dicttoxml
 from xml.dom.minidom import parseString
 from pyduq.langerror import ValidationError
+from unidecode import unidecode
 
 class FileTools(object):
     """
@@ -27,13 +28,13 @@ class FileTools(object):
             reader = csv.DictReader(f)
                                
             # Get a list of the column names returned from the file
-            columns = list(reader.fieldnames)         
-
+            columns = list(reader.fieldnames)
+            
             for row in reader:
                 resultset.append(row)
                 
             for col in columns:
-                data[col]= [("(Null)" if row[col] is None else str(row[col]).strip()) for row in resultset]            
+                data[col]= [("(Null)" if row[col] is None else FileTools.FormatString(str(row[col]).strip())) for row in resultset]            
         
         return data
   
@@ -61,3 +62,16 @@ class FileTools(object):
         with open(JSON_filename, 'w') as w:
             w.write(json_dict)
             
+    
+    @staticmethod
+    def FormatString(s:str) ->str:
+        # converts a unicode string to ascii
+        
+        if isinstance(s, str):
+            try:
+                s.encode('ascii')
+                return s
+            except:
+                return unidecode(s)
+        else:
+          return s
