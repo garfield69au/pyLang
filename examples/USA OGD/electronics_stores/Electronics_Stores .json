@@ -1,0 +1,16 @@
+{
+    "Entity Type": {"Type": "string", "Size": 17, "Mandatory": true},
+    "License Number": {"Type": "string", "Size": 7, "Mandatory": true},
+    "Entity Name": {"Type": "string", "Size": 60, "Mandatory": true},
+    "Camis Trade Name": {"Type": "string", "Size": 46, "Mandatory": true},
+    "Address Bldg": {"Type": "string", "Size": 9, "Mandatory": true},
+    "Address Street Name": {"Type": "string", "Size": 29, "Mandatory": true},
+    "Address Location": {"Type": "string", "Size": 12, "Mandatory": true},
+    "Address City": {"Type": "string", "Size": 15, "Mandatory": true},
+    "Address State": {"Type": "string", "Size": 2, "Mandatory": true},
+    "Address Zip Code": {"Type": "string", "Size": 9, "Mandatory": true},
+    "Telephone Number": {"Type": "string", "Size": 10, "Mandatory": true},
+    "Location": {"Type": "string", "Size": 90, "Mandatory": true}
+}
+
+

@@ -18,12 +18,12 @@ class AbstractDUQValidator(abc.ABC):
             raise ValidationError("LANG Exception: DataSet has not been set", None)
         
         if (meta is None):
-            raise ValidationError("LANG Exception: Metadata has not been set", None)
+            raise ValidationError("LANG Exception: metadata has not been set", None)
         
-        self.metaData = meta.copy()
-        self.dataset = dataset.copy()
-        self.counters = list()
-        self.profileList = list()
+        self.metadata = meta
+        self.dataset = dataset
+        self.counters = []
+        self.data_profile = []
             
         
     def addMeasurement(self:object, measurement:Measurement):
@@ -36,34 +36,35 @@ class AbstractDUQValidator(abc.ABC):
         self.counters.append(measurement.asDict())
         
     
-    def profileData(self:object, metaAttributeDefinition:dict, colData:dict, key:str):
+    def profileData(self:object, meta_attribute_definition:dict, colData:dict, key:str):
         if (colData is None):
             raise ValidationError("LANG Exception: Coldata has not been set", None)
         
         profile = DataProfile()
-        profile.profileData(metaAttributeDefinition, colData, key)
-        profile.setPosition(len(self.profileList)+1)
-        self.profileList.append(profile.asDict())
+        profile.profileData(meta_attribute_definition, colData, key)
+        profile.setPosition(len(self.data_profile)+1)
+        self.data_profile.append(profile.asDict())
 
 
     def saveProfile(self:object, outputFile):
-        if (len(self.profileList)>0):
-            workbook = Workbook()
-            sheet = workbook.active
-            c=self.profileList[0]
+        if (len(self.data_profile)>0):
+            workbook = Workbook(write_only=True)
+            sheet = workbook.create_sheet()
+            c=self.data_profile[0]
             headers = list(c.keys())
             sheet.append(headers)
             
-            for x in self.profileList:
+            for x in self.data_profile:
                 sheet.append(list(x.values()))
         
             workbook.save(filename=outputFile)
+            workbook.close()
 
 
     def saveCountersSummary(self:object, outputFile):
-        workbook = Workbook()
-        sheet = workbook.active
-        headers = list()
+        workbook = Workbook(write_only=True)
+        sheet = workbook.create_sheet()
+        headers = []
         headers.append("attribute")
         
         headers += MeasurementCategory.namesAsList()
@@ -75,9 +76,9 @@ class AbstractDUQValidator(abc.ABC):
         for datarow in summary.values():
             for row in datarow:
                 sheet.append(list(row.values()))
-        
-        
+                
         workbook.save(filename=outputFile)
+        workbook.close()
 
 
     def summariseCounters(self:object) ->dict:
@@ -85,47 +86,47 @@ class AbstractDUQValidator(abc.ABC):
         # get the MeasurementCategory Enum as a list
         categories = list(MeasurementCategory)
         summary = dict()
-        attributeErrors = dict()
+        attribute_errors = dict()
  
         # Construct a list of errors per attribute and store in a dict 
         for item in self.counters:
             key = item['attribute']
-            if (not key in attributeErrors):
-                attributeErrors[key] = list()
+            if (not key in attribute_errors):
+                attribute_errors[key] = []
             
-            attributeErrors[key].append(item)
+            attribute_errors[key].append(item)
         
         # now count how many times each category appears for each attribute
-        #for item, data in attributeErrors.items():
-        for item in self.metaData:
-            summaryRow = dict()
-            summaryRow['attribute'] = item
+        #for item, data in attribute_errors.items():
+        for item in self.metadata:
+            summary_row = dict()
+            summary_row['attribute'] = item
 
-            summary[item]=list()
+            summary[item]=[]
             data = dict()
             
-            if (item in attributeErrors):
-                data = attributeErrors[item]
+            if (item in attribute_errors):
+                data = attribute_errors[item]
             
             for name in categories:
-                errorCount=0
+                error_count=0
                 
                 for d in data:
                     if (d['error_category'] == name.value):
-                        errorCount+=1
+                        error_count+=1
                 
                 # for each attribute create a list of dictionaries contaning a count of each category
-                summaryRow[name.name] = errorCount
+                summary_row[name.name] = error_count
                         
-            summary[item].append(summaryRow)
+            summary[item].append(summary_row)
                                 
         return summary
         
 
     def saveCounters(self:object, outputFile):
         if (len(self.counters)>0):
-            workbook = Workbook()
-            sheet = workbook.active
+            workbook = Workbook(write_only=True)
+            sheet = workbook.create_sheet()
             headers = list(self.counters[0].keys())
             sheet.append(headers)
         
@@ -133,7 +134,7 @@ class AbstractDUQValidator(abc.ABC):
                 sheet.append(list(y.values()))
         
             workbook.save(filename=outputFile)
-    
+            workbook.close()
     
     @abc.abstractmethod
     def validate(self:object):

@@ -26,7 +26,7 @@ class MeasurementCategory(Enum):
     
     @staticmethod
     def namesAsList() ->list:
-        names = list()
+        names = []
         categories = list(MeasurementCategory)
         
         for fullname in categories:

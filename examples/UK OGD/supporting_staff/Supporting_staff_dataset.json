@@ -1,0 +1,15 @@
+{
+    "Post unique reference": {"Type": "string", "Size": 16, "Mandatory": true},
+    "Name": {"Type": "string", "Size": 26, "Mandatory": true},
+    "Grade": {"Type": "string", "Size": 20, "Mandatory": true},
+    "Job Title": {"Type": "string", "Size": 93, "Mandatory": true},
+    "Job/Team Function": {"Type": "string", "Size": 1100, "Mandatory": true},
+    "Parent Department": {"Type": "string", "Size": 24, "Mandatory": true},
+    "Organisation": {"Type": "string", "Size": 24, "Mandatory": true},
+    "Unit": {"Type": "string", "Size": 30, "Mandatory": true},
+    "Contact phone": {"Type": "string", "Size": 20, "Mandatory": true},
+    "Contact e-mail": {"Type": "string", "Size": 34, "Mandatory": true},
+    "Reports To": {"Type": "string", "Size": 90, "Mandatory": true},
+    "Notes": {"Type": "string", "Size": 3, "Mandatory": false, "AllowBlank": true}
+}
+

@@ -1,0 +1,1345 @@
+Year,ICD10_Code,ICD10_Description,Classification,Metric_Primary,Metric_Secondary,Value
+2013/14,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,54730
+2013/14,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,65470
+2013/14,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,55120
+2013/14,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,24600
+2013/14,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1110
+2013/14,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,350
+2013/14,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1590
+2013/14,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,710
+2013/14,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,50
+2013/14,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,720
+2013/14,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,1240
+2013/14,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,3550
+2013/14,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,210
+2013/14,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,25460
+2013/14,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,4170
+2013/14,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,18690
+2013/14,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,33250
+2013/14,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,40
+2013/14,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,2320
+2013/14,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,10
+2013/14,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,560
+2013/14,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,360
+2013/14,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,60
+2013/14,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,1070
+2013/14,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,1940
+2013/14,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,3800
+2013/14,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,4180
+2013/14,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,260
+2013/14,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,250
+2013/14,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,150
+2013/14,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,470
+2013/14,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,20
+2013/14,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,50
+2013/14,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,1140
+2013/14,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1330
+2013/14,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,11380
+2013/14,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,22090
+2013/14,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,21040
+2013/14,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,1230
+2013/14,C32,Larynx,Broad,Cancer,Partly attributable chronic,1980
+2013/14,C50,Breast,Broad,Cancer,Partly attributable chronic,28940
+2013/14,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,51990
+2013/14,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,432120
+2013/14,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,71770
+2013/14,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,2220
+2013/14,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,160
+2013/14,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,4990
+2013/14,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,10650
+2013/14,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,14060
+2013/14,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,8800
+2013/14,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3380
+2013/14,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,3310
+2013/14,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,4950
+2013/14,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1410
+2013/14,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,12790
+2013/14,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,140
+2013/14,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2013/14,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,31410
+2013/14,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,6030
+2013/14,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,170
+2013/14,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,3160
+2012/13,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,52560
+2012/13,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,63940
+2012/13,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,54210
+2012/13,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,23160
+2012/13,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1240
+2012/13,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,380
+2012/13,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1540
+2012/13,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,690
+2012/13,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,70
+2012/13,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,810
+2012/13,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,1130
+2012/13,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,3340
+2012/13,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,180
+2012/13,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,23350
+2012/13,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,3700
+2012/13,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,18810
+2012/13,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,31390
+2012/13,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,50
+2012/13,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,2440
+2012/13,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,0
+2012/13,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,610
+2012/13,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,360
+2012/13,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,40
+2012/13,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,1000
+2012/13,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,2030
+2012/13,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,3470
+2012/13,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,4510
+2012/13,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,250
+2012/13,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,170
+2012/13,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,150
+2012/13,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,400
+2012/13,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,30
+2012/13,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,90
+2012/13,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,920
+2012/13,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1440
+2012/13,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,10710
+2012/13,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,21550
+2012/13,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,20990
+2012/13,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,1110
+2012/13,C32,Larynx,Broad,Cancer,Partly attributable chronic,2050
+2012/13,C50,Breast,Broad,Cancer,Partly attributable chronic,27100
+2012/13,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,49000
+2012/13,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,404650
+2012/13,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,67530
+2012/13,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,2100
+2012/13,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,170
+2012/13,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,4600
+2012/13,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,10580
+2012/13,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,12430
+2012/13,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,8250
+2012/13,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3420
+2012/13,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,3340
+2012/13,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,4750
+2012/13,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1240
+2012/13,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,12920
+2012/13,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,140
+2012/13,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2012/13,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,32610
+2012/13,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,5630
+2012/13,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,170
+2012/13,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,3370
+2011/12,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,56510
+2011/12,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,64560
+2011/12,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,57540
+2011/12,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,23250
+2011/12,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1230
+2011/12,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,400
+2011/12,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1220
+2011/12,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,720
+2011/12,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,80
+2011/12,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1010
+2011/12,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,1060
+2011/12,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,3220
+2011/12,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,200
+2011/12,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,21380
+2011/12,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,3360
+2011/12,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,20230
+2011/12,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,33540
+2011/12,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,40
+2011/12,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,2550
+2011/12,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,0
+2011/12,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,620
+2011/12,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,360
+2011/12,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,60
+2011/12,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,1060
+2011/12,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,2090
+2011/12,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2011/12,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,7360
+2011/12,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,260
+2011/12,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,160
+2011/12,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,190
+2011/12,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,380
+2011/12,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,20
+2011/12,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,40
+2011/12,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,1040
+2011/12,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1470
+2011/12,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,10190
+2011/12,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,20740
+2011/12,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,20820
+2011/12,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,1070
+2011/12,C32,Larynx,Broad,Cancer,Partly attributable chronic,1970
+2011/12,C50,Breast,Broad,Cancer,Partly attributable chronic,27120
+2011/12,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,47530
+2011/12,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,397120
+2011/12,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,64370
+2011/12,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,2080
+2011/12,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,160
+2011/12,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,4260
+2011/12,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,9440
+2011/12,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,11460
+2011/12,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,3180
+2011/12,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3630
+2011/12,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,3230
+2011/12,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,5130
+2011/12,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1230
+2011/12,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,14250
+2011/12,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,160
+2011/12,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2011/12,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,33020
+2011/12,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,5960
+2011/12,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,200
+2011/12,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,3990
+2010/11,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,57300
+2010/11,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,48600
+2010/11,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,59040
+2010/11,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,22280
+2010/11,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1140
+2010/11,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,450
+2010/11,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1270
+2010/11,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,660
+2010/11,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,70
+2010/11,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,960
+2010/11,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,1120
+2010/11,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,2970
+2010/11,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,230
+2010/11,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,19480
+2010/11,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,3020
+2010/11,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,20600
+2010/11,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,32660
+2010/11,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,40
+2010/11,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,3150
+2010/11,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,10
+2010/11,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,680
+2010/11,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,400
+2010/11,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,60
+2010/11,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,1110
+2010/11,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,2010
+2010/11,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2010/11,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,7430
+2010/11,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,210
+2010/11,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,140
+2010/11,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,150
+2010/11,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,500
+2010/11,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,20
+2010/11,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,40
+2010/11,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,1010
+2010/11,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1480
+2010/11,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,10060
+2010/11,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,21090
+2010/11,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,19770
+2010/11,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,1060
+2010/11,C32,Larynx,Broad,Cancer,Partly attributable chronic,2070
+2010/11,C50,Breast,Broad,Cancer,Partly attributable chronic,26680
+2010/11,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,45870
+2010/11,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,380980
+2010/11,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,60900
+2010/11,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,2100
+2010/11,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,160
+2010/11,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,3810
+2010/11,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,9580
+2010/11,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,10200
+2010/11,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,2880
+2010/11,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3690
+2010/11,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,3070
+2010/11,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,5140
+2010/11,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1280
+2010/11,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,14930
+2010/11,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,180
+2010/11,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2010/11,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,32640
+2010/11,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,6060
+2010/11,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,230
+2010/11,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,4320
+2009/10,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,55180
+2009/10,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,41020
+2009/10,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,54620
+2009/10,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,21880
+2009/10,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1240
+2009/10,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,470
+2009/10,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1070
+2009/10,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,590
+2009/10,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,80
+2009/10,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,970
+2009/10,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,980
+2009/10,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,2660
+2009/10,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,190
+2009/10,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,16410
+2009/10,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,2610
+2009/10,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,20220
+2009/10,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,30170
+2009/10,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,40
+2009/10,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,3270
+2009/10,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,10
+2009/10,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,670
+2009/10,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,330
+2009/10,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,70
+2009/10,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,1070
+2009/10,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,1910
+2009/10,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2009/10,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,6990
+2009/10,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,180
+2009/10,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,210
+2009/10,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,180
+2009/10,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,490
+2009/10,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,30
+2009/10,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,40
+2009/10,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,1240
+2009/10,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1370
+2009/10,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,9410
+2009/10,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,21340
+2009/10,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,19690
+2009/10,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,950
+2009/10,C32,Larynx,Broad,Cancer,Partly attributable chronic,2050
+2009/10,C50,Breast,Broad,Cancer,Partly attributable chronic,25700
+2009/10,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,40990
+2009/10,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,332610
+2009/10,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,55720
+2009/10,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,2020
+2009/10,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,150
+2009/10,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,3650
+2009/10,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,8550
+2009/10,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,8430
+2009/10,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,2650
+2009/10,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3920
+2009/10,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,3020
+2009/10,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,5580
+2009/10,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1300
+2009/10,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,15390
+2009/10,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,190
+2009/10,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2009/10,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,32110
+2009/10,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,5760
+2009/10,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,240
+2009/10,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,4580
+2008/09,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,47770
+2008/09,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,35820
+2008/09,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,48360
+2008/09,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,20120
+2008/09,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1230
+2008/09,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,450
+2008/09,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,910
+2008/09,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,500
+2008/09,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,70
+2008/09,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1080
+2008/09,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,840
+2008/09,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,2440
+2008/09,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,150
+2008/09,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,13910
+2008/09,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,2140
+2008/09,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,20110
+2008/09,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,27270
+2008/09,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,30
+2008/09,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,4210
+2008/09,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,0
+2008/09,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,510
+2008/09,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,310
+2008/09,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,50
+2008/09,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,980
+2008/09,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,1770
+2008/09,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2008/09,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,6290
+2008/09,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,180
+2008/09,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,170
+2008/09,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,160
+2008/09,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,560
+2008/09,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,30
+2008/09,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,50
+2008/09,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,1260
+2008/09,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1400
+2008/09,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,8790
+2008/09,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,22340
+2008/09,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,20570
+2008/09,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,910
+2008/09,C32,Larynx,Broad,Cancer,Partly attributable chronic,2020
+2008/09,C50,Breast,Broad,Cancer,Partly attributable chronic,24850
+2008/09,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,36690
+2008/09,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,288260
+2008/09,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,50970
+2008/09,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,1990
+2008/09,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,150
+2008/09,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,3610
+2008/09,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,8390
+2008/09,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,7410
+2008/09,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,2450
+2008/09,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3740
+2008/09,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,2920
+2008/09,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,5570
+2008/09,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1390
+2008/09,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,14090
+2008/09,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,200
+2008/09,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2008/09,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,30640
+2008/09,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,5790
+2008/09,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,260
+2008/09,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,4650
+2007/08,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,45250
+2007/08,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,31820
+2007/08,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,44980
+2007/08,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,17960
+2007/08,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1210
+2007/08,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,500
+2007/08,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,780
+2007/08,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,540
+2007/08,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,100
+2007/08,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1350
+2007/08,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,670
+2007/08,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,2230
+2007/08,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,150
+2007/08,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,12540
+2007/08,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,1820
+2007/08,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,20860
+2007/08,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,25510
+2007/08,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,60
+2007/08,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,4470
+2007/08,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,0
+2007/08,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,590
+2007/08,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,270
+2007/08,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,70
+2007/08,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,970
+2007/08,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,1550
+2007/08,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2007/08,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,5930
+2007/08,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,170
+2007/08,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,180
+2007/08,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,140
+2007/08,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,420
+2007/08,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,30
+2007/08,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,40
+2007/08,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,1680
+2007/08,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1410
+2007/08,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,7820
+2007/08,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,22050
+2007/08,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,20740
+2007/08,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,850
+2007/08,C32,Larynx,Broad,Cancer,Partly attributable chronic,1960
+2007/08,C50,Breast,Broad,Cancer,Partly attributable chronic,24390
+2007/08,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,34180
+2007/08,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,252680
+2007/08,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,46660
+2007/08,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,1880
+2007/08,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,150
+2007/08,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,3320
+2007/08,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,7770
+2007/08,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,6820
+2007/08,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,2190
+2007/08,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3770
+2007/08,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,2780
+2007/08,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,6200
+2007/08,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1460
+2007/08,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,13310
+2007/08,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,210
+2007/08,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2007/08,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,29460
+2007/08,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,5610
+2007/08,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,290
+2007/08,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,4820
+2006/07,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,43240
+2006/07,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,30400
+2006/07,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,42300
+2006/07,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,16340
+2006/07,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1400
+2006/07,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,470
+2006/07,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,780
+2006/07,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,480
+2006/07,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,110
+2006/07,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1160
+2006/07,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,640
+2006/07,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,2160
+2006/07,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,220
+2006/07,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,11640
+2006/07,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,1750
+2006/07,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,21230
+2006/07,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,22170
+2006/07,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,40
+2006/07,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,4280
+2006/07,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,0
+2006/07,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,550
+2006/07,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,280
+2006/07,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,80
+2006/07,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,880
+2006/07,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,1570
+2006/07,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2006/07,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,5690
+2006/07,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,170
+2006/07,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,230
+2006/07,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,140
+2006/07,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,410
+2006/07,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,40
+2006/07,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,70
+2006/07,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,2430
+2006/07,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1560
+2006/07,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,7360
+2006/07,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,22670
+2006/07,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,21800
+2006/07,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,820
+2006/07,C32,Larynx,Broad,Cancer,Partly attributable chronic,1890
+2006/07,C50,Breast,Broad,Cancer,Partly attributable chronic,22910
+2006/07,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,32280
+2006/07,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,225290
+2006/07,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,43370
+2006/07,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,1940
+2006/07,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,160
+2006/07,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,3120
+2006/07,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,7660
+2006/07,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,6300
+2006/07,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,2140
+2006/07,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3790
+2006/07,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,2700
+2006/07,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,6280
+2006/07,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1380
+2006/07,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,13130
+2006/07,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,200
+2006/07,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2006/07,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,28040
+2006/07,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,5700
+2006/07,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,280
+2006/07,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,5250
+2005/06,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,41170
+2005/06,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,27580
+2005/06,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,40200
+2005/06,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,14430
+2005/06,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1390
+2005/06,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,600
+2005/06,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,660
+2005/06,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,490
+2005/06,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,110
+2005/06,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1290
+2005/06,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,590
+2005/06,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,2070
+2005/06,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,220
+2005/06,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,10160
+2005/06,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,1460
+2005/06,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,19870
+2005/06,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,21140
+2005/06,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,50
+2005/06,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,4580
+2005/06,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,10
+2005/06,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,470
+2005/06,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,280
+2005/06,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,80
+2005/06,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,880
+2005/06,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,1570
+2005/06,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2005/06,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,4990
+2005/06,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,130
+2005/06,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,210
+2005/06,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,180
+2005/06,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,390
+2005/06,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,40
+2005/06,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,90
+2005/06,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,2500
+2005/06,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1480
+2005/06,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,6430
+2005/06,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,22310
+2005/06,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,23050
+2005/06,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,760
+2005/06,C32,Larynx,Broad,Cancer,Partly attributable chronic,1870
+2005/06,C50,Breast,Broad,Cancer,Partly attributable chronic,20240
+2005/06,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,30250
+2005/06,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,195440
+2005/06,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,40980
+2005/06,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,1940
+2005/06,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,170
+2005/06,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,2890
+2005/06,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,7590
+2005/06,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,5800
+2005/06,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,1950
+2005/06,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,4010
+2005/06,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,2540
+2005/06,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,6440
+2005/06,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1410
+2005/06,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,12900
+2005/06,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,210
+2005/06,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2005/06,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,26830
+2005/06,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,5820
+2005/06,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,260
+2005/06,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,4870
+2004/05,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,34450
+2004/05,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,24510
+2004/05,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,37150
+2004/05,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,12620
+2004/05,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1290
+2004/05,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,550
+2004/05,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,580
+2004/05,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,470
+2004/05,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,120
+2004/05,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1140
+2004/05,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,560
+2004/05,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,1870
+2004/05,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,210
+2004/05,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,9070
+2004/05,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,1330
+2004/05,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,18410
+2004/05,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,16830
+2004/05,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,100
+2004/05,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,4430
+2004/05,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,10
+2004/05,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,430
+2004/05,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,280
+2004/05,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,50
+2004/05,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,880
+2004/05,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,1460
+2004/05,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2004/05,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,4420
+2004/05,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,140
+2004/05,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,240
+2004/05,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,170
+2004/05,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,410
+2004/05,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,30
+2004/05,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,70
+2004/05,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,1920
+2004/05,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1280
+2004/05,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,5820
+2004/05,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,20240
+2004/05,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,22210
+2004/05,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,680
+2004/05,C32,Larynx,Broad,Cancer,Partly attributable chronic,1700
+2004/05,C50,Breast,Broad,Cancer,Partly attributable chronic,19160
+2004/05,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,27260
+2004/05,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,162420
+2004/05,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,36870
+2004/05,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,1870
+2004/05,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,180
+2004/05,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,2670
+2004/05,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,7420
+2004/05,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,4970
+2004/05,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,1750
+2004/05,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3790
+2004/05,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,2390
+2004/05,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,6020
+2004/05,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1270
+2004/05,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,12060
+2004/05,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,210
+2004/05,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2004/05,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,25620
+2004/05,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,5270
+2004/05,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,380
+2004/05,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,4640
+2003/04,F10.0,Acute intoxication,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,28120
+2003/04,F10.1,Harmful use,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,20700
+2003/04,F10.2,Dependence syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,33160
+2003/04,F10.3,Withdrawal state,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,10730
+2003/04,F10.4,Withdrawal state with delirium,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1270
+2003/04,F10.5,Psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,530
+2003/04,F10.6,Amnesic syndrome,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,610
+2003/04,F10.7,Residual and late-onset psychotic disorder,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,460
+2003/04,F10.8,Other mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,100
+2003/04,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Broad,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1170
+2003/04,K70.0,Alcoholic fatty liver,Broad,Alcoholic liver disease,Wholly attributable,420
+2003/04,K70.1,Alcoholic hepatitis,Broad,Alcoholic liver disease,Wholly attributable,1800
+2003/04,K70.2,Alcoholic fibrosis and sclerosis of liver,Broad,Alcoholic liver disease,Wholly attributable,200
+2003/04,K70.3,Alcoholic cirrhosis of liver,Broad,Alcoholic liver disease,Wholly attributable,8000
+2003/04,K70.4,Alcoholic hepatic failure,Broad,Alcoholic liver disease,Wholly attributable,1170
+2003/04,K70.9,"Alcoholic liver disease, unspecified",Broad,Alcoholic liver disease,Wholly attributable,17000
+2003/04,T51.0,Ethanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,14150
+2003/04,T51.1,Methanol poisoning,Broad,Toxic effect of alcohol,Wholly attributable,40
+2003/04,T51.9,"Toxic effect of alcohol, unspecified",Broad,Toxic effect of alcohol,Wholly attributable,4190
+2003/04,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Broad,Other,Wholly attributable,10
+2003/04,G31.2,Degeneration of nervous system due to alcohol,Broad,Other,Wholly attributable,430
+2003/04,G62.1,Alcoholic polyneuropathy,Broad,Other,Wholly attributable,220
+2003/04,G72.1,Alcoholic myopathy,Broad,Other,Wholly attributable,80
+2003/04,I42.6,Alcoholic cardiomyopathy,Broad,Other,Wholly attributable,800
+2003/04,K29.2,Alcoholic gastritis,Broad,Other,Wholly attributable,1220
+2003/04,K85.2,Alcohol-induced acute pancreatitis,Broad,Other,Wholly attributable,-
+2003/04,K86.0,Alcohol-induced chronic pancreatitis,Broad,Other,Wholly attributable,3790
+2003/04,Q86.0,Fetal alcohol syndrome (dysmorphic),Broad,Other,Wholly attributable,80
+2003/04,R78.0,Excess alcohol blood levels,Broad,Other,Wholly attributable,220
+2003/04,X45,Accidental poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,130
+2003/04,X65,Intentional self-poisoning by and exposure to alcohol,Broad,Other,Wholly attributable,250
+2003/04,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Broad,Other,Wholly attributable,30
+2003/04,Y90,Evidence of alcohol involvement determined by blood alcohol level,Broad,Other,Wholly attributable,110
+2003/04,Y91,Evidence of alcohol involvement determined by level of intoxication,Broad,Other,Wholly attributable,1660
+2003/04,A15-A19,Tuberculosis,Broad,Infectious and parasitic diseases,Partly attributable chronic,1310
+2003/04,C00-C14,"Lip, oral cavity and pharynx",Broad,Cancer,Partly attributable chronic,5340
+2003/04,C15,Oesophagus,Broad,Cancer,Partly attributable chronic,19920
+2003/04,"C18-C20, C21",Colorectal,Broad,Cancer,Partly attributable chronic,22660
+2003/04,C22,Liver and intrahepatic bile ducts,Broad,Cancer,Partly attributable chronic,650
+2003/04,C32,Larynx,Broad,Cancer,Partly attributable chronic,1640
+2003/04,C50,Breast,Broad,Cancer,Partly attributable chronic,18100
+2003/04,G40-G41,Epilepsy and Status epilepticus,Broad,Diseases of the nervous system,Partly attributable chronic,24700
+2003/04,I10-I15,Hypertensive diseases,Broad,Cardiovascular disease,Partly attributable chronic,135350
+2003/04,I47-I48,Cardiac arrhythmias,Broad,Cardiovascular disease,Partly attributable chronic,34020
+2003/04,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Broad,Cardiovascular disease,Partly attributable chronic,1950
+2003/04,"I63-I66, I69.3-I69.4",Ischaemic stroke,Broad,Cardiovascular disease,Partly attributable chronic,180
+2003/04,I85,Oesophageal varices,Broad,Cardiovascular disease,Partly attributable chronic,2660
+2003/04,"J10-J11(.0), J12-J15, J18",Pneumonia,Broad,Respiratory infections,Partly attributable chronic,7300
+2003/04,"K73, K74",Unspecified liver disease,Broad,Digestive disease,Partly attributable chronic,4560
+2003/04,"K85, K86.1",Acute and chronic pancreatitis,Broad,Digestive disease,Partly attributable chronic,1620
+2003/04,O03,Spontaneous abortion,Broad,Pregnancy and childbirth,Partly attributable chronic,3630
+2003/04,P05-P07,Low birth weight,Broad,Pregnancy and childbirth,Partly attributable chronic,2320
+2003/04,?,Road/Ped traffic accidents,Broad,Unintentional injuries,Partly attributable acute,5970
+2003/04,X40?X49,Poisoning,Broad,Unintentional injuries,Partly attributable acute,1140
+2003/04,W00-W19,Fall injuries,Broad,Unintentional injuries,Partly attributable acute,11490
+2003/04,X00-X09,Fire injuries,Broad,Unintentional injuries,Partly attributable acute,200
+2003/04,W65-W74,Drowning,Broad,Unintentional injuries,Partly attributable acute,10
+2003/04,??,Other unintentional injuries,Broad,Intentional injuries,Partly attributable acute,24650
+2003/04,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Broad,Intentional injuries,Partly attributable acute,4870
+2003/04,"Y10-Y34, Y87.2",Event of undetermined intent,Broad,Intentional injuries,Partly attributable acute,350
+2003/04,"X85-Y09, Y87.1",Assault,Broad,Intentional injuries,Partly attributable acute,4340
+2013/14,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,17680
+2013/14,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2770
+2013/14,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,8110
+2013/14,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,15860
+2013/14,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,790
+2013/14,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,270
+2013/14,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,300
+2013/14,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,110
+2013/14,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,30
+2013/14,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,210
+2013/14,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,180
+2013/14,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,2140
+2013/14,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,40
+2013/14,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,7290
+2013/14,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,2660
+2013/14,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,4140
+2013/14,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,830
+2013/14,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,20
+2013/14,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,100
+2013/14,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,0
+2013/14,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,210
+2013/14,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,100
+2013/14,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,20
+2013/14,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,150
+2013/14,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1650
+2013/14,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,3400
+2013/14,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,1720
+2013/14,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,10
+2013/14,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,10
+2013/14,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2540
+2013/14,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,32170
+2013/14,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,110
+2013/14,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,720
+2013/14,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,1500
+2013/14,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,870
+2013/14,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,8920
+2013/14,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,16200
+2013/14,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,20910
+2013/14,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,1350
+2013/14,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1530
+2013/14,C50,Breast,Narrow,Cancer,Partly attributable chronic,25400
+2013/14,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,9040
+2013/14,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,2230
+2013/14,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,15870
+2013/14,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2540
+2013/14,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,260
+2013/14,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,4110
+2013/14,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,14780
+2013/14,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,2440
+2013/14,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,6940
+2013/14,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3410
+2013/14,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2500
+2013/14,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,5630
+2013/14,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1920
+2013/14,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,21740
+2013/14,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,180
+2013/14,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2013/14,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,44120
+2013/14,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7830
+2013/14,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,220
+2013/14,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,4200
+2012/13,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,16610
+2012/13,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,3100
+2012/13,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,7680
+2012/13,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,15010
+2012/13,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,900
+2012/13,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,290
+2012/13,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,300
+2012/13,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,150
+2012/13,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,30
+2012/13,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,220
+2012/13,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,180
+2012/13,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1980
+2012/13,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,30
+2012/13,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,7090
+2012/13,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,2410
+2012/13,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,4500
+2012/13,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,920
+2012/13,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,30
+2012/13,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,120
+2012/13,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,0
+2012/13,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,260
+2012/13,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,110
+2012/13,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,20
+2012/13,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,140
+2012/13,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1710
+2012/13,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,3140
+2012/13,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,1860
+2012/13,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,10
+2012/13,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,10
+2012/13,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2300
+2012/13,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,30460
+2012/13,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,100
+2012/13,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,550
+2012/13,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,950
+2012/13,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,940
+2012/13,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,8600
+2012/13,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,15950
+2012/13,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,21210
+2012/13,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,1280
+2012/13,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1640
+2012/13,C50,Breast,Narrow,Cancer,Partly attributable chronic,23990
+2012/13,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,9050
+2012/13,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,2170
+2012/13,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,15520
+2012/13,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2400
+2012/13,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,270
+2012/13,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,3750
+2012/13,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,14490
+2012/13,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,2360
+2012/13,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,6600
+2012/13,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3450
+2012/13,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2610
+2012/13,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,5370
+2012/13,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1690
+2012/13,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,21510
+2012/13,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,180
+2012/13,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2012/13,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,45620
+2012/13,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7360
+2012/13,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,220
+2012/13,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,4460
+2011/12,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,18370
+2011/12,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2990
+2011/12,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,8650
+2011/12,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,15100
+2011/12,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,920
+2011/12,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,330
+2011/12,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,240
+2011/12,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,160
+2011/12,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,40
+2011/12,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,280
+2011/12,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,200
+2011/12,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1900
+2011/12,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,60
+2011/12,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,7110
+2011/12,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,2110
+2011/12,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,5270
+2011/12,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,930
+2011/12,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,30
+2011/12,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,160
+2011/12,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,-
+2011/12,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,270
+2011/12,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,90
+2011/12,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,20
+2011/12,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,140
+2011/12,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1790
+2011/12,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2011/12,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,3190
+2011/12,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,10
+2011/12,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,20
+2011/12,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2540
+2011/12,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,32160
+2011/12,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,130
+2011/12,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,430
+2011/12,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,1060
+2011/12,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,1010
+2011/12,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,8460
+2011/12,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,15890
+2011/12,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,21330
+2011/12,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,1260
+2011/12,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1580
+2011/12,C50,Breast,Narrow,Cancer,Partly attributable chronic,24310
+2011/12,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,9500
+2011/12,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,6820
+2011/12,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,15230
+2011/12,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2460
+2011/12,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,260
+2011/12,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,3610
+2011/12,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,12660
+2011/12,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,2700
+2011/12,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1300
+2011/12,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3660
+2011/12,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2590
+2011/12,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,5780
+2011/12,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1670
+2011/12,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,23810
+2011/12,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,210
+2011/12,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2011/12,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,45490
+2011/12,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7800
+2011/12,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,260
+2011/12,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,5240
+2010/11,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,18490
+2010/11,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2850
+2010/11,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,8970
+2010/11,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,14470
+2010/11,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,870
+2010/11,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,330
+2010/11,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,280
+2010/11,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,150
+2010/11,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,40
+2010/11,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,330
+2010/11,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,240
+2010/11,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1730
+2010/11,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,70
+2010/11,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,6310
+2010/11,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,1880
+2010/11,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,5460
+2010/11,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,950
+2010/11,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,30
+2010/11,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,230
+2010/11,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,0
+2010/11,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,300
+2010/11,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,130
+2010/11,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,30
+2010/11,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,170
+2010/11,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1730
+2010/11,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2010/11,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,3270
+2010/11,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,10
+2010/11,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,10
+2010/11,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2800
+2010/11,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,31550
+2010/11,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,110
+2010/11,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,370
+2010/11,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,1040
+2010/11,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,1020
+2010/11,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,8350
+2010/11,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,16280
+2010/11,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,20350
+2010/11,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,1190
+2010/11,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1680
+2010/11,C50,Breast,Narrow,Cancer,Partly attributable chronic,24220
+2010/11,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,9510
+2010/11,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,7840
+2010/11,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,14940
+2010/11,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2470
+2010/11,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,250
+2010/11,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,3140
+2010/11,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,12480
+2010/11,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,2460
+2010/11,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1180
+2010/11,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3720
+2010/11,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2510
+2010/11,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,5750
+2010/11,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1710
+2010/11,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,24040
+2010/11,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,230
+2010/11,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2010/11,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,44250
+2010/11,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7830
+2010/11,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,290
+2010/11,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,5580
+2009/10,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,18260
+2009/10,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2850
+2009/10,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,9180
+2009/10,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,14560
+2009/10,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,940
+2009/10,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,370
+2009/10,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,260
+2009/10,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,140
+2009/10,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,40
+2009/10,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,300
+2009/10,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,250
+2009/10,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1600
+2009/10,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,60
+2009/10,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,5660
+2009/10,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,1630
+2009/10,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,5550
+2009/10,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,880
+2009/10,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,30
+2009/10,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,240
+2009/10,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,0
+2009/10,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,310
+2009/10,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,110
+2009/10,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,30
+2009/10,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,160
+2009/10,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1610
+2009/10,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2009/10,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,3330
+2009/10,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,10
+2009/10,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,20
+2009/10,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2880
+2009/10,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,28950
+2009/10,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,120
+2009/10,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,290
+2009/10,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,1250
+2009/10,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,920
+2009/10,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,7920
+2009/10,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,16910
+2009/10,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,20290
+2009/10,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,1060
+2009/10,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1660
+2009/10,C50,Breast,Narrow,Cancer,Partly attributable chronic,23660
+2009/10,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,9330
+2009/10,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,7020
+2009/10,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,14580
+2009/10,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2390
+2009/10,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,230
+2009/10,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,3070
+2009/10,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,10630
+2009/10,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,2030
+2009/10,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1180
+2009/10,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3940
+2009/10,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2560
+2009/10,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,6190
+2009/10,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1710
+2009/10,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,23610
+2009/10,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,240
+2009/10,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2009/10,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,42140
+2009/10,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7380
+2009/10,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,300
+2009/10,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,5750
+2008/09,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,16040
+2008/09,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2860
+2008/09,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,8260
+2008/09,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,13280
+2008/09,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,960
+2008/09,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,330
+2008/09,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,260
+2008/09,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,140
+2008/09,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,40
+2008/09,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,360
+2008/09,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,220
+2008/09,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1510
+2008/09,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,50
+2008/09,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,4930
+2008/09,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,1380
+2008/09,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,6110
+2008/09,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,980
+2008/09,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,20
+2008/09,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,390
+2008/09,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,0
+2008/09,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,240
+2008/09,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,140
+2008/09,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,20
+2008/09,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,180
+2008/09,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1510
+2008/09,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2008/09,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,3150
+2008/09,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,20
+2008/09,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,20
+2008/09,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2750
+2008/09,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,26870
+2008/09,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,120
+2008/09,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,220
+2008/09,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,1300
+2008/09,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,970
+2008/09,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,7370
+2008/09,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,18190
+2008/09,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,21000
+2008/09,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,1000
+2008/09,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1630
+2008/09,C50,Breast,Narrow,Cancer,Partly attributable chronic,22880
+2008/09,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,9180
+2008/09,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,6310
+2008/09,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,14080
+2008/09,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2340
+2008/09,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,210
+2008/09,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,3120
+2008/09,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,10140
+2008/09,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,1930
+2008/09,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1130
+2008/09,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3760
+2008/09,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2480
+2008/09,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,6110
+2008/09,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1750
+2008/09,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,20860
+2008/09,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,250
+2008/09,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2008/09,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,39220
+2008/09,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7280
+2008/09,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,320
+2008/09,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,5740
+2007/08,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,15780
+2007/08,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2660
+2007/08,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,8530
+2007/08,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,11810
+2007/08,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,900
+2007/08,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,380
+2007/08,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,230
+2007/08,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,190
+2007/08,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,50
+2007/08,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,620
+2007/08,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,170
+2007/08,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1430
+2007/08,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,50
+2007/08,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,4850
+2007/08,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,1150
+2007/08,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,6690
+2007/08,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,1140
+2007/08,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,50
+2007/08,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,500
+2007/08,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,0
+2007/08,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,300
+2007/08,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,110
+2007/08,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,30
+2007/08,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,200
+2007/08,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1290
+2007/08,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2007/08,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,3260
+2007/08,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,20
+2007/08,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,30
+2007/08,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2590
+2007/08,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,24940
+2007/08,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,150
+2007/08,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,180
+2007/08,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,1780
+2007/08,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,1000
+2007/08,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,6690
+2007/08,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,18320
+2007/08,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,20920
+2007/08,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,900
+2007/08,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1590
+2007/08,C50,Breast,Narrow,Cancer,Partly attributable chronic,22480
+2007/08,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,9010
+2007/08,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,5500
+2007/08,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,13770
+2007/08,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2240
+2007/08,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,210
+2007/08,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,2920
+2007/08,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,8840
+2007/08,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,1970
+2007/08,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1110
+2007/08,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3780
+2007/08,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2350
+2007/08,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,6720
+2007/08,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1790
+2007/08,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,19130
+2007/08,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,250
+2007/08,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2007/08,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,36800
+2007/08,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7030
+2007/08,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,340
+2007/08,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,5800
+2006/07,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,15860
+2006/07,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2490
+2006/07,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,8810
+2006/07,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,10740
+2006/07,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1130
+2006/07,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,360
+2006/07,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,270
+2006/07,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,150
+2006/07,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,50
+2006/07,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,450
+2006/07,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,200
+2006/07,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1420
+2006/07,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,90
+2006/07,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,4760
+2006/07,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,1110
+2006/07,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,6960
+2006/07,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,890
+2006/07,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,30
+2006/07,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,510
+2006/07,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,-
+2006/07,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,310
+2006/07,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,110
+2006/07,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,40
+2006/07,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,180
+2006/07,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1320
+2006/07,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2006/07,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,3190
+2006/07,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,20
+2006/07,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,30
+2006/07,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2090
+2006/07,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,21780
+2006/07,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,230
+2006/07,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,220
+2006/07,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,2460
+2006/07,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,1080
+2006/07,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,6340
+2006/07,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,19200
+2006/07,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,21950
+2006/07,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,880
+2006/07,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1580
+2006/07,C50,Breast,Narrow,Cancer,Partly attributable chronic,21130
+2006/07,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,8840
+2006/07,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,7540
+2006/07,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,13080
+2006/07,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2190
+2006/07,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,210
+2006/07,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,2820
+2006/07,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,8310
+2006/07,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,1910
+2006/07,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1100
+2006/07,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3790
+2006/07,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2300
+2006/07,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,6790
+2006/07,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1700
+2006/07,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,18350
+2006/07,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,240
+2006/07,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2006/07,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,34200
+2006/07,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7060
+2006/07,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,330
+2006/07,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,6260
+2005/06,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,15360
+2005/06,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2890
+2005/06,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,9290
+2005/06,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,9340
+2005/06,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1100
+2005/06,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,460
+2005/06,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,240
+2005/06,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,160
+2005/06,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,60
+2005/06,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,610
+2005/06,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,200
+2005/06,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1340
+2005/06,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,100
+2005/06,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,4220
+2005/06,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,990
+2005/06,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,6980
+2005/06,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,1000
+2005/06,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,40
+2005/06,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,400
+2005/06,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,0
+2005/06,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,250
+2005/06,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,130
+2005/06,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,50
+2005/06,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,170
+2005/06,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1300
+2005/06,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2005/06,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,2950
+2005/06,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,20
+2005/06,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,20
+2005/06,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,2190
+2005/06,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,20780
+2005/06,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,210
+2005/06,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,340
+2005/06,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,2540
+2005/06,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,1040
+2005/06,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,5590
+2005/06,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,19130
+2005/06,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,23000
+2005/06,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,790
+2005/06,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1570
+2005/06,C50,Breast,Narrow,Cancer,Partly attributable chronic,18490
+2005/06,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,8750
+2005/06,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,6390
+2005/06,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,12760
+2005/06,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2190
+2005/06,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,210
+2005/06,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,2630
+2005/06,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,7960
+2005/06,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,1860
+2005/06,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1090
+2005/06,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,4010
+2005/06,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2150
+2005/06,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,6920
+2005/06,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1700
+2005/06,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,17570
+2005/06,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,240
+2005/06,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2005/06,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,32130
+2005/06,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,7120
+2005/06,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,310
+2005/06,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,5730
+2004/05,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,12240
+2004/05,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2910
+2004/05,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,10340
+2004/05,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,8030
+2004/05,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,1000
+2004/05,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,450
+2004/05,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,250
+2004/05,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,180
+2004/05,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,60
+2004/05,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,590
+2004/05,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,210
+2004/05,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1250
+2004/05,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,110
+2004/05,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,3810
+2004/05,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,890
+2004/05,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,6800
+2004/05,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,1030
+2004/05,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,30
+2004/05,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,490
+2004/05,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,0
+2004/05,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,250
+2004/05,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,140
+2004/05,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,30
+2004/05,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,210
+2004/05,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,1160
+2004/05,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2004/05,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,2730
+2004/05,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,10
+2004/05,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,20
+2004/05,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,1890
+2004/05,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,16690
+2004/05,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,220
+2004/05,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,280
+2004/05,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,1950
+2004/05,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,930
+2004/05,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,5040
+2004/05,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,17460
+2004/05,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,21920
+2004/05,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,680
+2004/05,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1430
+2004/05,C50,Breast,Narrow,Cancer,Partly attributable chronic,17510
+2004/05,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,8140
+2004/05,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,5110
+2004/05,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,11750
+2004/05,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2070
+2004/05,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,220
+2004/05,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,2490
+2004/05,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,7410
+2004/05,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,1630
+2004/05,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1040
+2004/05,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3790
+2004/05,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,2020
+2004/05,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,6440
+2004/05,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1510
+2004/05,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,15920
+2004/05,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,240
+2004/05,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2004/05,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,30120
+2004/05,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,6380
+2004/05,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,440
+2004/05,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,5410
+2003/04,F10.0,Acute intoxication,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,9760
+2003/04,F10.1,Harmful use,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,2490
+2003/04,F10.2,Dependence syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,10180
+2003/04,F10.3,Withdrawal state,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,6780
+2003/04,F10.4,Withdrawal state with delirium,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,980
+2003/04,F10.5,Psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,420
+2003/04,F10.6,Amnesic syndrome,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,260
+2003/04,F10.7,Residual and late-onset psychotic disorder,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,200
+2003/04,F10.8,Other mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,60
+2003/04,F10.9,Unspecified mental and behavioural disorders due to the use of alcohol,Narrow,Mental and behavioural disorders due to use of alcohol,Wholly attributable,620
+2003/04,K70.0,Alcoholic fatty liver,Narrow,Alcoholic liver disease,Wholly attributable,160
+2003/04,K70.1,Alcoholic hepatitis,Narrow,Alcoholic liver disease,Wholly attributable,1240
+2003/04,K70.2,Alcoholic fibrosis and sclerosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,100
+2003/04,K70.3,Alcoholic cirrhosis of liver,Narrow,Alcoholic liver disease,Wholly attributable,3430
+2003/04,K70.4,Alcoholic hepatic failure,Narrow,Alcoholic liver disease,Wholly attributable,810
+2003/04,K70.9,"Alcoholic liver disease, unspecified",Narrow,Alcoholic liver disease,Wholly attributable,6490
+2003/04,T51.0,Ethanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,880
+2003/04,T51.1,Methanol poisoning,Narrow,Toxic effect of alcohol,Wholly attributable,40
+2003/04,T51.9,"Toxic effect of alcohol, unspecified",Narrow,Toxic effect of alcohol,Wholly attributable,470
+2003/04,E24.4,Alcohol-induced pseudo-Cushing?s syndrome,Narrow,Other,Wholly attributable,10
+2003/04,G31.2,Degeneration of nervous system due to alcohol,Narrow,Other,Wholly attributable,250
+2003/04,G62.1,Alcoholic polyneuropathy,Narrow,Other,Wholly attributable,110
+2003/04,G72.1,Alcoholic myopathy,Narrow,Other,Wholly attributable,50
+2003/04,I42.6,Alcoholic cardiomyopathy,Narrow,Other,Wholly attributable,210
+2003/04,K29.2,Alcoholic gastritis,Narrow,Other,Wholly attributable,990
+2003/04,K85.2,Alcohol-induced acute pancreatitis,Narrow,Other,Wholly attributable,-
+2003/04,K86.0,Alcohol-induced chronic pancreatitis,Narrow,Other,Wholly attributable,2470
+2003/04,Q86.0,Fetal alcohol syndrome (dysmorphic),Narrow,Other,Wholly attributable,10
+2003/04,R78.0,Excess alcohol blood levels,Narrow,Other,Wholly attributable,40
+2003/04,X45,Accidental poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,1720
+2003/04,X65,Intentional self-poisoning by and exposure to alcohol,Narrow,Other,Wholly attributable,14230
+2003/04,Y15,"Poisoning by and exposure to alcohol, undetermined intent",Narrow,Other,Wholly attributable,120
+2003/04,Y90,Evidence of alcohol involvement determined by blood alcohol level,Narrow,Other,Wholly attributable,230
+2003/04,Y91,Evidence of alcohol involvement determined by level of intoxication,Narrow,Other,Wholly attributable,1670
+2003/04,A15-A19,Tuberculosis,Narrow,Infectious and parasitic diseases,Partly attributable chronic,950
+2003/04,C00-C14,"Lip, oral cavity and pharynx",Narrow,Cancer,Partly attributable chronic,4700
+2003/04,C15,Oesophagus,Narrow,Cancer,Partly attributable chronic,17540
+2003/04,"C18-C20, C21",Colorectal,Narrow,Cancer,Partly attributable chronic,22180
+2003/04,C22,Liver and intrahepatic bile ducts,Narrow,Cancer,Partly attributable chronic,650
+2003/04,C32,Larynx,Narrow,Cancer,Partly attributable chronic,1390
+2003/04,C50,Breast,Narrow,Cancer,Partly attributable chronic,16430
+2003/04,G40-G41,Epilepsy and Status epilepticus,Narrow,Diseases of the nervous system,Partly attributable chronic,7640
+2003/04,I10-I15,Hypertensive diseases,Narrow,Cardiovascular disease,Partly attributable chronic,4230
+2003/04,I47-I48,Cardiac arrhythmias,Narrow,Cardiovascular disease,Partly attributable chronic,11340
+2003/04,"I60-I62, I69.0-I69.2",Haemorrhagic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,2090
+2003/04,"I63-I66, I69.3-I69.4",Ischaemic stroke,Narrow,Cardiovascular disease,Partly attributable chronic,210
+2003/04,I85,Oesophageal varices,Narrow,Cardiovascular disease,Partly attributable chronic,2430
+2003/04,"J10-J11(.0), J12-J15, J18",Pneumonia,Narrow,Respiratory infections,Partly attributable chronic,6920
+2003/04,"K73, K74",Unspecified liver disease,Narrow,Digestive disease,Partly attributable chronic,1660
+2003/04,"K85, K86.1",Acute and chronic pancreatitis,Narrow,Digestive disease,Partly attributable chronic,1040
+2003/04,O03,Spontaneous abortion,Narrow,Pregnancy and childbirth,Partly attributable chronic,3630
+2003/04,P05-P07,Low birth weight,Narrow,Pregnancy and childbirth,Partly attributable chronic,1950
+2003/04,?,Road/Ped traffic accidents,Narrow,Unintentional injuries,Partly attributable acute,6350
+2003/04,X40?X49,Poisoning,Narrow,Unintentional injuries,Partly attributable acute,1330
+2003/04,W00-W19,Fall injuries,Narrow,Unintentional injuries,Partly attributable acute,14720
+2003/04,X00-X09,Fire injuries,Narrow,Unintentional injuries,Partly attributable acute,230
+2003/04,W65-W74,Drowning,Narrow,Unintentional injuries,Partly attributable acute,20
+2003/04,??,Other unintentional injuries,Narrow,Intentional injuries,Partly attributable acute,28480
+2003/04,"X60-X84, Y87.0 (excl X65)",Intentional self-harm,Narrow,Intentional injuries,Partly attributable acute,5850
+2003/04,"Y10-Y34, Y87.2",Event of undetermined intent,Narrow,Intentional injuries,Partly attributable acute,380
+2003/04,"X85-Y09, Y87.1",Assault,Narrow,Intentional injuries,Partly attributable acute,4960
+,,,,,,
+,22,,,,,20

@@ -10,13 +10,13 @@
     "ST NUMBER": {"Type": "string", "Size": 5, "Mandatory": true},
     "ST DIR": {"Type": "string", "Size": 1, "Mandatory": true, "Enum": "['N','S','E',W']"},
     "ST NAME": {"Type": "string", "Size": 28, "Mandatory": true},
-    "ST TYPE": {"Type": "string", "Size": 2, "Mandatory": true},
+    "ST TYPE": {"Type": "string", "Size": 2, "Mandatory": true, "Enum": "['AV', 'BL', 'BT', 'CR', 'CT', 'DR', 'HW', 'LN', 'OT', 'PK', 'PL', 'RD', 'ST', 'TH', 'WY']"},
     "CITY": {"Type": "string", "Size": 11, "Mandatory": true},
     "STATE": {"Type": "string", "Size": 2, "Mandatory": true},
     "ZIP": {"Type": "string", "Size": 11, "Mandatory": true},
-    "DISTRICT": {"Type": "string", "Size": 1, "Mandatory": true},
-    "ZONE": {"Type": "string", "Size": 1, "Mandatory": true},
-    "SUBZONE": {"Type": "string", "Size": 1, "Mandatory": true},
+    "DISTRICT": {"Type": "string", "Size": 1, "Mandatory": true, "Enum": "['1', '2', '3', '4', 'O']"},
+    "ZONE": {"Type": "string", "Size": 1, "Mandatory": true, "Enum": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'T']"},
+    "SUBZONE": {"Type": "string", "Size": 1, "Mandatory": true, "Enum": "['1', '2', '3', '4', '5', 'H']"},
     "COMPLETE DISTRICT": {"Type": "string", "Size": 8, "Mandatory": true},
     "GEOLOCATION": {"Type": "string", "Size": 90, "Mandatory": true}
 }

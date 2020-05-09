@@ -1,0 +1,10 @@
+{
+    "TLC_License_Type": {"Type": "string", "Size": 16, "Mandatory": true},
+    "TLC_License_Number": {"Type": "string", "Size": 18, "Mandatory": true},
+    "DMV_Plate": {"Type": "string", "Size": 10, "Mandatory": true},
+    "VIN": {"Type": "string", "Size": 23, "Mandatory": true},
+    "Automobile_Insurance_Code": {"Type": "string", "Size": 25, "Mandatory": true},
+    "Automobile_Insurance_Policy_Number": {"Type": "string", "Size": 34, "Mandatory": true},
+    "Vehicle_Owner_Name": {"Type": "string", "Size": 56, "Mandatory": true},
+    "Affiliated_Base_or_Taxi_Agent_or_Fleet_License_Number": {"Type": "string", "Size": 53, "Mandatory": true}
+}
