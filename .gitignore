@@ -3,3 +3,4 @@ __pycache__\*.*
 
 *.pyc
 test/.ipynb_checkpoints/testValidator-checkpoint.ipynb
+examples/USA OGD/traffic_violations/Traffic_Violations .csv
