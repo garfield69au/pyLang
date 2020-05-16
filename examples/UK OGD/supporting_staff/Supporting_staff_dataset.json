@@ -1,15 +1,15 @@
 {
-    "Post unique reference": {"Type": "string", "Size": 16, "Mandatory": true},
-    "Name": {"Type": "string", "Size": 26, "Mandatory": true},
-    "Grade": {"Type": "string", "Size": 20, "Mandatory": true},
-    "Job Title": {"Type": "string", "Size": 93, "Mandatory": true},
-    "Job/Team Function": {"Type": "string", "Size": 1100, "Mandatory": true},
-    "Parent Department": {"Type": "string", "Size": 24, "Mandatory": true},
-    "Organisation": {"Type": "string", "Size": 24, "Mandatory": true},
-    "Unit": {"Type": "string", "Size": 30, "Mandatory": true},
-    "Contact phone": {"Type": "string", "Size": 20, "Mandatory": true},
-    "Contact e-mail": {"Type": "string", "Size": 34, "Mandatory": true},
-    "Reports To": {"Type": "string", "Size": 90, "Mandatory": true},
-    "Notes": {"Type": "string", "Size": 3, "Mandatory": false, "AllowBlank": true}
+    "Post unique reference": {"Type": "integer", "Size": 16, "Mandatory": false, "AllowBlank": false},
+    "Name": {"Type": "string", "Size": 26, "Mandatory": false, "AllowBlank": false},
+    "Grade": {"Type": "string", "Size": 20, "Mandatory": false, "AllowBlank": false},
+    "Job Title": {"Type": "string", "Size": 93, "Mandatory": false, "AllowBlank": false},
+    "Job/Team Function": {"Type": "string", "Size": 1100, "Mandatory": false, "AllowBlank": false},
+    "Parent Department": {"Type": "string", "Size": 24, "Mandatory": false, "AllowBlank": false},
+    "Organisation": {"Type": "string", "Size": 24, "Mandatory": false, "AllowBlank": false},
+    "Unit": {"Type": "string", "Size": 30, "Mandatory": false, "AllowBlank": false},
+    "Contact phone": {"Type": "string", "Size": 20, "Mandatory": false, "AllowBlank": false},
+    "Contact e-mail": {"Type": "string", "Size": 34, "Mandatory": false, "AllowBlank": false},
+    "Reports To": {"Type": "string", "Size": 90, "Mandatory": false, "AllowBlank": false},
+    "Notes": {"Type": "string", "Size": 3, "Mandatory": false, "AllowBlank": false}
 }
 

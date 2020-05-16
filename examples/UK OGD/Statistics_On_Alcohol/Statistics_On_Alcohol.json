@@ -1,11 +1,9 @@
 {
-    "Year": {"Type": "string", "Size": 7, "Mandatory": true},
-    "ICD10_Code": {"Type": "string", "Size": 25, "Mandatory": true},
-    "ICD10_Description": {"Type": "string", "Size": 70, "Mandatory": true},
-    "Classification": {"Type": "string", "Size": 6, "Mandatory": true, "Enum": "['Broad', 'Narrow']"},
-    "Metric_Primary": {"Type": "string", "Size": 54, "Mandatory": true},
-    "Metric_Secondary": {"Type": "string", "Size": 27, "Mandatory": true},
-    "Value": {"Type": "string", "Size": 6, "Mandatory": true}
+    "Year": {"Type": "string", "Size": 7, "Mandatory": false, "AllowBlank": false},
+    "ICD10_Code": {"Type": "string", "Size": 25, "Mandatory": false, "AllowBlank": false, "Format": "^[A-TV-Z][0-9][0-9AB]\\.?[0-9A-TV-Z]{0,4}.*$"},
+    "ICD10_Description": {"Type": "string", "Size": 70, "Mandatory": false, "AllowBlank": false},
+    "Classification": {"Type": "string", "Size": 6, "Mandatory": false, "AllowBlank": false, "Enum": "['Broad', 'Narrow']"},
+    "Metric_Primary": {"Type": "string", "Size": 54, "Mandatory": false, "AllowBlank": false},
+    "Metric_Secondary": {"Type": "string", "Size": 27, "Mandatory": false, "AllowBlank": false},
+    "Value": {"Type": "string", "Size": 6, "Mandatory": false, "AllowBlank": false}
 }
-
-

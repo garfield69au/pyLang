@@ -4,7 +4,12 @@ import statistics
 import collections
 from pyduq.metautils import MetaUtils
 from scipy import stats
-  
+import string
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import CountVectorizer
+from nltk.corpus import stopwords
+stopwords = stopwords.words("english")
+
 class DataProfile(object):
     """
     Profile: This class is used to profile a dataset and record various statistics about a set of data. The purpose of this class is to provide measurable
@@ -43,6 +48,7 @@ class DataProfile(object):
         self.patterns = ""
         self.defaultCount = 0
         self.defaultValue = ""
+        self.csim=0.0
 
 
     def profileData(self, meta_attribute_definition:dict, colData:list, key:str):
@@ -59,6 +65,16 @@ class DataProfile(object):
         self.attribute = key
         if (MetaUtils.exists(meta_attribute_definition, "Type")):
             self.type = meta_attribute_definition["Type"]
+
+        if (self.type == "string"):
+            cleaned = list(map(self.clean_string, colData))
+            try:
+                v = CountVectorizer().fit_transform(cleaned)
+                vectors = v.toarray()
+                self.csim = round(self.cosine_sim_vectors(vectors[0], vectors[1]), 3)
+                
+            except Exception as e:
+                pass
         
         mode = stats.mode(colData)
         if (len(mode[0]) > 0):
@@ -125,7 +141,21 @@ class DataProfile(object):
         if (len(vals)>=2):
             self.stddev = statistics.stdev(vals)
             self.variance = statistics.variance(vals)
-
+        
+    
+    def cosine_sim_vectors(self, vec1, vec2) -> float:
+        vec1 = vec1.reshape(1, -1)
+        vec2 = vec2.reshape(1, -1)
+        
+        return cosine_similarity(vec1, vec2)[0][0]
+        
+    
+    def clean_string(self:object, text):
+        text = ''.join([word for word in text if word not in string.punctuation])
+        text = text.lower()
+        text = ' '.join([word for word in text.split() if word not in stopwords])
+        
+        return text
                 
     def setPosition(self, position:int):
         self.position = position
@@ -153,6 +183,7 @@ class DataProfile(object):
         l['default_value']=self.defaultValue
         l['most_frequent_value']=self.most_frequent_value
         l['most_frequent_count']=self.most_frequent_count
+        l['csim']=self.csim
         l['memory_consumed_bytes']=self.memory
         l['pattern_count']=self.patternCount
         l['patterns']=self.patterns

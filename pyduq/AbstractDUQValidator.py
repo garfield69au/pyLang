@@ -59,26 +59,31 @@ class AbstractDUQValidator(abc.ABC):
         
             workbook.save(filename=outputFile)
             workbook.close()
+            del(sheet)
+            del(workbook)
 
 
     def saveCountersSummary(self:object, outputFile):
         workbook = Workbook(write_only=True)
         sheet = workbook.create_sheet()
-        headers = []
-        headers.append("attribute")
+        headers = ["attribute"]
         
-        headers += MeasurementCategory.namesAsList()
-        
+        for name in MeasurementCategory.namesAsList():
+            headers.append(name)
+            headers.append(name + " SCORE")
+            
         sheet.append(headers)
 
         summary = self.summariseCounters()
     
-        for datarow in summary.values():
+        for datarow in summary.values():        
             for row in datarow:
                 sheet.append(list(row.values()))
-                
+            
         workbook.save(filename=outputFile)
         workbook.close()
+        del(sheet)
+        del(workbook)
 
 
     def summariseCounters(self:object) ->dict:
@@ -117,6 +122,14 @@ class AbstractDUQValidator(abc.ABC):
                 
                 # for each attribute create a list of dictionaries contaning a count of each category
                 summary_row[name.name] = error_count
+                    
+                try:
+                    
+                    score = error_count / len(self.dataset[item])
+                    summary_row[name.name + " SCORE"] = round(score, 6)
+                   
+                except Exception as e:
+                        summary_row[name.name + " SCORE"] =  0
                         
             summary[item].append(summary_row)
                                 
@@ -135,6 +148,9 @@ class AbstractDUQValidator(abc.ABC):
         
             workbook.save(filename=outputFile)
             workbook.close()
+            del(sheet)
+            del(workbook)
+
     
     @abc.abstractmethod
     def validate(self:object):

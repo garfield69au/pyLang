@@ -8,22 +8,18 @@ class MeasurementCategory(Enum):
     and the UQ DKE. 
     """
     
+    COMPLETENESSMANDATORY = "Completeness of Mandatory Attributes"
+    COMPLETENESSOPTIONAL = "Completeness of Optional Attributes"
+    PRECISION = "Precision"
+    BUSINESSRULECOMPLIANCE = "Business Rule Compliance"
+    METADATACOMPLIANCE = "Metadata Compliance"
     UNIQUENESS = "Uniqueness"
-    UNIQUENESSCOMPOSITE = "Uniqueness (composite key)"
-    FORMATCONSISTENCY = "Format Consistency"
-    FORMATCONSISTENCYPREFIX = "Format Consistency (starts with)"
+    NONREDUNDANCY = "Non-redundancy"
+    SEMANTICCONSISTENCY = "Semantic Consistency"
     VALUECONSISTENCY = "Value Consistency"
-    METACOMPLIANCESIZE = "Meta Compliance (field size)"
-    METACOMPLIANCETYPE = "Meta Compliance (data type)"
-    METACOMPLIANCERANGEMIN = "Meta Compliance (min value)"
-    METACOMPLIANCERANGEMAX = "Meta Compliance (max value)"
-    METACOMPLIANCEENUM = "Meta Compliance (enumeration)"
-    RULECOMPLIANCE = "Business Rule Compliance"
-    MANDATORYCOMPLETENESS = "Completeness of Mandatory fields"
-    OPTIONALCOMPLETENESS = "Completeness of Optional fields"
-    AVAILABILITY = "Availability & Accessibility"
-    CONFORMANCE = "Conformance to meta data (missing column)"
-    
+    FORMATCONSISTENCY = "Format Consistency"
+	
+	
     @staticmethod
     def namesAsList() ->list:
         names = []
@@ -46,21 +42,6 @@ class Measurement(object):
         self.errorCategory = errorCategory
         self.descr = description
     
-        
-    def values(self):
-        l = list()
-        l.append(self.attribute)
-        l.append(self.errorCategory)
-        l.append(self.descr)
-        return l
- 
-    @staticmethod 
-    def keys():
-        l = list()
-        l.append('attribute')
-        l.append('error_category')
-        l.append('description')
-        return l
     
     def asDict(self):
         l = dict()

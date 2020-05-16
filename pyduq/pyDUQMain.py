@@ -123,7 +123,7 @@ def main(argv):
     my_parser.add_argument('-i',
                            '--ifile',
                            type=str,
-                           required=True,
+                           required=False,
                            help='the path and name of the input data file.')
 
     my_parser.add_argument('-o',
@@ -140,7 +140,8 @@ def main(argv):
                            '--sql',
                            nargs=2,
                            type=str,
-                           help='the filename of the metaData-data file to use for validation.')
+                           required=False,
+                           help='the database connection string and SQL query')
                            
 
     my_parser.add_argument('-p',
@@ -165,10 +166,11 @@ def main(argv):
     if (args.sql is not None):
         sqlURI = args.sql[0]
         sqlQuery = args.sql[1]
-        
-    if not os.path.isfile(inputFile):
-        print("The input file '" + inputFile + "' does not exist")
-        sys.exit()
+    
+    if ((not inputFile is None) and (len(inputFile)>0)):
+        if not os.path.isfile(inputFile):
+            print("The input file '" + inputFile + "' does not exist")
+            sys.exit()
 
     if not os.path.isfile(metaFile):
         print("The metaData-data file '" + metaFile + "' does not exist")
