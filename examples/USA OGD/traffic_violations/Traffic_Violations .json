@@ -1,38 +1,270 @@
 {
-    "Date Of Stop": {"Type": "date", "Size": 10, "Mandatory": true},
-    "Time Of Stop": {"Type": "time", "Size": 8, "Mandatory": true},
-    "Agency": {"Type": "string", "Size": 3, "Mandatory": true},
-    "SubAgency": {"Type": "string", "Size": 47, "Mandatory": true},
-    "Description": {"Type": "string", "Size": 101, "Mandatory": true},
-    "Location": {"Type": "string", "Size": 40, "Mandatory": true},
-    "Latitude": {"Type": "string", "Size": 17, "Mandatory": true},
-    "Longitude": {"Type": "string", "Size": 17, "Mandatory": true},
-    "Accident": {"Type": "string", "Size": 2, "Mandatory": true},
-    "Belts": {"Type": "string", "Size": 3, "Mandatory": true},
-    "Personal Injury": {"Type": "string", "Size": 3, "Mandatory": true},
-    "Property Damage": {"Type": "string", "Size": 3, "Mandatory": true},
-    "Fatal": {"Type": "string", "Size": 3, "Mandatory": true},
-    "Commercial License": {"Type": "string", "Size": 3, "Mandatory": true},
-    "HAZMAT": {"Type": "string", "Size": 3, "Mandatory": true},
-    "Commercial Vehicle": {"Type": "string", "Size": 3, "Mandatory": true},
-    "Alcohol": {"Type": "string", "Size": 3, "Mandatory": true},
-    "Work Zone": {"Type": "string", "Size": 3, "Mandatory": true},
-    "State": {"Type": "string", "Size": 2, "Mandatory": true},
-    "VehicleType": {"Type": "string", "Size": 25, "Mandatory": true},
-    "Year": {"Type": "string", "Size": 4, "Mandatory": true},
-    "Make": {"Type": "string", "Size": 15, "Mandatory": true},
-    "Model": {"Type": "string", "Size": 19, "Mandatory": true},
-    "Color": {"Type": "string", "Size": 11, "Mandatory": true},
-    "Violation Type": {"Type": "string", "Size": 8, "Mandatory": true},
-    "Charge": {"Type": "string", "Size": 14, "Mandatory": true},
-    "Article": {"Type": "string", "Size": 22, "Mandatory": true},
-    "Contributed To Accident": {"Type": "string", "Size": 3, "Mandatory": true},
-    "Race": {"Type": "string", "Size": 15, "Mandatory": true},
-    "Gender": {"Type": "string", "Size": 1, "Mandatory": true},
-    "Driver City": {"Type": "string", "Size": 20, "Mandatory": true},
-    "Driver State": {"Type": "string", "Size": 2, "Mandatory": true},
-    "DL State": {"Type": "string", "Size": 2, "Mandatory": true},
-    "Arrest Type": {"Type": "string", "Size": 38, "Mandatory": true},
-    "Geolocation": {"Type": "string", "Size": 37, "Mandatory": true}
+    "Date Of Stop": {
+        "Size": 10,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "String",
+        "Unique": false
+    },
+    "Time Of Stop": {
+        "Size": 8,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Agency": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['MCP']"
+    },
+    "SubAgency": {
+        "Size": 47,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['1st district, Rockville', '2nd district, Bethesda', '3rd district, Silver Spring', '4th district, Wheaton', '5th district, Germantown', '6th district, Gaithersburg / Montgomery Village', 'Headquarters and Special Operations']"
+    },
+    "Description": {
+        "Size": 101,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Location": {
+        "Size": 40,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Latitude": {
+        "Size": 17,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "float",
+        "Unique": false
+    },
+    "Longitude": {
+        "Size": 17,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "float",
+        "Unique": false
+    },
+    "Accident": {
+        "Size": 2,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No']"
+    },
+    "Belts": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "Personal Injury": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "Property Damage": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "Fatal": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "Commercial License": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "HAZMAT": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "Commercial Vehicle": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "Alcohol": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "Work Zone": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "State": {
+        "Size": 2,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['AB', 'AK', 'AL', 'AR', 'AS', 'AZ', 'BC', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'IT', 'KS', 'KY', 'LA', 'MA', 'MB', 'MD', 'ME', 'MH', 'MI', 'MN', 'MO', 'MS', 'MT', 'NB', 'NC', 'ND', 'NE', 'NF', 'NH', 'NJ', 'NM', 'NS', 'NV', 'NY', 'OH', 'OK', 'ON', 'OR', 'PA', 'PE', 'PQ', 'PR', 'QC', 'RI', 'SC', 'SD', 'TN', 'TX', 'US', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY', 'XX']"
+    },
+    "VehicleType": {
+        "Size": 25,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['01 - Motorcycle', '02 - Automobile', '03 - Station Wagon', '04 - Limousine', '05 - Light Duty Truck', '06 - Heavy Duty Truck', '07 - Truck/Road Tractor', '08 - Recreational Vehicle', '09 - Farm Vehicle', '10 - Transit Bus', '11 - Cross Country Bus', '12 - School Bus', '13 - Ambulance', '13 - Ambulance(Emerg)', '14 - Ambulance', '14 - Ambulance(Non-Emerg)', '15 - Fire Vehicle', '15 - Fire(Emerg)', '16 - Fire(Non-Emerg)', '17 - Police(Emerg)', '18 - Police Vehicle', '18 - Police(Non-Emerg)', '19 - Moped', '20 - Commercial Rig', '21 - Tandem Trailer', '22 - Mobile Home', '23 - Travel/Home Trailer', '24 - Camper', '25 - Utility Trailer', '26 - Boat Trailer', '27 - Farm Equipment', '28 - Other', '29 - Unknown']"
+    },
+    "Year": {
+        "Size": 4,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false
+    },
+    "Make": {
+        "Size": 15,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Model": {
+        "Size": 19,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Color": {
+        "Size": 11,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['BEIGE', 'BLACK', 'BLUE', 'BLUE, DARK', 'BLUE, LIGHT', 'BRONZE', 'BROWN', 'CAMOUFLAGE', 'CHROME', 'COPPER', 'CREAM', 'GOLD', 'GRAY', 'GREEN', 'GREEN, DK', 'GREEN, LGT', 'MAROON', 'MULTICOLOR', 'N/A', 'ORANGE', 'PINK', 'PURPLE', 'RED', 'SILVER', 'TAN', 'WHITE', 'YELLOW']"
+    },
+    "Violation Type": {
+        "Size": 8,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Citation', 'ESERO', 'SERO', 'Warning']"
+    },
+    "Charge": {
+        "Size": 14,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Article": {
+        "Size": 22,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Maryland Rules', 'Transportation Article']"
+    },
+    "Contributed To Accident": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes']"
+    },
+    "Race": {
+        "Size": 15,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['ASIAN', 'BLACK', 'HISPANIC', 'NATIVE AMERICAN', 'OTHER', 'WHITE']"
+    },
+    "Gender": {
+        "Size": 1,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['F', 'M', 'U']"
+    },
+    "Driver City": {
+        "Size": 20,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Driver State": {
+        "Size": 2,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['AB', 'AK', 'AL', 'AR', 'AZ', 'BC', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'IT', 'KS', 'KY', 'LA', 'MA', 'MB', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NB', 'NC', 'ND', 'NE', 'NF', 'NH', 'NJ', 'NM', 'NS', 'NV', 'NY', 'OH', 'OK', 'ON', 'OR', 'PA', 'PQ', 'PR', 'QC', 'RI', 'SC', 'SD', 'SK', 'TN', 'TX', 'US', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY', 'XX']"
+    },
+    "DL State": {
+        "Size": 2,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['AB', 'AK', 'AL', 'AR', 'AS', 'AZ', 'BC', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'IT', 'KS', 'KY', 'LA', 'MA', 'MB', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NB', 'NC', 'ND', 'NE', 'NF', 'NH', 'NJ', 'NM', 'NS', 'NV', 'NY', 'OH', 'OK', 'ON', 'OR', 'PA', 'PE', 'PQ', 'PR', 'QC', 'RI', 'SC', 'SD', 'SK', 'TN', 'TX', 'US', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY', 'XX']"
+    },
+    "Arrest Type": {
+        "Size": 38,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['A - Marked Patrol', 'B - Unmarked Patrol', 'C - Marked VASCAR', 'D - Unmarked VASCAR', 'E - Marked Stationary Radar', 'F - Unmarked Stationary Radar', 'G - Marked Moving Radar (Stationary)', 'H - Unmarked Moving Radar (Stationary)', 'I - Marked Moving Radar (Moving)', 'J - Unmarked Moving Radar (Moving)', 'K - Aircraft Assist', 'L - Motorcycle', 'M - Marked (Off-Duty)', 'N - Unmarked (Off-Duty)', 'O - Foot Patrol', 'P - Mounted Patrol', 'Q - Marked Laser', 'R - Unmarked Laser', 'S - License Plate Recognition']"
+    },
+    "Geolocation": {
+        "Size": 37,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    }
 }
-

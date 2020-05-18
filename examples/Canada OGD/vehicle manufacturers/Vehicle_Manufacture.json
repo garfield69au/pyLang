@@ -1,21 +1,136 @@
 {
-    "ORGANIZATION_ETXT": {"Type": "string", "Size": 100, "Mandatory": true},
-    "NSM_CD": {"Type": "string", "Size": 3, "Mandatory": true},
-    "NOTE_ETXT": {"Type": "string", "Size": 300, "Mandatory": false, "AllowBlank": true},
-    "NOTES_FTXT": {"Type": "string", "Size": 330, "Mandatory": false, "AllowBlank": true},
-    "PSTREET": {"Type": "string", "Size": 50, "Mandatory": false, "AllowBlank": true},
-    "PCITY": {"Type": "string", "Size": 30, "Mandatory": false, "AllowBlank": true},
-    "PPROVINCE": {"Type": "string", "Size": 30, "Mandatory": false, "AllowBlank": true},
-    "PPOSTAL": {"Type": "string", "Size": 8, "Mandatory": false, "AllowBlank": true},
-    "PCOUNTRY": {"Type": "string", "Size": 13, "Mandatory": false, "AllowBlank": true},
-    "MSTREET": {"Type": "string", "Size": 50, "Mandatory": false, "AllowBlank": true},
-    "MCITY": {"Type": "string", "Size": 30, "Mandatory": false, "AllowBlank": true},
-    "MPROVINCE": {"Type": "string", "Size": 30, "Mandatory": false, "AllowBlank": true},
-    "MPOSTAL": {"Type": "string", "Size": 8, "Mandatory": false, "AllowBlank": true},
-    "MCOUNTRY": {"Type": "string", "Size": 13, "Mandatory": false, "AllowBlank": true},
-    "CLASS_TYPE_ETXT": {"Type": "string", "Size": 21, "Mandatory": true},
-    "CLASS_ETXT": {"Type": "string", "Size": 62, "Mandatory": true},
-    "CLASS_TYPE_FTXT": {"Type": "string", "Size": 40, "Mandatory": true},
-    "CLASS_FTXT": {"Type": "string", "Size": 75, "Mandatory": true}
+    "ORGANIZATION_ETXT": {
+        "Size": 90,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "NSM_CD": {
+        "Size": 3,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "NOTE_ETXT": {
+        "Size": 291,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['2007 - GSR 400, GSR 600, GSRPT- service rigs & pump truck', '3390', '5th Wheel trailers', '5th Wheel, flatdeck', '5th wheel trailers.  SR', 'All RIG  equipped trailers are CMVSS 223 compliant.', 'All RIG equipped trailers are CMVSS 223 compliant', 'All RIG equipped trailers are CMVSS 223 compliant\\n\\n\\n\\nWMI Codes:\\n\\n2R9 144 - trailers\\n\\n2J9 037 - trucks\\n\\n2A9 138 - trailer conv dollies', 'All RIG equipped trailers are CMVSS 223 compliant.', 'All RIG equipped trailers are CMVSS 223-RIG compliant - CTEA generic RIG program.', 'All RIG equipped trailers are CMVSs 223 compliant.', 'All trailers that Haultec manufacturers are wheels back.', 'Also Mfg flat deck car haulers DB July 19, 2003.', 'Armored vehicles', 'Astro/Safari infloor lift;\\n\\nRaised roofs by Kino;', 'Authorized to import under National Safety Mark X19 child restraint systems and booster seats manufactured in China by MAX-INF (Ningbo) Baby Product Co., Ltd. (formerly Ningbo Winwin)', 'CMVSS 223 - RIG exempt', 'CMVSS 223 EXEMPT AS PER SECTION 2(C)', 'CMVSS 223 compliant', 'Cadillac XTS conversions 7\", 24\", 44\", 70\"\\n\\nLincoln MKT conversions 44\", 70\", 120\"', 'Chrysler mini-vans raised roof back from the \"B\" pillar, in floor lift, taxi.', 'Company is also performing \"raised roof\" conversions.', 'Drill rigs from the ground up and air brake trailers for the oil field. DB', 'Fire Trucks', 'Fire truck', 'Flat decks on chassis.', 'Flatbeds and service bodies.', 'Ford travel van conversions', 'Formerly o/a Ningbo Winwin, manufactures child restraint systems and booster seats in China for importation into Canada by 4187229 Canada Inc. dba Harmony Juvenile Products under National Safety Mark X19', 'Importer for Apramo, Kukuxumusu, Sparco products', 'Importer for Britax, BOB products', 'Importer for Chicco and Nuna products', 'Importer for Diono, Little Tikes, and formerly Sunshine Kids products', 'Importer for Evenflo and Snugli products', 'Importer for Graco products', 'Importer for Safety 1st, Cosco, Eddie Bauer, Maxi-Cosi products', 'Importer for TeamTex (Fisher Price, Ferrari, Barbie, Hot Wheels) and UPPABaby products', 'Installs Winter maintenance equipment (Snowplows, Sidewing, V-Box, Sander, Dump bodies, PTO) DB', 'Installs petroleum tanks', 'LSV', 'Low chassis trailers - CMVSS 223 - RIG exempt.', 'Mahadev is an alterer specializing in the modification of completed/compliant vehicles so as to render them wheelchair accessible.', 'Manufactures boat, snowmobile and small tent trailers. DB (from RDIM) July 16, 03.', 'Manufactures drilling rigs', 'Manufactures motorcycle trailers.', 'Member of CTEA generic RIG program.', 'Mfg firetrucks D.B. Sept 30, 2004', 'Mfg rear dump trailers', 'Mfg trailers that are used to heat buildings or tents for construction', 'Mfg, gravel dump trailers', 'Mud tank trailers. DB June 21, 2005.\\n\\n\\n\\nAll RIG equipped trailers are CMVSS 223 compliant.', 'NSM application in process 4-Nov-2002. Request proceeded by S. Lalime', 'No more new ambulances, adaptation dissable transportation, special vehicles. All altered vehicles are 0 to 50 000km. 60% of total production used 40% new.', 'Oil Field trailers', 'Pup Dump trailers.', \"RIG's are CMVSS 223 compliant\", \"RIG's are CMVSS 223 compliant.\", 'Right-hand drive', \"Steel RIG's are CMVSS 223 compliant.\\n\\n\\n\\nAluminum RIG's only to be fitted to tanker trailers.\", 'TRUCKS:\\n\\nFront & Rear Loader Garbage Trucks, Roll-offs.\\n\\n\\n\\nTRAILERS:\\n\\nRoll-offs, Pups, Frameless dumps.', 'They are an International Truck dealer', 'This company manufacturers and installs transfer seats in vehicles modified for persons with disabilities.', 'Trailers for transporting coiled wire.', 'Transformation of trucks, installation of equipment on heavy trucks. Extend or shorten  chassis. Box of trucks, tatters, deck, topple over dumpsters, snow shoveling systems , articulated common cranes, valve systems, spreaders.', 'Triple E Recreational Vehicles A Division of Triple E Canada Ltd.', 'Truck:  4000, MT 350 & VT 650', 'Van and flat decks', 'Vehicles modified for physically challenged individuals.\\n\\nChrysler and GM Pontiac Montana mini-van, raised roof / dropped floor + extended doors.', 'Vendor permit number', 'Whelbase alteration, body/equipment installation, fifthwheel installation on International Class 8 7000 & 8000, Volvo serie VHD, Sterling serie LT9500, Freightliner serie Colombia & model M2, Peterbuilt serie 340, 365 & 367, Western Star serie 4900, Kenworth model T800, Mack CT-713 & CV-713', 'Windstar rear entry wheelchair accessible vans', 'all RIG equipped trailers are CMVSS 223 compliant', 'company has 3 WMI codes\\n\\n2HS - Truck Tractor\\n\\n2HT - Incomplete Straight Truck\\n\\n2HV - Incomplete Bux', 'mfg Water supply trailers.', 'see others', 'trailers manufactured are CMVSS 223 exempt']"
+    },
+    "NOTES_FTXT": {
+        "Size": 323,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['5th Wheel et remorque plateforme.', \"Anciennement connu sous Ningbo Winwin, fabrique des syst??mes de retenue pour enfants et des si??ges d'appoint en Chine pour l'importation au Canada par la compagnie 4187229 Canada Inc. dba Harmony Juvenile Products en vertu de la Marque nationale de s??curit?? X19\", \"Autoris?? ?y importer en vertu de la Marque nationale de s??curit?? X19 des syst??mes de retenue pour enfants et des si??ges d'appoint fabriqu??s en Chine par MAX-INF (Ningbo) Baby Product Co., Ltd. (anciennement connu sous Ningbo Winwin)\", 'CAMIONS:\\n\\nCamions ?y d??chets ?y chargement avant et arri??re, Roll-offs.\\n\\n\\n\\nREMORQUES:\\n\\nRoll-offs, Pups, Frameless dumps.', \"Camionnettes Windstar avec acc??s pour fauteuils roulants ?y l'arri??re\", 'Camions de pompier', 'Caravanes 5th Wheel', \"Cette compagnie s'occupe aussi de la conversion de  to??ts sur??lev??s.\", 'Conduite du c??t?? droit', 'Demande de MNS en cours. 4-Nov-2002. Traitement de la demande fait par S. Lalime', 'Dispositifs de protection arri??re conformes ?y NSVAC 223.', 'Exempt?? de la norme NSVAC 223 (dispositif de protection arri??re)', 'Fabrique aussi des plateformes pour le transport de voitures.\\n\\nD.B. 19 juillet 2003.', \"Fabrique des camions d'incendie.\\n\\nD.B. 30 septembre 2004.\", 'Fabrique des plateformes de forage.', 'Fabrique des remorques ?y d??charge arri??re.', 'Fabrique des remorques ?y motocyclette.', 'Fabrique des remorques pour approvisionnement en eau', 'Fabrique des remorques pour motocyclettes.', 'Fabrique des remorques servant ?y la d??charge de gravier.', 'Fabrique des remorques utilis??es pour le chauffage des ??difices ou des tentes, dans le domaine de la construction.', 'Importateur pour les products Britax, BOB', 'Importateur pour les produits Apramo, Kukuxumusu, Sparco', 'Importateur pour les produits Chicco et Nuna', 'Importateur pour les produits Diono, Little Tikes, et anciennement Sunshine Kids', 'Importateur pour les produits Evenflo et Snugli', 'Importateur pour les produits Graco', 'Importateur pour les produits Safety 1st, Cosco, Eddie Bauer, Maxi-Cosi', 'Importateur pour les produits TeamTex (Ferrari, Barbie, Hot Wheels) et UPPABaby', 'Installe des r??servoirs de p??trole', 'Les dispositifs de protection arri??re sont conformes ?y NSVAC 223.', \"Les remorques ??quip??es d'un dispositif de protection arri??re sont conformes ?y la norme NSVAc 223.\", 'Les remorques fabriqu??es sont exemptes de NSVAC 223.', \"Les remorques munies d'un dispositif de protection arri??re en acier sont conformes ?y NSVAC 223.\\n\\n\\n\\nSeules les remorques citernes peuvent ?|tre munies d'un dispositif de protection arri??re en aluminium.\", \"Les remorques munies d'un dispositif de protection arri??re sont conformes ?y NSVAC 223.\", 'Mahadev se sp??cialise dans la modification de v??hicules complets et conformes aux NSVAC en v??hicules accessibles pour les fauteuils roulants.', \"Modification d'empattement, installation de bo??te et equipements, installation de sellette d'attelage sur International Class 8 7000 & 8000, Volvo serie VHD, Sterling serie LT9500, Freightliner serie Colombia & modele M2, Peterbuilt serie 340, 365 & 367, Western Star serie 4900, Kenworth modele T800, Mack CT-713 & CV-713\", 'Modification de v??hicules\\n\\npour personnes handicap??es, Chrysler, GM, Pontiac Montana mini-van, toit sur??lev?? / planchers abaiss??s + portes agrandies.', 'Remorques \"5th wheel\". SR', 'Remorques ?y bas chassis - exemptes de NSVAC 223.', \"Remorques de r??servoir de boue\\n\\nDB 21 juin, 2005.\\n\\n\\n\\nToutes les remorques munies d'un dispositif de protection arri??re sont conformes ?y NSVAC 223.\", 'Remorques pour transporter des rouleaux de fil ??lectrique.', \"Toutes les remorques ??quip??es d'un dispositif de protection arri??re sont conformes ?y la norme NSVAC 223.\", \"Toutes les remorques ??quip??es d'un dispositif de protection arri??re sont conformes ?y la norme NSVAC 223.\\n\\n\\n\\nCodes WMI:\\n\\n2R9 144 - remorques\\n\\n2J9 037 - camions\\n\\n2A9 138 - chariots de conversion\", \"Toutes les remorques munies d'un dispositif de protection arri??re sont conformes ?y NSVAC 223.\", \"Transformation de camions, installation d'??quippement sur camions lourds. Allonge ou raccourci chassis. Bo??te de camions, haillons, plate-forme, Bennes basculantes, syst. de pelle ?y neige, grues articul??es, syst??mes de valves, ??pandeuses.\", 'V??hicules ?y basse vitesse.', \"V??hicules Astro / Safari ??quip??s d'un levier int??gr?? au plancher.\\n\\n\\n\\nV??hicules Kino ?y to??t sur??lev??\", 'camions incendie']"
+    },
+    "PSTREET": {
+        "Size": 49,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "PCITY": {
+        "Size": 26,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "PPROVINCE": {
+        "Size": 25,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['9', 'Alberta', 'British Columbia', 'Florida', 'Louisiana', 'Manitoba', 'Michigan', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan']"
+    },
+    "PPOSTAL": {
+        "Size": 8,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "PCOUNTRY": {
+        "Size": 13,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['CANADA', 'UNITED STATES']"
+    },
+    "MSTREET": {
+        "Size": 50,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "MCITY": {
+        "Size": 26,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "MPROVINCE": {
+        "Size": 25,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['573', 'Alberta', 'British Columbia', 'California', 'Florida', 'Indiana', 'Louisiana', 'Manitoba', 'Michigan', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'South Carolina']"
+    },
+    "MPOSTAL": {
+        "Size": 8,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "MCOUNTRY": {
+        "Size": 13,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['CANADA', 'NOT ENTERED', 'UNITED STATES']"
+    },
+    "CLASS_TYPE_ETXT": {
+        "Size": 21,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Bus', 'Chassis-Cab', 'Incomplete Vehicle', 'Low Speed Vehicle', 'MPV', 'Motorcycles', 'Passenger Car', 'Restraint Systems', 'Snowmobile', 'Three Wheeled Vehicle', 'Tire', 'Trailer', 'Truck Body']"
+    },
+    "CLASS_ETXT": {
+        "Size": 62,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "CLASS_TYPE_FTXT": {
+        "Size": 40,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Autobus', 'Camion', 'Ch?>ssis-cabine', 'Incomplete Vehicle - not translated', 'Low Speed Vehicle - not translated', 'Motocyclette', 'Motoneige', 'Pneu', 'Remorque', 'Restraint Systems - not translated', 'Three Wheeled Vehicle - not translated', 'V??hicule de tourisme', 'V??hicule de tourisme ?y usages multiple']"
+    },
+    "CLASS_FTXT": {
+        "Size": 75,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    }
 }
-

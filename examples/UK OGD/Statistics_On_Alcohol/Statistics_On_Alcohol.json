@@ -1,9 +1,57 @@
 {
-    "Year": {"Type": "string", "Size": 7, "Mandatory": false, "AllowBlank": false},
-    "ICD10_Code": {"Type": "string", "Size": 25, "Mandatory": false, "AllowBlank": false, "Format": "^[A-TV-Z][0-9][0-9AB]\\.?[0-9A-TV-Z]{0,4}.*$"},
-    "ICD10_Description": {"Type": "string", "Size": 70, "Mandatory": false, "AllowBlank": false},
-    "Classification": {"Type": "string", "Size": 6, "Mandatory": false, "AllowBlank": false, "Enum": "['Broad', 'Narrow']"},
-    "Metric_Primary": {"Type": "string", "Size": 54, "Mandatory": false, "AllowBlank": false},
-    "Metric_Secondary": {"Type": "string", "Size": 27, "Mandatory": false, "AllowBlank": false},
-    "Value": {"Type": "string", "Size": 6, "Mandatory": false, "AllowBlank": false}
+    "Year": {
+        "Size": 7,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['2003/04', '2004/05', '2005/06', '2006/07', '2007/08', '2008/09', '2009/10', '2010/11', '2011/12', '2012/13', '2013/14']"
+    },
+    "ICD10_Code": {
+        "Size": 25,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['22', '?', '??', 'A15-A19', 'C00-C14', 'C15', 'C18-C20, C21', 'C22', 'C32', 'C50', 'E24.4', 'F10.0', 'F10.1', 'F10.2', 'F10.3', 'F10.4', 'F10.5', 'F10.6', 'F10.7', 'F10.8', 'F10.9', 'G31.2', 'G40-G41', 'G62.1', 'G72.1', 'I10-I15', 'I42.6', 'I47-I48', 'I60-I62, I69.0-I69.2', 'I63-I66, I69.3-I69.4', 'I85', 'J10-J11(.0), J12-J15, J18', 'K29.2', 'K70.0', 'K70.1', 'K70.2', 'K70.3', 'K70.4', 'K70.9', 'K73, K74', 'K85, K86.1', 'K85.2', 'K86.0', 'O03', 'P05-P07', 'Q86.0', 'R78.0', 'T51.0', 'T51.1', 'T51.9', 'W00-W19', 'W65-W74', 'X00-X09', 'X40?X49', 'X45', 'X60-X84, Y87.0 (excl X65)', 'X65', 'X85-Y09, Y87.1', 'Y10-Y34, Y87.2', 'Y15', 'Y90', 'Y91']"
+    },
+    "ICD10_Description": {
+        "Size": 70,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Accidental poisoning by and exposure to alcohol', 'Acute and chronic pancreatitis', 'Acute intoxication', 'Alcohol-induced acute pancreatitis', 'Alcohol-induced chronic pancreatitis', 'Alcohol-induced pseudo-Cushing?s syndrome', 'Alcoholic cardiomyopathy', 'Alcoholic cirrhosis of liver', 'Alcoholic fatty liver', 'Alcoholic fibrosis and sclerosis of liver', 'Alcoholic gastritis', 'Alcoholic hepatic failure', 'Alcoholic hepatitis', 'Alcoholic liver disease, unspecified', 'Alcoholic myopathy', 'Alcoholic polyneuropathy', 'Amnesic syndrome', 'Assault', 'Breast', 'Cardiac arrhythmias', 'Colorectal', 'Degeneration of nervous system due to alcohol', 'Dependence syndrome', 'Drowning', 'Epilepsy and Status epilepticus', 'Ethanol poisoning', 'Event of undetermined intent', 'Evidence of alcohol involvement determined by blood alcohol level', 'Evidence of alcohol involvement determined by level of intoxication', 'Excess alcohol blood levels', 'Fall injuries', 'Fetal alcohol syndrome (dysmorphic)', 'Fire injuries', 'Haemorrhagic stroke', 'Harmful use', 'Hypertensive diseases', 'Intentional self-harm', 'Intentional self-poisoning by and exposure to alcohol', 'Ischaemic stroke', 'Larynx', 'Lip, oral cavity and pharynx', 'Liver and intrahepatic bile ducts', 'Low birth weight', 'Methanol poisoning', 'Oesophageal varices', 'Oesophagus', 'Other mental and behavioural disorders due to the use of alcohol', 'Other unintentional injuries', 'Pneumonia', 'Poisoning', 'Poisoning by and exposure to alcohol, undetermined intent', 'Psychotic disorder', 'Residual and late-onset psychotic disorder', 'Road/Ped traffic accidents', 'Spontaneous abortion', 'Toxic effect of alcohol, unspecified', 'Tuberculosis', 'Unspecified liver disease', 'Unspecified mental and behavioural disorders due to the use of alcohol', 'Withdrawal state', 'Withdrawal state with delirium']"
+    },
+    "Classification": {
+        "Size": 6,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Broad', 'Narrow']"
+    },
+    "Metric_Primary": {
+        "Size": 54,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Alcoholic liver disease', 'Cancer', 'Cardiovascular disease', 'Digestive disease', 'Diseases of the nervous system', 'Infectious and parasitic diseases', 'Intentional injuries', 'Mental and behavioural disorders due to use of alcohol', 'Other', 'Pregnancy and childbirth', 'Respiratory infections', 'Toxic effect of alcohol', 'Unintentional injuries']"
+    },
+    "Metric_Secondary": {
+        "Size": 27,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Partly attributable acute', 'Partly attributable chronic', 'Wholly attributable']"
+    },
+    "Value": {
+        "Size": 6,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    }
 }

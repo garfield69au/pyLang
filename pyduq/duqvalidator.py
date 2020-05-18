@@ -56,10 +56,7 @@ class DUQValidator(AbstractDUQValidator):
         # expression evaluation is different to processing field specific validations as it could link in other columns from the resultset
         self.evaluateExpression(self.metadata[key], key)
 
-        print("Validating attribute \t'" + key + "'...\t\t..Profiling data...", end='\r')
-        # gather some statistical measurememnts for our column
-        self.profileData(self.metadata[key], self.dataset[key], key)
-        print("Validating attribute \t'" + key + "'...\t\t..Profiling data...\tComplete.")
+        print("Validating attribute \t'" + key + "'...\t\t..Complete.")
         
         
     def checkMandatory(self, meta_attribute_definition:dict, key:str, value:str):

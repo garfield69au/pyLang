@@ -1,5 +1,5 @@
 @echo off
-python ..\..\..\pyduq\pyduqmain.py -i wd.csv -m wd.json -o . -v
+python ..\..\..\pyduq\pyduqmain.py -i wd.csv -m wd.json -o . -v -p
 
 pause
 

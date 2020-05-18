@@ -44,24 +44,7 @@ class AbstractDUQValidator(abc.ABC):
         profile.profileData(meta_attribute_definition, colData, key)
         profile.setPosition(len(self.data_profile)+1)
         self.data_profile.append(profile.asDict())
-
-
-    def saveProfile(self:object, outputFile):
-        if (len(self.data_profile)>0):
-            workbook = Workbook(write_only=True)
-            sheet = workbook.create_sheet()
-            c=self.data_profile[0]
-            headers = list(c.keys())
-            sheet.append(headers)
-            
-            for x in self.data_profile:
-                sheet.append(list(x.values()))
         
-            workbook.save(filename=outputFile)
-            workbook.close()
-            del(sheet)
-            del(workbook)
-
 
     def saveCountersSummary(self:object, outputFile):
         workbook = Workbook(write_only=True)

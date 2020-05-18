@@ -1,16 +1,89 @@
 {
-    "Entity Type": {"Type": "string", "Size": 17, "Mandatory": true},
-    "License Number": {"Type": "string", "Size": 7, "Mandatory": true},
-    "Entity Name": {"Type": "string", "Size": 60, "Mandatory": true},
-    "Camis Trade Name": {"Type": "string", "Size": 46, "Mandatory": true},
-    "Address Bldg": {"Type": "string", "Size": 9, "Mandatory": true},
-    "Address Street Name": {"Type": "string", "Size": 29, "Mandatory": true},
-    "Address Location": {"Type": "string", "Size": 12, "Mandatory": true},
-    "Address City": {"Type": "string", "Size": 15, "Mandatory": true},
-    "Address State": {"Type": "string", "Size": 2, "Mandatory": true},
-    "Address Zip Code": {"Type": "string", "Size": 9, "Mandatory": true},
-    "Telephone Number": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Location": {"Type": "string", "Size": 90, "Mandatory": true}
+    "Entity Type": {
+        "Size": 17,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['ELECTRONICS STORE']"
+    },
+    "License Number": {
+        "Size": 7,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false
+    },
+    "Entity Name": {
+        "Size": 60,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Camis Trade Name": {
+        "Size": 46,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Address Bldg": {
+        "Size": 9,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Address Street Name": {
+        "Size": 29,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Address Location": {
+        "Size": 32,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Address City": {
+        "Size": 15,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['ASTORIA', 'BAYSIDE', 'BELLE HARBOR', 'BELLEROSE', 'BKLYN', 'BRONX', 'BROOKLYN', 'BROOKLYUN', 'BROOKYN', 'BROOLYN', 'BROXN', 'COLLEGE POINT', 'CORONA', 'DOUGLASTON', 'EAST ELMHURST', 'EAST ELNHURST', 'ELMHURST', 'ELNHURST', 'FAR ROCKAWAY', 'FLORAL PARK', 'FLUSHING', 'FOREST HILLS', 'FRESH MEADOOWS', 'FRESH MEADOWS', 'GLENDALE', 'HOLLIS', 'HOWARD BEACH', 'JACKSON HEIGHTS', 'JACKSON HGHTS', 'JACKSON HGTS', 'JACKSON HTS', 'JAMAICA', 'JAMAICA AVENUE', 'JAMAICIA', 'JAMIACA', 'KEW GARDENS', 'LAURELTON', 'LIC', 'LITTLE NECK', 'LONG IS. CITY', 'LONG ISLAND CIT', 'LONG ISLAND CIY', 'LONG ISLAND CTY', 'LONG ISLND CITY', 'LONG ISND CITY', 'MANHATTAN', 'MASPETH', 'MIDDLE VILLAGE', 'NEW HYDE PARK', 'NEW YORK', 'NEW YORK CITY', 'NEW YORY', 'NY', 'NY NY', 'OZON PARK', 'OZONE PARK', 'QUEENS', 'QUEENS VILLAGE', 'QUUENS', 'REGO PARK', 'RICHMOND HILL', 'RICHMOND HILLS', 'RICMOND HILL', 'RIDGEWOOD', 'RIDGWOOD', 'ROCKAWAY PARK', 'ROSEDALE', 'S OZONE PARK', 'S RICHMOMD HILL', 'S RICHMOND', 'S RICHMOND HILL', 'S. OZONE PARK', 'SAINT ALBANS', 'SO OZONE PARK', 'SO RICHMOND HIL', 'SO.OZONE PARK', 'SOUTH OZONE PK', 'SOUTH RICHMOND', 'SPRINGFIELD GDN', 'SPRINGFIELD GND', 'ST ALBANS', 'ST. ALBANS', 'STATEN ISLAND', 'SUNNY SIDE', 'SUNNYSIDE', 'TORIA', 'VALLEY STREAM', 'WHITESTONE', 'WILLIASMBURG', 'WOODHAVEN', 'WOODSIDE']"
+    },
+    "Address State": {
+        "Size": 2,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['NY']"
+    },
+    "Address Zip Code": {
+        "Size": 9,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false
+    },
+    "Telephone Number": {
+        "Size": 10,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false
+    },
+    "Location": {
+        "Size": 87,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    }
 }
-
-

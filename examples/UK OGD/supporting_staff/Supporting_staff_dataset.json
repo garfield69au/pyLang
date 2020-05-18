@@ -1,15 +1,103 @@
 {
-    "Post unique reference": {"Type": "integer", "Size": 16, "Mandatory": false, "AllowBlank": false},
-    "Name": {"Type": "string", "Size": 26, "Mandatory": false, "AllowBlank": false},
-    "Grade": {"Type": "string", "Size": 20, "Mandatory": false, "AllowBlank": false},
-    "Job Title": {"Type": "string", "Size": 93, "Mandatory": false, "AllowBlank": false},
-    "Job/Team Function": {"Type": "string", "Size": 1100, "Mandatory": false, "AllowBlank": false},
-    "Parent Department": {"Type": "string", "Size": 24, "Mandatory": false, "AllowBlank": false},
-    "Organisation": {"Type": "string", "Size": 24, "Mandatory": false, "AllowBlank": false},
-    "Unit": {"Type": "string", "Size": 30, "Mandatory": false, "AllowBlank": false},
-    "Contact phone": {"Type": "string", "Size": 20, "Mandatory": false, "AllowBlank": false},
-    "Contact e-mail": {"Type": "string", "Size": 34, "Mandatory": false, "AllowBlank": false},
-    "Reports To": {"Type": "string", "Size": 90, "Mandatory": false, "AllowBlank": false},
-    "Notes": {"Type": "string", "Size": 3, "Mandatory": false, "AllowBlank": false}
+    "Post unique reference": {
+        "Size": 16,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": true
+    },
+    "Name": {
+        "Size": 26,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['AM C M Nickols', 'AM T Anderson', 'AVM B Bates', 'AVM C Ness', 'AVM P EVANS', 'AVM R Lock', 'Al Rymer', 'Amjad Hussain', 'Bill Moore', 'Bruce Houlder QC', 'CAROLE TOLLEY', 'DOMINIC WILSON', 'David Capewell', 'David Murray', 'Evans, Jonathan', 'F C Nash', 'Gavin Barlow', 'Gen Nicholas Houghton', 'Greg Smith', 'Hutchinson, Mark', 'JOHN PITT-BROOKE', 'JONATHAN THOMPSON', 'Jarvis, Jeremy Charles', 'John Taylor', 'Jon Day', 'Jonathan Shaw', 'Kathy Barnes', 'Love, Stephen', 'Lt Gen AJN Graham', 'M Greatwich', 'Maj Gen RAM Melvin', 'Maj Gen S ANDREWS', 'Maj-Gen J Thomas', 'Mantell, Carl Nicholas', 'Mark Welland', 'Michael Harwood', 'Mr A Manley', 'Mr J P Colston', 'Mr N B Gurr', 'Mrs Susanna Mason', 'PAUL COLLEY', 'Paul Lambert', 'Peter Ryan', 'Peter Sankey', 'Preston, Mark', 'Prof Philip Sutton', 'R ADM S Williams', 'R Adm S Charlier', 'Scholefield, Susan', 'Simon Mayall', 'Sir Bill Jeffrey', 'Sir Jock Stirrup', 'Sir William Rollo', 'Stephens,David James Edwin', 'Steve Hillier', 'Style, Charles Rodney', 'Surg R Adm L  JARVIS', 'Surg V Adm P RAFFAELLI', 'TOM MCKANE', 'Ursula Brennan', 'VACANT']"
+    },
+    "Grade": {
+        "Size": 20,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['OF6', 'OF7', 'OF8', 'OF9', 'SCS 1 (Acting SCS 2)', 'SCS1', 'SCS1/Air Cdre', 'SCS2', 'SCS3', 'SCS4']"
+    },
+    "Job Title": {
+        "Size": 93,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Job/Team Function": {
+        "Size": 1090,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Parent Department": {
+        "Size": 24,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Commander-in-Chief Fleet', 'Ministry of Defence']"
+    },
+    "Organisation": {
+        "Size": 24,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Commander-in-Chief Fleet', 'Ministry of Defence']"
+    },
+    "Unit": {
+        "Size": 29,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Central Top Level Budget', 'Land Forces', 'Permanent Joint HQ', 'Service Prosecution Authority']"
+    },
+    "Contact phone": {
+        "Size": 19,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['020 721 8 2724/0199', '020 7218 1396', '0207 218 1561', '0207 218 2636', '0207 218 3024', '0207 218 5740', '0207 218 6057', '0207 218 7394', '0207 2184799', '0207 807 8213', '02392 702088', '?020 712 8 2724']"
+    },
+    "Contact e-mail": {
+        "Size": 34,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['CE@SPVA.MOD.UK', 'CIO-SecPlans@mod.uk', 'CLS-Group-Mailbox-Office@MOD.UK', 'DCDS PERS-DCDS-SHARED MAILBOX', 'DCDS PERS-DTEGPMAILBOX (MULTIUSER)', 'DGStrat-BusMan@mod.uk', 'DMC-BMBusinessManager@mod.uk', 'DRFC-Office (MULTIUSER)', 'DST-BM@mod.uk', 'MAA-EnquiriesMailbox@mod.uk', 'maa-dgmaa@mod.uk']"
+    },
+    "Reports To": {
+        "Size": 88,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['00005654 - 2nd Permanent Under Secretary', '00005654 PERMANANENT UNDER SECRETARY OF STATE', '00100916 CCMDP', '00104016 - 2nd PUS', '00104016 2ndPUS', '00104017 DGHRCS', '00104018 DCP', '00105227 Chief Scientific Advisor', '00105238 DIRECTOR SCRUTINY', '00106000 DIRECTOR GENERAL FINANCE', '00106008 DIRECTOR FINANCIAL MANAGEMENT', '00106029 - CTLB Director', '00107359 DIRECTOR ANALYTICAL SERVICES AND ADVICE', '00111789 DBR', '00135736 - Director Equipment Resources', '00137261 - Director of Media and Communications', '0016039 DIRECTOR (STRATEGY AND RESOURCES)', '00163901 - Director General Defence Commercial', '00179598 DIRECTOR GENERAL STRATEGY', '104016', '104016 2nd PUS', '1047423 - DCDS(Capability)', '105234 Defence Science & Technology Strategic Technologies Director', '105515', '1055224 ASSISTANT CHIEF OF DEFENCE STAFF (STRATEGY AND PLANS)', '1056166 - Deputy Chief Defence Staff (Personnel & Training)', '1056170 - Assistant Chief Defence Staff (Personnel) / Defence Services Secretary', '1056191', '1056191 - VCDS', '1056191 - Vice Chief of the Defence Staff', '1056195 - Director Training Education', '1057629 ASSISTANT CHIEF OF DEFENCE STAFF (DEVELOPMENT, CONCEPTS AND DOCTRINE)', '1058711', '1058719', '106181 - Director Service Personnel Policy', '1062997 - DEFAC-JSCSC HQ COMDT', '1063013 - DEFAC-HQ-DIRECTOR GENERAL', '109463 - DEFAC-HQ-DIRECTOR GENERAL', '1105905 - Director (Precision Attack)', '1107045 - Assistant Chief Defence Staff (Reserves & Cadets)', '116270 - DEFAC-RCDS-COMMANDANT', '126084', '1364692 - Comd JMC - AVM P Evans', '139073', '1431838 - Director (Battlespace Maneouvre)', '1448387 - Chief Executive Service Personnel & Veterans Agency', '154906 - DEFAC-CMT-HQ DIRECTOR', '155792', '155805', '1565824 - Director (Information Superiority)', '1568418 - ACDS (H) - Surg R Adm L  JARVIS', '1596460 - DSC - Maj S Gen Andrews', '1597768 - SG - Surg V Adm P RAFFAELLI', '1608729 - DEFAC-CMT-HQ DIRECTOR', '170956 - DEFAC-RCDS-SDS 3', '179774 - Director Service Prosecution Authority', '185281 Director Tech Group Military Aviation Authority', '191185 Director General Military Aviation Authority', '191191 Director Op Group Military Aviation Authority', '2PUS', '2nd PUS', '5654', 'Assistant Chief of Defence Staff International Security Policy', 'Assistant Chief of Defence Staff Operations', 'Assistant Chief of Defence Staff Operations/Director Operational Policy', 'CIO', 'Commander Second Fleet (Director CJOS COE)', 'Deputy Chief of Defence Staff Operations: Director General Security Policy & Operations', 'Director General Security Policy', 'Director General Security Policy & Operations: Deputy Chief of Defence Staff Operations:', 'Director General Security Policy & Operations:Deputy Chief of Defence Staff Operations:', 'Director International Acquisition Policy', 'Director International Security Policy', 'Director Judicial Engagement Policy', 'Head British Defence Staff - United States', 'Mark Preston - Director Business Resilience', 'MinAF/VCDS', 'Minister (Defence Materiel)', 'VCDS', 'Vice Chief Defence Staff / 2nd Permanent Under Secretary', 'Vice Chief of Defence Staff']"
+    },
+    "Notes": {
+        "Size": 0,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false,
+        "Enum": "[]"
+    },
+    "": {
+        "Size": 19,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['not on junior sheet']"
+    }
 }
-

@@ -1,17 +1,97 @@
 {
-    "Operator_Name": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Operator_Legal_Form": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Operator_Licence_Number": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Operator_Address": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Operator_Post_Code": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Operator_Town": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Operator_Country": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Operator_Licence_Type": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Operator_Vehicles_Authorised": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Community_Licence_Number": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Transport_Manager_First_Name": {"Type": "string", "Size": 10, "Mandatory": true},
-    "Transport_Manager_Surname": {"Type": "string", "Size": 10, "Mandatory": true}
+    "Operator_Name": {
+        "Size": 70,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Operator_Legal_Form": {
+        "Size": 18,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Partnership', 'Public Authority', 'Registered Company', 'Sole Trader']"
+    },
+    "Operator_Licence_Number": {
+        "Size": 9,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Operator_Address": {
+        "Size": 106,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Operator_Post_Code": {
+        "Size": 17,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Operator_Town": {
+        "Size": 23,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Operator_Country": {
+        "Size": 12,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['BOTHWELL\"', 'BRIGG', 'CO5 8LT', 'CO8 5ER', 'DH9 9BB', 'GL15 4RT', 'IE', 'LE67 1AP', 'LN6 5SA', 'NL', 'PA37 1PT', 'PR7 5LF', 'SG19 3DA', 'ST. ANDREWS\"', 'TREORCHY', 'UK', 'WORMIT\"']"
+    },
+    "Operator_Licence_Type": {
+        "Size": 41,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['BURES', 'CHORLEY', 'COALVILLE', 'Community licence for goods transport', 'Community licence for passenger transport', 'DD6 8PG', 'G71 8DA', 'LINCOLN', 'LYDNEY', 'National licence for goods transport', 'National licence for passenger transport', 'OBAN', 'PE14 7LU', 'SANDY', 'STANLEY', 'UK', 'WEST MERSEA']"
+    },
+    "Operator_Vehicles_Authorised": {
+        "Size": 41,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Community_Licence_Number": {
+        "Size": 41,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Transport_Manager_First_Name": {
+        "Size": 37,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Transport_Manager_Surname": {
+        "Size": 20,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "": {
+        "Size": 9,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['GILLESPIE', 'IZETT', 'PATERSON', 'PITCHER']"
+    }
 }
-
-
-

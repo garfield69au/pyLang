@@ -1,86 +1,88 @@
 {
-    "person_id_nbr": 
-        {
-            "Type": "int",
-            "Size": 5,
-            "Mandatory": true,
-            "Unique": true
-        },
-    "surname":
-        {
-            "Type": "string",
-            "Size": 200,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "given_name":
-        {
-            "Type": "string",
-            "Size": 70,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "year":
-        {
-            "Type": "int",
-            "Size": 4,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "place":
-        {
-            "Type": "string",
-            "Size": 120,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "title":
-        {
-            "Type": "string",
-            "Size": 30,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "reference":
-        {
-            "Type": "string",
-            "Size": 50,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "volume":
-        {
-            "Type": "string",
-            "Size": 10,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "bundle":
-        {
-            "Type": "string",
-            "Size": 50,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "petition":
-        {
-            "Type": "int",
-            "Size": 8,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "microfilm":
-        {
-            "Type": "string",
-            "Size": 15,
-            "Mandatory": false,
-            "AllowBlank": true
-        },
-    "page":
-        {
-            "Type": "string",
-            "Size": 25,
-            "Mandatory": false,
-            "AllowBlank": true
-        }
+    "person_id_nbr": {
+        "Size": 5,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false
+    },
+    "surname": {
+        "Size": 186,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "given_name": {
+        "Size": 69,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "year": {
+        "Size": 22,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "place": {
+        "Size": 116,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "title": {
+        "Size": 27,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['0', 'Upper Canada Land Petitions']"
+    },
+    "reference": {
+        "Size": 48,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['0', 'RG 1 L3', 'RG 5 A1, Land Petitions in Upper Canada Sundries']"
+    },
+    "volume": {
+        "Size": 10,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "bundle": {
+        "Size": 44,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "petition": {
+        "Size": 8,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "microfilm": {
+        "Size": 15,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "page": {
+        "Size": 25,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    }
 }

@@ -45,8 +45,12 @@ from pyduq.duqvalidator import DUQValidator
 from pyduq.patterns import Patterns
 from pyduq.langerror import ValidationError
 from pyduq.filetools import FileTools
+from pyduq.dataprofile import DataProfile
 
 class pyDUQMain(object):
+
+    metaData = {}
+    dataset = {}
     
     def loadSQL(self, URI:str, query:str):
         cnxn = pyodbc.connect(URI)
@@ -56,6 +60,10 @@ class pyDUQMain(object):
 
     def loadMeta(self, metaFilename:str):
         self.metaData = FileTools.JSONtoMeta(metaFilename)        
+
+    def inferMeta(self, outputFolder:str):
+        self.metaData = FileTools.inferMeta(self.dataset)
+        FileTools.MetatoJSONFile("meta.json", self.metaData)
 
     def loadCSV(self, inputFilename:str):
         self.dataset = FileTools.csvFileToDict(inputFilename)
@@ -67,7 +75,6 @@ class pyDUQMain(object):
             lang_validator = DUQValidator(self.dataset, self.metaData)
             lang_validator.validate()
             lang_validator.saveCounters(outputFolder + "\\counters.xlsx")
-            lang_validator.saveProfile(outputFolder + "\\profile.xlsx")
             lang_validator.saveCountersSummary(outputFolder + "\\counters_summary.xlsx")
             
             print("Completed in " + str(time.time() - stime) + " secs")
@@ -75,8 +82,19 @@ class pyDUQMain(object):
         except ValidationError as e:
             print (e)
 
-    def profile(self, inputFilename:str, outputFilename:str):
-        pass
+
+    def profile(self, outputFolder:str):
+        try:
+            stime = time.time()
+            
+            data_profile = DataProfile().profile(self.metaData, self.dataset)
+            FileTools.saveProfile(outputFolder + "\\profile.xlsx", data_profile)
+            
+            print("Completed in " + str(time.time() - stime) + " secs")
+
+        except ValidationError as e:
+            print (e)
+
     
     def customValidate(self, full_class_string:str):        
         """
@@ -110,6 +128,7 @@ class pyDUQMain(object):
     
         
 def main(argv):
+    pl = pyDUQMain()
     inputFile = ""
     outputFolder = ""
     metaFile = ""
@@ -123,7 +142,6 @@ def main(argv):
     my_parser.add_argument('-i',
                            '--ifile',
                            type=str,
-                           required=False,
                            help='the path and name of the input data file.')
 
     my_parser.add_argument('-o',
@@ -140,7 +158,6 @@ def main(argv):
                            '--sql',
                            nargs=2,
                            type=str,
-                           required=False,
                            help='the database connection string and SQL query')
                            
 
@@ -154,6 +171,15 @@ def main(argv):
                            action="store_true",
                            help='validate the data.')
 
+    my_parser.add_argument('--infer',
+                           action="store_true",
+                           help='Generate metadata.')
+
+    my_parser.add_argument('--verbose',
+                           action="store_true",
+                           help='Generate verbose output.')
+
+
     # Execute parse_args()
     args = my_parser.parse_args()
 
@@ -162,41 +188,45 @@ def main(argv):
     outputFolder = args.ofolder
     profileFlag = args.profile
     validateFlag = args.validate
-    
-    if (args.sql is not None):
-        sqlURI = args.sql[0]
-        sqlQuery = args.sql[1]
-    
+    inferFlag = args.infer
+    __verbose__ = args.verbose
+        
     if ((not inputFile is None) and (len(inputFile)>0)):
         if not os.path.isfile(inputFile):
             print("The input file '" + inputFile + "' does not exist")
-            sys.exit()
-
-    if not os.path.isfile(metaFile):
-        print("The metaData-data file '" + metaFile + "' does not exist")
-        sys.exit()
-
-    pl = pyDUQMain()
-    
-    if (validateFlag):
-        pass
+            sys.exit(1)
+    else:
+        if (args.sql is not None):
+            sqlURI = args.sql[0]
+            sqlQuery = args.sql[1]
+        else:
+            print("You must provide either an input file OR SQL connection and query. Run pyduqmain.py -h for help.")
+            sys.exit(1)            
         
-    pl.loadMeta(metaFile)
-    
     if (len(sqlURI) >0 ):
         pl.loadSQL(sqlURI, sqlQuery)
     elif (len(inputFile)>0):
         pl.loadCSV(inputFile)
 
+    if (not metaFile is None):
+        if (not os.path.isfile(metaFile)):
+            print("The metaData-data file '" + metaFile + "' does not exist")
+            sys.exit(1)
+        pl.loadMeta(metaFile)
+    else:
+        if (not inferFlag):
+            print("No metadata file was supplied - schema will be inferred from the dataset.")
+        pl.inferMeta(outputFolder)
+
     if (validateFlag):
         pl.validate(outputFolder)
-    
+
     if (profileFlag):
         pl.profile(outputFolder)
-        
+    
     #pyDUQMain.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
     
-    sys.exit()
+    sys.exit(0)
 
 
 if  __name__ =='__main__':

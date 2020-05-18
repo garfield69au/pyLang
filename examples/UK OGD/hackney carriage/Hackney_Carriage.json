@@ -1,11 +1,69 @@
 {
-    "Licence number": {"Type": "int", "Size": 5, "Mandatory": true},
-    "Licence Type": {"Type": "string", "Size": 30, "Mandatory": true},
-    "Status": {"Type": "string", "Size": 17, "Mandatory": true, "Enum": "['0', 'Licence Issued', 'Licence Suspended']"},
-    "Date licence issued": {"Type": "date", "Size": 18, "Mandatory": true},
-    "Date licence expires": {"Type": "date", "Size": 18, "Mandatory": true},
-    "Vehicle Type": {"Type": "string", "Size": 33, "Mandatory": true},
-    "Vehicle Registration Number": {"Type": "string", "Size": 8, "Mandatory": true},
-    "Vehicle Colour": {"Type": "string", "Size": 17, "Mandatory": true},
-    "Operator/Association": {"Type": "string", "Size": 36, "Mandatory": true}
+    "Licence number": {
+        "Size": 5,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Licence Type": {
+        "Size": 30,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['Contract Vehicle Permit', 'Hackney Carriage Vehicle', 'Private Hire Executive Vehicle', 'Private Hire Novelty Vehicle', 'Private Hire Vehicle']"
+    },
+    "Status": {
+        "Size": 17,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['0', 'Licence Issued', 'Licence Suspended']"
+    },
+    "Date licence issued": {
+        "Size": 18,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Date licence expires": {
+        "Size": 13,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Vehicle Type": {
+        "Size": 33,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Vehicle Registration Number": {
+        "Size": 8,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Vehicle Colour": {
+        "Size": 17,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['134', '197', '29', '64', 'ARCTIC STEEL', 'B &  W', 'B & W', 'B / W', 'B& W', 'B&W', 'B/ W', 'B/W', 'B/White', 'B/w', 'BEIGE', 'BKLACK/WHITE', 'BLACK', 'BLACK & WHITE', 'BLACK &WHITE', 'BLACK& WHITE', 'BLACK&WHITE', 'BLACK/BLUE', 'BLACK/WHITE', 'BLUE', 'BRONZE', 'BROWN', 'BW', 'Ba&W', 'Balck/White', 'Beige', 'Black', 'Black & White', 'Black And White', 'Black&White', 'Black/White', 'BlackWhite', 'Blue', 'Brown', 'COSMIC GREY', 'GOLD', 'GRAY', 'GREEN', 'GREY', 'Green', 'Grey', 'MAROON', 'MAUVE/PURPLE', 'MOONDUST SILVER', 'MOONDUSTSILVER', 'Maroon', 'ORANGE', 'PURPLE', 'Pearl Black', 'RED', 'Red', 'Royal Blue', 'SB1ZS3JE10E117591', 'SIILVER', 'SILVER', 'SIVER', 'SilVER', 'Silver', 'TURQUOISE', 'Turquoise', 'WHIE', 'WHITE', 'White', 'White/b', 'White/black', 'YELLOW', 'Yellow', 'b&w', 'b/w', 'black', 'black/white', 'blue', 'grey', 'red', 'sILVER', 'sillver', 'silver', 'wHITE', 'white']"
+    },
+    "Operator/Association": {
+        "Size": 36,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": "['1st Apollo / A Metro Cars', '2', 'A1 LEEDS', 'A1 Leeds', 'AB Cars', 'ASAP', 'Abbey Private Hire', 'Ace Cars Leeds Ltd', 'Aireline/Holbeck Line', 'Airport Services', 'Amber Cars', 'Apex Cars', 'Ardsley Cars', 'Arrow', 'Beeston Line', 'Blue Line', 'Bramham Private Hire', 'CSC Executive', 'Call A Car', 'Chevin Cars', 'City Cabs', 'Club Cars', 'Dees', 'Deighton Cars', 'Diamond Class Executive Chauffeur', 'Drive Time', 'Easy Travel', 'Eurocabs', 'First Lady And Homelinks', 'Fly Away', 'G And M Cars', 'Gee Gee Cars', 'Geo Cars 3 (HQ)', 'Highways Private Hire', 'ITS Roadrunners', 'Independent', 'Independent City Taxis', 'Independent Hackney Carriage', 'Independent Private Hire', 'Interline', 'Intime Private Hire', 'Jerome Private Hire', 'Just Bus', 'Kirkstall Cars', 'Ladyline / Phoenix Cars Leeds Ltd', 'Leeds Alternative Travel', 'Local Cars (Morley)', 'MBS Ltd Yorkshire Trikes Tours', 'MC Chauffeurs Executive', 'Morley Cars', 'Morley Central Line', 'NOT WORKING', 'Network Cars', 'New Armley Cars', 'New Furlongs', 'New Yellow Cars', 'Otley Private Hire', 'Premier Licensed Private Hire', 'Pudsey B Line', 'Rhodes Ahead', 'Rollinson Safeway Ltd', 'Rothwell Line', 'Royal Cars/New Royal Cars', 'SJK Travel2Airport.com', 'South Leeds', 'Speed Line', 'Stanningley Cars Ltd', 'Star Supreme Line', 'Station Taxis', 'Streamline - Telecars (PH Operation)', 'Streamline/Telecabs', 'T And T Travel', 'T Line', 'ThreeSixteen Aiport And Exec', 'Time Line', 'UBER', 'Wetherby Cars', 'Wheels', 'White Rose Cars', 'Yeadon Licensed Private Hire']"
+    }
 }

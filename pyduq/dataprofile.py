@@ -50,8 +50,22 @@ class DataProfile(object):
         self.defaultValue = ""
         self.csim=0.0
 
+    
+    def profile(self, metadata:dict, dataset:dict) ->list:
+        if (metadata is None):
+            raise ValidationError("LANG Exception: meta-data has not been set", None)
+        elif (dataset is None):
+            raise ValidationError("LANG Exception: resultset has not been set", None)
+    
+        p = []
+        
+        for meta_attribute_key in metadata.keys():
+            p.append(DataProfile().profileData(metadata[meta_attribute_key], dataset[meta_attribute_key], meta_attribute_key))
+    
+        return p
 
-    def profileData(self, meta_attribute_definition:dict, colData:list, key:str):
+
+    def profileData(self, meta_attribute_definition:dict, colData:list, key:str) ->dict:
         """
         For a given column, calculate a variety of statistics.
         """
@@ -142,6 +156,7 @@ class DataProfile(object):
             self.stddev = statistics.stdev(vals)
             self.variance = statistics.variance(vals)
         
+        return self.asDict()
     
     def cosine_sim_vectors(self, vec1, vec2) -> float:
         vec1 = vec1.reshape(1, -1)

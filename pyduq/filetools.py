@@ -4,10 +4,11 @@ import dicttoxml
 from xml.dom.minidom import parseString
 from pyduq.langerror import ValidationError
 from unidecode import unidecode
+from openpyxl import Workbook
 
 class FileTools(object):
-    """
-    FileTools: This is a utility class to help manage data files.
+    """ FileTools: 
+    This is a utility class to help manage data files.
     The file is expected to be in a CSV format with a header row.
     Note: This could be replaced by Pandas
     """
@@ -74,3 +75,88 @@ class FileTools(object):
                 return unidecode(s)
         else:
           return s
+
+    @staticmethod
+    def inferMeta(dataset:dict) ->dict:
+        meta = {}
+    
+        print("Infering the metadata...","\r")
+
+        for attribute_key, attributes in dataset.items():
+            print("Analysing the data...\t" + attribute_key)
+
+            metarow = {}
+            
+            isMandatory = True
+            isInt = True
+            isFloat = True
+            isBool = True
+            isDate = True
+            
+            seen=set()
+            size=0
+
+                        
+            for value in attributes:                
+                #check to see if there are any blanks or nulls in order to determine if values are mandatory
+                if (len(value)==0 or value == "(Null)"):
+                    isMandatory = False
+                else: 
+                    #this will help determine if there are any duplicates                
+                    if (not value in seen):
+                        seen.add(value)
+
+                    #calculate the size of the column
+                    if (len(value)>size):
+                        size = len(value)
+                    
+                    #test for integer
+                    try:
+                        int(value)
+                    except Exception as e:
+                        isInt = False
+
+                    #test for float
+                    try:
+                        float(value)
+                    except Exception as e:
+                        isFloat = False
+                    
+                    if (not value.lower() in ["0","1","no","yes","false","true"]):
+                        isBool = False
+            
+                    if (not attribute_key.lower().find("date")):
+                        isDate = False
+            
+            metarow["Size"] = size
+            metarow["Mandatory"] = isMandatory
+            metarow["AllowBlank"] = not isMandatory
+            metarow["Type"] = ("integer" if isInt else "float" if isFloat else "boolean" if isBool else "date" if isDate else "string")
+            metarow["Unique"] = (len(seen) == len(attributes))
+
+            #if we have a small number of items in our seen set then lets presume this is an enumerated attributed
+            #note - there is no minimum number of set elements - an alternative approach is to capture the top n repeating strings -
+            #but you're likely to get the same outcome
+            if (len(seen)< 100):
+                metarow["Enum"] = str(sorted(list(seen)))
+            
+            meta[attribute_key]=metarow
+            
+        return meta
+    
+    @staticmethod
+    def saveProfile(outputFile, data_profile:list):
+        if (len(data_profile)>0):
+            workbook = Workbook(write_only=True)
+            sheet = workbook.create_sheet()
+            c=data_profile[0]
+            headers = list(c.keys())
+            sheet.append(headers)
+            
+            for x in data_profile:
+                sheet.append(list(x.values()))
+        
+            workbook.save(filename=outputFile)
+            workbook.close()
+            del(sheet)
+            del(workbook)

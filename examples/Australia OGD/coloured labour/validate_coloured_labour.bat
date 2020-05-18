@@ -1,4 +1,4 @@
-python ..\..\..\pyduq\pyduqmain.py -i colouredlabour.csv -m colouredlabour.json -o . -v
+python ..\..\..\pyduq\pyduqmain.py -i colouredlabour.csv -m colouredlabour.json -o . -v -p
 pause
 
 
