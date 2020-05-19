@@ -40,6 +40,7 @@ import importlib
 import argparse
 import pyodbc
 import time
+from pyduq.AbstractDUQValidator import AbstractDUQValidator
 from pyduq.SQLTools import SQLTools
 from pyduq.duqvalidator import DUQValidator
 from pyduq.patterns import Patterns
@@ -68,12 +69,15 @@ class pyDUQMain(object):
     def loadCSV(self, inputFilename:str):
         self.dataset = FileTools.csvFileToDict(inputFilename)
     
-    def validate(self, outputFolder:str):
+    def validate(self, outputFolder:str, customValidator:str=""):
         try:
             stime = time.time()
      
             lang_validator = DUQValidator(self.dataset, self.metaData)
             lang_validator.validate()
+            if ((not customValidator is None) and (len(customValidator) > 0)):
+                lang_validator.counters.extend(self.customValidate(customValidator))
+
             lang_validator.saveCounters(outputFolder + "\\counters.xlsx")
             lang_validator.saveCountersSummary(outputFolder + "\\counters_summary.xlsx")
             
@@ -98,9 +102,8 @@ class pyDUQMain(object):
     
     def customValidate(self, full_class_string:str):        
         """
-        dynamically load a class from a string
+        dynamically load a class from a string in the format '<root folder>.<module filename>.<ClassName>'
         """
-
         class_data = full_class_string.split(".")
         module_path = ".".join(class_data[:-1])
         class_str = class_data[-1]
@@ -111,20 +114,16 @@ class pyDUQMain(object):
             # Finally, we retrieve the Class
             custom_validator = getattr(module, class_str)
         except ImportError as e:
-            print("Unable to load: " + class_str + '\n')
-            print(e)
-            return
+            raise(Exception("Unable to load: " + class_str + '\n'))
         
-        dataset = dict()
-        metaData = dict()
-
         if (not issubclass(custom_validator, AbstractDUQValidator)):
             raise(Exception("The custom validator '" + full_class_string + "' must inherit AbstractDUQValidator."))
         
-        obj = custom_validator(dataset, metaData)
+        obj = custom_validator(self.dataset, self.metaData)
                 
         obj.validate()
-        print(obj.counters)
+
+        return obj.counters
     
         
 def main(argv):
@@ -160,6 +159,10 @@ def main(argv):
                            type=str,
                            help='the database connection string and SQL query')
                            
+    my_parser.add_argument('-c',
+                           '--custom',
+                           type=str,
+                           help='The class path and name of a custom validator.')
 
     my_parser.add_argument('-p',
                            '--profile',
@@ -190,7 +193,9 @@ def main(argv):
     validateFlag = args.validate
     inferFlag = args.infer
     __verbose__ = args.verbose
-        
+    customValidator = args.custom
+
+    
     if ((not inputFile is None) and (len(inputFile)>0)):
         if not os.path.isfile(inputFile):
             print("The input file '" + inputFile + "' does not exist")
@@ -219,13 +224,11 @@ def main(argv):
         pl.inferMeta(outputFolder)
 
     if (validateFlag):
-        pl.validate(outputFolder)
+        pl.validate(outputFolder, customValidator)
 
     if (profileFlag):
         pl.profile(outputFolder)
-    
-    #pyDUQMain.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
-    
+        
     sys.exit(0)
 
 
