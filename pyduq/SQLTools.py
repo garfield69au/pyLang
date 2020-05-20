@@ -1,10 +1,9 @@
 import pyodbc
 from prettytable import PrettyTable
-from pyduq.langerror import ValidationError
+from pyduq.duqerror import ValidationError
 
 class SQLTools(object):
-    """
-    SQLTools: This is a utility class to help manage SQL resultsets.
+    """ SQLTools: This is a utility class to help manage SQL resultsets.
     Note: This could be replaced by Pandas
     """
 
@@ -28,23 +27,23 @@ class SQLTools(object):
         return str(pt)
 
     @staticmethod
-    def resultsetToDict(cursor):
+    def resultsetToDict(cursor) -> dict:
         """
         method resultsetToDict:
         Converts a SQL result set into a dictionary of lists keyed on the column name.
         """
-        data = dict()
+        data = {}
 
         # Get a list of the column names returned from the query
         columns = [column[0] for column in cursor.description]
-     
+                    
         resultset = cursor.fetchall()
         colindex = 0
      
         for col in columns:
             data[col]= [("(Null)" if row[colindex] is None else str(row[colindex]).strip()) for row in resultset]            
             colindex += 1
-        
+   
         return data
     
     

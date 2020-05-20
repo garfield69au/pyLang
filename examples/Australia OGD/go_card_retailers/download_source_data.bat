@@ -1,0 +1,1 @@
+curl -s https://translink.com.au/sites/default/files/assets/resources/about-translink/open-data/go-card-retailer-locations.csv -O

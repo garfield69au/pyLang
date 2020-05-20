@@ -40,48 +40,70 @@ import importlib
 import argparse
 import pyodbc
 import time
-from pyduq.pyduq.SQLTools import SQLTools
-from pyduq.pyduq.duqvalidator import DUQValidator
-from pyduq.pyduq.patterns import Patterns
-from pyduq.pyduq.langerror import ValidationError
-from pyduq.pyduq.filetools import FileTools
+from pyduq.AbstractDUQValidator import AbstractDUQValidator
+from pyduq.SQLTools import SQLTools
+from pyduq.duqvalidator import DUQValidator
+from pyduq.patterns import Patterns
+from pyduq.langerror import ValidationError
+from pyduq.filetools import FileTools
+from pyduq.dataprofile import DataProfile
 
 class pyDUQMain(object):
+
+    metaData = {}
+    dataset = {}
     
     def loadSQL(self, URI:str, query:str):
         cnxn = pyodbc.connect(URI)
         cursor = cnxn.cursor()
         cursor.execute(query) 
-        self.dataset = SQLTools(cursor).rs
+        self.dataset = SQLTools(cursor).dataset
 
     def loadMeta(self, metaFilename:str):
-        self.meta = FileTools.JSONtoMeta(metaFilename)        
+        self.metaData = FileTools.JSONtoMeta(metaFilename)        
+
+    def inferMeta(self, outputFolder:str):
+        self.metaData = FileTools.inferMeta(self.dataset)
+        FileTools.MetatoJSONFile("meta.json", self.metaData)
 
     def loadCSV(self, inputFilename:str):
         self.dataset = FileTools.csvFileToDict(inputFilename)
     
-    def validate(self, outputFolder:str):
+    def validate(self, outputFolder:str, customValidator:str=""):
         try:
             stime = time.time()
      
-            lang_validator = DUQValidator(self.dataset, self.meta)
+            lang_validator = DUQValidator(self.dataset, self.metaData)
             lang_validator.validate()
+            if ((not customValidator is None) and (len(customValidator) > 0)):
+                lang_validator.counters.extend(self.customValidate(customValidator))
+
             lang_validator.saveCounters(outputFolder + "\\counters.xlsx")
-            lang_validator.saveProfile(outputFolder + "\\profile.xlsx")
+            lang_validator.saveCountersSummary(outputFolder + "\\counters_summary.xlsx")
             
             print("Completed in " + str(time.time() - stime) + " secs")
 
         except ValidationError as e:
             print (e)
 
-    def profile(self, inputFilename:str, outputFilename:str):
-        pass
+
+    def profile(self, outputFolder:str):
+        try:
+            stime = time.time()
+            
+            data_profile = DataProfile().profile(self.metaData, self.dataset)
+            FileTools.saveProfile(outputFolder + "\\profile.xlsx", data_profile)
+            
+            print("Completed in " + str(time.time() - stime) + " secs")
+
+        except ValidationError as e:
+            print (e)
+
     
     def customValidate(self, full_class_string:str):        
         """
-        dynamically load a class from a string
+        dynamically load a class from a string in the format '<root folder>.<module filename>.<ClassName>'
         """
-
         class_data = full_class_string.split(".")
         module_path = ".".join(class_data[:-1])
         class_str = class_data[-1]
@@ -92,23 +114,20 @@ class pyDUQMain(object):
             # Finally, we retrieve the Class
             custom_validator = getattr(module, class_str)
         except ImportError as e:
-            print("Unable to load: " + class_str + '\n')
-            print(e)
-            return
+            raise(Exception("Unable to load: " + class_str + '\n'))
         
-        rs = dict()
-        meta = dict()
-
         if (not issubclass(custom_validator, AbstractDUQValidator)):
             raise(Exception("The custom validator '" + full_class_string + "' must inherit AbstractDUQValidator."))
         
-        obj = custom_validator(rs, meta)
+        obj = custom_validator(self.dataset, self.metaData)
                 
         obj.validate()
-        print(obj.counters)
+
+        return obj.counters
     
         
 def main(argv):
+    pl = pyDUQMain()
     inputFile = ""
     outputFolder = ""
     metaFile = ""
@@ -122,7 +141,6 @@ def main(argv):
     my_parser.add_argument('-i',
                            '--ifile',
                            type=str,
-                           required=True,
                            help='the path and name of the input data file.')
 
     my_parser.add_argument('-o',
@@ -133,14 +151,18 @@ def main(argv):
     my_parser.add_argument('-m',
                            '--mfile',
                            type=str,
-                           help='the filename of the meta-data file to use for validation.')
+                           help='the filename of the metaData-data file to use for validation.')
                            
     my_parser.add_argument('-s',
                            '--sql',
                            nargs=2,
                            type=str,
-                           help='the filename of the meta-data file to use for validation.')
+                           help='the database connection string and SQL query')
                            
+    my_parser.add_argument('-c',
+                           '--custom',
+                           type=str,
+                           help='The class path and name of a custom validator.')
 
     my_parser.add_argument('-p',
                            '--profile',
@@ -152,6 +174,15 @@ def main(argv):
                            action="store_true",
                            help='validate the data.')
 
+    my_parser.add_argument('--infer',
+                           action="store_true",
+                           help='Generate metadata.')
+
+    my_parser.add_argument('--verbose',
+                           action="store_true",
+                           help='Generate verbose output.')
+
+
     # Execute parse_args()
     args = my_parser.parse_args()
 
@@ -160,39 +191,45 @@ def main(argv):
     outputFolder = args.ofolder
     profileFlag = args.profile
     validateFlag = args.validate
-    
-    if (args.sql is not None):
-        sqlURI = args.sql[0]
-        sqlQuery = args.sql[1]
-        
-    if not os.path.isfile(inputFile):
-        print("The input file '" + inputFile + "' does not exist")
-        sys.exit()
+    inferFlag = args.infer
+    __verbose__ = args.verbose
+    customValidator = args.custom
 
-    if not os.path.isfile(metaFile):
-        print("The meta-data file '" + metaFile + "' does not exist")
-        sys.exit()
-
-    pl = pyDUQMain()
     
-    if (validateFlag):
-        pass
+    if ((not inputFile is None) and (len(inputFile)>0)):
+        if not os.path.isfile(inputFile):
+            print("The input file '" + inputFile + "' does not exist")
+            sys.exit(1)
+    else:
+        if (args.sql is not None):
+            sqlURI = args.sql[0]
+            sqlQuery = args.sql[1]
+        else:
+            print("You must provide either an input file OR SQL connection and query. Run pyduqmain.py -h for help.")
+            sys.exit(1)            
         
-    pl.loadMeta(metaFile)
-    
     if (len(sqlURI) >0 ):
         pl.loadSQL(sqlURI, sqlQuery)
     elif (len(inputFile)>0):
         pl.loadCSV(inputFile)
-        
-    pl.validate(outputFolder)
-    
+
+    if (not metaFile is None):
+        if (not os.path.isfile(metaFile)):
+            print("The metaData-data file '" + metaFile + "' does not exist")
+            sys.exit(1)
+        pl.loadMeta(metaFile)
+    else:
+        if (not inferFlag):
+            print("No metadata file was supplied - schema will be inferred from the dataset.")
+        pl.inferMeta(outputFolder)
+
+    if (validateFlag):
+        pl.validate(outputFolder, customValidator)
+
     if (profileFlag):
-        pass
+        pl.profile(outputFolder)
         
-    #pyDUQMain.customValidate(r'validator.MotherDetailValidator.MotherDetailValidator')
-    
-    sys.exit()
+    sys.exit(0)
 
 
 if  __name__ =='__main__':

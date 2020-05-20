@@ -3,16 +3,15 @@ import time
 from pyduq.metautils import MetaUtils
 from pyduq.AbstractDUQValidator import AbstractDUQValidator
 from pyduq.patterns import Patterns
-from pyduq.langerror import ValidationError
-from pyduq.measurement import Measurement, MeasurementCategory
+from pyduq.duqerror import ValidationError
+from pyduq.dataqualityerror import DataQualityError, DataQualityDimension
 from pyduq.expressionbuilder import ExpressionBuilder
 from pyduq.SQLTools import SQLTools
 from pyduq.dataprofile import DataProfile
 
  
 class DUQValidator(AbstractDUQValidator):
-    """
-    LangValidator: A generic validator for LANG. 
+    """ DUQValidator: A generic validator for LANG. 
     The main execution method is validate().
     """   
         
@@ -31,7 +30,7 @@ class DUQValidator(AbstractDUQValidator):
             if (meta_attribute_key in self.dataset):
                 self.validateList(meta_attribute_key)
             else:
-                self.addMeasurement(Measurement(meta_attribute_key, errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Attribute '" + meta_attribute_key + "' not found in the dataset."))
+                self.addDataQualityError(DataQualityError(meta_attribute_key, error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Attribute '" + meta_attribute_key + "' not found in the dataset."))
 
                         
     def validateList(self:object, key:str):
@@ -63,12 +62,12 @@ class DUQValidator(AbstractDUQValidator):
         # mandatory field check
         if (MetaUtils.isTrue(meta_attribute_definition, "Mandatory") ):
             if ( (MetaUtils.isBlankOrNull(value)) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.COMPLETENESSMANDATORY.value,description="Error: Mandatory field is BLANK or NULL. A value is required."))                             
+                self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.COMPLETENESSMANDATORY.value,description="Error: Mandatory field is BLANK or NULL. A value is required."))                             
         else:
             # optional field check. According to LANG optional fields shpuld contain some sort of default value
             # i.e. no field shpould ever be blank or NULL.
             if ( (MetaUtils.isBlankOrNull(value)) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.COMPLETENESSOPTIONAL.value, description="Error: Optional field is BLANK or NULL. A default value is required."))
+                self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.COMPLETENESSOPTIONAL.value, description="Error: Optional field is BLANK or NULL. A default value is required."))
                 
             
     def checkComposite(self, meta_attribute_definition:dict, key:str):
@@ -97,7 +96,7 @@ class DUQValidator(AbstractDUQValidator):
                 # join the values from the columns that make up the composite key to form a single value
                 s = ''.join(map(str, row.values()))
                 if (s in seen):
-                    self.addMeasurement(Measurement(attribute_keys,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Duplicate composite key: '" + attribute_keys + "', value: '" + s + "'"))
+                    self.addDataQualityError(DataQualityError(attribute_keys,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Duplicate composite key: '" + attribute_keys + "', value: '" + s + "'"))
                 else:
                     seen.add(s)
                
@@ -106,7 +105,7 @@ class DUQValidator(AbstractDUQValidator):
         # field length check
         if (MetaUtils.exists(meta_attribute_definition, "Size")):
             if ( (len(value) > int(meta_attribute_definition["Size"])) and (not MetaUtils.isBlankOrNull(value)) ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta_attribute_definition["Size"]) + "'"))
+                self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta_attribute_definition["Size"]) + "'"))
                 
             
     def checkType(self, meta_attribute_definition:dict, key:str, value:str):
@@ -122,17 +121,17 @@ class DUQValidator(AbstractDUQValidator):
             if (meta_attribute_definition["Type"] in ["int","integer"]):
                 if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isInt(value)) ):
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
+                        self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
                         is_valid_type = False
             elif (meta_attribute_definition["Type"] in ["float","number"]):
                 if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isFloat(value)) ): 
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
+                        self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
                         is_valid_type = False
             elif (meta_attribute_definition["Type"] in ["bool","boolean"]):
                 if ( (MetaUtils.isBlankOrNull(value)) or (not value.lower() in ["false", "true", "no", "yes", "0", "1"]) ): 
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a boolean. A boolean was expected"))
+                        self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a boolean. A boolean was expected"))
                         is_valid_type = False
                     
             # given that min and max checks only apply to int and float values we may as well test for them now
@@ -173,13 +172,13 @@ class DUQValidator(AbstractDUQValidator):
         if (min != -1):
             if (val != -1 and val < min and val != default):
                 # error
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be >= " + str(min)))
+                self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be >= " + str(min)))
             
                 
         if (max != -1):
             if (val != -1 and val > max and val != default):
                 # error
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be <= " + str(max)))
+                self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be <= " + str(max)))
             
 
     def checkEnum(self, meta_attribute_definition:dict, key:str, value:str):
@@ -192,7 +191,7 @@ class DUQValidator(AbstractDUQValidator):
             # as we should have picked it up in the mandatory/optional test anyway
             # (i.e. if the field is optional but a value has been provided then we check it against the supplied list)
             if ( (len(value)>0) and (value not in enum) and (value != "(Null)") ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is outside the enumeration set '" + str(enum) + "'"))
+                self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is outside the enumeration set '" + str(enum) + "'"))
 
 
 
@@ -213,7 +212,7 @@ class DUQValidator(AbstractDUQValidator):
                         break
                         
                 if (not found):
-                    self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not begin with any of: '" + str(startsWith) + "'"))
+                    self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not begin with any of: '" + str(startsWith) + "'"))
 
 
             
@@ -228,7 +227,7 @@ class DUQValidator(AbstractDUQValidator):
                 isMatch = (not regex.match(value) is None)
                 
                 if ( (not isMatch) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                    self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex #'" + meta_attribute_definition["Format"] + "'"))
+                    self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex #'" + meta_attribute_definition["Format"] + "'"))
                     
             
 
@@ -256,7 +255,7 @@ class DUQValidator(AbstractDUQValidator):
                         j+=1
                     
                     if (counter>1):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
+                        self.addDataQualityError(DataQualityError(key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
 
 
             
@@ -294,10 +293,10 @@ class DUQValidator(AbstractDUQValidator):
                 try:
                     result = eval(ev)
                 except Exception as e:                    
-                    self.addMeasurement(Measurement(expr,errorCategory=MeasurementCategory.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
+                    self.addDataQualityError(DataQualityError(expr,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
                     result=None
 
                 if ( (not result is None) and (result == False) ):
-                    self.addMeasurement(Measurement(expr,errorCategory=MeasurementCategory.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
+                    self.addDataQualityError(DataQualityError(expr,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
 
     

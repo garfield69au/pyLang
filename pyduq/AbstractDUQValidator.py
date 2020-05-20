@@ -1,8 +1,8 @@
 import abc
 from openpyxl import Workbook
-from pyduq.measurement import Measurement, MeasurementCategory
+from pyduq.dataqualityerror import DataQualityError, DataQualityDimension
 from pyduq.dataprofile import DataProfile
-from pyduq.langerror import ValidationError
+from pyduq.duqerror import ValidationError
    
 class AbstractDUQValidator(abc.ABC):
     """ AbstractDQValidator: 
@@ -22,18 +22,18 @@ class AbstractDUQValidator(abc.ABC):
         
         self.metadata = meta
         self.dataset = dataset
-        self.counters = []
+        self.validation_errors = []
         self.data_profile = []
             
         
-    def addMeasurement(self:object, measurement:Measurement):
+    def addDataQualityError(self:object, data_quality_error:DataQualityError):
         """
-        Add a new measurement.
+        Add a new dimension.
         """
-        if (measurement is None):
-            raise ValidationError("LANG Exception: Measurement has not been set", None)
+        if (data_quality_error is None):
+            raise ValidationError("LANG Exception: DataQualityError has not been set", None)
         
-        self.counters.append(measurement.asDict())
+        self.validation_errors.append(data_quality_error.to_dict())
         
     
     def profileData(self:object, meta_attribute_definition:dict, colData:dict, key:str):
@@ -43,7 +43,7 @@ class AbstractDUQValidator(abc.ABC):
         profile = DataProfile()
         profile.profileData(meta_attribute_definition, colData, key)
         profile.setPosition(len(self.data_profile)+1)
-        self.data_profile.append(profile.asDict())
+        self.data_profile.append(profile.to_dict())
         
 
     def saveCountersSummary(self:object, outputFile):
@@ -51,7 +51,7 @@ class AbstractDUQValidator(abc.ABC):
         sheet = workbook.create_sheet()
         headers = ["attribute"]
         
-        for name in MeasurementCategory.namesAsList():
+        for name in DataQualityDimension.names():
             headers.append(name)
             headers.append(name + " SCORE")
             
@@ -72,13 +72,13 @@ class AbstractDUQValidator(abc.ABC):
     def summariseCounters(self:object) ->dict:
         
         # get the MeasurementCategory Enum as a list
-        categories = list(MeasurementCategory)
-        summary = dict()
-        attribute_errors = dict()
+        categories = list(DataQualityDimension)
+        summary = {}
+        attribute_errors = {}
  
         # Construct a list of errors per attribute and store in a dict 
-        for item in self.counters:
-            key = item['attribute']
+        for item in self.validation_errors:
+            key = item["attribute"]
             if (not key in attribute_errors):
                 attribute_errors[key] = []
             
@@ -88,7 +88,7 @@ class AbstractDUQValidator(abc.ABC):
         #for item, data in attribute_errors.items():
         for item in self.metadata:
             summary_row = dict()
-            summary_row['attribute'] = item
+            summary_row["attribute"] = item
 
             summary[item]=[]
             data = dict()
@@ -100,7 +100,7 @@ class AbstractDUQValidator(abc.ABC):
                 error_count=0
                 
                 for d in data:
-                    if (d['error_category'] == name.value):
+                    if (d["error_dimension"] == name.value):
                         error_count+=1
                 
                 # for each attribute create a list of dictionaries contaning a count of each category
@@ -120,13 +120,13 @@ class AbstractDUQValidator(abc.ABC):
         
 
     def saveCounters(self:object, outputFile):
-        if (len(self.counters)>0):
+        if (len(self.validation_errors)>0):
             workbook = Workbook(write_only=True)
             sheet = workbook.create_sheet()
-            headers = list(self.counters[0].keys())
+            headers = list(self.validation_errors[0].keys())
             sheet.append(headers)
         
-            for y in self.counters:
+            for y in self.validation_errors:
                 sheet.append(list(y.values()))
         
             workbook.save(filename=outputFile)

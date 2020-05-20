@@ -1,5 +1,4 @@
-"""
-pyDUQMain.py
+""" pyDUQMain.py
 
 Overview
 --------
@@ -11,7 +10,7 @@ the LANG data quality algorithms
 USAGE
 --------
 
-$ python pylang -i <source_file_name> -m <meta_data_file_name> -o <outputfile_prefix> --profile --validate --custom <class_name>
+$ python pylang -i <source_file_name> -m <meta_data_file_name> -o <outputfile_prefix> --profile --validate --custom <class_name> --infer
 
 OUTPUT:
 --------
@@ -23,6 +22,11 @@ The --validate switch will trigger a validation of the source
 data and the output will be a Spreadsheet of data quality
 validation errors.
 
+The --infer swutch will force the metadata to be inferred from the
+data. (Note - if -v is used and there is no metadata provided then
+--infer will be set).
+
+The --profile switch generates a profile data file.
 
 
 Change History:
@@ -44,9 +48,10 @@ from pyduq.AbstractDUQValidator import AbstractDUQValidator
 from pyduq.SQLTools import SQLTools
 from pyduq.duqvalidator import DUQValidator
 from pyduq.patterns import Patterns
-from pyduq.langerror import ValidationError
+from pyduq.duqerror import ValidationError
 from pyduq.filetools import FileTools
 from pyduq.dataprofile import DataProfile
+
 
 class pyDUQMain(object):
 

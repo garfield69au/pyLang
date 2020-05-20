@@ -156,7 +156,7 @@ class DataProfile(object):
             self.stddev = statistics.stdev(vals)
             self.variance = statistics.variance(vals)
         
-        return self.asDict()
+        return self.to_dict()
     
     def cosine_sim_vectors(self, vec1, vec2) -> float:
         vec1 = vec1.reshape(1, -1)
@@ -176,31 +176,31 @@ class DataProfile(object):
         self.position = position
         
         
-    def asDict(self):
-        l = dict()
-        l['attribute']= self.attribute
-        l['position']= self.position
-        l['type'] = self.type
-        l['count'] = self.count
-        l['attribute_count'] = self.attribute_count
-        l['sum'] =self.sum
-        l['mean'] =self.mean
-        l['median'] =self.median
-        l['stddev'] =self.stddev
-        l['variance'] =self.variance
-        l['min_value']= self.min_val
-        l['max_value']=self.max_val
-        l['min_len']= self.min_len
-        l['max_len']=self.max_len
-        l['null_count']=self.nullCount
-        l['blank_count']=self.blankCount
-        l['default_count']=self.defaultCount
-        l['default_value']=self.defaultValue
-        l['most_frequent_value']=self.most_frequent_value
-        l['most_frequent_count']=self.most_frequent_count
-        l['csim']=self.csim
-        l['memory_consumed_bytes']=self.memory
-        l['pattern_count']=self.patternCount
-        l['patterns']=self.patterns
-        return l
+    def to_dict(self):
+        values = {}
+        values['attribute']= self.attribute
+        values['position']= self.position
+        values['type'] = self.type
+        values['count'] = self.count
+        values['attribute_count'] = self.attribute_count
+        values['sum'] =self.sum
+        values['mean'] =self.mean
+        values['median'] =self.median
+        values['stddev'] =self.stddev
+        values['variance'] =self.variance
+        values['min_value']= self.min_val
+        values['max_value']=self.max_val
+        values['min_len']= self.min_len
+        values['max_len']=self.max_len
+        values['null_count']=self.nullCount
+        values['blank_count']=self.blankCount
+        values['default_count']=self.defaultCount
+        values['default_value']=self.defaultValue
+        values['most_frequent_value']=self.most_frequent_value
+        values['most_frequent_count']=self.most_frequent_count
+        values['csim']=self.csim
+        values['memory_consumed_bytes']=self.memory
+        values['pattern_count']=self.patternCount
+        values['patterns']=self.patterns
+        return values
         

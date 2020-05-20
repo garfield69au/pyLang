@@ -1,5 +1,90 @@
+MANIFEST.in
 README.md
 setup.py
+doc/INT.GIF
+doc/expression.GIF
+doc/ident.GIF
+doc/pyduq Grammar v0.1.docx
+doc/pyduq Grammar v0.1.ebnf
+doc/pyduq.png
+doc/statement.GIF
+doc/term.GIF
+examples/README.md
+examples/Australia OGD/coloured labour/ColouredLabour.csv
+examples/Australia OGD/coloured labour/ColouredLabour.json
+examples/Australia OGD/coloured labour/validate_coloured_labour.bat
+examples/Australia OGD/go_card_retailers/__init__.py
+examples/Australia OGD/go_card_retailers/go_card_meta.json
+examples/Australia OGD/go_card_retailers/go_card_retailers.csv
+examples/Australia OGD/go_card_retailers/validate_go_card_retailers.bat
+examples/Australia OGD/rations_issued/Rations_Issued.csv
+examples/Australia OGD/rations_issued/__init__.py
+examples/Australia OGD/rations_issued/rations_issued.json
+examples/Australia OGD/rations_issued/validate_rations_issued.bat
+examples/Australia OGD/victim_assistance/Victim_Assisstance.csv
+examples/Australia OGD/victim_assistance/__init__.py
+examples/Australia OGD/victim_assistance/validate_victim_assisstance.bat
+examples/Australia OGD/victim_assistance/victim_assisstance.json
+examples/Canada OGD/goods and services/Goods and services identification number .csv
+examples/Canada OGD/goods and services/Goods and services identification number .json
+examples/Canada OGD/goods and services/__init__.py
+examples/Canada OGD/goods and services/validate_goods_and_services.bat
+examples/Canada OGD/post secondary students/2011-12 Postsecondary Student Information .csv
+examples/Canada OGD/post secondary students/2011-12 Postsecondary Student Information .json
+examples/Canada OGD/post secondary students/__init__.py
+examples/Canada OGD/post secondary students/validate_post_secondary_students.bat
+examples/Canada OGD/upper Canada Land Petitions/__init__.py
+examples/Canada OGD/upper Canada Land Petitions/upper Canada Land Petitions.csv
+examples/Canada OGD/upper Canada Land Petitions/upper Canada Land Petitions.json
+examples/Canada OGD/upper Canada Land Petitions/validate_upper_canada_land_petitions.bat
+examples/Canada OGD/vehicle manufacturers/Vehicle_Manufacture.csv
+examples/Canada OGD/vehicle manufacturers/Vehicle_Manufacture.json
+examples/Canada OGD/vehicle manufacturers/__init__.py
+examples/Canada OGD/vehicle manufacturers/validate_vehicle_manufacturer.bat
+examples/Canada OGD/wd/__init__.py
+examples/Canada OGD/wd/validate_wd.bat
+examples/Canada OGD/wd/wd.csv
+examples/Canada OGD/wd/wd.json
+examples/UK OGD/Statistics_On_Alcohol/Statistics_On_Alcohol.csv
+examples/UK OGD/Statistics_On_Alcohol/Statistics_On_Alcohol.json
+examples/UK OGD/Statistics_On_Alcohol/__init__.py
+examples/UK OGD/Statistics_On_Alcohol/validate_statistics_on_alcohol.bat
+examples/UK OGD/bristol bus stops/__init__.py
+examples/UK OGD/bristol bus stops/bristol-bus-stops-.csv
+examples/UK OGD/bristol bus stops/bristol-bus-stops.json
+examples/UK OGD/bristol bus stops/validate_bristol_bus_stops.bat
+examples/UK OGD/hackney carriage/Hackney_Carriage.csv
+examples/UK OGD/hackney carriage/__init__.py
+examples/UK OGD/hackney carriage/hackney_carriage.json
+examples/UK OGD/hackney carriage/validate_hackney_carriage.bat
+examples/UK OGD/national registry public data/National Register Public Data.csv
+examples/UK OGD/national registry public data/National Register Public Data.json
+examples/UK OGD/national registry public data/__init__.py
+examples/UK OGD/national registry public data/validate_national_public_data.bat
+examples/UK OGD/supporting_staff/Supporting_staff_dataset.csv
+examples/UK OGD/supporting_staff/Supporting_staff_dataset.json
+examples/UK OGD/supporting_staff/__init__.py
+examples/UK OGD/supporting_staff/validate_supporting_staff.bat
+examples/USA OGD/Baton_rouge/Baton_Rouge_Crime_Incidents1.csv
+examples/USA OGD/Baton_rouge/Baton_Rouge_Crime_Incidents1.json
+examples/USA OGD/Baton_rouge/__init__.py
+examples/USA OGD/Baton_rouge/validate_baton_rouge.bat
+examples/USA OGD/TLC_vehicle_insurance/TLC_Vehicle_Insurance .csv
+examples/USA OGD/TLC_vehicle_insurance/TLC_Vehicle_Insurance .json
+examples/USA OGD/TLC_vehicle_insurance/__init__.py
+examples/USA OGD/TLC_vehicle_insurance/validate_tlc_vehicle_insurance.bat
+examples/USA OGD/electronics_stores/Electronics_Stores .csv
+examples/USA OGD/electronics_stores/Electronics_Stores .json
+examples/USA OGD/electronics_stores/__init__.py
+examples/USA OGD/electronics_stores/validate_electronics_stores.bat
+examples/USA OGD/gun offenders/Gun_Offenders.csv
+examples/USA OGD/gun offenders/Gun_Offenders.json
+examples/USA OGD/gun offenders/__init__.py
+examples/USA OGD/gun offenders/validate_gun_offenders.bat
+examples/USA OGD/traffic_violations/Traffic_Violations .csv
+examples/USA OGD/traffic_violations/Traffic_Violations .json
+examples/USA OGD/traffic_violations/__init__.py
+examples/USA OGD/traffic_violations/validate_traffic_violations.bat
 pyduq/AbstractDUQValidator.py
 pyduq/SQLTools.py
 pyduq/__init__.py
@@ -8,6 +93,7 @@ pyduq/dataprofile.py
 pyduq/duqvalidator.py
 pyduq/expressionbuilder.py
 pyduq/filetools.py
+pyduq/inferscehma.py
 pyduq/langerror.py
 pyduq/measurement.py
 pyduq/metautils.py
@@ -16,6 +102,8 @@ pyduq/pyDUQMain.py
 pyduq.egg-info/PKG-INFO
 pyduq.egg-info/SOURCES.txt
 pyduq.egg-info/dependency_links.txt
+pyduq.egg-info/requires.txt
 pyduq.egg-info/top_level.txt
 tests/__init__.py
 tests/testTemplate.py
+tests/testValidator.ipynb

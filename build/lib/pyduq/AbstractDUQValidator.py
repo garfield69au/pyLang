@@ -1,8 +1,8 @@
 import abc
 from openpyxl import Workbook
-from pyduq.pyduq.measurement import Measurement
-from pyduq.pyduq.dataprofile import DataProfile
-
+from pyduq.measurement import Measurement, MeasurementCategory
+from pyduq.dataprofile import DataProfile
+from pyduq.langerror import ValidationError
    
 class AbstractDUQValidator(abc.ABC):
     """ AbstractDQValidator: 
@@ -12,57 +12,128 @@ class AbstractDUQValidator(abc.ABC):
     The cobstructor will also create an empty list of errors and a empty list of measurement counters.
     """
 
-    def __init__(self:object, rs:dict, meta:dict):
-        self.metaData = meta.copy()
-        self.rs = rs.copy()
-        self.counters = list()
-        self.profileList = list()
-    
-    
-    def clear(self:object):
-        self.profileList.clear()
-        self.counters.clear()
+    def __init__(self:object, dataset:dict, meta:dict):
         
+        if (dataset is None):
+            raise ValidationError("LANG Exception: DataSet has not been set", None)
         
-    def addMeasurement(self, measurement:Measurement):
+        if (meta is None):
+            raise ValidationError("LANG Exception: metadata has not been set", None)
+        
+        self.metadata = meta
+        self.dataset = dataset
+        self.counters = []
+        self.data_profile = []
+            
+        
+    def addMeasurement(self:object, measurement:Measurement):
         """
         Add a new measurement.
-        """      
+        """
+        if (measurement is None):
+            raise ValidationError("LANG Exception: Measurement has not been set", None)
+        
         self.counters.append(measurement.asDict())
         
-
     
-    def profileData(self, meta:dict, col:dict, key:str):
+    def profileData(self:object, meta_attribute_definition:dict, colData:dict, key:str):
+        if (colData is None):
+            raise ValidationError("LANG Exception: Coldata has not been set", None)
+        
         profile = DataProfile()
-        profile.profileData(meta, col, key)
-        profile.setPosition(len(self.profileList)+1)
-        self.profileList.append(profile.asDict())
+        profile.profileData(meta_attribute_definition, colData, key)
+        profile.setPosition(len(self.data_profile)+1)
+        self.data_profile.append(profile.asDict())
+        
 
-
-    def saveProfile(self, outputFile):
-        workbook = Workbook()
-        sheet = workbook.active
-        c=self.profileList[0]
-        headers = list(c.keys())
+    def saveCountersSummary(self:object, outputFile):
+        workbook = Workbook(write_only=True)
+        sheet = workbook.create_sheet()
+        headers = ["attribute"]
+        
+        for name in MeasurementCategory.namesAsList():
+            headers.append(name)
+            headers.append(name + " SCORE")
+            
         sheet.append(headers)
-        
-        for x in self.profileList:
-            sheet.append(list(x.values()))
-        
-        workbook.save(filename=outputFile)
 
-
-    def saveCounters(self, outputFile):
-        workbook = Workbook()
-        sheet = workbook.active
-        headers = list(self.counters[0].keys())
-        sheet.append(headers)
-        
-        for y in self.counters:
-            sheet.append(list(y.values()))
-        
-        workbook.save(filename=outputFile)
+        summary = self.summariseCounters()
     
+        for datarow in summary.values():        
+            for row in datarow:
+                sheet.append(list(row.values()))
+            
+        workbook.save(filename=outputFile)
+        workbook.close()
+        del(sheet)
+        del(workbook)
+
+
+    def summariseCounters(self:object) ->dict:
+        
+        # get the MeasurementCategory Enum as a list
+        categories = list(MeasurementCategory)
+        summary = dict()
+        attribute_errors = dict()
+ 
+        # Construct a list of errors per attribute and store in a dict 
+        for item in self.counters:
+            key = item['attribute']
+            if (not key in attribute_errors):
+                attribute_errors[key] = []
+            
+            attribute_errors[key].append(item)
+        
+        # now count how many times each category appears for each attribute
+        #for item, data in attribute_errors.items():
+        for item in self.metadata:
+            summary_row = dict()
+            summary_row['attribute'] = item
+
+            summary[item]=[]
+            data = dict()
+            
+            if (item in attribute_errors):
+                data = attribute_errors[item]
+            
+            for name in categories:
+                error_count=0
+                
+                for d in data:
+                    if (d['error_category'] == name.value):
+                        error_count+=1
+                
+                # for each attribute create a list of dictionaries contaning a count of each category
+                summary_row[name.name] = error_count
+                    
+                try:
+                    
+                    score = error_count / len(self.dataset[item])
+                    summary_row[name.name + " SCORE"] = round(score, 6)
+                   
+                except Exception as e:
+                        summary_row[name.name + " SCORE"] =  0
+                        
+            summary[item].append(summary_row)
+                                
+        return summary
+        
+
+    def saveCounters(self:object, outputFile):
+        if (len(self.counters)>0):
+            workbook = Workbook(write_only=True)
+            sheet = workbook.create_sheet()
+            headers = list(self.counters[0].keys())
+            sheet.append(headers)
+        
+            for y in self.counters:
+                sheet.append(list(y.values()))
+        
+            workbook.save(filename=outputFile)
+            workbook.close()
+            del(sheet)
+            del(workbook)
+
     
     @abc.abstractmethod
     def validate(self:object):
@@ -70,6 +141,6 @@ class AbstractDUQValidator(abc.ABC):
 
         
     @abc.abstractmethod
-    def validateList(self:object, colData:dict, meta:dict):
+    def validateList(self:object, key:str):
         pass        
 

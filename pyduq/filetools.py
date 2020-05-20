@@ -2,7 +2,7 @@ import csv
 import json
 import dicttoxml
 from xml.dom.minidom import parseString
-from pyduq.langerror import ValidationError
+from pyduq.duqerror import ValidationError
 from unidecode import unidecode
 from openpyxl import Workbook
 

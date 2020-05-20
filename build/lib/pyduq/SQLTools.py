@@ -1,6 +1,6 @@
 import pyodbc
 from prettytable import PrettyTable
-from pyduq.pyduq.langerror import ValidationError
+from pyduq.langerror import ValidationError
 
 class SQLTools(object):
     """
@@ -9,21 +9,21 @@ class SQLTools(object):
     """
 
     def __init__ (self, cursor):
-        self.rs = SQLTools.resultsetToDict(cursor)
+        self.dataset = SQLTools.resultsetToDict(cursor)
 
     def __str__(self):
         return self.__repr__()
 
     def __repr__(self):
-        if (self.rs is None):
-            raise ValidationError("ResultSet is None", None)
+        if (self.dataset is None):
+            raise ValidationError("DataSet is NULL.", None)
         
         pt = PrettyTable()
-        row = next(iter(self.rs.values())) # grab an arbritary row so we can lift the keys
+        row = next(iter(self.dataset.values())) # grab an arbritary row so we can lift the keys
         pt.field_names = row.keys()
-        for i in self.rs:
+        for i in self.dataset:
             # pull the fields out of the resultset row and add as discreet elements to print
-            pt.add_row([field for field in self.rs[field].values()])
+            pt.add_row([field for field in self.dataset[field].values()])
 
         return str(pt)
 
@@ -31,98 +31,68 @@ class SQLTools(object):
     def resultsetToDict(cursor):
         """
         method resultsetToDict:
-        Converts a SQL result set into a dictionary of dictionaries.
-        Each row is its own dictionary with each attribute recorded as a tupple,
-        indexed by a row counter.
-        e.g.
-        {
-            0: {'col1': 1, 'col2': None},
-            1: {'col1': 1, 'col2': ""},
-            2: {'col1': 1, 'col2': 1}
-        }
+        Converts a SQL result set into a dictionary of lists keyed on the column name.
         """
         data = dict()
 
         # Get a list of the column names returned from the query
         columns = [column[0] for column in cursor.description]
-        rowindex=1
-
-        rs = cursor.fetchall()
      
-        for row in rs:
-            colindex = 0
+        resultset = cursor.fetchall()
+        colindex = 0
+     
+        for col in columns:
+            data[col]= [("(Null)" if row[colindex] is None else str(row[colindex]).strip()) for row in resultset]            
+            colindex += 1
         
-            l = dict()
-           
-            for col in columns:
-                """
-                It's important to note that Nulls are converted to "(Null)" so that routines that compare items
-                (like list.sort() don't break).
-                """
-               
-                l[col] = ("(Null)" if row[colindex] is None else str(row[colindex]).strip().lstrip("0"))
-                colindex += 1
- 
-            data[rowindex]=l
-            rowindex+=1
-            
         return data
     
     
     @staticmethod
-    def getCol(rs:dict, col:str) -> dict:
+    def getCol(dataset:dict, col:str) -> dict:
         """
         Slice a column out of the resultset based on col.
         The result is a dictionary of col and a list of values
         """
-        result=dict()    
-        result[col]=SQLTools.getColValues(rs, col)
-        return result
+        return {col:SQLTools.getColValues(dataset, col)}
        
 
     @staticmethod
-    def getColValues(rs:dict, col:str) -> list:
+    def getColValues(dataset:dict, col:str) -> list:
         """
         Given a resultset and a column return all the values for that column as a list.
         """
-        if (rs is None):
-            raise ValidationError("LANG Exception: resultset has not been set", None)
-
-        vals=list()
-
-        for rowindex in rs:
-            if (not col in rs[rowindex].keys()):
-                raise ValidationError("LANG Error: The metadata column '" + col + "' not found in resultset.",None)
-            else:
-                vals.append(rs[rowindex].get(col))
-        return vals
+        if (dataset is None):
+            raise ValidationError("LANG Exception: DataSet has not been set", None)
+   
+        return dataset[col]
 
 
     @staticmethod
-    def getColValuesAsDict(rs: dict, *argv) -> dict:
+    def getColValuesAsDict(dataset:dict, *argv) -> dict:
         """
         Accepts an aribrtiary set of data columns as args and returns all the column values in a single dictionary.
         """
-        if (rs is None):
-            raise ValidationError("LANG Exception: resultset has not been set", None)
+        if (dataset is None):
+            raise ValidationError("LANG Exception: DataSet has not been set", None)
 
         if (argv is None):
             raise ValidationError("LANG Exception: argv has not been set", None)
-
-        vals=dict()
-        for arg in argv:
-            vals[arg] = SQLTools.getColValues(rs, arg)
-            
-        return vals
         
+        result = dict()
+        
+        for arg in argv:
+            result[arg] = SQLTools.getColValues(dataset, arg)
+            
+        return result
 
     @staticmethod
-    def rowCount(rs:dict):
+    def rowCount(dataset:dict):
         """
         Return the count of rows in the resultset.
         """
-        if (rs is None):
-            raise ValidationError("LANG Exception: resultset has not been set", None)
+        if (dataset is None):
+            raise ValidationError("LANG Exception: DataSet has not been set", None)
 
-        return len(rs)
+        return len(dataset)
     

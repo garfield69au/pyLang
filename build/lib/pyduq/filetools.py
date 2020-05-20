@@ -1,64 +1,49 @@
 import csv
 import json
-from prettytable import PrettyTable
 import dicttoxml
 from xml.dom.minidom import parseString
-from pyduq.pyduq.langerror import ValidationError
+from pyduq.langerror import ValidationError
+from unidecode import unidecode
+from openpyxl import Workbook
 
 class FileTools(object):
-    """
-    FileTools: This is a utility class to help manage data files.
+    """ FileTools: 
+    This is a utility class to help manage data files.
     The file is expected to be in a CSV format with a header row.
     Note: This could be replaced by Pandas
     """
 
     @staticmethod
-    def csvFileToDict(fileName:str):
-        """
-        method csvToDict:
+    def csvFileToDict(fileName:str) -> dict:
+        """ csvFileToDict:
         Converts a csv file into a dictionary of dictionaries.
         Each row is its own dictionary with each attribute recorded as a tupple,
         indexed by a row counter.
-        e.g.
-        {
-            0: {'col1': 1, 'col2': None},
-            1: {'col1': 1, 'col2': ""},
-            2: {'col1': 1, 'col2': 1}
-        }
         """
         data = dict()
+        resultset = []
         
         # first we load the data into a simple 
-        with open(fileName) as f:
+        with open(fileName, errors='ignore') as f:
             reader = csv.DictReader(f)
                                
             # Get a list of the column names returned from the file
             columns = list(reader.fieldnames)
- 
-            rowindex=1
-
-            for row in reader:                        
-                l = dict()
-               
-                for col in columns:
-                    """
-                    It's important to note that Nulls are converted to "(Null)" so that routines that compare items
-                    (like list.sort() don't break).
-                    """
             
-                    l[col] = ("(Null)" if row[col] is None else str(row[col]).strip().lstrip("0"))
-     
-                data[rowindex]=l
-                rowindex+=1
+            for row in reader:
+                resultset.append(row)
                 
+            for col in columns:
+                data[col]= [("(Null)" if row[col] is None else FileTools.FormatString(str(row[col]).strip())) for row in resultset]            
+        
         return data
   
     @staticmethod
-    def JSONtoMeta(fileName:str):
+    def JSONtoMeta(fileName:str) ->dict:
         meta = dict()
         
-        with open(fileName, 'r') as json_file:
-          meta = json.load(json_file)
+        with open(fileName, 'r', errors='ignore') as json_file:
+            meta = json.load(json_file)
           
         return meta
   
@@ -77,4 +62,101 @@ class FileTools(object):
         with open(JSON_filename, 'w') as w:
             w.write(json_dict)
             
+    
+    @staticmethod
+    def FormatString(s:str) ->str:
+        # converts a unicode string to ascii
+        
+        if isinstance(s, str):
+            try:
+                s.encode('ascii')
+                return s
+            except:
+                return unidecode(s)
+        else:
+          return s
+
+    @staticmethod
+    def inferMeta(dataset:dict) ->dict:
+        meta = {}
+    
+        print("Infering the metadata...","\r")
+
+        for attribute_key, attributes in dataset.items():
+            print("Analysing the data...\t" + attribute_key)
+
+            metarow = {}
             
+            isMandatory = True
+            isInt = True
+            isFloat = True
+            isBool = True
+            isDate = True
+            
+            seen=set()
+            size=0
+
+                        
+            for value in attributes:                
+                #check to see if there are any blanks or nulls in order to determine if values are mandatory
+                if (len(value)==0 or value == "(Null)"):
+                    isMandatory = False
+                else: 
+                    #this will help determine if there are any duplicates                
+                    if (not value in seen):
+                        seen.add(value)
+
+                    #calculate the size of the column
+                    if (len(value)>size):
+                        size = len(value)
+                    
+                    #test for integer
+                    try:
+                        int(value)
+                    except Exception as e:
+                        isInt = False
+
+                    #test for float
+                    try:
+                        float(value)
+                    except Exception as e:
+                        isFloat = False
+                    
+                    if (not value.lower() in ["0","1","no","yes","false","true"]):
+                        isBool = False
+            
+                    if (not attribute_key.lower().find("date")):
+                        isDate = False
+            
+            metarow["Size"] = size
+            metarow["Mandatory"] = isMandatory
+            metarow["AllowBlank"] = not isMandatory
+            metarow["Type"] = ("integer" if isInt else "float" if isFloat else "boolean" if isBool else "date" if isDate else "string")
+            metarow["Unique"] = (len(seen) == len(attributes))
+
+            #if we have a small number of items in our seen set then lets presume this is an enumerated attributed
+            #note - there is no minimum number of set elements - an alternative approach is to capture the top n repeating strings -
+            #but you're likely to get the same outcome
+            if (len(seen)< 100):
+                metarow["Enum"] = str(sorted(list(seen)))
+            
+            meta[attribute_key]=metarow
+            
+        return meta
+    
+    @staticmethod
+    def saveProfile(outputFile, data_profile:list):
+        if (len(data_profile)>0):
+            workbook = Workbook(write_only=True)
+            sheet = workbook.create_sheet()
+            c=data_profile[0]
+            headers = list(c.keys())
+            sheet.append(headers)
+            
+            for x in data_profile:
+                sheet.append(list(x.values()))
+        
+            workbook.save(filename=outputFile)
+            workbook.close()
+            del(sheet)
+            del(workbook)

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyduq
-Version: 0.0.2
+Version: 0.0.3
 Summary: A tool to validate data accoridng to the dimensions of data quality.
 Home-page: https://github.com/sjdowney/pyduq
 Author: Shane J. Downey
