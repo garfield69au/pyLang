@@ -4,7 +4,7 @@ import dicttoxml
 from xml.dom.minidom import parseString
 from pyduq.duqerror import ValidationError
 from unidecode import unidecode
-from openpyxl import Workbook
+from openpyxl import Workbook,load_workbook
 
 class FileTools(object):
     """ FileTools: 
@@ -37,10 +37,49 @@ class FileTools(object):
                 data[col]= [("(Null)" if row[col] is None else FileTools.FormatString(str(row[col]).strip())) for row in resultset]            
         
         return data
+
+
+    @staticmethod
+    def xlsFileToDict(fileName:str) -> dict:
+        """ xlsFileToDict:
+        Converts an Excel spreadsheet into a dictionary of dictionaries.
+        Each row is its own dictionary with each attribute recorded as a tupple,
+        indexed by a row counter.
+        
+        Assumptions: The spreadsheet is well-formatted columns and rows.
+        """
+        data = {}
+        
+        # first we load the data into a simple
+        workbook = load_workbook(filename=fileName, data_only=True, read_only = True)
+        sheet = workbook.active
+        
+        # extract the column headers - assumes headers in row 1 only - perhaps 
+        # this could be configrable :-)
+        columns = next(sheet.iter_rows(min_row=1, max_row=1, values_only=True))
+
+        # convert the data from rows into columns. This looks clunky
+        # but it's somehow faster that iterating through the columns and
+        # and provides an oportunity to clean up indiuvidual cell values.
+        for row in sheet.iter_rows(min_row=2, min_col=1, values_only=True):
+            col=0
+            
+            for value in row:
+                if (not value is None):
+                    if (not columns[col] in data):
+                        data[columns[col]] = []
+                        
+                    data[columns[col]].append("(Null)" if value is None else FileTools.FormatString(str(value).strip()))            
+                    col+=1
+        
+        del(sheet)
+        del(workbook)
+        return data
+
   
     @staticmethod
     def JSONtoMeta(fileName:str) ->dict:
-        meta = dict()
+        meta = {}
         
         with open(fileName, 'r', errors='ignore') as json_file:
             meta = json.load(json_file)
@@ -76,6 +115,7 @@ class FileTools(object):
         else:
           return s
 
+
     @staticmethod
     def inferMeta(dataset:dict) ->dict:
         meta = {}
@@ -91,7 +131,7 @@ class FileTools(object):
             isInt = True
             isFloat = True
             isBool = True
-            isDate = True
+            isDate = False
             
             seen=set()
             size=0
@@ -125,8 +165,8 @@ class FileTools(object):
                     if (not value.lower() in ["0","1","no","yes","false","true"]):
                         isBool = False
             
-                    if (not attribute_key.lower().find("date")):
-                        isDate = False
+                    if (attribute_key.lower().find("date") != -1):
+                        isDate = True
             
             metarow["Size"] = size
             metarow["Mandatory"] = isMandatory

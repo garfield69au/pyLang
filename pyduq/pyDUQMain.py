@@ -55,25 +55,35 @@ from pyduq.dataprofile import DataProfile
 
 class pyDUQMain(object):
 
-    metaData = {}
-    dataset = {}
+    def __init__(self):
+        self.metaData = {}
+        self.dataset = {}
     
     def loadSQL(self, URI:str, query:str):
         cnxn = pyodbc.connect(URI)
         cursor = cnxn.cursor()
         cursor.execute(query) 
         self.dataset = SQLTools(cursor).dataset
+        print("SQL query returned " + str(len(self.dataset)) + " columns.")
+
 
     def loadMeta(self, metaFilename:str):
         self.metaData = FileTools.JSONtoMeta(metaFilename)        
 
     def inferMeta(self, outputFolder:str):
+        stime = time.time()
         self.metaData = FileTools.inferMeta(self.dataset)
         FileTools.MetatoJSONFile("meta.json", self.metaData)
+        print("Metadata file generated in " + str(time.time() - stime) + " secs")
 
     def loadCSV(self, inputFilename:str):
         self.dataset = FileTools.csvFileToDict(inputFilename)
+        print("CSV file loaded " + str(len(self.dataset)) + " columns.")
     
+    def loadXLS(self, inputFilename:str):
+        self.dataset = FileTools.xlsFileToDict(inputFilename)
+        print("Excel spreadsheet loaded " + str(len(self.dataset)) + " columns.")
+
     def validate(self, outputFolder:str, customValidator:str=""):
         try:
             stime = time.time()
@@ -86,7 +96,7 @@ class pyDUQMain(object):
             lang_validator.saveCounters(outputFolder + "\\counters.xlsx")
             lang_validator.saveCountersSummary(outputFolder + "\\counters_summary.xlsx")
             
-            print("Completed in " + str(time.time() - stime) + " secs")
+            print("Validation completed in " + str(time.time() - stime) + " secs")
 
         except ValidationError as e:
             print (e)
@@ -99,7 +109,7 @@ class pyDUQMain(object):
             data_profile = DataProfile().profile(self.metaData, self.dataset)
             FileTools.saveProfile(outputFolder + "\\profile.xlsx", data_profile)
             
-            print("Completed in " + str(time.time() - stime) + " secs")
+            print("Profile completed in " + str(time.time() - stime) + " secs")
 
         except ValidationError as e:
             print (e)
@@ -216,7 +226,13 @@ def main(argv):
     if (len(sqlURI) >0 ):
         pl.loadSQL(sqlURI, sqlQuery)
     elif (len(inputFile)>0):
-        pl.loadCSV(inputFile)
+        if(inputFile.endswith(".csv")):
+            pl.loadCSV(inputFile)
+        elif(inputFile.endswith(".xlsx") or inputFile.endswith(".xltx")):
+            pl.loadXLS(inputFile)
+        else:
+            print("Unsupported source data file type. Run pyduqmain.py -h for help.")
+            sys.exit(1)            
 
     if (not metaFile is None):
         if (not os.path.isfile(metaFile)):
