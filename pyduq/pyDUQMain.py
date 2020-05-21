@@ -4,7 +4,8 @@ Overview
 --------
 pylang is a data quality validation tool that implements
 the LANG data quality algorithms 
-(see: Zhang, R., Indulska, M., & Sadiq, S. (2019). Discovering Data Quality Problems: The Case of Repurposed Data. Business and Information Systems Engineering, 61(5), 575–593. https://doi.org/10.1007/s12599-019-00608-0
+(see: Zhang, R., Indulska, M., & Sadiq, S. (2019). Discovering Data Quality Problems: The Case of Repurposed Data. 
+Business and Information Systems Engineering, 61(5), 575–593. https://doi.org/10.1007/s12599-019-00608-0
 
 
 USAGE
@@ -56,7 +57,7 @@ from pyduq.dataprofile import DataProfile
 class pyDUQMain(object):
 
     def __init__(self):
-        self.metaData = {}
+        self.metadata = {}
         self.dataset = {}
     
     def loadSQL(self, URI:str, query:str):
@@ -68,12 +69,12 @@ class pyDUQMain(object):
 
 
     def loadMeta(self, metaFilename:str):
-        self.metaData = FileTools.JSONtoMeta(metaFilename)        
+        self.metadata = FileTools.JSONtoMeta(metaFilename)        
 
     def inferMeta(self, outputFolder:str):
         stime = time.time()
-        self.metaData = FileTools.inferMeta(self.dataset)
-        FileTools.MetatoJSONFile("meta.json", self.metaData)
+        self.metadata = FileTools.inferMeta(self.dataset)
+        FileTools.MetatoJSONFile("meta.json", self.metadata)
         print("Metadata file generated in " + str(time.time() - stime) + " secs")
 
     def loadCSV(self, inputFilename:str):
@@ -88,7 +89,7 @@ class pyDUQMain(object):
         try:
             stime = time.time()
      
-            lang_validator = DUQValidator(self.dataset, self.metaData)
+            lang_validator = DUQValidator(self.dataset, self.metadata)
             lang_validator.validate()
             if ((not customValidator is None) and (len(customValidator) > 0)):
                 lang_validator.counters.extend(self.customValidate(customValidator))
@@ -106,7 +107,7 @@ class pyDUQMain(object):
         try:
             stime = time.time()
             
-            data_profile = DataProfile().profile(self.metaData, self.dataset)
+            data_profile = DataProfile().profile(self.metadata, self.dataset)
             FileTools.saveProfile(outputFolder + "\\profile.xlsx", data_profile)
             
             print("Profile completed in " + str(time.time() - stime) + " secs")
@@ -134,7 +135,7 @@ class pyDUQMain(object):
         if (not issubclass(custom_validator, AbstractDUQValidator)):
             raise(Exception("The custom validator '" + full_class_string + "' must inherit AbstractDUQValidator."))
         
-        obj = custom_validator(self.dataset, self.metaData)
+        obj = custom_validator(self.dataset, self.metadata)
                 
         obj.validate()
 
@@ -166,7 +167,7 @@ def main(argv):
     my_parser.add_argument('-m',
                            '--mfile',
                            type=str,
-                           help='the filename of the metaData-data file to use for validation.')
+                           help='the filename of the metadata-data file to use for validation.')
                            
     my_parser.add_argument('-s',
                            '--sql',
@@ -236,7 +237,7 @@ def main(argv):
 
     if (not metaFile is None):
         if (not os.path.isfile(metaFile)):
-            print("The metaData-data file '" + metaFile + "' does not exist")
+            print("The metadata-data file '" + metaFile + "' does not exist")
             sys.exit(1)
         pl.loadMeta(metaFile)
     else:
