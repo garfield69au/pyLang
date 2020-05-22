@@ -1,0 +1,144 @@
+{
+    "FILE NUMBER": {
+        "Size": 19,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "OFFENSE DATE": {
+        "Size": 19,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "OFFENSE TIME": {
+        "Size": 19,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "CRIME": {
+        "Size": 27,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false,
+        "Enum": "['0.55625', '0.6375', '0.638888889', '0.639583333', '0.643055556', '0.645138889', '0.647222222', '0.647916667', '00:14:40.700000', '00:14:43.100000', '00:14:43.200000', '00:14:43.300000', '00:14:43.500000', '00:14:46.300000', '00:15:18.100000', '00:15:20.100000', '00:15:21.100000', '00:15:21.200000', '00:15:21.300000', '00:15:22.100000', '00:15:32.100000', '00:15:32.200000', '00:15:33.100000', '00:15:33.200000', '00:15:33.300000', '00:15:33.400000', '00:15:33.500000', '00:15:35.800000', '00:15:38.100000', '00:15:46.100000', '00:30:36.400000', '13:1056.2.A', '13:1056.2.B', '13:1058.A', '14:35/J', '14:38/J', '14:42.1/A', '14:42.1/B', '14:42.1/O', '14:42.1/V', '14:42/A', '14:42/O', '14:42/V', '14:43.1/N', '14:43.3/N', '14:43.4/N', '14:43/A', '14:43/O', '14:43/V', '14:43:00', '14:90.5(B)', '14:93.2.1', '14:93.2.3', '14:93/NF', 'ASSAULT', 'BATTERY', 'BUSINESS ROBBERY', 'CRIMINAL DAMAGE TO PROPERTY', 'FIREARM', 'HOMICIDE', 'INDIVIDUAL ROBBERY', 'NARCOTICS', 'NON-RESIDENTIAL BURGLARY', 'NUISANCE', 'OTHER', 'RESIDENTIAL BURGLARY', 'THEFT', 'VEHICLE BURGLARY', 'VICE']"
+    },
+    "COMMITTED": {
+        "Size": 45,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false,
+        "Enum": "['AGG ORAL SEX BATT (AGE OF VIC)', 'ALCOHOL/SALE TO A MINOR', 'ASSAULT/SIMPLE ON A JUVENILE', 'ATTEMPTED', 'BATT/ORAL SEXUAL', 'BATT/SEXUAL', 'BATT/SEXUAL AGG', 'BATT/SIMPLE/OF JUVENILE', 'CARNAL KNOW OF JUV', 'CARNAL KNOWLEDGE OF JUV(MISD)', 'CHILD DESERTION', 'COMMITTED', 'COMPUTER AIDED SOLITICITATION OF MINOR', 'CONT DEL OF A JUV', 'CRIME AGAINST NATURE', 'CRUELTY TO INFIRM', 'CRUELTY TO JUV (NOT FAMILY)', 'CRUELTY TO JUVENILES', 'CRUELTY TO JUVENILES/2ND DEG', 'CURFEW VIOL/JUVENILE/CC', 'CYBERBULLYING', 'D W I - UNDERAGE DRIVING UNDER INFLUENCE', 'D W I - UNDERAGE DRIVING UNDER INFLUENCE (CC)', 'ENCOURAGE/CONT/DEL JUV', 'EXPLOITATION OF THE INFIRMED', 'GLUE/USE/SALE PROH', 'ILL/POSS OF HANDGUN BY JUV', 'IMPROPER SUPERVISION/JUV', 'INCEST', 'INCEST/AGGRAVATED', 'IND BEHAVIOR W/JUV', 'INT EXPOSURE TO AIDS VIRUS', 'JUVENILE CURFEW VIOL/CUSTODIAN', 'JUVENILE CURFEW VIOLATION/CC', 'MOLESTATION OF JUV', 'PORNO INVOLVING JUV', 'PROMOTION/SALE OBSCEN MATERIAL', 'PROSTITUTION UNDER 17', 'PROSTITUTION/ENTICING/JUVENILE', 'PURCHASE/POSS ALCOHOL PUBLIC', 'RAPE/AGG (ANAL)', 'RAPE/AGG (ORAL)', 'RAPE/AGG (VAGINAL)', 'RAPE/ATT FORCIBLE', 'RAPE/FORCABLE (ANAL)', 'RAPE/FORCIBLE (ORAL)', 'RAPE/FORCIBLE (VAGINAL)', 'RAPE/FORCIBLE SIMPLE', 'RAPE/SIMPLE (ANAL)', 'RAPE/SIMPLE (ORAL)', 'RAPE/SIMPLE (VAGINAL)', 'SEX BATT BASED  (AGE OF VICTIM)', 'SEX BATT BASED (AGE OF VICTIM)', 'SEXUAL BATTERY OF THE INFIRMED', 'TATTOOING MINORS', 'TRAFFICKING CHILDREN FOR SEXUAL PURPOSES', 'TRUANCY BY SCHOOL AGE CHILD', 'UNLAWFUL ENTRY OF CASINO PERSONS UNDER 21', 'UNLAWFUL PURCHASE ALCO BEV']"
+    },
+    "OFFENSE": {
+        "Size": 19,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "OFFENSE DESC": {
+        "Size": 52,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "ADDRESS": {
+        "Size": 37,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "ST NUMBER": {
+        "Size": 25,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "ST DIR": {
+        "Size": 28,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "ST NAME": {
+        "Size": 29,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "ST TYPE": {
+        "Size": 66,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "CITY": {
+        "Size": 73,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "STATE": {
+        "Size": 77,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "ZIP": {
+        "Size": 89,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "DISTRICT": {
+        "Size": 89,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "ZONE": {
+        "Size": 71,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "SUBZONE": {
+        "Size": 84,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "COMPLETE DISTRICT": {
+        "Size": 89,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "GEOLOCATION": {
+        "Size": 90,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    }
+}

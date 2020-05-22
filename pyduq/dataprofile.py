@@ -57,12 +57,24 @@ class DataProfile(object):
         elif (dataset is None):
             raise ValidationError("LANG Exception: resultset has not been set", None)
     
-        p = []
+        profiles = []
+        count = 1
         
         for meta_attribute_key in metadata.keys():
-            p.append(DataProfile().profileData(metadata[meta_attribute_key], dataset[meta_attribute_key], meta_attribute_key))
-    
-        return p
+        
+            # we can't presume that the meta data attribute exists in the dataset so we
+            # check first.
+            if (meta_attribute_key in dataset):
+                profile = DataProfile().profileData(metadata[meta_attribute_key], dataset[meta_attribute_key], meta_attribute_key)
+            else:
+                profile = {}
+                profile["attribute"] = meta_attribute_key
+            
+            profile["position"] = count
+            count+= 1
+            profiles.append(profile)
+            
+        return profiles
 
 
     def profileData(self, meta_attribute_definition:dict, colData:list, key:str) ->dict:

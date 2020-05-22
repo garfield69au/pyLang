@@ -1,23 +1,26 @@
 
 class MetaUtils(object):
-
+    """ MetaUtils: 
+    This is a helper class for processing metadata attributes. 
+    At some stage we might create a metadata class, in which case
+    these methods would be rolled into that class.
+    """
+    
     @staticmethod
     def exists(meta:dict, value:str) -> bool:
-        return ( value in meta and not meta[value] is None )
+        return ( (value in meta) and (not meta[value] is None) )
     
     @staticmethod
     def isTrue(meta:dict, value:str) -> bool:
-        return ( MetaUtils.exists(meta, value) and meta[value]==True )
+        return ( (MetaUtils.exists(meta, value)) and (meta[value]==True) )
         
     @staticmethod
     def isBlankOrNull(value:str) -> bool:
         return ( (len(value)==0) or (value == "(Null)") )
 
-        
     @staticmethod
     def isAllowBlank(meta:dict) -> bool:
-        return ( ("AllowBlank" in meta and not meta["AllowBlank"] is None) and (meta["AllowBlank"]==True) )
-     
+        return ( MetaUtils.isTrue(meta, "AllowBlank") )
      
     @staticmethod    
     def isFloat(value) -> bool:
@@ -34,6 +37,3 @@ class MetaUtils(object):
             return True
         except Exception as e:
             return False
-            
-
-        

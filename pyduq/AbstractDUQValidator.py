@@ -139,8 +139,4 @@ class AbstractDUQValidator(abc.ABC):
     def validate(self:object):
         pass
 
-        
-    @abc.abstractmethod
-    def validateList(self:object, key:str):
-        pass        
 
