@@ -15,7 +15,7 @@ class DUQValidator(AbstractDUQValidator):
     The main execution method is validate().
     """   
         
-    def validate(self:object):
+    def validate(self:object, customValidator:str):
         """
         Validate a resultset against predefined metadata based on the LANG rules of data quality.
         """
@@ -51,7 +51,9 @@ class DUQValidator(AbstractDUQValidator):
                 print("Validating attribute \t'" + meta_attribute_key + "'...\t\t..Complete.")
             else:
                 self.addDataQualityError(DataQualityError(meta_attribute_key, error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Attribute '" + meta_attribute_key + "' was not found in the dataset."))
-                        
+                                        
+        self.customValidator(customValidator)
+        
         
     def checkMandatory(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
         # mandatory field check

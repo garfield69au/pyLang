@@ -1,4 +1,5 @@
 import abc
+import importlib
 from openpyxl import Workbook
 from pyduq.dataqualityerror import DataQualityError, DataQualityDimension
 from pyduq.dataprofile import DataProfile
@@ -87,11 +88,11 @@ class AbstractDUQValidator(abc.ABC):
         # now count how many times each category appears for each attribute
         #for item, data in attribute_errors.items():
         for item in self.metadata:
-            summary_row = dict()
+            summary_row = {}
             summary_row["attribute"] = item
 
             summary[item]=[]
-            data = dict()
+            data = {}
             
             if (item in attribute_errors):
                 data = attribute_errors[item]
@@ -112,7 +113,7 @@ class AbstractDUQValidator(abc.ABC):
                     summary_row[name.name + " SCORE"] = round(score, 6)
                    
                 except Exception as e:
-                        summary_row[name.name + " SCORE"] =  0
+                    summary_row[name.name + " SCORE"] =  0
                         
             summary[item].append(summary_row)
                                 
@@ -136,7 +137,33 @@ class AbstractDUQValidator(abc.ABC):
 
     
     @abc.abstractmethod
-    def validate(self:object):
+    def validate(self:object, customValidator:str=""):
         pass
 
 
+    def customValidator(self:object, class_path:str):        
+        """
+        Dynamically load a class from a string in the format '<root folder>.<module filename>.<ClassName>'
+        The class must inherit AbstractDQValidator and implement the validate() method.
+        """
+        if ( (not class_path is None) and (len(class_path)>0) ):
+            class_data = class_path.split(".")
+            module_path = ".".join(class_data[:-1])
+            class_str = class_data[-1]
+
+            try:            
+                module = importlib.import_module(module_path)
+            
+                # Finally, we retrieve the Class
+                custom_validator = getattr(module, class_str)
+            except ImportError as e:
+                raise(ValidationError("Unable to load: " + class_str + '\n', None))
+            
+            if (not issubclass(custom_validator, AbstractDUQValidator)):
+                raise(ValidationError("The custom validator '" + self.customValidator + "' must inherit AbstractDUQValidator.", None))
+            
+            obj = custom_validator(self.dataset, self.metadata)
+                    
+            obj.validate()
+            self.validation_errors.extend(obj.validation_errors)
+        

@@ -66,7 +66,6 @@ Version: 1.0    18/04/2020  Shane J. Downey
 
 import sys
 import os
-import importlib
 import argparse
 import pyodbc
 import time
@@ -127,10 +126,8 @@ class pyDUQMain(object):
             stime = time.time()
      
             lang_validator = DUQValidator(self.dataset, self.metadata)
-            lang_validator.validate()
-            if ((not self.customValidator is None) and (len(self.customValidator) > 0)):
-                lang_validator.counters.extend(self.customValidate())
-
+            lang_validator.validate(self.customValidator)
+            
             lang_validator.saveCounters(self.outputFilePrefix + "_counters.xlsx")
             lang_validator.saveCountersSummary(self.outputFilePrefix + "_summary.xlsx")
             
@@ -152,31 +149,6 @@ class pyDUQMain(object):
         except ValidationError as e:
             print (e)
 
-    
-    def customValidate(self):        
-        """
-        dynamically load a class from a string in the format '<root folder>.<module filename>.<ClassName>'
-        """
-        class_data = self.customValidator.split(".")
-        module_path = ".".join(class_data[:-1])
-        class_str = class_data[-1]
-
-        try:            
-            module = importlib.import_module(module_path)
-        
-            # Finally, we retrieve the Class
-            custom_validator = getattr(module, class_str)
-        except ImportError as e:
-            raise(Exception("Unable to load: " + class_str + '\n'))
-        
-        if (not issubclass(custom_validator, AbstractDUQValidator)):
-            raise(Exception("The custom validator '" + self.customValidator + "' must inherit AbstractDUQValidator."))
-        
-        obj = custom_validator(self.dataset, self.metadata)
-                
-        obj.validate()
-
-        return obj.counters
     
         
 def main(argv):
