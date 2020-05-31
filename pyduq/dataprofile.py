@@ -102,10 +102,14 @@ class DataProfile(object):
             except Exception as e:
                 pass
         
-        mode = stats.mode(colData)
-        if (len(mode[0]) > 0):
-            self.most_frequent_value = mode.mode[0]
-            self.most_frequent_count = mode.count[0]
+        try:
+            mode = stats.mode(colData)
+            if (len(mode[0]) > 0):
+                self.most_frequent_value = mode.mode[0]
+                self.most_frequent_count = mode.count[0]
+        except Exception as e:
+            #on very large datasets, Numpy may throw an out of memory error. 
+            mode = -1
             
         vals = []
         self.count = len(colData)
