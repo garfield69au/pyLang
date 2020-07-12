@@ -40,6 +40,9 @@ class AbstractDUQValidator(abc.ABC):
     def profileData(self:object, meta_attribute_definition:dict, colData:dict, key:str):
         if (colData is None):
             raise ValidationError("LANG Exception: Coldata has not been set", None)
+
+        if (meta_attribute_definition is None):
+            raise ValidationError("LANG Exception: meta_attribute_definition has not been set", None)
         
         profile = DataProfile()
         profile.profileData(meta_attribute_definition, colData, key)
@@ -68,8 +71,7 @@ class AbstractDUQValidator(abc.ABC):
         workbook.close()
 
 
-    def summariseCounters(self:object) ->dict:
-        
+    def summariseCounters(self:object) ->dict:        
         # get the MeasurementCategory Enum as a list
         categories = list(DataQualityDimension)
         summary = {}
@@ -131,35 +133,38 @@ class AbstractDUQValidator(abc.ABC):
             workbook.save(filename=outputFile)
             workbook.close()
 
-    
-    @abc.abstractmethod
-    def validate(self:object, customValidator:str=""):
-        pass
-
 
     def customValidator(self:object, class_path:str):        
         """
         Dynamically load a class from a string in the format '<root folder>.<module filename>.<ClassName>'
         The class must inherit AbstractDQValidator and implement the validate() method.
         """
-        if ( (not class_path is None) and (len(class_path)>0) ):
-            class_data = class_path.split(".")
-            module_path = ".".join(class_data[:-1])
-            class_str = class_data[-1]
+        if (class_path is None or len(class_path)==0):
+            raise ValidationError("LANG Exception: class_path has not been set", None)
 
-            try:      
-                module = importlib.import_module(module_path)
+        class_data = class_path.split(".")
+        module_path = ".".join(class_data[:-1])
+        class_str = class_data[-1]
 
-                # Finally, we retrieve the Class
-                custom_validator = getattr(module, class_str)
-            except ImportError as e:
-                raise(ValidationError("Unable to load: " + class_str + " from module: " + module_path, None))
-            
-            if (not issubclass(custom_validator, AbstractDUQValidator)):
-                raise(ValidationError("The custom validator '" + self.customValidator + "' must inherit AbstractDUQValidator.", None))
-            
-            obj = custom_validator(self.dataset, self.metadata)
-                    
-            obj.validate()
-            self.validation_errors.extend(obj.validation_errors)
+        try:      
+            module = importlib.import_module(module_path)
+
+            # Finally, we retrieve the Class
+            custom_validator = getattr(module, class_str)
+        except ImportError as e:
+            raise(ValidationError("Unable to load: " + class_str + " from module: " + module_path, None))
         
+        if (not issubclass(custom_validator, AbstractDUQValidator)):
+            raise(ValidationError("The custom validator '" + self.customValidator + "' must inherit AbstractDUQValidator.", None))
+        
+        obj = custom_validator(self.dataset, self.metadata)
+                
+        obj.validate()
+        self.validation_errors.extend(obj.validation_errors)
+        
+        del obj
+        
+        
+    @abc.abstractmethod
+    def validate(self:object, customValidator:str=""):
+        pass
