@@ -21,7 +21,8 @@ Perform a data quality validation.
 optional arguments:
   -h, --help            show this help message and exit
   -i INPUTFILE, --inputfile INPUTFILE
-                        the path and name of the input data file.
+                        the path and name of the input data file
+                        to use as the data source.
   -o OUTPUTFOLDER, --outputfolder OUTPUTFOLDER
                         the destination path for the output files to be
                         stored.
@@ -29,12 +30,17 @@ optional arguments:
                         the filename of the metadata-data file to use for
                         validation.
   -s SQL SQL, --sql SQL SQL
-                        the database connection string and SQL query
+                        a database connection string and SQL query to use 
+                        as the data source.
   -c CUSTOM, --custom CUSTOM
                         The class path and name of a custom validator.
   -p, --profile         profile the data.
   -v, --validate        validate the data.
   --infer               Generate metadata.
+  --extend              Must be used with -m switch. Extends the provided
+                        meatdata file with any additional attributes or
+                        rules found in the data source. Overwrites the 
+                        suppled metafile.
   --verbose             Generate verbose output.
 
 

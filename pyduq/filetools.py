@@ -246,7 +246,7 @@ class FileTools(object):
             metarow["Size"] = size
             metarow["Mandatory"] = isMandatory
             metarow["AllowBlank"] = not isMandatory
-            metarow["Type"] = ("integer" if isInt else "float" if isFloat else "boolean" if isBool else "date" if isDate else "string")
+            metarow["Type"] = ("int" if isInt else "float" if isFloat else "bool" if isBool else "date" if isDate else "string")
             metarow["Unique"] = (len(seen) == len(attributes))
 
             #if we have a small number of items in our seen set then lets presume this is an enumerated attributed
