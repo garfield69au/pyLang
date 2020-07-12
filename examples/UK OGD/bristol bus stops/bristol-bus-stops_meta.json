@@ -1,0 +1,48 @@
+{
+    "Naptan No": {
+        "Size": 12,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Stop Location": {
+        "Size": 23,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": "[\"Arno's Vale\", 'Ashley Down', 'Ashton Gate', 'Ashton Vale', 'Avonmouth', 'Barton Hill', 'Bedminster', 'Bedminster Down', 'Bishopston', 'Bishopsworth', 'Bower Ashton', 'Brentry', 'Brislington', 'Bristol Bus Station', 'Bristol City Centre', 'Broadmead', 'Broom Hill', 'Broomhill', \"Canon's Marsh\", 'Clifton', 'Clifton (Bristol)', 'Clifton Down', 'Coombe Dingle', 'Cotham', 'Crofts End', 'Easton', 'Eastville', 'Eastville (Bristol)', 'Filwood Park', 'Fishponds', 'Frenchay', 'Golden Hill', 'Harbour', 'Hartcliffe', 'Headley Park', 'Henbury', 'Hengrove', 'Hengrove Park', 'Henleaze', 'Highridge', 'Highridge (Bristol)', 'Hillfields', 'Horfield', 'Horfield Common', 'Hotwells', \"Inn's Court\", 'Kingsdown', 'Knowle', 'Lawrence Hill', 'Lawrence Hill (Bristol', 'Lawrence Hill (Bristol)', 'Lawrence Weston', 'Lockleaze', 'Long Ashton', 'Lower Knowle', 'Montpelier', 'Novers Park', 'Old Market', 'Oldbury Court', 'Redcliffe', 'Redfield', 'Redland', 'Sea Mills', 'Shirehampton', 'Sneyd Park', 'Soundwell', 'Southmead', 'Southville', 'Southville (Bristol', 'Southville (Bristol)', 'Speedwell', 'St Andrews', \"St Anne's\", \"St Anne's Park\", 'St George', 'St Pauls', 'St Werburghs', 'Stapleton', 'Stockwood', 'Stoke Bishop', 'Temple Meads', 'The Dings', 'Totterdown', 'Two Mile Hill', \"Tyndall's Park\", 'Westbury Park', 'Westbury on Trym', 'Whitchurch', 'Whitchurch (Bristol)', 'Whitehall', 'Windmill Hill', 'Withywood']"
+    },
+    "Stop Name": {
+        "Size": 24,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "Shelter Pole or Lamp Post ": {
+        "Size": 11,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": "['Bus Station', 'Lamp Post', 'No', 'Pole', 'Shelter']"
+    },
+    "Seat": {
+        "Size": 3,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": "['N/A', 'No', 'Yes']"
+    },
+    "Raised Kerb": {
+        "Size": 3,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "boolean",
+        "Unique": false,
+        "Enum": "['No', 'Yes', 'yes']"
+    }
+}

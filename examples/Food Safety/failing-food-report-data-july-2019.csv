@@ -1,0 +1,67 @@
+Category,Date of fail,Product description,Country of origin,Producer name,Test Applied,Reason for fail,Result/s,Units,Reference
+Risk microbiological and allergen fails,4/07/2019,Pasteurised cooked crab meat,Vietnam,Phillips Seafood (Vietnam) Co Ltd,,Standard plate count,"<100, 3 500, <100, 
+1 600 000, ~100
+",cfu/g,CRU 03/2019
+Risk microbiological and allergen fails,4/07/2019,Pata de mulo cheese,Spain,Fco Javier Barrera Alvarez Lacteos Siete Lobas Crta Ardon,,Listeria monocytogenes,"<100, <100, 100, 300, 500",cfu/g,CHE 07/2018
+Risk microbiological and allergen fails,18/07/2019,Crushed chilli,Turkey,Narin Bys Dis Ticaret,,Salmonella,Detected,/125g,SPI 06/2019
+Risk microbiological and allergen fails,25/07/2019,Gialloblu erborinato cheese,Italy,Mantegazza Formaggi,,Listeria monocytogenes,Detected,/125g,CHE 07/2018
+Risk microbiological and allergen fails,29/07/2019,Frozen raw whole white clam shells,Vietnam,Ngoc Ha Co Ltd Food Processing And Trading,,E. coli,"<2.3, <2.3, 15, <2.3, <2.3",MPN/g,MOL 04/2017
+Risk microbiological and allergen fails,27/07/2019,Frozen scallops,Japan,Jyojirushi Douwasyokuhin Co Ltd,,Listeria monocytogenes,"ND, ND, ND, ND, Detected",/125g,MOL 04/2017
+Risk chemical/contaminant/ toxin test results,2/07/2019,Dried fish tuyo in olive oil,Philippines,Zaragoza Foods Corp,,Histamine,370,mg/kg,HIS 12/2016
+Risk chemical/contaminant/ toxin test results,3/07/2019,Tapioca chips,India,Gowri Exports & Imports,,Hydrocyanic acid,12,mg/kg,CAS 09/2016
+Risk chemical/contaminant/ toxin test results,8/07/2019,Cassava chips,Indonesia,"Arira Pangindo (Bogor, Indonesia)",,Hydrocyanic acid,11,mg/kg,CAS 09/2016
+Risk chemical/contaminant/ toxin test results,9/07/2019,Roasted peanuts,China,Qingdao Zest Foods Co Ltd,,Aflatoxin,0.044,mg/kg,NUT 11/208
+Risk chemical/contaminant/ toxin test results,9/07/2019,Spiced fried peanuts,India,Haldriram Bhujiawalal Pty Ltd (India),,Aflatoxin,0.076,mg/kg,NUT 11/208
+Risk chemical/contaminant/ toxin test results,5/07/2019,Ground dried fish,Taiwan,Kuang Ta Hsiang Foodstuffs Co Ltd (Taiwan),,Histamine,290,mg/kg,HIS 12/2016
+Risk chemical/contaminant/ toxin test results,9/07/2019,Tapioca chips,India,Economic Food Soutions Pvt Ltd,,Hydrocyanic acid,20,mg/kg,CAS 09/2016
+Risk chemical/contaminant/ toxin test results,25/07/2019,Tapioca chips,India,Kozhikodens,,Hydrocyanic acid,18,mg/kg,CAS 09/2016
+Risk chemical/contaminant/ toxin test results,25/07/2019,Black sesame crisps,China,Huanglaowu Food Co Ltd,,Aflatoxin,0.028,mg/kg,NUT 11/208
+Risk chemical/contaminant/ toxin test results,30/07/2019,Pistachio nut kernel pieces,China,Chk Trading Co Ltd,,Aflatoxin,0.1,mg/kg,NUT 11/208
+Risk chemical/contaminant/ toxin test results,30/07/2019,Fried peanuts,China,"Henan Kaixinren Food Co.,Ltd",,Aflatoxin,0.086,mg/kg,NUT 11/208
+Surveillance catergory food fails,2/07/2019,Indian flat beans,India,Innovative Cuisine,Fruit and vegetable residue screen,"Cypermethrin
+Profenofos","0.58
+0.1",mg/kg,FSC 1.4.2
+Surveillance catergory food fails,1/07/2019,Dried longan,China,Zhongshan Yuncheng Trading Co. Ltd.,Fruit and vegetable residue screen,Carbendazim,0.06,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,3/07/2019,Tea biscuits,Serbia,Koncern Bambi A.D,Composition,"Vitamin A, Phosphorus",Not permitted in this food,,FSC 1.3.2
+Surveillance catergory food fails,4/07/2019,Chips,Philippines,Leslie Corporation,Composition,"Vitamins A, B1, B2, B3, B5, B6, B12 and Folic Acid",Not permitted in this food,,FSC 1.3.2
+Surveillance catergory food fails,8/07/2019,Mangosteens,Thailand,Ptn Exotic Produce Co Ltd,Fruit and vegetable residue screen,Chlorpyrifos,0.3,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,8/07/2019,Fresh lychees,China,Zhangzhou Xinmingxing Trading Co Ltd,Fruit and vegetable residue screen,"Azoxystrobin
+Cyhalothrin
+Difenoconazole
+Thiabendazole    ","0.16
+0.06
+0.088
+2.2",mg/kg,FSC 1.4.2
+Surveillance catergory food fails,8/07/2019,Wheat flour,India,Itc Limited,Arsenic,Arsenic,37,mg/kg,FSC 1.4.1
+Surveillance catergory food fails,8/07/2019,Fresh lychees,China,Zhangzhou Xinmingxing Trading Co Ltd,Fruit and vegetable residue screen,"Azoxystrobin
+Cyhalothrin
+Difenoconazole
+Thiabendazole    ","0.22
+0.07
+0.095
+1.9",mg/kg,FSC 1.4.2
+Surveillance catergory food fails,9/07/2019,High gluten flour,Taiwan,"Yi-Feng Food Co., Ltd.",Composition,Vitamin C,Not permitted in this food,,FSC 1.3.1
+Surveillance catergory food fails,9/07/2019,Split mung beans,Myanmar,Ays Mfg Co Ltd,Fruit and vegetable residue screen,"Cypermethrin
+Chlorpyrifos","0.06
+0.33",mg/kg,FSC 1.4.2
+Surveillance catergory food fails,11/01/2019,Frozen chopped spinach,India,Innovative Cuisine,Fruit and vegetable residue screen,Chlorpyrifos,0.03,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,10/07/2019,Formulated supplementary food,India,Patanjali Ayurved Limited,Composition,"Mineral copper, Vitamin B7 ",Not permitted in this food,,FSC 1.3.2
+Surveillance catergory food fails,11/07/2019,Smoked catfish pieces ,Thailand,Speed General Trading Co Ltd,Seafood antimicrobial tests,Enrofloxacin,0.0031,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,16/07/2019,Pilchards in hot chilli sauce,Namibia,United Fishing Enterprises (Pty) Ltd,Composition,Irradiated cayenne pepper,Not a permitted treatment for this food,,FSC 1.5.3
+Surveillance catergory food fails,16/07/2019,Hot mixed vegetable pickle,South Africa,Packo (Verulam South Africa),Composition,"Irradiated chilli, irradiated mustard, irradiated tumeric",Not a permitted treatment for this food,,FSC 1.5.3
+Surveillance catergory food fails,16/07/2019,Ground biscuits,Serbia,Koncern Bambi A.D,Composition,"Vitamin C, Phosphorus",Not permitted in this food,,FSC 1.3.2
+Surveillance catergory food fails,23/07/2019,Biscuits,Serbia,Koncern Bambi A.D,Composition,"Vitamin C, Phosphorus",Not permitted in this food,,FSC 1.3.2
+Surveillance catergory food fails,16/07/2019,Bitter gourd,India,Finns Frozen Foods (India) Limited,Fruit and vegetable residue screen,Dimethoate,0.026,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,16/07/2019,Indian beans (val papdi),India,Finns Frozen Foods (India) Limited,Fruit and vegetable residue screen,Cypermethrin,0.21,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,26/07/2019,Frozen cut okra,India,Aerath Business Corporation,Fruit and vegetable residue screen,Acephate,0.087,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,26/07/2019,Frozen dried longan,Thailand,Tanaya International Co Ltd,Fruit and vegetable residue screen,Carbendazim,0.073,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,18/07/2019,Dried tsaoko fruit,China,Success Day Hong,Fruit and vegetable residue screen,Phenylphenol,0.16,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,18/07/2019,Lou han guo (monk fruit),China,Success Day Hong,Fruit and vegetable residue screen,"Cyhalothrin
+Procymidone","0.14
+0.03",mg/kg,FSC 1.4.2
+Surveillance catergory food fails,29/07/2019,Frozen dried longan,Thailand,Tanaya International Co Ltd,Fruit and vegetable residue screen,Carbendazim,0.073,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,25/07/2019,Dried longan,China,"Jiangmen Junying Food Co., Ltd",Fruit and vegetable residue screen,Tebuconazole,0.06,mg/kg,FSC 1.4.2
+Surveillance catergory food fails,30/07/2019,Pickled apricot katsuome,Japan,Yoneya (Japan),Composition,Vitamin B1,Not permitted in this food,,FSC 1.3.2
+Surveillance catergory food fails,30/07/2019,Pickled apricot shiso ume,Japan,Yoneya (Japan),Composition,Vitamin B1,Not permitted in this food,,FSC 1.3.2
+Surveillance catergory food fails,30/07/2019,Pickled apricot hachimitsu ume,Japan,Yoneya (Japan),Composition,Vitamin B1,Not permitted in this food,,FSC 1.3.2
+Surveillance catergory food fails,24/07/2019,Maize meal (Braaipap),South Africa,Indian Ocean Export Company,Composition,"Vitamin A, Vitamin B5, Vitamin B12 ",Not permitted in this food,,FSC 1.3.2

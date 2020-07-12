@@ -1,0 +1,62 @@
+Category,Date of fail,Product description,Country of origin,Producer name,Test Applied,Reason for fail,Result/s,Units,Reference,Holding Order
+Risk food tests,11/12/2019,Smoked paprika,Spain,Pimenton El Angel S.L,,Salmonella,Detected,/125g,"SPI 06/2019
+
+",
+Risk food tests,23/12/2019,Frozen cooked prawn cutlets,Vietnam,Ca Mau Seafood Processing and Service Joint Stock Corporation,,Vibrio cholerae,Detected,/125g,CRU 03/2019,
+Risk food tests,30/12/2019,Cooked salad prawns,China,Fijian Dongshan County Shunfa Aquatic Co. Ltd.,,Coagulase-positive staphylococci,"<100, <100, <100, 2700, <100",cfu/g,CRU 03/2019,
+Risk food tests,4/12/2019,Peanut candy,Malaysia,Desa Southern Agency (Kl) Sdn Bhd,,Aflatoxin,0.048,mg/kg,NUT 11/2018,
+Risk food tests,6/12/2019,Spanish mackerel,Indonesia,Pt Iambeu Mina Utama,,Histamine,1459,mg/kg,HIS 12/2016,
+Risk food tests,6/12/2019,Yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,710,mg/kg,HIS 12/2016,
+Risk food tests,6/12/2019,Yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,439,mg/kg,HIS 12/2016,
+Risk food tests,6/12/2019,Yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,234,mg/kg,HIS 12/2016,
+Risk food tests,6/12/2019,Yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,485,mg/kg,HIS 12/2016,
+Risk food tests,6/12/2019,Yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,265,mg/kg,HIS 12/2016,
+Risk food tests,13/12/2019,Tapioca chips,India,Padmavasan Traders,,Hydrocyanic acid,13,mg/kg,CAS 09/2016,
+Risk food tests,20/12/2019,Handmade nyonya peanut candy,Malaysia,Hss Confectionery Foodstuff Sdn Bhd,,Aflatoxin,0.007,mg/kg,NUT 11/2018,
+Risk food tests,20/12/2019,Handmade nyonya peanut cake,Malaysia,Hss Confectionery Foodstuff Sdn Bhd,,Aflatoxin,0.089,mg/kg,NUT 11/2018,
+Risk food tests,24/12/2019,Organic kelp flakes,New Zealand,Ceres Enterprises Ltd,,Iodine,4300,mg/kg,BSW 12/2016,
+Risk food tests,24/12/2019,Dried herring,Philippines,Kaelen Phils Inc,,Histamine,410,mg/kg,HIS 12/2016,
+Risk food tests,31/12/2019,Salted mackerel fillets,Republic of Korea,Samjin Globalnet Co Ltd,,Histamine,209,mg/kg,HIS 12/2016,
+Risk food tests,29/12/2019,Dried anchovies,Myanmar,Domestic Co Ltd,,Histamine,295,mg/kg,HIS 12/2016,
+Risk food tests,31/12/2019,Pilchards in hot chilli sauce,South Africa,Lucky Star,,Irradiated cayenne pepper,Not a permitted treatment for this food,n/a,FSC 1.5.3,
+Surveillance food tests,2/12/2019,Frozen magur tray (fish),Bangladesh,Mm Foods International,Seafood antimicrobial tests,"Ciprofloxacin 
+Enrofloxacin 
+Levofloxocin 
+Ofloxacin 
+Leuco Malachite-Green
+","0.015
+0.073
+0.021
+0.021
+0.008
+",mg/kg,FSC 1.4.2,15529
+Surveillance food tests,3/12/2019,Frozen green chillies,India,Arctic Agro Foods Pvt. Ltd.,Fruit and vegetable residue screen,Difenoconazole,0.17,mg/kg,FSC 1.4.2,HO match
+Surveillance food tests,5/12/2019,Wheaten flour,Taiwan,Yi-Feng Food Co. Ltd.,Composition,Vitamin C,Not permitted in this food,n/a,FSC 1.3.2,HO match
+Surveillance food tests,5/12/2019,Dried seedless longan,Thailand,O-Cha Food Pack Co. Ltd. (Thailand),Fruit and vegetable residue screen,Carbendazim,0.06,mg/kg,FSC 1.4.2,HO match
+Surveillance food tests,5/12/2019,Durian monthong,Thailand,Sunshine International Co. Ltd.,Fruit and vegetable residue screen,Procymidone,0.18,mg/kg,FSC 1.4.2,15537
+Surveillance food tests,3/12/2019,Dragon fruit,Vietnam,The Fruit Republic Can Tho One Member Co. Ltd.,Fruit and vegetable residue screen,Carbendazim,0.19,mg/kg,FSC 1.4.2,15538
+Surveillance food tests,10/12/2019,Toor dal,India,Vignesh Super Stores,Fruit and vegetable residue screen,Chlorpyrifos,0.074,mg/kg,FSC 1.4.2,15539
+Surveillance food tests,10/12/2019,Toor dal,India,Vignesh Super Stores,Fruit and vegetable residue screen,Chlorpyrifos,0.13,mg/kg,FSC 1.4.2,15539
+Surveillance food tests,10/12/2019,Supari slice (betel nut slice),India,Kitchen Xpress Overseas Limited,Composition,Areca catechu (Betel nut),Prohibited plant,n/a,FSC 1.4.4,15544
+Surveillance food tests,10/12/2019,Supari sali,India,Kitchen Xpress Overseas Limited,Composition,Areca catechu (Betel nut),Prohibited plant,n/a,FSC 1.4.4,15544
+Surveillance food tests,10/12/2019,Supari whole,India,Kitchen Xpress Overseas Limited,Composition,Areca catechu (Betel nut),Prohibited plant,n/a,FSC 1.4.4,15544
+Surveillance food tests,16/12/2019,Margarine,Indonesia,Pt Unilever Indonesia Tbk,Composition,"Niacin, vitamin B1 and B2",Not permitted in this food,n/a,FSC 1.3.2,HO match
+Surveillance food tests,18/12/2019,Frozen spinach,India,Global Gourmet Pvt. Ltd.,Fruit and vegetable residue screen,Chlorpyrifos,0.56,mg/kg,FSC 1.4.2,HO match
+Surveillance food tests,23/12/2019,Elderberry concentrate,Italy,Iprona Ag-Spa,Fruit and vegetable residue screen,"Fludioxonil
+Tebuconazole","0.024
+0.12",mg/kg,FSC 1.4.2,15564
+Surveillance food tests,24/12/2019,Frozen surti beans whole,India,Innovative Cuisine,Fruit and vegetable residue screen,"Carbendazim
+Chlorpyrifos
+Fenvalerate
+Monocrotophos","0.05
+0.02
+0.56
+0.07
+",mg/kg,FSC 1.4.2,HO match
+Surveillance food tests,24/12/2019,Frozen red chillies without tails,Vietnam,Tan Dong Trade Production Company Limited,Fruit and vegetable residue screen,"Chlorpyrifos,
+Difenoconazole, 
+Permethrin
+","0.091
+0.16
+0.11
+",mg/kg,FSC 1.4.2,HO match

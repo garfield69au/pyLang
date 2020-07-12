@@ -1,0 +1,94 @@
+{
+    "Date": {
+        "Size": 10,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Time": {
+        "Size": 9,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Location": {
+        "Size": 60,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Operator": {
+        "Size": 65,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Flight #": {
+        "Size": 10,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Route": {
+        "Size": 59,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Type": {
+        "Size": 42,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Registration": {
+        "Size": 15,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "cn/In": {
+        "Size": 20,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "Aboard": {
+        "Size": 3,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false
+    },
+    "Fatalities": {
+        "Size": 3,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false
+    },
+    "Ground": {
+        "Size": 4,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "integer",
+        "Unique": false,
+        "Enum": "['0', '1', '10', '107', '11', '113', '12', '125', '13', '14', '15', '16', '17', '18', '19', '2', '20', '22', '225', '23', '24', '2750', '3', '30', '31', '32', '33', '35', '36', '37', '4', '40', '44', '45', '47', '49', '5', '50', '52', '54', '58', '6', '63', '7', '70', '75', '8', '85', '87', '9']"
+    },
+    "Summary": {
+        "Size": 1954,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    }
+}

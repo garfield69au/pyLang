@@ -1,0 +1,52 @@
+Category,Date of fail,Product description,Country of origin,Producer name,Test Applied,Reason for fail,Result/s,Units,Reference,Holding Order
+Risk microbiological and allergen fails,1/08/2019,Frozen cooked whole craw fish,China,"Zhejiang Tianhe Aquatic Products Inc., Ltd",,Standard plate count,"630 000, 600 000, 4 000 000, 300 000, 28 000 000",cfu/g,"CRU 03/2019
+
+",
+Risk microbiological and allergen fails,5/08/2019,Chilli powder,India,Kottackal Agro Foods,,Salmonella,Detected,/125g,SPI 06/2019,
+Risk microbiological and allergen fails,6/08/2019,Diced mozzarella cheese,Italy,Europomella Spa (It 12/009 Ce),,Listeria monocytogenes,Detected,/125g,CHE 07/2018,
+Risk microbiological and allergen fails,22/08/2019,Chilli powder,India,Spectrum International,,Salmonella,Detected,/125g,SPI 06/2019,
+Risk microbiological and allergen fails,23/08/2019,Tahini,Pakistan,Tat Pakistan Sesame Mills,,Salmonella,Detected,/125g,SES 05/2014,
+Risk microbiological and allergen fails,30/08/2019,Halawah with pistachio,Syria,Al Asala Foodstuff Co,,Listeria monocytogenes,Detected,/125g,SES 05/2014,
+Risk chemical/contaminant/ toxin test results,5/08/2019,Spiced peanuts,India,Raghuvanshi Exports,,Aflatoxin,0.214,mg/kg,NUT 11/208,
+Risk chemical/contaminant/ toxin test results,14/08/2019,Dried herring,Philippines,Kaelen Phils Inc,,Histamine,360,mg/kg,HIS 12/2016,
+Risk chemical/contaminant/ toxin test results,12/08/2019,Kelp slices,China,Fuzhou Hailin Food Co Ltd,,Iodine,3900,mg/kg,BSW 12/2016,
+Risk chemical/contaminant/ toxin test results,12/08/2019,Kelp shreds,China,Fuzhou Hailin Food Co Ltd,,Iodine,3300,mg/kg,BSW 12/2016,
+Risk chemical/contaminant/ toxin test results,12/08/2019,Dried kelp knots,China,Fuzhou Hailin Food Co Ltd,,Iodine,2000,mg/kg,BSW 12/2016,
+Risk chemical/contaminant/ toxin test results,23/08/2019,Tuna in vegetable oil,Iran,Fedelak Food Industry,,Histamine,532,mg/kg,HIS 12/2016,
+Risk chemical/contaminant/ toxin test results,23/08/2019,Tapioca chips,India,Nilamel Exports,,Hydrocyanic acid,11,mg/kg,CAS 09/2016,
+Risk chemical/contaminant/ toxin test results,29/08/2019,Dried anchovies,India,Aquatic Fisheries,,Histamine,390,mg/kg,HIS 12/2016,
+Surveillance catergory food fails,6/08/2019,Chilli sauce,Thailand,Chefs Choice Foods Mfr Co Ltd (Thailand),Composition,Vitamin C,Not permitted in this food,,FSC 1.3.2,15287
+Surveillance catergory food fails,9/08/2019,Porridge oats,United Kingdom,Ramsden/Weetabis,Composition,Vitamin B12,Not permitted in this food,,FSC 1.3.2,15288
+Surveillance catergory food fails,9/08/2019,Breakfast cereal,United Kingdom,Ramsden/Weetabis,Composition,Vitamin B5,Not permitted in this food,,FSC 1.3.2,15288
+Surveillance catergory food fails,15/08/2019,Frozen green chilli,India,Arctic Agro Foods Pvt Ltd,Fruit and vegetable residue screen,"Monocrotophos
+Tebuconazole","0.07
+0.13
+",mg/kg,FSC 1.4.2,15295
+Surveillance catergory food fails,16/08/2019,Sliced red dates,China,Micson Food Processing,Fruit and vegetable residue screen,"Carbendazim
+Cypermethrin
+Difenoconazole
+Propiconazole
+Tebuconazole","0.28
+0.16
+0.37
+0.17
+0.56",mg/kg,FSC 1.4.2,HO match
+Surveillance catergory food fails,19/08/2019,Spinach leaves,India,Vadilal Industries Limited,Fruit and vegetable residue screen,Chlorpyrifos,0.23,mg/kg,FSC 1.4.2,HO match
+Surveillance catergory food fails,13/08/2019,Fresh lychees,China,Zhangzhou Xinmingxing Trading Co Ltd,Fruit and vegetable residue screen,"Carbendazim 
+Chlorpyrifos
+Cypermethrin
+Dimethomorph
+Thaibendazole
+","1.8
+0.09
+0.39
+0.43
+0.04
+",mg/kg,FSC 1.4.2,HO match
+Surveillance catergory food fails,13/08/2019,Seasoned squid salad,China,Dalian Gaishi Food Co Ltd,Composition,Additive (Colour 160b),Not permitted in this food,,FSC 1.3.1,HO match
+Surveillance catergory food fails,14/08/2019,Preserved salted plums,China,Kiu Sang Hong Limited (Hong Kong),Lead,Lead,1.1,,FSC 1.4.1,HO match
+Surveillance catergory food fails,15/08/2019,Candy corn,United States,Ferrara Cany Company,Composition,Additive E127 (erythrosine),Not permitted in this food,,FSC 1.3.1,15312
+Surveillance catergory food fails,21/08/2019,Tapioca flake,Indonesia,Pt Marizarasa Sarimurni (Indonesia),Composition,Additive E127 (erythrosine),Not permitted in this food,,FSC 1.3.1,15316
+Surveillance catergory food fails,26/08/2019,Cambodge dried tamarind,India,Kkr Agro Mills (P) Ltd,Fruit and vegetable residue screen,2-Phenylphenol,0.14,mg/kg,FSC 1.4.2,HO match
+Surveillance catergory food fails,22/08/2019,Toor dal (pigeon peas),Myanmar,Ays Mfg Co Ltd,Fruit and vegetable residue screen,Chlorpyrifos,0.12,mg/kg,FSC 1.4.2,15323
+Surveillance catergory food fails,30/08/2019,Golden raisins,India,Harihar Foods Pvt. Ltd. (India),Fruit and vegetable residue screen,Carbendazim,0.36,mg/kg,FSC 1.4.2,HO match

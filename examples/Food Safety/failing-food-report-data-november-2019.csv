@@ -1,0 +1,39 @@
+Category,Date of fail,Product description,Country of origin,Producer name,Test Applied,Reason for fail,Result/s,Units,Reference,Holding Order
+Risk food tests,5/11/2019,Caprotto cheese,Italy,Casa Madaio Srl (It 15/061ce),,Listeria monocytogenes,Detected,/125g,CHE 07/2018,
+Risk food tests,1/11/2019,Frozen roasted eel,China,Jiangxi Donghai Food Co Lyd,,Listeria monocytogenes,Detected,/125g,FSH 07/2018,
+Risk food tests,4/11/2019,Frozen whole cooked lobster,Brazil,J3 Industria E Comercio De Pescados Ltda,,Salmonella,Detected,/125g,CRU 03/2019,
+Risk food tests,20/11/2019,Taleggio DOP cheese,Italy,Carozzi Roberto & C.S.N.C I03/416cee (Lecco Italy),,Listeria monocytogenes,Detected,/125g,CHE 07/2018,
+Risk food tests,22/11/2019,Ground red pepper,Nigeria,Oceanwaves Import and Export Ltd,,Salmonella,Detected,/125g,SPI 06/2019,
+Risk food tests,28/11/2019,Frozen cooked vannamei prawns,China,Zhejiang Ocean Family Co Ltd,,Standard plate count,"240 000, 110 000, 160 000, 450 000, 68 000",cfu/g,CRU 03/2019,
+Risk food tests,26/11/2019,Chilli powder (deggi mirch),India,Mahashian Di Hatti Ltd (India),,Salmonella,Detected,/125g,SPI 06/2019,
+Risk food tests,1/11/2019,Seasoned seaweed,Japan,Kurakon Foods Corporation,,Iodine,3000,mg/kg,BSW 12/2016,
+Risk food tests,1/11/2019,Dried seaweed,Japan,Kurakon Foods Corporation,,Iodine,4000,mg/kg,BSW 12/2016,
+Risk food tests,7/11/2019,Spice coated fried peanuts,India,Haldiram Snacks Pvt Ltd,,Aflatoxin,0.033,mg/kg,NUT 11/2018,
+Risk food tests,14/11/2019,Peanut cake,Malaysia,Meng Choon Food Industries Sdn Bhd,,Aflatoxin,0.017,mg/kg,NUT 11/2018,
+Risk food tests,29/11/2019,Spice coated fried peanuts,India,Haldiram Foods International Pvt Ltd,,Aflatoxin,0.027,mg/kg,NUT 11/2018,
+Risk food tests,29/11/2019,Seasoned seaweed,Japan,Kurakon Foods Corporation,,Iodine,3500,mg/kg,BSW 12/2016,
+Surveillance food tests,1/11/2019,Sliced pickled turnips,Lebanon,Al Dayaa Products Sarl,"Composition
+
+",Additive E 127 (Erythrosine),Not permitted in this food ,n/a,"FSC 1.3.1
+
+",15460
+Surveillance food tests,4/11/2019,Dried mud fish,Thailand,"O-Cha Food Pack Co., Ltd (Thailand)",Seafood antimicrobial tests,Ciprofloxacin,0.0028,mg/kg,FSC 1.4.2,HO match
+Surveillance food tests,6/11/2019,Apricot flavoured candy foam,South Africa,Mister Sweet Pty Ltd,Composition,Additive E 127 (Erythrosine),Not permitted in this food ,,,HO match
+Surveillance food tests,7/11/2019,Preserved salted peaches,China,"Farmer's Cottage Foodstuff Co., Ltd",Lead,Lead,0.21,mg/kg,FSC 1.4.1,15479
+Surveillance food tests,7/11/2019,Preserved plums,China,"Farmer's Cottage Foodstuff Co., Ltd",Lead,Lead,0.21,mg/kg,FSC 1.4.1,15480
+Surveillance food tests,11/11/2019,Fresh longans,Vietnam,Chanh Thu Export And Import Fruit Company Limited,Fruit and vegetable residue screen,"Azoxystrobin
+Difenoconazole","0.18
+0.11
+",mg/kg,FSC 1.4.2,15481
+Surveillance food tests,11/11/2019,Margarine,Indonesia,Pt Unilever Indonesia Tbk,Composition,"Vitamin niacin, B1, B2",Not permitted in this food,n/a,FSC 1.3.2,18482
+Surveillance food tests,31/10/2019,Frozen purple corn,Vietnam,Saka Saka Company Limited,Fruit and vegetable residue screen,Chlorpyrifos,0.12,mg/kg,FSC 1.4.2,15486
+Surveillance food tests,14/11/2019,Wheaten flour,Taiwan,"Yi-Feng Food Co., Ltd.",Composition,Vitamin C,Not permitted in this food,n/a,FSC 1.3.2,HO match
+Surveillance food tests,13/11/2019,Frozen durian,Thailand,Sunshine International Co Ltd,Fruit and vegetable residue screen,Procymidone,0.99,mg/kg,FSC 1.4.2,15489
+Surveillance food tests,18/11/2019,Cereal,United Kingdom,Kelloggs (Warrington United Kingdom),Composition,"Vitmains D, B12",Not permitted in this food,n/a,FSC 1.3.2,15495
+Surveillance food tests,12/11/2019,Sukkary fresh dates,Saudi Arabia,Manafez International,Fruit and vegetable residue screen,Cyhalothrin,0.03,mg/kg,FSC 1.4.2,HO match
+Surveillance food tests,12/11/2019,Fresh dates,Saudi Arabia,Manafez International,Fruit and vegetable residue screen,Carbendazim,0.06,mg/kg,FSC 1.4.2,HO match
+Surveillance food tests,25/11/2019,Indian flat beans (surti papdi),India,Innovative Cuisine,Fruit and vegetable residue screen,Profenofos,0.09,mg/kg,FSC 1.4.2,HO match
+Surveillance food tests,26/11/2019,Formulated supplementary sports food,United States,Bpm Labs,Composition,Synephrine Hcl,Considered to pose a risk to human health,n/a,Imported Food Control Act section 3(2)(a)(vii),HO match
+Surveillance food tests,26/11/2019,Qasuri Methi fenugreek leaves (retail)   ,Pakistan,Malka Foods (Pvt) Limited,Salmonella,Salmonella,Detected,/125g,Imported Food Control Act section 3(2),15519
+Surveillance food tests,27/11/2019,Vegetable Ivy gourd,India,Vadilal Industries Limited,Fruit and vegetable residue screen,Dimethoate,0.027,mg/kg,FSC 1.4.2,15520
+Surveillance food tests,29/11/2019,Strawberries IQF Whole,China,Rongze Food Manufacturing Co,Fruit and vegetable residue screen,Acephate,0.073,mg/kg,FSC 1.4.2,15521

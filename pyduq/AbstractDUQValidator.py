@@ -66,8 +66,6 @@ class AbstractDUQValidator(abc.ABC):
             
         workbook.save(filename=outputFile)
         workbook.close()
-        del(sheet)
-        del(workbook)
 
 
     def summariseCounters(self:object) ->dict:
@@ -132,8 +130,6 @@ class AbstractDUQValidator(abc.ABC):
         
             workbook.save(filename=outputFile)
             workbook.close()
-            del(sheet)
-            del(workbook)
 
     
     @abc.abstractmethod
@@ -151,13 +147,13 @@ class AbstractDUQValidator(abc.ABC):
             module_path = ".".join(class_data[:-1])
             class_str = class_data[-1]
 
-            try:            
+            try:      
                 module = importlib.import_module(module_path)
-            
+
                 # Finally, we retrieve the Class
                 custom_validator = getattr(module, class_str)
             except ImportError as e:
-                raise(ValidationError("Unable to load: " + class_str + '\n', None))
+                raise(ValidationError("Unable to load: " + class_str + " from module: " + module_path, None))
             
             if (not issubclass(custom_validator, AbstractDUQValidator)):
                 raise(ValidationError("The custom validator '" + self.customValidator + "' must inherit AbstractDUQValidator.", None))

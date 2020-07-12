@@ -1,7 +1,7 @@
 import re
 import time
 from pyduq.metautils import MetaUtils
-from pyduq.AbstractDUQValidator import AbstractDUQValidator
+from pyduq.abstractduqvalidator import AbstractDUQValidator
 from pyduq.patterns import Patterns
 from pyduq.duqerror import ValidationError
 from pyduq.dataqualityerror import DataQualityError, DataQualityDimension
@@ -126,7 +126,7 @@ class DUQValidator(AbstractDUQValidator):
                         self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
                         is_valid_type = False
             elif (meta_attribute_definition["Type"] in ["bool","boolean"]):
-                if ( (MetaUtils.isBlankOrNull(value)) or (not value.lower() in ["false", "true", "no", "yes", "0", "1"]) ): 
+                if ( (MetaUtils.isBlankOrNull(value)) or (not value.lower() in ["false", "true", "f", "t", "n", "y", "no", "yes", "0", "1"]) ): 
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
                         self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a boolean. A boolean was expected"))
                         is_valid_type = False

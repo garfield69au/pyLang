@@ -1,0 +1,49 @@
+Category,Date of fail,Product description,Country of origin,Producer name,Test Applied,Reason for fail,Result/s,Units,Reference,Holding Order
+Risk microbiological and allergen fails,3/09/2019,Extra hot chilli powder,India,Shah Exim Pvt Ltd,,Salmonella,Detected,/125g,SPI 06/2019,
+Risk microbiological and allergen fails,16/09/2019,Frozen marinara mix,China,Shandong Tongxing Foodstuffs Co Ltd,,E. coli,"<2.3, <2.3, 43.0, <2.3, <2.3",MPN/g,MSM 11/2018,
+Risk microbiological and allergen fails,16/09/2019,Frozen whole cooked brandy crawfish,China,Standard Plate Count,,Standard plate count,"19000, 2100000, 22000, 26000, 27000",cfu/g,CRU 03/2019,
+Risk microbiological and allergen fails,2/09/2019,Cheese,Italy,Casa Madaio,,Listeria monocytogenes,Detected,/125g,CHE 07/2018,
+Risk chemical/contaminant/ toxin test results,3/09/2019,Seasoned seaweed,Japan,Kurakon Foods Corporation,,Iodine,3400,mg/kg,BSW 12/2016,
+Risk chemical/contaminant/ toxin test results,9/09/2019,Sardines in tomato sauce,China,Sunny Success International Ltd,,Histamine,280,mg/kg,HIS 12/2016,
+Risk chemical/contaminant/ toxin test results,16/09/2019,Spicy gram flour coated peanuts,India,Sunshine Food Products,,Aflatoxin,"0.015
+product contains 67 per cent peanut, therefore the calculated maximum level is 0.01",mg/kg,NUT 11/2018,
+Risk chemical/contaminant/ toxin test results,18/09/2019,Satay sauce,Indonesia,Pt Enak Jaya Makmur,,Aflatoxin,0.025,mg/kg,NUT 11/2018,
+Risk chemical/contaminant/ toxin test results,16/09/2019,Dried thora fish,Sri Lanka,Damayanthi Ent & Exp (Sri Lanka),,Histamine,210,mg/kg,HIS 12/2016,
+Risk chemical/contaminant/ toxin test results,29/08/2019,Kelp powder,China,Xi'an Pincredit Bio-Tech Co Ltd,,Iodine,6660,mg/kg,BSW 12/2016,
+Risk chemical/contaminant/ toxin test results,30/09/2019,Peanut spread,Philippines,Unilever Phils,,"Composition
+Vitamin B1,
+Vitamin acetate,
+Vitamin A Palmitate,
+Vitamin D3",Not permitted in this food,,FSC 1.3.2,
+Surveillance catergory food fails,3/09/2019,Steamed red bean grain bun,China,Shanghai Light Industrial Products Imp& Exp Corp.Ltd,,Composition,Vitamin C,Not permitted in this food,FSC 1.3.2,15350
+Surveillance catergory food fails,19/09/2019,Flavoured pan masala,India,Dharampal Premchand Ltd,Composition,"Areca catechu
+(Betel nut) 
+
+",Prohibited plant,,FSC 1.4.4,15435
+Surveillance catergory food fails,5/09/2019,Dried haw,China,Yongxiang Food Processing Plant,Fruit and vegetable residue screen,"Carbendazim
+Cyhalothrin
+","0.20
+0.12
+",mg/kg,FSC 1.4.2,15351
+Surveillance catergory food fails,11/09/2019,Coffee,Thailand,Nature Gift (Thailand) Ltd Dk Health Product Lyd Part,Composition,"Niacinamide, 
+Iron, 
+Manganese, 
+Calcium D-Pantothenate, Riboflavin,
+Chromium
+",Not permitted in this food,,FSC 1.3.2,15359
+Surveillance catergory food fails,5/09/2019,Ramen noodles pork broth,Japan,"Marutai Co., Ltd",Composition,Additive 165 (Gardenia blue),Not permitted in this food,,FSC 1.3.1,15360
+Surveillance catergory food fails,6/09/2019,Spinach leaves,India,Vadilal Industries Limited,Fruit and vegetable residue screen,Chlorpyrifos,0.09,mg/kg,FSC 1.4.2,HO Match
+Surveillance catergory food fails,5/09/2019,Instant noodles,Japan,Toyo Suisan Kaisha Ltd,"Composition
+
+",Additive 165 (Gardenia blue) Additive 180 (Lithol Rubine BK),,,FSC 1.3.1,15367
+Surveillance catergory food fails,5/09/2019,Canned yellow peaches,Republic of Korea,Penguin General Food Co Ltd (Korea),Lead,0.2,,mg/kg,FSC 1.4.1,15368
+Surveillance catergory food fails,13/09/2019,Formulated supplementary sports food,United States,4excelsior Pharma Spirit,Composition,Unapproved novel food,,,FSC 1.5.1,15369
+Surveillance catergory food fails,6/09/2019,Taro flavoured powder,Taiwan,King Heng Foods Co Ltd,Composition,Not permitted in this food,,,FSC 1.3.1,15372
+Surveillance catergory food fails,23/09/2019,Wheaten flour,Taiwan,"Yi-Feng Food Co., Ltd.",Composition,Vitamin C,Not permitted in this food,,FSC 1.3.2,HO Match
+Surveillance catergory food fails,19/09/2019,Dried Chinese dates,China,Bozhou Haomen Chinese Herbal Medicine Co Ltd,Fruit and vegetable residue screen,Cypermethrin,0.11,mg/kg,FSC 1.4.2,15384
+Surveillance catergory food fails,26/09/2019,Boiled bracken,Republic of Korea,Singwang Ecofarm Co Ltd,Composition,Pteridium aquilinum,Prohibited plant,,FSC 1.4.4,HO Match
+Surveillance catergory food fails,27/09/2019,Dried hawthorn fruit,China,Guang Dong Jiexi Maolin Food Co Ltd,Fruit and vegetable residue screen,"Carbendazim, 
+Tebuconazole","0.65
+0.12",,FSC 1.4.2,15390
+Surveillance catergory food fails,17/09/2019,High gluten flour,Taiwan,"Yi-Feng Food Co., Ltd.",Composition,Vitamin C,Not permitted in this food,,FSC 1.3.2,HO Match
+Surveillance catergory food fails,12/09/2019,Lemon juice ,Nepal,Bs Nepal Trade Link Pvt Ltd,Composition,Vitamin E,Not permitted in this food,,FSC 1.3.2,15381

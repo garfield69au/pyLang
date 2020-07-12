@@ -1,0 +1,74 @@
+Category,Date of fail,Product description,Country of origin,Producer name,Test Applied,Reason for fail,Result/s,Units,Reference,Holding Order
+Risk microbiological and allergen fails,9/10/2019,Petit Agour cheese,France,Agour Sasu,,Listeria monocytogenes,Detected,/125g,CHE 07/2018,
+Risk microbiological and allergen fails,11/10/2019,Cooked crawfish,China,Zhongyang Fishery (Shanghai),,Standard plate count,"120 000, 230 000, 
+90 000, 380 000, 280 000
+",/125g,CRU 03/2019,
+Risk microbiological and allergen fails,21/10/2019,Frozen cooked prawns,Vietnam,Bac Lieu Fisheries Joint Stock Company,,Vibrio cholerae,Detected,/125g,CRU 03/2019,
+Risk microbiological and allergen fails,30/10/2019,Cooked ark shell meat,Republic of Korea,"Namdo Kkomak Co., Ltd",,E. coli,"17, <2, 7, 8, 2",MPN/g,MOL 04/2017,
+Risk microbiological and allergen fails,31/10/2019,Dry mizithra cheese,Greece,Metsovo-Vlahotirokomikh Tsoutsoplides (Greece),,Listeria monocytogenes,Detected,/125g,CHE 07/2018,
+Risk microbiological and allergen fails,31/10/2019,Frozen cooked prawns,Thailand,Top Product Food Co. Ltd,,Standard plate count,"20 000, 5 200 000, 
+5 800 000, 2 000, 110 000
+",cfu/g,CRU 03/2019,
+Risk chemical/contaminant/Composition/toxin test results,"4/10/2019
+",Maldive fish chips,Sri Lanka,Leela Exorts & Imports (Sri Lanka),,Histamine,210,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,4/10/2019,Dried seaweed,Japan,Kurakon Foods Corporation,,Iodine,3900,mg/kg,"BSW 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,8/10/2019,Fresh whole yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,309,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,8/10/2019,Fresh whole yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,218,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,2/10/2019,Spice coated peanuts,India,Raghuvanshi Exports,,Aflatoxin,0.03,mg/kg,"NUT 11/208
+
+",
+Risk chemical/contaminant/Composition/toxin test results,7/10/2019,Salted anchovies,Philippines,P.O.P Export Trading,,Histamine,1500,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,18/10/2019,Peanut and sesame paste,China,Jinhua Import & Export Trading Co Ltd,,Aflatoxin,"0.013
+product contains 50 per cent peanut, therefore the calculated maximum level is 0.0075
+",mg/kg,"NUT 11/208
+
+",
+Risk chemical/contaminant/Composition/toxin test results,21/10/2019,Fresh yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,473,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,21/10/2019,Fresh yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,564,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,21/10/2019,Fresh yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,253,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,21/10/2019,Fresh yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,276,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,21/10/2019,Fresh yellowfin tuna,Maldives,Cmf Fish Processing Factory,,Histamine,308,mg/kg,"HIS 12/2016
+
+",
+Risk chemical/contaminant/Composition/toxin test results,28/10/2019,Cracker nuts,Philippines,Yunik Import And Export Corp,,Aflatoxin,"0.014
+product contains 75 per cent peanut, therefore the calculated maximum level is 0.011
+",mg/kg,"NUT 11/208
+
+",
+Risk chemical/contaminant/Composition/toxin test results,17/10/2019,Dried herring,Philippines,Pearlfoods International Inc.,,Histamine,480,mg/kg,"HIS 12/2016
+
+",
+Surveillance catergory food fails,1/10/2019,Rice milk,Republic of Korea,Okf Corporation,Composition,Vitamin C,Not permitted in this food,n/a,FSC 1.3.2,15391
+Surveillance catergory food fails,3/10/2019,Honey acacia ,Serbia,Med-Honey Doo,Composition,Evidence of blended or artificial honey,24,%,FSC 2.8.2,15398
+Surveillance catergory food fails,3/10/2019,Honey clover,Serbia,Med-Honey Doo,Composition,Evidence of blended or artificial honey,21,%,FSC 2.8.2,15398
+Surveillance catergory food fails,4/10/2019,Fresh sugar snap peas,China,Xiangyang Heli Agriculture Development Co Ltd,Fruit and vegetable residue screen,Thiamethoxam,0.1,mg/kg,FSC 1.4.2,15401
+Surveillance catergory food fails,10/10/2019,Frozen pandan leaf,Thailand,"O-Cha Food Pack Co., Ltd (Thailand)",Fruit and vegetable residue screen,Difenoconazole,0.054,mg/kg,FSC 1.4.2,HO match
+Surveillance catergory food fails,30/09/2019,Dried jumbo peaches,United States,California Fruit Basket,Fruit and vegetable residue screen,Cyprodinil,0.09,mg/kg,FSC 1.4.2,15407
+Surveillance catergory food fails,2/10/2019,Fresh betel leaves,India,Fresh Jasmines Export And Import Pvt Ltd,Fruit and vegetable residue screen,"Triadimefon
+Triadimenol
+","0.058
+0.058",mg/kg,FSC 1.4.2,15412
+Surveillance catergory food fails,23/10/2019,Parval (pointed gourd),India,Innovative Cuisine,Fruit and vegetable residue screen,Dimethoate,0.022,mg/kg,FSC 1.4.2,15413
+Surveillance catergory food fails,9/10/2019,Dried apricot fruit snack,South Africa,Pioneer Foods,Fruit and vegetable residue screen,Thiabendazole,0.031,mg/kg,FSC 1.4.2,15414
+Surveillance catergory food fails,11/10/2019,Whole dates,China,Cangzhou Ruifeng Date Product Co Ltd,Fruit and vegetable residue screen,Carbendazim,0.07,mg/kg,FSC 1.4.2,HO match
+Surveillance catergory food fails,15/10/2019,Spinach,India,Global Gourmet Pvt Ltd,Fruit and vegetable residue screen,Chlorpyrifos,0.068,mg/kg,FSC 1.4.2,15422
+Surveillance catergory food fails,17/10/2019,Honey with white truffle,Italy,Poddi Tartufi Srl,Composition,Evidence of blended or artificial honey,12,%,FSC 2.8.2,15429
+Surveillance catergory food fails,17/10/2019,Fresh grapes,United States,Jasmine Vineyards Incorporated,Fruit and vegetable residue screen,Propargite,2.7,mg/kg,FSC 1.4.2,15431

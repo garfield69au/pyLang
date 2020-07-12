@@ -1,4 +1,4 @@
-""" pyDUQMain.py
+""" pyduqmain.py
 
 Overview
 --------
@@ -69,7 +69,7 @@ import os
 import argparse
 import pyodbc
 import time
-from pyduq.AbstractDUQValidator import AbstractDUQValidator
+from pyduq.abstractduqvalidator import AbstractDUQValidator
 from pyduq.SQLTools import SQLTools
 from pyduq.duqvalidator import DUQValidator
 from pyduq.patterns import Patterns
@@ -93,7 +93,8 @@ class pyDUQMain(object):
         self.outputFilePrefix = self.inputFile.rsplit(".", 1)[0]
         if (self.outputFilePrefix.endswith("-") or self.outputFilePrefix.endswith("_")):
             self.outputFilePrefix = self.outputFilePrefix[:-1]
-            
+       
+       
     def loadSQL(self):
         cnxn = pyodbc.connect(self.sqlURI)
         cursor = cnxn.cursor()
@@ -101,8 +102,16 @@ class pyDUQMain(object):
         self.dataset = SQLTools(cursor).dataset
         print("SQL query returned " + str(len(self.dataset)) + " columns.")
 
-    def loadMeta(self):
-        self.metadata = FileTools.JSONtoMeta(self.metaFile)        
+
+    def loadMeta(self, extendFlag:False):
+        self.metadata = FileTools.JSONtoMeta(self.metaFile)
+        if(extendFlag):
+            self.metadata = FileTools.extendMeta(self.metadata, FileTools.inferMeta(self.dataset))
+            if (self.metaFile is None or len(self.metaFile)==0):
+                self.metaFile = self.outputFilePrefix + "_meta.json"
+            FileTools.MetatoJSONFile(self.metaFile, self.metadata)
+            print("Using extended metadata.")
+
 
     def inferMeta(self):
         stime = time.time()
@@ -113,13 +122,16 @@ class pyDUQMain(object):
         FileTools.MetatoJSONFile(self.metaFile, self.metadata)
         print("Metadata file generated in " + str(time.time() - stime) + " secs")
 
+
     def loadCSV(self):
         self.dataset = FileTools.csvFileToDict(self.inputFile)
         print("CSV file loaded " + str(len(self.dataset)) + " columns.")
+
     
     def loadXLS(self):
         self.dataset = FileTools.xlsFileToDict(self.inputFile)
         print("Excel spreadsheet loaded " + str(len(self.dataset)) + " columns.")
+
 
     def validate(self):
         try:
@@ -197,6 +209,10 @@ def main(argv):
                            action="store_true",
                            help='Generate metadata.')
 
+    my_parser.add_argument('--extend',
+                           action="store_true",
+                           help='Extend source metadata.')
+
     my_parser.add_argument('--verbose',
                            action="store_true",
                            help='Generate verbose output.')
@@ -224,7 +240,9 @@ def main(argv):
     profileFlag = args.profile
     validateFlag = args.validate
     inferFlag = args.infer
+    extendFlag = args.extend
     __verbose__ = args.verbose
+    
 
     
     if (len(sqlURI) >0 ):
@@ -242,7 +260,7 @@ def main(argv):
         if (not os.path.isfile(pyduq.metaFile)):
             print("The metadata-data file '" + pyduq.metaFile + "' does not exist")
             sys.exit(1)
-        pyduq.loadMeta()
+        pyduq.loadMeta(extendFlag)
     else:
         if (not inferFlag):
             print("No metadata file was supplied - schema will be inferred from the dataset.")
