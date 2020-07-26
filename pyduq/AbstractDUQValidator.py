@@ -109,7 +109,7 @@ class AbstractDUQValidator(abc.ABC):
                     
                 try:
                     
-                    score = error_count / len(self.dataset[item])
+                    score = float(error_count / len(self.dataset[item]))
                     summary_row[name.name + " SCORE"] = round(score, 6)
                    
                 except Exception as e:
