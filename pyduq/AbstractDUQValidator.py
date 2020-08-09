@@ -166,5 +166,5 @@ class AbstractDUQValidator(abc.ABC):
         
         
     @abc.abstractmethod
-    def validate(self:object, customValidator:str=""):
+    def validate(self:object, customValidator:str=None):
         pass

@@ -51,8 +51,10 @@ class DUQValidator(AbstractDUQValidator):
                 print("Validating attribute \t'" + meta_attribute_key + "'...\t\t..Complete.")
             else:
                 self.addDataQualityError(DataQualityError(meta_attribute_key, error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Attribute '" + meta_attribute_key + "' was not found in the dataset."))
-                                        
-        self.customValidator(customValidator)
+        
+        # only invoke the custom validator if one has been provoded
+        if (not customValidator is None and len(customValidator) > 0):
+            self.customValidator(customValidator)
         
         
     def checkMandatory(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):

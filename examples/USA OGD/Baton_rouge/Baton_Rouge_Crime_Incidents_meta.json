@@ -3,7 +3,7 @@
         "Size": 10,
         "Mandatory": false,
         "AllowBlank": true,
-        "Type": "integer",
+        "Type": "int",
         "Unique": false
     },
     "OFFENSE DATE": {
@@ -26,7 +26,25 @@
         "AllowBlank": false,
         "Type": "string",
         "Unique": false,
-        "Enum": "['ASSAULT', 'BATTERY', 'BUSINESS ROBBERY', 'CRIMINAL DAMAGE TO PROPERTY', 'FIREARM', 'HOMICIDE', 'INDIVIDUAL ROBBERY', 'JUVENILE', 'NARCOTICS', 'NON-RESIDENTIAL BURGLARY', 'NUISANCE', 'OTHER', 'RESIDENTIAL BURGLARY', 'SEXUAL ASSAULT', 'THEFT', 'VEHICLE BURGLARY', 'VICE']"
+        "Enum": [
+            "ASSAULT",
+            "BATTERY",
+            "BUSINESS ROBBERY",
+            "CRIMINAL DAMAGE TO PROPERTY",
+            "FIREARM",
+            "HOMICIDE",
+            "INDIVIDUAL ROBBERY",
+            "JUVENILE",
+            "NARCOTICS",
+            "NON-RESIDENTIAL BURGLARY",
+            "NUISANCE",
+            "OTHER",
+            "RESIDENTIAL BURGLARY",
+            "SEXUAL ASSAULT",
+            "THEFT",
+            "VEHICLE BURGLARY",
+            "VICE"
+        ]
     },
     "COMMITTED": {
         "Size": 9,
@@ -34,7 +52,10 @@
         "AllowBlank": false,
         "Type": "string",
         "Unique": false,
-        "Enum": "['ATTEMPTED', 'COMMITTED']"
+        "Enum": [
+            "ATTEMPTED",
+            "COMMITTED"
+        ]
     },
     "OFFENSE": {
         "Size": 19,
@@ -61,7 +82,7 @@
         "Size": 5,
         "Mandatory": false,
         "AllowBlank": true,
-        "Type": "integer",
+        "Type": "int",
         "Unique": false
     },
     "ST DIR": {
@@ -70,7 +91,12 @@
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": "['E', 'N', 'S', 'W']"
+        "Enum": [
+            "E",
+            "N",
+            "S",
+            "W"
+        ]
     },
     "ST NAME": {
         "Size": 28,
@@ -85,7 +111,23 @@
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": "['AV', 'BL', 'BT', 'CR', 'CT', 'DR', 'HW', 'LN', 'OT', 'PK', 'PL', 'RD', 'ST', 'TH', 'WY']"
+        "Enum": [
+            "AV",
+            "BL",
+            "BT",
+            "CR",
+            "CT",
+            "DR",
+            "HW",
+            "LN",
+            "OT",
+            "PK",
+            "PL",
+            "RD",
+            "ST",
+            "TH",
+            "WY"
+        ]
     },
     "CITY": {
         "Size": 11,
@@ -93,7 +135,9 @@
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": "['BATON ROUGE']"
+        "Enum": [
+            "BATON ROUGE"
+        ]
     },
     "STATE": {
         "Size": 2,
@@ -101,7 +145,9 @@
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": "['LA']"
+        "Enum": [
+            "LA"
+        ]
     },
     "ZIP": {
         "Size": 19,
@@ -116,7 +162,13 @@
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": "['1', '2', '3', '4', 'O']"
+        "Enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "O"
+        ]
     },
     "ZONE": {
         "Size": 1,
@@ -124,7 +176,16 @@
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": "['A', 'B', 'C', 'D', 'E', 'F', 'G', 'T']"
+        "Enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "T"
+        ]
     },
     "SUBZONE": {
         "Size": 1,
@@ -132,7 +193,14 @@
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": "['1', '2', '3', '4', '5', 'H']"
+        "Enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "H"
+        ]
     },
     "COMPLETE DISTRICT": {
         "Size": 6,
@@ -140,7 +208,85 @@
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": "['10', '100', '1A1', '1A2', '1A3', '1A4', '1B1', '1B2', '1B3', '1B4', '1C1', '1C2', '1C3', '1D1', '1D2', '1D3', '1F1', '1F2', '20', '200', '2000', '20000', '200000', '2A1', '2A2', '2A3', '2A4', '2B1', '2B2', '2B3', '2B4', '2B5', '2C1', '2C2', '2C3', '2D1', '2D2', '2D3', '2F1', '2F2', '30', '300', '3000', '30000', '300000', '3A1', '3A2', '3A3', '3B1', '3B2', '3C1', '3C2', '3C3', '3D1', '3D2', '3D3', '3F1', '3F2', '3F3', '3G1', '3G2', '3G3', '40', '400', '4A1', '4A2', '4B1', '4B2', '4B3', '4C1', '4C2', '4D1', '4D2', '4D3', '4F1', '4F2', 'OTH']"
+        "Enum": [
+            "10",
+            "100",
+            "1A1",
+            "1A2",
+            "1A3",
+            "1A4",
+            "1B1",
+            "1B2",
+            "1B3",
+            "1B4",
+            "1C1",
+            "1C2",
+            "1C3",
+            "1D1",
+            "1D2",
+            "1D3",
+            "1F1",
+            "1F2",
+            "20",
+            "200",
+            "2000",
+            "20000",
+            "200000",
+            "2A1",
+            "2A2",
+            "2A3",
+            "2A4",
+            "2B1",
+            "2B2",
+            "2B3",
+            "2B4",
+            "2B5",
+            "2C1",
+            "2C2",
+            "2C3",
+            "2D1",
+            "2D2",
+            "2D3",
+            "2F1",
+            "2F2",
+            "30",
+            "300",
+            "3000",
+            "30000",
+            "300000",
+            "3A1",
+            "3A2",
+            "3A3",
+            "3B1",
+            "3B2",
+            "3C1",
+            "3C2",
+            "3C3",
+            "3D1",
+            "3D2",
+            "3D3",
+            "3F1",
+            "3F2",
+            "3F3",
+            "3G1",
+            "3G2",
+            "3G3",
+            "40",
+            "400",
+            "4A1",
+            "4A2",
+            "4B1",
+            "4B2",
+            "4B3",
+            "4C1",
+            "4C2",
+            "4D1",
+            "4D2",
+            "4D3",
+            "4F1",
+            "4F2",
+            "OTH"
+        ]
     },
     "GEOLOCATION": {
         "Size": 90,
@@ -153,40 +299,40 @@
         "Size": 0,
         "Mandatory": false,
         "AllowBlank": true,
-        "Type": "integer",
+        "Type": "int",
         "Unique": false,
-        "Enum": "[]"
+        "Enum": []
     },
     "<Undefined_21>": {
         "Size": 0,
         "Mandatory": false,
         "AllowBlank": true,
-        "Type": "integer",
+        "Type": "int",
         "Unique": false,
-        "Enum": "[]"
+        "Enum": []
     },
     "<Undefined_22>": {
         "Size": 0,
         "Mandatory": false,
         "AllowBlank": true,
-        "Type": "integer",
+        "Type": "int",
         "Unique": false,
-        "Enum": "[]"
+        "Enum": []
     },
     "<Undefined_23>": {
         "Size": 0,
         "Mandatory": false,
         "AllowBlank": true,
-        "Type": "integer",
+        "Type": "int",
         "Unique": false,
-        "Enum": "[]"
+        "Enum": []
     },
     "<Undefined_24>": {
         "Size": 0,
         "Mandatory": false,
         "AllowBlank": true,
-        "Type": "integer",
+        "Type": "int",
         "Unique": false,
-        "Enum": "[]"
+        "Enum": []
     }
 }

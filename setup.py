@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyduq",
-    version="0.0.3",
+    version="0.0.4",
     author="Shane J. Downey",
     author_email="shane.downey69au@gmail.com",
     description="A tool to validate data accoridng to the dimensions of data quality.",
@@ -26,5 +26,5 @@ setuptools.setup(
         "dicttoxml",
         "openpyxl"
     ],
-    python_requires='>=3.0',
+    python_requires='>=3.4',
 )
