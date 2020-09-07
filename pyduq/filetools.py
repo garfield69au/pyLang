@@ -4,6 +4,7 @@ import dicttoxml
 from xml.dom.minidom import parseString
 from unidecode import unidecode
 from openpyxl import Workbook,load_workbook
+from pyduq.duqerror import ValidationError
 
 class FileTools(object):
     """ FileTools: 
@@ -41,7 +42,7 @@ class FileTools(object):
 
 
     @staticmethod
-    def xlsFileToDict(fileName:str) -> dict:
+    def xlsFileToDict(fileName:str, sheet_name:str=None) -> dict:
         """ xlsFileToDict:
         Converts an Excel spreadsheet into a dictionary of dictionaries.
         Each row is its own dictionary with each attribute recorded as a tupple,
@@ -53,7 +54,14 @@ class FileTools(object):
         
         # first we load the data into a simple
         workbook = load_workbook(filename=fileName, data_only=True, read_only = True)
-        sheet = workbook.active
+        
+        if (not sheet_name is None):
+            if (sheet_name in workbook.sheetnames):
+                sheet = workbook[sheet_name]
+            else:
+                raise ValidationError("Sheet '" + sheet_name + "' not found", None)
+        else:        
+            sheet = workbook.active
         
         # extract the column headers - assumes headers in row 1 only - perhaps 
         # this could be configrable :-)

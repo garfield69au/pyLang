@@ -134,8 +134,8 @@ class pyDUQMain(object):
         print("CSV file loaded " + str(len(self.dataset)) + " columns.")
 
     
-    def loadXLS(self):
-        self.dataset = FileTools.xlsFileToDict(self.inputFile)
+    def loadXLS(self, sheet:None):
+        self.dataset = FileTools.xlsFileToDict(self.inputFile, sheet)
         print("Excel spreadsheet loaded " + str(len(self.dataset)) + " columns.")
 
 
@@ -201,6 +201,11 @@ def main(argv):
                            type=str,
                            help='The class path and name of a custom validator.')
 
+    my_parser.add_argument('-S',
+                           '--sheet',
+                           type=str,
+                           help='The name of the sheet to load from an Excel spreadsheet file.')
+
     my_parser.add_argument('-p',
                            '--profile',
                            action="store_true",
@@ -222,6 +227,7 @@ def main(argv):
     my_parser.add_argument('--verbose',
                            action="store_true",
                            help='Generate verbose output.')
+
 
 
     # Execute parse_args()
@@ -257,7 +263,7 @@ def main(argv):
         if(pyduq.inputFile.endswith(".csv")):
             pyduq.loadCSV()
         elif(pyduq.inputFile.endswith(".xlsx") or pyduq.inputFile.endswith(".xltx")):
-            pyduq.loadXLS()
+            pyduq.loadXLS(args.sheet)
         else:
             print("Unsupported source data file type. Run pyduqmain.py -h for help.")
             sys.exit(1)            
