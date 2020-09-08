@@ -86,7 +86,7 @@ from pyduq.dataprofile import DataProfile
 
 class pyDUQMain(object):
 
-    def __init__(self, inputFile:str, outputFolder:str="", metaFile:str="", customValidator:str="", sqlURI:str="", sqlQuery:str=""):
+    def __init__(self, inputFile:str, outputFolder:str="", filePrefix:str="", metaFile:str="", customValidator:str="", sqlURI:str="", sqlQuery:str=""):
         self.metadata = {}
         self.dataset = {}
         self.inputFile = (inputFile if not inputFile is None else "sql-query")
@@ -96,9 +96,12 @@ class pyDUQMain(object):
         self.sqlURI = sqlURI
         self.sqlQuery = sqlQuery
         
-        self.outputFilePrefix = self.inputFile.rsplit(".", 1)[0]
-        if (self.outputFilePrefix.endswith("-") or self.outputFilePrefix.endswith("_")):
-            self.outputFilePrefix = self.outputFilePrefix[:-1]
+        if (len(filePrefix) > 0):
+            self.outputFilePrefix = filePrefix
+        else:
+            self.outputFilePrefix = self.inputFile.rsplit(".", 1)[0]
+            if (self.outputFilePrefix.endswith("-") or self.outputFilePrefix.endswith("_")):
+                self.outputFilePrefix = self.outputFilePrefix[:-1]
        
        
     def loadSQL(self):
@@ -201,6 +204,11 @@ def main(argv):
                            type=str,
                            help='The class path and name of a custom validator.')
 
+    my_parser.add_argument('-f',
+                           '--fileprefix',
+                           type=str,
+                           help='The prefix to use for all output files.')
+
     my_parser.add_argument('-S',
                            '--sheet',
                            type=str,
@@ -247,7 +255,7 @@ def main(argv):
             print("You must provide either an input file OR SQL connection and query. Run pyduqmain.py -h for help.")
             sys.exit(1)            
 
-    pyduq = pyDUQMain(args.inputfile, args.outputfolder, args.metafile, args.custom, sqlURI, sqlQuery)
+    pyduq = pyDUQMain(args.inputfile, args.outputfolder, args.fileprefix, args.metafile, args.custom, sqlURI, sqlQuery)
 
     profileFlag = args.profile
     validateFlag = args.validate
