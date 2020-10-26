@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: pyduq
-Version: 0.0.3
-Summary: A tool to validate data accoridng to the dimensions of data quality.
+Version: 0.1.0
+Summary: A tool to validate data accoridng to the University of Queensland conformed dimensions of data quality.
 Home-page: https://github.com/sjdowney/pyduq
 Author: Shane J. Downey
 Author-email: shane.downey69au@gmail.com
@@ -11,7 +11,7 @@ Description: # pyduq
         pyduq [py = python, d=data quality, uq = University of QLD, Australia]
         
         This project is a generic, meta-driven data quality validation suite. This project
-        was developed by Shane J. Downey as parr of his M.Phil research study. 
+        was developed by Shane J. Downey as part of his M.Phil research study. 
         
         The purpose of pyduq is to provide a detailed analysis of the quality of data by
         comparing actual data against a set of generic data quality rules. The data quality 
@@ -23,6 +23,13 @@ Description: # pyduq
         
         pyduq - get all your data ducks in a row!
         
+        Documentation:
+        --------------
+        Please see the /doc folder on the Homepage for detailed instrucitons on usage.
+        
+        Examples:
+        ---------
+        Please see the /examples folder on the Homepage for many examples of using pyduq features to validate Open Data sources.
         
         References
         ----------
@@ -36,5 +43,5 @@ Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: Freely Distributable
 Classifier: Operating System :: OS Independent
-Requires-Python: >=3.0
+Requires-Python: >=3.4
 Description-Content-Type: text/markdown

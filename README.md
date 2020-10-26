@@ -3,7 +3,7 @@
 pyduq [py = python, d=data quality, uq = University of QLD, Australia]
 
 This project is a generic, meta-driven data quality validation suite. This project
-was developed by Shane J. Downey as parr of his M.Phil research study. 
+was developed by Shane J. Downey as part of his M.Phil research study. 
 
 The purpose of pyduq is to provide a detailed analysis of the quality of data by
 comparing actual data against a set of generic data quality rules. The data quality 
@@ -15,6 +15,13 @@ pyduq has been provided as open source unde the GNU licence.
 
 pyduq - get all your data ducks in a row!
 
+Documentation:
+--------------
+Please see the /doc folder on the Homepage for detailed instrucitons on usage.
+
+Examples:
+---------
+Please see the /examples folder on the Homepage for many examples of using pyduq features to validate Open Data sources.
 
 References
 ----------

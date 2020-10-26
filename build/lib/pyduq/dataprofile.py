@@ -2,11 +2,11 @@ import typing
 import math
 import statistics
 import collections
-from pyduq.metautils import MetaUtils
-from scipy import stats
 import string
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
+from scipy import stats
+from pyduq.metautils import MetaUtils
 from nltk.corpus import stopwords
 stopwords = stopwords.words("english")
 
@@ -17,17 +17,11 @@ class DataProfile(object):
 
     """
 
-    def __str__(self:object):
-        return self.__repr__()
-    
-    def __repr__(self:object):
-        return "[Profile: attribute: {0}, type: {1}, attribute_count: {2}, sum: {3} , mean: {4}, median: {5}, stddev: {6}, min_value: {7}, max_value: {8}, min_len: {9}, max_len: {10}]\n".format(self.attribute,self.type,self.attribute_count,self.sum, self.mean, self.median, self.stddev, self.min_val, self.max_val, self.min_len, self.max_len)
 
     def __init__(self:object):
         self.attribute=""
         self.type="<Unspecified>"
         self.count=0
-        self.attribute_count=0
         self.position = 0
         self.sum = 0
         self.min_val = -1
@@ -42,12 +36,15 @@ class DataProfile(object):
         self.blankCount = 0
         self.most_frequent_value = ""
         self.most_frequent_count = 0
+        self.least_frequent_value = ""
+        self.least_frequent_count = 0
         self.position = -1
         self.memory = 0
         self.pattern_count = 0
         self.patterns = ""
-        self.defaultCount = 0
-        self.defaultValue = ""
+        self.default_count = 0
+        self.default_value = ""
+        self.negative_count = 0
         self.csim=0.0
 
     
@@ -57,12 +54,24 @@ class DataProfile(object):
         elif (dataset is None):
             raise ValidationError("LANG Exception: resultset has not been set", None)
     
-        p = []
+        profiles = []
+        count = 1
         
         for meta_attribute_key in metadata.keys():
-            p.append(DataProfile().profileData(metadata[meta_attribute_key], dataset[meta_attribute_key], meta_attribute_key))
-    
-        return p
+        
+            # we can't presume that the meta data attribute exists in the dataset so we
+            # check first.
+            if (meta_attribute_key in dataset):
+                profile = DataProfile().profileData(metadata[meta_attribute_key], dataset[meta_attribute_key], meta_attribute_key)
+            else:
+                profile = {}
+                profile["attribute"] = meta_attribute_key
+            
+            profile["position"] = count
+            count+= 1
+            profiles.append(profile)
+            
+        return profiles
 
 
     def profileData(self, meta_attribute_definition:dict, colData:list, key:str) ->dict:
@@ -77,6 +86,8 @@ class DataProfile(object):
             raise ValidationError("LANG Exception: metadata has not been set", None)
         
         self.attribute = key
+        self.count = len(colData)
+
         if (MetaUtils.exists(meta_attribute_definition, "Type")):
             self.type = meta_attribute_definition["Type"]
 
@@ -90,13 +101,22 @@ class DataProfile(object):
             except Exception as e:
                 pass
         
-        mode = stats.mode(colData)
-        if (len(mode[0]) > 0):
-            self.most_frequent_value = mode.mode[0]
-            self.most_frequent_count = mode.count[0]
+        try:
+            mode = stats.mode(colData)
+            if (len(mode[0]) > 0):
+                self.most_frequent_value = mode.mode[0]
+                self.most_frequent_count = mode.count[0]
+            
+            counter = collections.Counter(colData)
+            self.least_frequent_value = min(colData[::-1], key=counter.get)
+            self.least_frequent_count = counter[self.least_frequent_value]
+    
+        except Exception as e:
+            #on very large datasets, Numpy may throw an out of memory error. 
+            mode = -1
+            print(e)
             
         vals = []
-        self.count = len(colData)
 
         s=set(colData)
         s.discard("")
@@ -104,50 +124,51 @@ class DataProfile(object):
         self.patternCount = len(s)
         
         if (MetaUtils.exists(meta_attribute_definition, "Default")):
-            self.defaultValue = meta_attribute_definition["Default"]
-        
-        if (len(self.defaultValue) == 0):
-            self.defaultValue = "<Unspecified>"
-            
+            self.default_value = meta_attribute_definition["Default"]
+        else:
+            self.default_value = "<Unspecified>"
+    
         for value in colData:
-            if ( (len(self.defaultValue) > 0) and (value == self.defaultValue) ):
-                self.defaultCount += 1
-                
             self.memory += len(value)
-            val= math.nan
+            
+            if (len(value) == 0):
+                self.blankCount += 1
+            elif (value == self.default_value):
+                self.default_count += 1
+            elif (value == "(Null)"):
+                self.nullCount += 1
+                
 
             if (len(value) < self.min_len or self.min_len == -1):
                 self.min_len = len(value)
         
             if(len(value) > self.max_len or self.max_len == -1):
                 self.max_len = len(value)
-            
-            if (value == "(Null)"):
-                self.nullCount += 1
-            elif (len(value) == 0):
-                self.blankCount += 1
+
+
+            val= math.nan
                     
             try:
                 if (self.type in ["int","integer"]):
                     val = int(value)
                 elif (self.type in ["float","number"]):
                     val = float(value)
-                
-                if (not math.isnan(val)):    
-                    self.sum += val
-                    vals.append(val)
-
-                    if (val < self.min_val or self.min_val == -1):
-                        self.min_val = val
-                
-                    if(val > self.max_val or self.max_val == -1):
-                        self.max_val = val
-                    
-                self.attribute_count += 1
-                
             except Exception as e:
-                val=-1
-        
+                pass
+
+     
+            if (not math.isnan(val)):
+                self.negative_count += (val < 0)                
+                self.sum += val
+                vals.append(val)
+
+                if (val < self.min_val or self.min_val == -1):
+                    self.min_val = val
+            
+                if(val > self.max_val or self.max_val == -1):
+                    self.max_val = val
+                    
+                        
         if (len(vals)>0):                  
             self.mean = statistics.mean(vals)                
             self.median = statistics.median(vals)
@@ -156,7 +177,7 @@ class DataProfile(object):
             self.stddev = statistics.stdev(vals)
             self.variance = statistics.variance(vals)
         
-        return self.asDict()
+        return self.to_dict()
     
     def cosine_sim_vectors(self, vec1, vec2) -> float:
         vec1 = vec1.reshape(1, -1)
@@ -176,31 +197,33 @@ class DataProfile(object):
         self.position = position
         
         
-    def asDict(self):
-        l = dict()
-        l['attribute']= self.attribute
-        l['position']= self.position
-        l['type'] = self.type
-        l['count'] = self.count
-        l['attribute_count'] = self.attribute_count
-        l['sum'] =self.sum
-        l['mean'] =self.mean
-        l['median'] =self.median
-        l['stddev'] =self.stddev
-        l['variance'] =self.variance
-        l['min_value']= self.min_val
-        l['max_value']=self.max_val
-        l['min_len']= self.min_len
-        l['max_len']=self.max_len
-        l['null_count']=self.nullCount
-        l['blank_count']=self.blankCount
-        l['default_count']=self.defaultCount
-        l['default_value']=self.defaultValue
-        l['most_frequent_value']=self.most_frequent_value
-        l['most_frequent_count']=self.most_frequent_count
-        l['csim']=self.csim
-        l['memory_consumed_bytes']=self.memory
-        l['pattern_count']=self.patternCount
-        l['patterns']=self.patterns
-        return l
+    def to_dict(self):
+        values = {}
+        values['attribute']= self.attribute
+        values['position']= self.position
+        values['type'] = self.type
+        values['count'] = self.count
+        values['sum'] =self.sum
+        values['mean'] =self.mean
+        values['median'] =self.median
+        values['stddev'] =self.stddev
+        values['variance'] =self.variance
+        values['min_value']= self.min_val
+        values['max_value']=self.max_val
+        values['min_len']= self.min_len
+        values['max_len']=self.max_len
+        values['null_count']=self.nullCount
+        values['blank_count']=self.blankCount
+        values['negative_count']=self.negative_count
+        values['default_count']=self.default_count
+        values['default_value']=self.default_value
+        values['least_frequent_value']=self.least_frequent_value
+        values['least_frequent_count']=self.least_frequent_count
+        values['most_frequent_value']=self.most_frequent_value
+        values['most_frequent_count']=self.most_frequent_count
+        values['csim']=self.csim
+        values['memory_consumed_bytes']=self.memory
+        values['pattern_count']=self.patternCount
+        values['patterns']=self.patterns
+        return values
         

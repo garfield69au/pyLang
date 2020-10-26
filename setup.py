@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyduq",
-    version="0.0.4",
+    version="0.1.0",
     author="Shane J. Downey",
     author_email="shane.downey69au@gmail.com",
-    description="A tool to validate data accoridng to the dimensions of data quality.",
+    description="A tool to validate data accoridng to the University of Queensland conformed dimensions of data quality.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/sjdowney/pyduq",

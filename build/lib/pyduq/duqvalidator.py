@@ -1,22 +1,21 @@
 import re
 import time
 from pyduq.metautils import MetaUtils
-from pyduq.AbstractDUQValidator import AbstractDUQValidator
+from pyduq.abstractduqvalidator import AbstractDUQValidator
 from pyduq.patterns import Patterns
-from pyduq.langerror import ValidationError
-from pyduq.measurement import Measurement, MeasurementCategory
+from pyduq.duqerror import ValidationError
+from pyduq.dataqualityerror import DataQualityError, DataQualityDimension
 from pyduq.expressionbuilder import ExpressionBuilder
 from pyduq.SQLTools import SQLTools
 from pyduq.dataprofile import DataProfile
 
  
 class DUQValidator(AbstractDUQValidator):
-    """
-    LangValidator: A generic validator for LANG. 
+    """ DUQValidator: A generic validator for LANG. 
     The main execution method is validate().
     """   
         
-    def validate(self:object):
+    def validate(self:object, customValidator:str):
         """
         Validate a resultset against predefined metadata based on the LANG rules of data quality.
         """
@@ -25,66 +24,65 @@ class DUQValidator(AbstractDUQValidator):
         elif (self.dataset is None):
             raise ValidationError("LANG Exception: resultset has not been set", None)
 
-        #metadata defines the data, so we iterate over the metadata and use it to extract columns from our resultset. If the column data is null then we need to check
-        #either the metadata defintion or the source data. 
-        for meta_attribute_key in self.metadata.keys():                
-            if (meta_attribute_key in self.dataset):
-                self.validateList(meta_attribute_key)
-            else:
-                self.addMeasurement(Measurement(meta_attribute_key, errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Attribute '" + meta_attribute_key + "' not found in the dataset."))
-
-                        
-    def validateList(self:object, key:str):
-
         """
         Execute a series of validations against the supplied column of data and the metadata for the column.
         Which validation is run is determined by entries in the metadata.
         """         
-        print("Validating attribute \t'" + key + "'...", end='\r')
-        
-        for value in self.dataset[key]:
-            self.checkMandatory(self.metadata[key], key, value)                  
-            self.checkSize(self.metadata[key], key, value)
-            self.checkType(self.metadata[key], key, value)
-            self.checkEnum(self.metadata[key], key, value)
-            self.checkStartsWith(self.metadata[key], key, value)
-            
-        self.checkFormat(self.metadata[key], key)          
-        self.checkUnique(self.metadata[key], key)
-     
-        self.checkComposite(self.metadata[key], key)            
-        # expression evaluation is different to processing field specific validations as it could link in other columns from the resultset
-        self.evaluateExpression(self.metadata[key], key)
+        for meta_attribute_key, meta_attribute_definition in self.metadata.items():                
+            if (meta_attribute_key in self.dataset):
+                print("Validating attribute \t'" + meta_attribute_key + "'...", end='\r')
+                
+                attribute = self.dataset[meta_attribute_key]
+                
+                for value in attribute:
+                    self.checkMandatory(meta_attribute_definition, meta_attribute_key, value)                  
+                    self.checkSize(meta_attribute_definition, meta_attribute_key, value)
+                    self.checkType(meta_attribute_definition, meta_attribute_key, value)
+                    self.checkEnum(meta_attribute_definition, meta_attribute_key, value)
+                    self.checkStartsWith(meta_attribute_definition, meta_attribute_key, value)
+                    
+                self.checkFormat(meta_attribute_definition, meta_attribute_key)          
+                self.checkUnique(meta_attribute_definition, meta_attribute_key)
+             
+                self.checkComposite(meta_attribute_definition, meta_attribute_key)            
+                # expression evaluation is different to processing field specific validations as it could link in other columns from the resultset
+                self.evaluateExpression(meta_attribute_definition, meta_attribute_key)
 
-        print("Validating attribute \t'" + key + "'...\t\t..Complete.")
+                print("Validating attribute \t'" + meta_attribute_key + "'...\t\t..Complete.")
+            else:
+                self.addDataQualityError(DataQualityError(meta_attribute_key, error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Attribute '" + meta_attribute_key + "' was not found in the dataset."))
+        
+        # only invoke the custom validator if one has been provoded
+        if (not customValidator is None and len(customValidator) > 0):
+            self.customValidator(customValidator)
         
         
-    def checkMandatory(self, meta_attribute_definition:dict, key:str, value:str):
+    def checkMandatory(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
         # mandatory field check
         if (MetaUtils.isTrue(meta_attribute_definition, "Mandatory") ):
             if ( (MetaUtils.isBlankOrNull(value)) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.COMPLETENESSMANDATORY.value,description="Error: Mandatory field is BLANK or NULL. A value is required."))                             
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.COMPLETENESSMANDATORY.value,description="Error: Mandatory field is BLANK or NULL. A value is required."))                             
         else:
             # optional field check. According to LANG optional fields shpuld contain some sort of default value
             # i.e. no field shpould ever be blank or NULL.
             if ( (MetaUtils.isBlankOrNull(value)) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.COMPLETENESSOPTIONAL.value, description="Error: Optional field is BLANK or NULL. A default value is required."))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.COMPLETENESSOPTIONAL.value, description="Error: Optional field is BLANK or NULL. A default value is required."))
                 
             
-    def checkComposite(self, meta_attribute_definition:dict, key:str):
+    def checkComposite(self, meta_attribute_definition:dict, meta_attribute_key:str):
         # unique field check
         if (MetaUtils.exists(meta_attribute_definition, "Composite")):
             # sum the number of times value appears in the row. this is faster than using list.count(value)
             list_of_attribute_keys = meta_attribute_definition["Composite"]
-            # Concatenate the list of attribute_keys into a composite key string
+            # Concatenate the list of attribute_keys into a composite meta_attribute_key string
             attribute_keys = '+'.join(map(str, list_of_attribute_keys))
-            attribute_keys = attribute_keys.replace("%1", key)
+            attribute_keys = attribute_keys.replace("%1", meta_attribute_key)
         
         
-            # populate a dictionary of just the values that are required to create the composite key
-            attribute_data=dict()
+            # populate a dictionary of just the values that are required to create the composite meta_attribute_key
+            attribute_data={}
             for col in list_of_attribute_keys:
-                col = col.replace("%1", key)
+                col = col.replace("%1", meta_attribute_key)
                 attribute_data[col]=SQLTools.getColValues(self.dataset, col)
             
             seen=set()
@@ -94,22 +92,22 @@ class DUQValidator(AbstractDUQValidator):
             
             # check to see if there is are any duplicates in the order of attribute_keys provided
             for row in fields:
-                # join the values from the columns that make up the composite key to form a single value
+                # join the values from the columns that make up the composite meta_attribute_key to form a single value
                 s = ''.join(map(str, row.values()))
                 if (s in seen):
-                    self.addMeasurement(Measurement(attribute_keys,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Duplicate composite key: '" + attribute_keys + "', value: '" + s + "'"))
+                    self.addDataQualityError(DataQualityError(attribute_keys,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Duplicate composite meta_attribute_key: '" + attribute_keys + "', value: '" + s + "'"))
                 else:
                     seen.add(s)
                
                         
-    def checkSize(self, meta_attribute_definition:dict, key:str, value:str):
+    def checkSize(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
         # field length check
         if (MetaUtils.exists(meta_attribute_definition, "Size")):
             if ( (len(value) > int(meta_attribute_definition["Size"])) and (not MetaUtils.isBlankOrNull(value)) ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta_attribute_definition["Size"]) + "'"))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta_attribute_definition["Size"]) + "'"))
                 
             
-    def checkType(self, meta_attribute_definition:dict, key:str, value:str):
+    def checkType(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
         # field type check
         is_valid_type = True
 
@@ -122,25 +120,25 @@ class DUQValidator(AbstractDUQValidator):
             if (meta_attribute_definition["Type"] in ["int","integer"]):
                 if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isInt(value)) ):
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
+                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
                         is_valid_type = False
             elif (meta_attribute_definition["Type"] in ["float","number"]):
                 if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isFloat(value)) ): 
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
+                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
                         is_valid_type = False
             elif (meta_attribute_definition["Type"] in ["bool","boolean"]):
-                if ( (MetaUtils.isBlankOrNull(value)) or (not value.lower() in ["false", "true", "no", "yes", "0", "1"]) ): 
+                if ( (MetaUtils.isBlankOrNull(value)) or (not value.lower() in ["false", "true", "f", "t", "n", "y", "no", "yes", "0", "1"]) ): 
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a boolean. A boolean was expected"))
+                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a boolean. A boolean was expected"))
                         is_valid_type = False
                     
             # given that min and max checks only apply to int and float values we may as well test for them now
             if (is_valid_type):
-                self.checkMinMax(meta_attribute_definition, key, value)
+                self.checkMinMax(meta_attribute_definition, meta_attribute_key, value)
                 
 
-    def checkMinMax(self, meta_attribute_definition:dict, key:str, value:str):
+    def checkMinMax(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
         # field value range check (int and float only although in theory we could specify min and max ranges for other attributes)
         min = -1
         max = -1
@@ -173,16 +171,16 @@ class DUQValidator(AbstractDUQValidator):
         if (min != -1):
             if (val != -1 and val < min and val != default):
                 # error
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be >= " + str(min)))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be >= " + str(min)))
             
                 
         if (max != -1):
             if (val != -1 and val > max and val != default):
                 # error
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be <= " + str(max)))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be <= " + str(max)))
             
 
-    def checkEnum(self, meta_attribute_definition:dict, key:str, value:str):
+    def checkEnum(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
         # enumerated field check
         if (MetaUtils.exists(meta_attribute_definition, "Enum")):
             # enum is expected to be a list
@@ -192,11 +190,11 @@ class DUQValidator(AbstractDUQValidator):
             # as we should have picked it up in the mandatory/optional test anyway
             # (i.e. if the field is optional but a value has been provided then we check it against the supplied list)
             if ( (len(value)>0) and (value not in enum) and (value != "(Null)") ):
-                self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is outside the enumeration set '" + str(enum) + "'"))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is outside the enumeration set '" + str(enum) + "'"))
 
 
 
-    def checkStartsWith(self, meta_attribute_definition:dict, key:str, value:str):
+    def checkStartsWith(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
         # enumerated field check
         if (MetaUtils.exists(meta_attribute_definition, "StartsWith")):
             # startsWith is expected to be a list
@@ -213,32 +211,32 @@ class DUQValidator(AbstractDUQValidator):
                         break
                         
                 if (not found):
-                    self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not begin with any of: '" + str(startsWith) + "'"))
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not begin with any of: '" + str(startsWith) + "'"))
 
 
             
-    def checkFormat(self, meta_attribute_definition:dict, key:str):
+    def checkFormat(self, meta_attribute_definition:dict, meta_attribute_key:str):
         # format check (must provide a regex)
         if (MetaUtils.exists(meta_attribute_definition, "Format")):
             re.purge()
             regex=re.compile(meta_attribute_definition["Format"])
             
-            for value in self.dataset[key]:
+            for value in self.dataset[meta_attribute_key]:
                 #isMatch = (not re.match(meta_attribute_definition["Format"], value) is None)
                 isMatch = (not regex.match(value) is None)
                 
                 if ( (not isMatch) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                    self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex #'" + meta_attribute_definition["Format"] + "'"))
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex #'" + meta_attribute_definition["Format"] + "'"))
                     
             
 
    
-    def checkUnique(self, meta_attribute_definition:dict, key:str):
+    def checkUnique(self, meta_attribute_definition:dict, meta_attribute_key:str):
         # unique field check
         if (MetaUtils.isTrue(meta_attribute_definition, "Unique")):
             # quick count the number of times values occurs in the column. Assumes possibly sorted so breaks the loop if >1 occurences to save time0
 
-            sorted_data = sorted(self.dataset[key])
+            sorted_data = sorted(self.dataset[meta_attribute_key])
             seen = set()           
 
             for i in range(len(sorted_data)):
@@ -256,17 +254,17 @@ class DUQValidator(AbstractDUQValidator):
                         j+=1
                     
                     if (counter>1):
-                        self.addMeasurement(Measurement(key,errorCategory=MeasurementCategory.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
+                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
 
 
             
-    def evaluateExpression(self, meta_attribute_definition:dict, key:str):
+    def evaluateExpression(self, meta_attribute_definition:dict, meta_attribute_key:str):
         # evaluate any custom expressions
         if (MetaUtils.exists(meta_attribute_definition, "Expression")):
             expr = meta_attribute_definition["Expression"]
             
             # %1 is a placeholder for whatever the column name is owning the expression (it's just a shortcut)
-            expr = expr.replace("%1", "[" + key + "]")
+            expr = expr.replace("%1", "[" + meta_attribute_key + "]")
             exp = ExpressionBuilder()
             
             fields = exp.parseExpr(expr)
@@ -294,10 +292,10 @@ class DUQValidator(AbstractDUQValidator):
                 try:
                     result = eval(ev)
                 except Exception as e:                    
-                    self.addMeasurement(Measurement(expr,errorCategory=MeasurementCategory.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
+                    self.addDataQualityError(DataQualityError(expr,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
                     result=None
 
                 if ( (not result is None) and (result == False) ):
-                    self.addMeasurement(Measurement(expr,errorCategory=MeasurementCategory.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
+                    self.addDataQualityError(DataQualityError(expr,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
 
     

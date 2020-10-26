@@ -25,9 +25,9 @@ class BoxPlot(object):
         df = pd.DataFrame.from_dict(l)
         df.replace(-1,0,inplace=True)
         
-        df = df.sort_values(by=['attribute','error_category'])
+        df = df.sort_values(by=['attribute','error_dimension'])
         
-        g = df.groupby(['error_category','attribute'])
+        g = df.groupby(['error_dimension','attribute'])
         
         traces = list()
         
@@ -36,11 +36,11 @@ class BoxPlot(object):
             
             traces.append(
                 Scatter(
-                    y= [group['error_category'].count()],
-                    x= group['error_category'],
+                    y= [group['error_dimension'].count()],
+                    x= group['error_dimension'],
                     marker= plotly.graph_objs.scatter.Marker(
                                 symbol="circle",
-                                size=[group['error_category'].count()],
+                                size=[group['error_dimension'].count()],
                                 sizeref= 2.0*m / (100.0**2.0),
                                 sizemode= 'area',
                                 sizemin=20,
