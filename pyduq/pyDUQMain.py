@@ -2,7 +2,7 @@
 
 Overview
 --------
-pylang is a data quality validation tool that implements
+pyduq is a data quality validation tool that implements
 the LANG data quality algorithms 
 (see: Zhang, R., Indulska, M., & Sadiq, S. (2019). Discovering Data Quality Problems: The Case of Repurposed Data. 
 Business and Information Systems Engineering, 61(5), 575–593. https://doi.org/10.1007/s12599-019-00608-0
@@ -60,11 +60,9 @@ data. (Note - if -v is used and there is no metadata provided then
 
 The --profile switch generates a profile data file.
 
-
-Change History:
------------------
-Version: 1.0    18/04/2020  Shane J. Downey
-- Initial release
+The --extend will take an existing metadatafile, compare it with the source data, and
+extend the metadata by adding any missing columns or extending attribute lengths. It
+will also extend enum types where found. 
 
 
 """
@@ -96,7 +94,7 @@ class pyDUQMain(object):
         self.sqlURI = sqlURI
         self.sqlQuery = sqlQuery
         
-        if (len(filePrefix) > 0):
+        if ((not filePrefix is None) and (len(filePrefix) > 0)):
             self.outputFilePrefix = filePrefix
         else:
             self.outputFilePrefix = self.inputFile.rsplit(".", 1)[0]
