@@ -15,7 +15,7 @@ class DUQValidator(AbstractDUQValidator):
     The main execution method is validate().
     """   
         
-    def validate(self:object, customValidator:str):
+    def validate(self:object, customValidator:str=None):
         """
         Validate a resultset against predefined metadata based on the LANG rules of data quality.
         """
@@ -74,17 +74,15 @@ class DUQValidator(AbstractDUQValidator):
         if (MetaUtils.exists(meta_attribute_definition, "Composite")):
             # sum the number of times value appears in the row. this is faster than using list.count(value)
             list_of_attribute_keys = meta_attribute_definition["Composite"]
-            # Concatenate the list of attribute_keys into a composite meta_attribute_key string
             attribute_keys = '+'.join(map(str, list_of_attribute_keys))
             attribute_keys = attribute_keys.replace("%1", meta_attribute_key)
-        
-        
+                
             # populate a dictionary of just the values that are required to create the composite meta_attribute_key
             attribute_data={}
             for col in list_of_attribute_keys:
                 col = col.replace("%1", meta_attribute_key)
                 attribute_data[col]=SQLTools.getColValues(self.dataset, col)
-            
+                        
             seen=set()
             rowindex=0
             # convert the dictionary of columns into a list of tuples
@@ -93,11 +91,11 @@ class DUQValidator(AbstractDUQValidator):
             # check to see if there is are any duplicates in the order of attribute_keys provided
             for row in fields:
                 # join the values from the columns that make up the composite meta_attribute_key to form a single value
-                s = ''.join(map(str, row.values()))
-                if (s in seen):
-                    self.addDataQualityError(DataQualityError(attribute_keys,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Duplicate composite meta_attribute_key: '" + attribute_keys + "', value: '" + s + "'"))
+                composite_key = '|'.join(map(str, row.values()))
+                if (composite_key in seen):
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Duplicate composite meta_attribute_key: '" + attribute_keys + "', values: '" + composite_key + "'"))
                 else:
-                    seen.add(s)
+                    seen.add(composite_key)
                
                         
     def checkSize(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
@@ -292,10 +290,10 @@ class DUQValidator(AbstractDUQValidator):
                 try:
                     result = eval(ev)
                 except Exception as e:                    
-                    self.addDataQualityError(DataQualityError(expr,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
                     result=None
 
                 if ( (not result is None) and (result == False) ):
-                    self.addDataQualityError(DataQualityError(expr,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
 
     
