@@ -183,7 +183,12 @@ class DUQValidator(AbstractDUQValidator):
         if (MetaUtils.exists(meta_attribute_definition, "Enum")):
             # enum is expected to be a list
             enum = meta_attribute_definition["Enum"]
-            
+
+            if (MetaUtils.exists(meta_attribute_definition, "Default")):
+                if (value==meta_attribute_definition["Default"]):
+                    # if trhe value equals the default then do nothing
+                    return
+           
             # check that the value exists within the provided list. If the value is blank then ignore it 
             # as we should have picked it up in the mandatory/optional test anyway
             # (i.e. if the field is optional but a value has been provided then we check it against the supplied list)
