@@ -28,7 +28,7 @@ class DUQValidator(AbstractDUQValidator):
         Change request: find and output the primary key in the error report file if specified
         """
         primary_key = ""
-        primary_key_values = []
+        primary_key_values = None
         
         for key, item in self.metadata.items():                
             if (MetaUtils.isTrue(item, "PrimaryKey")):
@@ -47,8 +47,18 @@ class DUQValidator(AbstractDUQValidator):
                 attribute = self.dataset[meta_attribute_key]
                                 
                 for row_count in range(len(attribute)):
-                    primary_key_value = primary_key_values[row_count]
                     value = attribute[row_count]
+                    
+                    """ 
+                    If a primarykey tag has been found then output the value so that the user 
+                     has a reference to search for the record in the source system. 
+                     If there is no primary key attribute set then output the row count 
+                    """
+                    
+                    if (not primary_key_values is None):
+                        primary_key_value = primary_key_values[row_count]
+                    else:
+                        primary_key_value = "Row: " + str(row_count+1)
                     
                     self.checkMandatory(meta_attribute_definition, meta_attribute_key, value, primary_key_value)                  
                     self.checkSize(meta_attribute_definition, meta_attribute_key, value, primary_key_value)
