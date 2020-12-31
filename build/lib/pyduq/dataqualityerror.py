@@ -28,19 +28,20 @@ class DataQualityDimension(Enum):
         
         
 class DataQualityError(object):
-    """ Measurement: This class is used to record an instance of a discreet measurement. Every measurement has a label, an optional errorCounter and an optional value.
+    """ DataQualityError: This class is used to record an instance of a discreet measurement. Every measurement has a label, an optional errorCounter and an optional value.
     """
 
-    def __init__(self:object, attribute:str, error_dimension:DataQualityDimension=None, description:str="<Unspecified>"):
+    def __init__(self:object, attribute:str, error_dimension:DataQualityDimension=None, description:str="<Unspecified>", primary_key_value:str="<Unspecified>"):
         self.attribute = attribute
         self.error_dimension = error_dimension
         self.error_descr = description
-    
+        self.primary_key_value = primary_key_value
     
     def to_dict(self):
         values = {}
         values['attribute']= self.attribute
         values['error_dimension'] =self.error_dimension
         values['description']=self.error_descr
+        values['primary_key_value']=self.primary_key_value
         return values
         

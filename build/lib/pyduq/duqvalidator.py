@@ -15,7 +15,7 @@ class DUQValidator(AbstractDUQValidator):
     The main execution method is validate().
     """   
         
-    def validate(self:object, customValidator:str):
+    def validate(self:object, customValidator:str=None):
         """
         Validate a resultset against predefined metadata based on the LANG rules of data quality.
         """
@@ -25,26 +25,79 @@ class DUQValidator(AbstractDUQValidator):
             raise ValidationError("LANG Exception: resultset has not been set", None)
 
         """
+        Change request: find and output the primary key in the error report file if specified
+        """
+        primary_key = ""
+        primary_key_values = None
+        
+        for key, item in self.metadata.items():                
+            if (MetaUtils.isTrue(item, "PrimaryKey")):
+                primary_key = key
+                primary_key_values = self.dataset[primary_key]
+                break
+                
+        """
         Execute a series of validations against the supplied column of data and the metadata for the column.
         Which validation is run is determined by entries in the metadata.
         """         
         for meta_attribute_key, meta_attribute_definition in self.metadata.items():                
             if (meta_attribute_key in self.dataset):
                 print("Validating attribute \t'" + meta_attribute_key + "'...", end='\r')
-                
+                                
                 attribute = self.dataset[meta_attribute_key]
-                
-                for value in attribute:
-                    self.checkMandatory(meta_attribute_definition, meta_attribute_key, value)                  
-                    self.checkSize(meta_attribute_definition, meta_attribute_key, value)
-                    self.checkType(meta_attribute_definition, meta_attribute_key, value)
-                    self.checkEnum(meta_attribute_definition, meta_attribute_key, value)
-                    self.checkStartsWith(meta_attribute_definition, meta_attribute_key, value)
+                                
+                for row_count in range(len(attribute)):
+                    value = attribute[row_count]
                     
-                self.checkFormat(meta_attribute_definition, meta_attribute_key)          
-                self.checkUnique(meta_attribute_definition, meta_attribute_key)
-             
-                self.checkComposite(meta_attribute_definition, meta_attribute_key)            
+                    """ 
+                    If a primarykey tag has been found then output the value so that the user 
+                     has a reference to search for the record in the source system. 
+                     If there is no primary key attribute set then output the row count 
+                    """
+                    
+                    if (not primary_key_values is None):
+                        primary_key_value = primary_key_values[row_count]
+                    else:
+                        primary_key_value = "Row: " + str(row_count+1)
+                    
+                    self.checkMandatory(meta_attribute_definition, meta_attribute_key, value, primary_key_value)                  
+                    self.checkSize(meta_attribute_definition, meta_attribute_key, value, primary_key_value)
+                    self.checkType(meta_attribute_definition, meta_attribute_key, value, primary_key_value)
+                    self.checkEnum(meta_attribute_definition, meta_attribute_key, value, primary_key_value)
+                    self.checkStartsWith(meta_attribute_definition, meta_attribute_key, value, primary_key_value)
+
+                
+                # format check (must provide a regex)
+                if (MetaUtils.exists(meta_attribute_definition, "Format")):
+                    re.purge()
+                    regex=re.compile(meta_attribute_definition["Format"])
+                    
+                    for row_count in range(len(attribute)):
+                        primary_key_value = primary_key_values[row_count]
+                        value = attribute[row_count]
+                        
+                        isMatch = (not regex.match(value) is None)
+                        
+                        if ( (not isMatch) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
+                            self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex #'" + meta_attribute_definition["Format"] + "'"))
+
+                   
+                # unique field check        
+                if (MetaUtils.isTrue(meta_attribute_definition, "Unique") ):
+                    # quick count the number of times values occurs in the column. Assumes possibly sorted so breaks the loop if >1 occurences to save time0
+                    seen = set()          
+
+                    for row_count in range(len(attribute)):
+                        primary_key_value = primary_key_values[row_count]
+                        value = attribute[row_count]
+
+                        if (not value in seen):
+                            seen.add(value) #only process a value once 
+                        else:    
+                            self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected."))
+                            
+                self.checkComposite(meta_attribute_definition, meta_attribute_key)
+                
                 # expression evaluation is different to processing field specific validations as it could link in other columns from the resultset
                 self.evaluateExpression(meta_attribute_definition, meta_attribute_key)
 
@@ -57,16 +110,16 @@ class DUQValidator(AbstractDUQValidator):
             self.customValidator(customValidator)
         
         
-    def checkMandatory(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
+    def checkMandatory(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str, primary_key_value:str):
         # mandatory field check
         if (MetaUtils.isTrue(meta_attribute_definition, "Mandatory") ):
             if ( (MetaUtils.isBlankOrNull(value)) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.COMPLETENESSMANDATORY.value,description="Error: Mandatory field is BLANK or NULL. A value is required."))                             
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.COMPLETENESSMANDATORY.value,description="Error: Mandatory field is BLANK or NULL. A value is required.", primary_key_value=primary_key_value))                             
         else:
             # optional field check. According to LANG optional fields shpuld contain some sort of default value
             # i.e. no field shpould ever be blank or NULL.
             if ( (MetaUtils.isBlankOrNull(value)) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.COMPLETENESSOPTIONAL.value, description="Error: Optional field is BLANK or NULL. A default value is required."))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.COMPLETENESSOPTIONAL.value, description="Error: Optional field is BLANK or NULL. A default value is required.", primary_key_value=primary_key_value))
                 
             
     def checkComposite(self, meta_attribute_definition:dict, meta_attribute_key:str):
@@ -74,17 +127,15 @@ class DUQValidator(AbstractDUQValidator):
         if (MetaUtils.exists(meta_attribute_definition, "Composite")):
             # sum the number of times value appears in the row. this is faster than using list.count(value)
             list_of_attribute_keys = meta_attribute_definition["Composite"]
-            # Concatenate the list of attribute_keys into a composite meta_attribute_key string
             attribute_keys = '+'.join(map(str, list_of_attribute_keys))
             attribute_keys = attribute_keys.replace("%1", meta_attribute_key)
-        
-        
+                
             # populate a dictionary of just the values that are required to create the composite meta_attribute_key
             attribute_data={}
             for col in list_of_attribute_keys:
                 col = col.replace("%1", meta_attribute_key)
                 attribute_data[col]=SQLTools.getColValues(self.dataset, col)
-            
+                        
             seen=set()
             rowindex=0
             # convert the dictionary of columns into a list of tuples
@@ -93,21 +144,21 @@ class DUQValidator(AbstractDUQValidator):
             # check to see if there is are any duplicates in the order of attribute_keys provided
             for row in fields:
                 # join the values from the columns that make up the composite meta_attribute_key to form a single value
-                s = ''.join(map(str, row.values()))
-                if (s in seen):
-                    self.addDataQualityError(DataQualityError(attribute_keys,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Duplicate composite meta_attribute_key: '" + attribute_keys + "', value: '" + s + "'"))
+                composite_key = '|'.join(map(str, row.values()))
+                if (composite_key in seen):
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Duplicate composite meta_attribute_key: '" + attribute_keys + "', values: '" + composite_key + "'", primary_key_value=composite_key))
                 else:
-                    seen.add(s)
+                    seen.add(composite_key)
                
                         
-    def checkSize(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
+    def checkSize(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str, primary_key_value:str):
         # field length check
         if (MetaUtils.exists(meta_attribute_definition, "Size")):
             if ( (len(value) > int(meta_attribute_definition["Size"])) and (not MetaUtils.isBlankOrNull(value)) ):
-                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta_attribute_definition["Size"]) + "'"))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is longer than size '" + str(meta_attribute_definition["Size"]) + "'", primary_key_value=primary_key_value))
                 
             
-    def checkType(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
+    def checkType(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str, primary_key_value:str):
         # field type check
         is_valid_type = True
 
@@ -120,25 +171,25 @@ class DUQValidator(AbstractDUQValidator):
             if (meta_attribute_definition["Type"] in ["int","integer"]):
                 if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isInt(value)) ):
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not an int. An int was expected"))
+                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not an int. An int was expected",primary_key_value=primary_key_value))
                         is_valid_type = False
             elif (meta_attribute_definition["Type"] in ["float","number"]):
                 if ( (MetaUtils.isBlankOrNull(value)) or (not MetaUtils.isFloat(value)) ): 
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a float. A float was expected"))
+                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a float. A float was expected",primary_key_value=primary_key_value))
                         is_valid_type = False
             elif (meta_attribute_definition["Type"] in ["bool","boolean"]):
                 if ( (MetaUtils.isBlankOrNull(value)) or (not value.lower() in ["false", "true", "f", "t", "n", "y", "no", "yes", "0", "1"]) ): 
                     if (not MetaUtils.isAllowBlank(meta_attribute_definition)):
-                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a boolean. A boolean was expected"))
+                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is not a boolean. A boolean was expected",primary_key_value=primary_key_value))
                         is_valid_type = False
                     
             # given that min and max checks only apply to int and float values we may as well test for them now
             if (is_valid_type):
-                self.checkMinMax(meta_attribute_definition, meta_attribute_key, value)
+                self.checkMinMax(meta_attribute_definition, meta_attribute_key, value, primary_key_value)
                 
 
-    def checkMinMax(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
+    def checkMinMax(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str, primary_key_value:str):
         # field value range check (int and float only although in theory we could specify min and max ranges for other attributes)
         min = -1
         max = -1
@@ -171,30 +222,35 @@ class DUQValidator(AbstractDUQValidator):
         if (min != -1):
             if (val != -1 and val < min and val != default):
                 # error
-                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be >= " + str(min)))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be >= " + str(min), primary_key_value=primary_key_value))
             
                 
         if (max != -1):
             if (val != -1 and val > max and val != default):
                 # error
-                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be <= " + str(max)))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' must be <= " + str(max), primary_key_value=primary_key_value))
             
 
-    def checkEnum(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
+    def checkEnum(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str, primary_key_value:str):
         # enumerated field check
         if (MetaUtils.exists(meta_attribute_definition, "Enum")):
             # enum is expected to be a list
             enum = meta_attribute_definition["Enum"]
-            
+
+            if (MetaUtils.exists(meta_attribute_definition, "Default")):
+                if (value==meta_attribute_definition["Default"]):
+                    # if trhe value equals the default then do nothing
+                    return
+           
             # check that the value exists within the provided list. If the value is blank then ignore it 
             # as we should have picked it up in the mandatory/optional test anyway
             # (i.e. if the field is optional but a value has been provided then we check it against the supplied list)
             if ( (len(value)>0) and (value not in enum) and (value != "(Null)") ):
-                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is outside the enumeration set '" + str(enum) + "'"))
+                self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.METADATACOMPLIANCE.value, description="Error: Value '" + value + "' is outside the enumeration set '" + str(enum) + "'", primary_key_value=primary_key_value))
 
 
 
-    def checkStartsWith(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str):
+    def checkStartsWith(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str, primary_key_value:str):
         # enumerated field check
         if (MetaUtils.exists(meta_attribute_definition, "StartsWith")):
             # startsWith is expected to be a list
@@ -211,50 +267,9 @@ class DUQValidator(AbstractDUQValidator):
                         break
                         
                 if (not found):
-                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not begin with any of: '" + str(startsWith) + "'"))
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not begin with any of: '" + str(startsWith) + "'", primary_key_value=primary_key_value))
 
 
-            
-    def checkFormat(self, meta_attribute_definition:dict, meta_attribute_key:str):
-        # format check (must provide a regex)
-        if (MetaUtils.exists(meta_attribute_definition, "Format")):
-            re.purge()
-            regex=re.compile(meta_attribute_definition["Format"])
-            
-            for value in self.dataset[meta_attribute_key]:
-                #isMatch = (not re.match(meta_attribute_definition["Format"], value) is None)
-                isMatch = (not regex.match(value) is None)
-                
-                if ( (not isMatch) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex #'" + meta_attribute_definition["Format"] + "'"))
-                    
-            
-
-   
-    def checkUnique(self, meta_attribute_definition:dict, meta_attribute_key:str):
-        # unique field check
-        if (MetaUtils.isTrue(meta_attribute_definition, "Unique")):
-            # quick count the number of times values occurs in the column. Assumes possibly sorted so breaks the loop if >1 occurences to save time0
-
-            sorted_data = sorted(self.dataset[meta_attribute_key])
-            seen = set()           
-
-            for i in range(len(sorted_data)):
-                counter = 0
-
-                value = sorted_data[i]
-                
-                if (not value in seen):
-                    seen.add(value) #only process a value once 
-                    
-                    j = i
-                    
-                    while ( (j < len(sorted_data)) and (sorted_data[j] == value) ):
-                        counter +=1
-                        j+=1
-                    
-                    if (counter>1):
-                        self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected"))
 
 
             
@@ -292,10 +307,10 @@ class DUQValidator(AbstractDUQValidator):
                 try:
                     result = eval(ev)
                 except Exception as e:                    
-                    self.addDataQualityError(DataQualityError(expr,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned an error '" + str(e) + "'"))
                     result=None
 
                 if ( (not result is None) and (result == False) ):
-                    self.addDataQualityError(DataQualityError(expr,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
+                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.BUSINESSRULECOMPLIANCE.value, description="Error: Expression '" + ev + "' returned FALSE"))
 
     

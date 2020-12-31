@@ -57,7 +57,7 @@ class AbstractDUQValidator(abc.ABC):
         
         for name in DataQualityDimension.names():
             headers.append(name)
-            headers.append(name + " SCORE")
+            #headers.append(name + " SCORE")
             
         sheet.append(headers)
 
@@ -106,7 +106,12 @@ class AbstractDUQValidator(abc.ABC):
                 
                 # for each attribute create a list of dictionaries contaning a count of each category
                 summary_row[name.name] = error_count
-                    
+                
+                '''
+                # calculate an error percentage score per error item 
+                # NOTE: this has been temporarily removed to allow for easier statistical analysis in external 
+                # stats tools like SPSS.  
+                
                 try:
                     
                     score = float(error_count / len(self.dataset[item]))
@@ -114,8 +119,10 @@ class AbstractDUQValidator(abc.ABC):
                    
                 except Exception as e:
                     summary_row[name.name + " SCORE"] =  0
-                        
+                '''
+                
             summary[item].append(summary_row)
+
                                 
         return summary
         
