@@ -11,7 +11,7 @@ from plotly.graph_objs import Scatter,Layout,Marker,Bar
 # Dataset: Life Expectancy and per capita income (Rosling) 
 class BoxPlot(object):
 
-    def plot(self, l:list, chartTitle:str=""):
+    def plot(self, l:dict, chartTitle:str=""):
         """
         example structure of l: 
         l = [
@@ -22,6 +22,10 @@ class BoxPlot(object):
         ]
         """        
 
+        if (l is None or len(l) == 0):
+            print ("## nothing to plot ##")
+            return
+        
         df = pd.DataFrame.from_dict(l)
         df.replace(-1,0,inplace=True)
         
