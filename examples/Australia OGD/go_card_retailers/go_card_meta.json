@@ -3,7 +3,8 @@
     "Size": 4,
     "Type": "int",
     "Mandatory": true,
-    "Unique": true
+    "Unique": true,
+    "PrimaryKey": true
   },
   "status": {
     "Size": 10,

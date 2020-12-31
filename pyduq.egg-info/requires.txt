@@ -1,5 +1,9 @@
+dicttoxml
 plotly
 pyodbc
 prettytable
-dicttoxml
 openpyxl
+sklearn
+scipy
+nltk
+unidecode

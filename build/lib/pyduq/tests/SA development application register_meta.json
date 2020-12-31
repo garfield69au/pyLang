@@ -1,0 +1,524 @@
+{
+    "ApplicationNumber": {
+        "Size": 16,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "LodgementDate": {
+        "Size": 22,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "ApplicantName": {
+        "Size": 46,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "ApplicantAddressLine1": {
+        "Size": 46,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "ApplicantAddressLine2": {
+        "Size": 47,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "ApplicantAddressLine3": {
+        "Size": 29,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "ApplicantAddressLine4": {
+        "Size": 25,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "28 Franklin Street",
+            "485 Kingsford Smith Drive",
+            "ADELAIDE",
+            "ADELAIDE  SA  5000",
+            "ADELAIDE  SA  5001",
+            "ALDGATE  SA  5154",
+            "BROMPTON  SA  5007",
+            "BURTON  SA  5110",
+            "CLAPHAM  SA  5062",
+            "DAVOREN PARK  SA  5113",
+            "DUDLEY PARK  SA  5008",
+            "EASTWOOD  SA  5063",
+            "EDINBURGH NORTH  SA  5113",
+            "ELIZABETH SOUTH  SA  5112",
+            "GAWLER  SA  5118",
+            "GAWLER SOUTH  SA  5118",
+            "GOLDEN GROVE  SA  5125",
+            "GOODWOOD  SA  5034",
+            "HINDMARSH  SA  5007",
+            "HOLDEN HILL  SA  5088",
+            "HOMEBUSH  NSW  2140",
+            "KENSINGTON PARK  SA  5068",
+            "KENT TOWN  SA  5067",
+            "KENT TOWN  SA  5071",
+            "MAGILL  SA  5072",
+            "MARDEN  SA  5070",
+            "MILE END SOUTH  SA  5031",
+            "MOORABBIN  VIC  3189",
+            "MORPHETT VALE  SA  5162",
+            "NEWTON  SA  5074",
+            "NORTH ADELAIDE  SA  5006",
+            "PASADENA  SA  5042",
+            "PORT ADELAIDE  SA  5015",
+            "PROSPECT  SA  5082",
+            "PROSPECT EAST  SA  5082",
+            "ROSE PARK  SA  5067",
+            "RUNDLE MALL  SA  5000",
+            "SALISBURY  SA  5108",
+            "SALISBURY SOUTH  SA  5106",
+            "SEATON  SA  5023",
+            "SOUTH PLYMPTON  SA  5038",
+            "TORRENSVILLE  SA  5031",
+            "UNDERDALE  SA  5032",
+            "WALKERVILLE  SA  5081",
+            "WAYVILLE  SA  5034"
+        ]
+    },
+    "ApplicationDesc": {
+        "Size": 504,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "ApplicationType": {
+        "Size": 42,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "Aerobic Wastewater System",
+            "Alteration to Septic Soakage Trench",
+            "Alteration to Underfloor Plumbing",
+            "Alteration to irrigation area",
+            "Building Application Only",
+            "Building Fire Safety Committee",
+            "Holding Tank",
+            "New Application Lodgement",
+            "Online Application lodgement - Commercial",
+            "Online Application lodgement - Residential",
+            "Planning Application Only",
+            "Planning and Building Application",
+            "Septic Tank System",
+            "Waste Water - Other"
+        ]
+    },
+    "PropertyAddress": {
+        "Size": 36,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "PropertySuburbPostCode": {
+        "Size": 27,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "ANDREWS FARM  SA  5114",
+            "ANDREWS FARM SA 5114",
+            "ANGLE VALE  SA",
+            "ANGLE VALE  SA  5117",
+            "ANGLE VALE SA 5117",
+            "BIBARINGA  SA  5118",
+            "BIBARINGA SA 5118",
+            "BLAKEVIEW  SA  5114",
+            "BLAKEVIEW SA 5114",
+            "BUCKLAND PARK  SA  5120",
+            "BUCKLAND PARK SA 5120",
+            "CRAIGMORE  SA  5114",
+            "CRAIGMORE SA 5114",
+            "DAVOREN PARK  SA  5113",
+            "DAVOREN PARK SA 5113",
+            "EDINBURGH NORTH  SA  5113",
+            "EDINBURGH NORTH SA 5113",
+            "ELIZABETH  SA  5112",
+            "ELIZABETH DOWNS  SA",
+            "ELIZABETH DOWNS  SA  5113",
+            "ELIZABETH DOWNS SA 5113",
+            "ELIZABETH EAST  SA  5112",
+            "ELIZABETH GROVE  SA  5112",
+            "ELIZABETH NORTH  SA  5113",
+            "ELIZABETH NORTH SA 5113",
+            "ELIZABETH PARK  SA  5113",
+            "ELIZABETH PARK SA 5113",
+            "ELIZABETH SA 5112",
+            "ELIZABETH SOUTH  SA",
+            "ELIZABETH SOUTH  SA  5112",
+            "ELIZABETH SOUTH SA 5112",
+            "ELIZABETH VALE  SA  5112",
+            "ELIZABETH VALE SA 5112",
+            "EVANSTON PARK  SA  5116",
+            "EYRE  SA  5121",
+            "EYRE SA 5121",
+            "GOULD CREEK  SA  5114",
+            "HILLBANK  SA  5112",
+            "HILLBANK SA 5112",
+            "HILLIER  SA  5116",
+            "HUMBUG SCRUB  SA  5114",
+            "HUMBUG SCRUB SA 5114",
+            "MACDONALD PARK  SA  5121",
+            "MACDONALD PARK SA 5121",
+            "MUNNO PARA  SA  5115",
+            "MUNNO PARA DOWNS  SA  5115",
+            "MUNNO PARA DOWNS SA 5115",
+            "MUNNO PARA SA 5115",
+            "MUNNO PARA WEST  SA  5115",
+            "MUNNO PARA WEST SA 5115",
+            "ONE TREE HILL  SA  5114",
+            "ONE TREE HILL SA 5114",
+            "PENFIELD  SA  5121",
+            "PENFIELD GARDENS  SA  5121",
+            "PENFIELD GARDENS SA 5121",
+            "PENFIELD SA 5121",
+            "SAMPSON FLAT  SA  5114",
+            "SAMPSON FLAT SA 5114",
+            "SMITHFIELD  SA  5114",
+            "SMITHFIELD PLAINS  SA  5114",
+            "SMITHFIELD PLAINS SA 5114",
+            "ULEYBURY  SA  5114",
+            "VIRGINIA  SA  5120",
+            "VIRGINIA SA 5120",
+            "WATERLOO CORNER  SA  5110",
+            "WATERLOO CORNER SA 5110",
+            "YATTALUNGA  SA  5114"
+        ]
+    },
+    "PrivateCertifierName": {
+        "Size": 17,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "Mr A M Fioravanti",
+            "Mr A Squires",
+            "Mr M P King",
+            "Ms K Nankivell"
+        ]
+    },
+    "PrivateCertiferAddressLine1": {
+        "Size": 17,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "Mr A M Fioravanti",
+            "Mr A Squires",
+            "Mr M P King",
+            "Ms K Nankivell"
+        ]
+    },
+    "PrivateCertiferAddressLine2": {
+        "Size": 20,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "14 Bishopstone Road",
+            "C/- City of Playford"
+        ]
+    },
+    "PrivateCertiferAddressLine3": {
+        "Size": 22,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "12 Bishopstone Road",
+            "DAVOREN PARK  SA  5113"
+        ]
+    },
+    "PrivateCertiferAddressLine4": {
+        "Size": 22,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "DAVOREN PARK  SA  5113"
+        ]
+    },
+    "Decision": {
+        "Size": 50,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "Application Under Assessment",
+            "Approved",
+            "Cancelled",
+            "Development Application Approved",
+            "Development Application Refused",
+            "Development Application Withdrawn",
+            "Engineering Consent Granted",
+            "Incomplete Application Further Information Require",
+            "Lodged",
+            "Pending Additional Information Building",
+            "Pending Additional Information Planning",
+            "Pending Building Assessment",
+            "Pending Building Fire Safety Inspection",
+            "Pending Building Private Certifier Assessment",
+            "Pending External Referral",
+            "Pending Further Information",
+            "Pending Internal Referral",
+            "Pending Planning Assessment",
+            "Planning Consent Granted",
+            "Public Consultation - Category 2",
+            "Referral of Calculations to Building Surveyor",
+            "Under Assessment Building",
+            "Under Assessment Planning",
+            "Under Construction Engineering",
+            "Variation Requested",
+            "Withdrawn",
+            "Work Commenced",
+            "Work Completed"
+        ]
+    },
+    "ApprovalDate": {
+        "Size": 22,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "Authority": {
+        "Size": 30,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "Applicant",
+            "Council",
+            "Development Assess. Commission",
+            "Private Certifier"
+        ]
+    },
+    "ApprovalConditions": {
+        "Size": 15,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "Sub-report here"
+        ]
+    },
+    "Fees": {
+        "Size": 8,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "float",
+        "Unique": false
+    },
+    "WorkCommencementDate": {
+        "Size": 0,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "int",
+        "Unique": false,
+        "Enum": []
+    },
+    "Application_Date": {
+        "Size": 22,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "date",
+        "Unique": false
+    },
+    "Consents": {
+        "Size": 358,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    },
+    "BuildingCertifiers": {
+        "Size": 81,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "B S G M Consulting Building Surveyors",
+            "BCA Concepts",
+            "Bdc",
+            "Bdc and Building Development Certifier",
+            "Blueprint Certifiers & Designers Pty Ltd",
+            "Building Certification Approvals (SA) Pty Ltd",
+            "Building Development Certifier",
+            "Building Rules Consent Private Certifiers Pty Ltd",
+            "Buildsurv",
+            "Carlo Scinto & Assoc Pty Ltd",
+            "George Capetanakis Building Surveyor",
+            "Giordano Certification",
+            "Hendry Group",
+            "KBS Consultants",
+            "KBS Consultants and \nProfessional Building Services Aust Pty Ltd",
+            "KBS Consultants and Salisbury Development Services",
+            "Katnich Dodd",
+            "Mr R Ciancio",
+            "Ms B Douflias",
+            "Nikias Certification",
+            "P B S Aust",
+            "Professional Building Services Aust Pty Ltd",
+            "Professional Building Services Aust Pty Ltd and \nP B S Aust",
+            "Project Building Certifiers Pty Ltd",
+            "SA Building Approvals & Consultants",
+            "Salisbury Development Services",
+            "Salisbury Development Services and \nBuilding Certification Approvals (SA) Pty Ltd",
+            "Softwoods Timberyards Pty Ltd",
+            "Tecon Aust Pty Ltd",
+            "Tonkin Consulting",
+            "Trento Fuller Pty Ltd",
+            "Urban Planning & Design",
+            "Willmott Building Certification"
+        ]
+    },
+    "PrivateCertAppDates": {
+        "Size": 0,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "int",
+        "Unique": false,
+        "Enum": []
+    },
+    "CommenceDate": {
+        "Size": 22,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "CompleteDate": {
+        "Size": 22,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false
+    },
+    "UADecs": {
+        "Size": 0,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "int",
+        "Unique": false,
+        "Enum": []
+    },
+    "Referrals": {
+        "Size": 0,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "int",
+        "Unique": false,
+        "Enum": []
+    },
+    "ContaminationNotice": {
+        "Size": 515,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false,
+        "Enum": [
+            "C- Chemicals (Notification of contaminated land. \"...Potential hazard to personnel excavating soil or accessing buried services in the vicinity of the site. The hazard relates to the potential for exposure of workers to chlorinated solvent vapours and/or impacted soils during such work. Based  on the identification of only relatively low concentrations of PCE &TCE, and the nature of the subsurface environment, GHD consideres that the risk of harm to workers is probably very low. However, no formal health risk)"
+        ]
+    },
+    "CertifierLodgementDates": {
+        "Size": 37,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "date",
+        "Unique": false,
+        "Enum": [
+            ",",
+            ",           ,           ,           ,",
+            "03/05/2020",
+            "03/09/2020",
+            "04/09/2020",
+            "05/02/2020",
+            "06/11/2020",
+            "09/06/2020",
+            "11/11/2020",
+            "11/12/2017",
+            "14/10/2020",
+            "16/09/2020",
+            "17/09/2020",
+            "18/08/2020",
+            "19/05/2020",
+            "23/01/2020",
+            "27/10/2020",
+            "29/09/2020,",
+            "30/06/2020,"
+        ]
+    },
+    "ValueOfDevelopment": {
+        "Size": 16,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "float",
+        "Unique": false
+    },
+    "AppDescr": {
+        "Size": 504,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "string",
+        "Unique": false
+    },
+    "NumDwellings": {
+        "Size": 3,
+        "Mandatory": true,
+        "AllowBlank": false,
+        "Type": "int",
+        "Unique": false,
+        "Enum": [
+            "0",
+            "1",
+            "12",
+            "15",
+            "2",
+            "20",
+            "3",
+            "4",
+            "5",
+            "6",
+            "615"
+        ]
+    },
+    "VgNumber": {
+        "Size": 10,
+        "Mandatory": false,
+        "AllowBlank": true,
+        "Type": "string",
+        "Unique": false
+    }
+}

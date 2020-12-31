@@ -1,2 +1,1 @@
 pyduq
-tests

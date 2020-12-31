@@ -1,0 +1,24 @@
+ident = letter | digit { letter | digit }.
+
+int = digit { digit }.
+
+expression = "{" statement "}" {"," statement }.
+
+statement = ident ":" "{" term { "," term }  "}".
+
+term = (
+    "'Size'" ":" int
+    | "'Type'" ":" ("'int' | 'integer'" | "'float' | 'number'" | "'string'" | "'char'" | "'date'"| "'time'"| "'bool' | 'boolean'")
+    | "'Mandatory'" ":" ("True"|"False")
+    | "'AllowBlank'" ":" ("True"|"False")
+    | "'Enum'" ":" "[" "'" ident "'" {"," "'" ident "'"} "]"
+    | "'Composite'" ":" "[" "'" ident "'" {"," "'" ident "'"} "]"
+    | "'Min'" ":" int
+    | "'Max'" ":" int
+    | "'Default'" ":" ident
+    | "'Format'" ":" "<regular_expression>"
+    | "'Unique'" ":" ("True"|"False")
+    | "'StartsWith'" ":" "[" "'" ident "'" {"," "'" ident "'"} "]"
+    | "'Expression'" ":" "<python_source_code>"
+    ).
+ 

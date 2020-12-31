@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyduq
-Version: 1.0.0
+Version: 1.0.5
 Summary: A tool to validate data accoridng to the University of Queensland conformed dimensions of data quality.
 Home-page: https://github.com/sjdowney/pyduq
 Author: Shane J. Downey
@@ -30,6 +30,18 @@ Description: # pyduq
         Examples:
         ---------
         Please see the /examples folder on the Homepage for many examples of using pyduq features to validate Open Data sources.
+        
+        Installation:
+        --------------
+        Before installing pyduq some prerequisties must be installed:
+        
+        pip install dicttoxml
+        pip install unidecode
+        
+        python 
+        import nltk
+        nltk.download('stopwords')
+        
         
         References
         ----------

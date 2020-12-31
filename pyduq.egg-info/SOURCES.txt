@@ -1,14 +1,6 @@
 MANIFEST.in
 README.md
 setup.py
-doc/expression.GIF
-doc/ident.GIF
-doc/int.GIF
-doc/pyduq Grammar v1.1.docx
-doc/pyduq Grammar v1.1.ebnf
-doc/pyduq.png
-doc/statement.GIF
-doc/term.GIF
 pyduq/SQLTools.py
 pyduq/__init__.py
 pyduq/abstractduqvalidator.py
@@ -27,12 +19,18 @@ pyduq.egg-info/SOURCES.txt
 pyduq.egg-info/dependency_links.txt
 pyduq.egg-info/requires.txt
 pyduq.egg-info/top_level.txt
-tests/SA development application register.csv
-tests/SA development application register_meta.json
-tests/SA development application register_profile.xlsx
-tests/SA development application register_summary.xlsx
-tests/__init__.py
-tests/testTemplate.py
-tests/testValidator.ipynb
-tests/validate_sa_development_register.bat
-tests/wget.exe
+pyduq/doc/expression.GIF
+pyduq/doc/ident.GIF
+pyduq/doc/int.GIF
+pyduq/doc/pyduq Grammar v1.1.docx
+pyduq/doc/pyduq Grammar v1.1.ebnf
+pyduq/doc/pyduq.png
+pyduq/doc/statement.GIF
+pyduq/doc/term.GIF
+pyduq/tests/README.txt
+pyduq/tests/SA development application register.csv
+pyduq/tests/SA development application register_meta.json
+pyduq/tests/testTemplate.py
+pyduq/tests/testValidator.ipynb
+pyduq/tests/validate.bat
+pyduq/tests/wget.exe
