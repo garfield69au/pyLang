@@ -73,7 +73,11 @@ class DUQValidator(AbstractDUQValidator):
                     regex=re.compile(meta_attribute_definition["Format"])
                     
                     for row_count in range(len(attribute)):
-                        primary_key_value = primary_key_values[row_count]
+                        if (not primary_key_values is None):
+                            primary_key_value = primary_key_values[row_count]
+                        else:
+                            primary_key_value = "Row: " + str(row_count+1)
+                    
                         value = attribute[row_count]
                         
                         isMatch = (not regex.match(value) is None)
@@ -88,7 +92,11 @@ class DUQValidator(AbstractDUQValidator):
                     seen = set()          
 
                     for row_count in range(len(attribute)):
-                        primary_key_value = primary_key_values[row_count]
+                        if (not primary_key_values is None):
+                            primary_key_value = primary_key_values[row_count]
+                        else:
+                            primary_key_value = "Row: " + str(row_count+1)
+                    
                         value = attribute[row_count]
 
                         if (not value in seen):
