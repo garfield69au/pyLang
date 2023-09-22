@@ -11,7 +11,8 @@
         "Mandatory": true,
         "AllowBlank": false,
         "Type": "date",
-        "Unique": false
+        "Unique": false,
+      "NonRepeatingGroup": [ "%1", "ApplicantName", "ApplicantAddressLine1" ]
     },
     "ApplicantName": {
         "Size": 46,
@@ -50,7 +51,6 @@
         "Enum": [
             "28 Franklin Street",
             "485 Kingsford Smith Drive",
-            "ADELAIDE",
             "ADELAIDE  SA  5000",
             "ADELAIDE  SA  5001",
             "ALDGATE  SA  5154",
@@ -76,7 +76,6 @@
             "MARDEN  SA  5070",
             "MILE END SOUTH  SA  5031",
             "MOORABBIN  VIC  3189",
-            "MORPHETT VALE  SA  5162",
             "NEWTON  SA  5074",
             "NORTH ADELAIDE  SA  5006",
             "PASADENA  SA  5042",
@@ -145,7 +144,6 @@
             "ANGLE VALE  SA  5117",
             "ANGLE VALE SA 5117",
             "BIBARINGA  SA  5118",
-            "BIBARINGA SA 5118",
             "BLAKEVIEW  SA  5114",
             "BLAKEVIEW SA 5114",
             "BUCKLAND PARK  SA  5120",
@@ -180,7 +178,6 @@
             "HILLBANK SA 5112",
             "HILLIER  SA  5116",
             "HUMBUG SCRUB  SA  5114",
-            "HUMBUG SCRUB SA 5114",
             "MACDONALD PARK  SA  5121",
             "MACDONALD PARK SA 5121",
             "MUNNO PARA  SA  5115",
@@ -193,13 +190,14 @@
             "ONE TREE HILL SA 5114",
             "PENFIELD  SA  5121",
             "PENFIELD GARDENS  SA  5121",
-            "PENFIELD GARDENS SA 5121",
             "PENFIELD SA 5121",
+            "RIVERLEA PARK  SA  5120",
+            "RIVERLEA PARK SA 5120",
             "SAMPSON FLAT  SA  5114",
-            "SAMPSON FLAT SA 5114",
             "SMITHFIELD  SA  5114",
             "SMITHFIELD PLAINS  SA  5114",
             "SMITHFIELD PLAINS SA 5114",
+            "SMITHFIELD SA 5114",
             "ULEYBURY  SA  5114",
             "VIRGINIA  SA  5120",
             "VIRGINIA SA 5120",
@@ -209,7 +207,7 @@
         ]
     },
     "PrivateCertifierName": {
-        "Size": 17,
+        "Size": 36,
         "Mandatory": false,
         "AllowBlank": true,
         "Type": "string",
@@ -218,11 +216,12 @@
             "Mr A M Fioravanti",
             "Mr A Squires",
             "Mr M P King",
-            "Ms K Nankivell"
+            "Ms K Nankivell",
+            "Ms K Nankivell and Mr A M Fioravanti"
         ]
     },
     "PrivateCertiferAddressLine1": {
-        "Size": 17,
+        "Size": 36,
         "Mandatory": false,
         "AllowBlank": true,
         "Type": "string",
@@ -231,7 +230,8 @@
             "Mr A M Fioravanti",
             "Mr A Squires",
             "Mr M P King",
-            "Ms K Nankivell"
+            "Ms K Nankivell",
+            "Ms K Nankivell and Mr A M Fioravanti"
         ]
     },
     "PrivateCertiferAddressLine2": {
@@ -273,13 +273,12 @@
         "Type": "string",
         "Unique": false,
         "Enum": [
-            "Application Under Assessment",
             "Approved",
             "Cancelled",
             "Development Application Approved",
             "Development Application Refused",
             "Development Application Withdrawn",
-            "Engineering Consent Granted",
+            "Final Completion",
             "Incomplete Application Further Information Require",
             "Lodged",
             "Pending Additional Information Building",
@@ -288,16 +287,17 @@
             "Pending Building Fire Safety Inspection",
             "Pending Building Private Certifier Assessment",
             "Pending External Referral",
-            "Pending Further Information",
+            "Pending Fees Payment",
             "Pending Internal Referral",
             "Pending Planning Assessment",
+            "Pending Practical Completion Walk Over",
+            "Pending State Commission Assessment Panel Decision",
             "Planning Consent Granted",
-            "Public Consultation - Category 2",
             "Referral of Calculations to Building Surveyor",
+            "Refused",
             "Under Assessment Building",
             "Under Assessment Planning",
-            "Under Construction Engineering",
-            "Variation Requested",
+            "Under Defects & Liability Period",
             "Withdrawn",
             "Work Commenced",
             "Work Completed"
@@ -356,7 +356,7 @@
         "Unique": false
     },
     "Consents": {
-        "Size": 358,
+        "Size": 182,
         "Mandatory": false,
         "AllowBlank": true,
         "Type": "string",
@@ -375,6 +375,7 @@
             "Bdc and Building Development Certifier",
             "Blueprint Certifiers & Designers Pty Ltd",
             "Building Certification Approvals (SA) Pty Ltd",
+            "Building Certification Approvals (SA) Pty Ltd and \nSalisbury Development Services",
             "Building Development Certifier",
             "Building Rules Consent Private Certifiers Pty Ltd",
             "Buildsurv",
@@ -386,6 +387,7 @@
             "KBS Consultants and \nProfessional Building Services Aust Pty Ltd",
             "KBS Consultants and Salisbury Development Services",
             "Katnich Dodd",
+            "Mr G Capetanakis",
             "Mr R Ciancio",
             "Ms B Douflias",
             "Nikias Certification",
@@ -395,12 +397,9 @@
             "Project Building Certifiers Pty Ltd",
             "SA Building Approvals & Consultants",
             "Salisbury Development Services",
-            "Salisbury Development Services and \nBuilding Certification Approvals (SA) Pty Ltd",
-            "Softwoods Timberyards Pty Ltd",
             "Tecon Aust Pty Ltd",
             "Tonkin Consulting",
             "Trento Fuller Pty Ltd",
-            "Urban Planning & Design",
             "Willmott Building Certification"
         ]
     },
@@ -453,23 +452,25 @@
         ]
     },
     "CertifierLodgementDates": {
-        "Size": 37,
+        "Size": 11,
         "Mandatory": false,
         "AllowBlank": true,
         "Type": "date",
         "Unique": false,
         "Enum": [
             ",",
-            ",           ,           ,           ,",
             "03/05/2020",
             "03/09/2020",
+            "03/12/2020",
             "04/09/2020",
             "05/02/2020",
             "06/11/2020",
+            "08/12/2020",
             "09/06/2020",
             "11/11/2020",
             "11/12/2017",
             "14/10/2020",
+            "15/09/2020",
             "16/09/2020",
             "17/09/2020",
             "18/08/2020",

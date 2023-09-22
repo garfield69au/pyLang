@@ -1,5 +1,6 @@
 import re
 import time
+from collections import Counter
 from pyduq.metautils import MetaUtils
 from pyduq.abstractduqvalidator import AbstractDUQValidator
 from pyduq.patterns import Patterns
@@ -105,6 +106,7 @@ class DUQValidator(AbstractDUQValidator):
                             self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Value '" + value + "' is not UNIQUE. A unique value was expected."))
                             
                 self.checkComposite(meta_attribute_definition, meta_attribute_key)
+                self.checkNonRepeatingGroups(meta_attribute_definition, meta_attribute_key)
                 
                 # expression evaluation is different to processing field specific validations as it could link in other columns from the resultset
                 self.evaluateExpression(meta_attribute_definition, meta_attribute_key)
@@ -157,7 +159,74 @@ class DUQValidator(AbstractDUQValidator):
                     self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Duplicate composite meta_attribute_key: '" + attribute_keys + "', values: '" + composite_key + "'", primary_key_value=composite_key))
                 else:
                     seen.add(composite_key)
+
                
+    def checkNonRepeatingGroups(self, meta_attribute_definition:dict, meta_attribute_key:str):
+        '''
+            This method is for a very specific use case - to find all non-repeting groups of Y,Z,... in repeating groups of X.
+            
+            The scenario is used in situations where you have sub-groups of records within the data set, that ought to be identical across
+            all columns, and you need to know when something is different. Image you have the same col existing in more than one entity. You write
+            a query to flatten the entities into a single table. From there, you want to ensure that this repeated attributes are the same (like a person's name
+            or email address) across the entities. That's what this method is for!
+            
+            Given attributes X,Y,Z,...:
+            Find all the repeating groups of X
+            For each repeating group:
+                Find all occurences where Y and Z are different (i.e. non-unique)
+                If all instances of X-Y-X are identical then this is considered a repeating group and is not a rule violation and thus ignored
+                
+            Note: Use %1 to indicate which field is X 
+            
+            The non-repeating group (X) must be the first attribute in the list. 
+        '''
+        
+        if (MetaUtils.exists(meta_attribute_definition, "NonRepeatingGroup")):
+            # sum the number of times value appears in the row. this is faster than using list.count(value)
+            list_of_attribute_keys = meta_attribute_definition["NonRepeatingGroup"]
+            
+            if (len(list_of_attribute_keys) < 2):
+                raise ValidationError("LANG Exception: " + meta_attribute_key + " - NonRepeatingGroup tag requires at least 2 attributes to be defined. Please refer to the documentation.", None)
+            
+            attribute_keys = '+'.join(map(str, list_of_attribute_keys))
+            attribute_keys = attribute_keys.replace("%1", meta_attribute_key)
+
+            # populate a dictionary of just the values that are required to create the non-repeating group meta_attribute_key
+            attribute_data={}
+            for col in list_of_attribute_keys:
+                col = col.replace("%1", meta_attribute_key)
+                attribute_data[col]=SQLTools.getColValues(self.dataset, col)
+                                   
+            # convert the dictionary of columns into a list of tuples
+            fields=[dict(zip(attribute_data, col)) for col in zip(*attribute_data.values())]
+            
+            # find all the repeating values (X in our speudo code above)
+            x_groups_count = Counter(attribute_data[meta_attribute_key])
+            
+            # iterate through the repeating groups of X values, ignore any single row counts
+            for value, count in x_groups_count.items():
+                if (count>1):
+                    seen={}
+                    rowindex=0
+                    
+                    # find records whose starting row valu ematches the repeating group value
+                    for row in fields:
+                        val = next(iter(row.values()))
+                        
+                        if (val == value):
+                            non_group = list(row.values())
+                            
+                            # join the values from the columns that make up the composite meta_attribute_key to form a single value
+                            nonrepeatinggroup_key = '|'.join(map(str, non_group))
+                            if (not nonrepeatinggroup_key in seen.values()):
+                                seen[str(rowindex)+":"+str(value)]=nonrepeatinggroup_key
+                                rowindex+=1
+             
+                    # only output to the error file if we have more than 1 row 
+                    if (rowindex > 1):
+                        for nonrepeatinggroup_key, value in seen.items():
+                            self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.UNIQUENESS.value, description="Error: Non-repeating group found.  meta_attribute_key: '" + nonrepeatinggroup_key + "-> " + attribute_keys + "', values: '" + value + "'", primary_key_value=meta_attribute_key))           
+           
                         
     def checkSize(self, meta_attribute_definition:dict, meta_attribute_key:str, value:str, primary_key_value:str):
         # field length check

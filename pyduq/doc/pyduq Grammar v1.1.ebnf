@@ -20,5 +20,6 @@ term = (
     | "'Unique'" ":" ("True"|"False")
     | "'StartsWith'" ":" "[" "'" ident "'" {"," "'" ident "'"} "]"
     | "'Expression'" ":" "<python_source_code>"
+    | "'NonRepeatingGroups'" ":" "[" "'" ident "'" {"," "'" ident "'"} "]"
     ).
  
