@@ -42,57 +42,12 @@
         "Type": "string",
         "Unique": false
     },
-    "ApplicantAddressLine4": {
+    "ApplicantAddressLine3": {
         "Size": 25,
         "Mandatory": false,
         "AllowBlank": true,
         "Type": "string",
-        "Unique": false,
-        "Enum": [
-            "28 Franklin Street",
-            "485 Kingsford Smith Drive",
-            "ADELAIDE  SA  5000",
-            "ADELAIDE  SA  5001",
-            "ALDGATE  SA  5154",
-            "BROMPTON  SA  5007",
-            "BURTON  SA  5110",
-            "CLAPHAM  SA  5062",
-            "DAVOREN PARK  SA  5113",
-            "DUDLEY PARK  SA  5008",
-            "EASTWOOD  SA  5063",
-            "EDINBURGH NORTH  SA  5113",
-            "ELIZABETH SOUTH  SA  5112",
-            "GAWLER  SA  5118",
-            "GAWLER SOUTH  SA  5118",
-            "GOLDEN GROVE  SA  5125",
-            "GOODWOOD  SA  5034",
-            "HINDMARSH  SA  5007",
-            "HOLDEN HILL  SA  5088",
-            "HOMEBUSH  NSW  2140",
-            "KENSINGTON PARK  SA  5068",
-            "KENT TOWN  SA  5067",
-            "KENT TOWN  SA  5071",
-            "MAGILL  SA  5072",
-            "MARDEN  SA  5070",
-            "MILE END SOUTH  SA  5031",
-            "MOORABBIN  VIC  3189",
-            "NEWTON  SA  5074",
-            "NORTH ADELAIDE  SA  5006",
-            "PASADENA  SA  5042",
-            "PORT ADELAIDE  SA  5015",
-            "PROSPECT  SA  5082",
-            "PROSPECT EAST  SA  5082",
-            "ROSE PARK  SA  5067",
-            "RUNDLE MALL  SA  5000",
-            "SALISBURY  SA  5108",
-            "SALISBURY SOUTH  SA  5106",
-            "SEATON  SA  5023",
-            "SOUTH PLYMPTON  SA  5038",
-            "TORRENSVILLE  SA  5031",
-            "UNDERDALE  SA  5032",
-            "WALKERVILLE  SA  5081",
-            "WAYVILLE  SA  5034"
-        ]
+        "Unique": false
     },
     "ApplicationDesc": {
         "Size": 504,
@@ -256,15 +211,13 @@
             "DAVOREN PARK  SA  5113"
         ]
     },
-    "PrivateCertiferAddressLine4": {
+    "Email": {
         "Size": 22,
         "Mandatory": false,
         "AllowBlank": true,
         "Type": "string",
         "Unique": false,
-        "Enum": [
-            "DAVOREN PARK  SA  5113"
-        ]
+        "Format": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,7}"
     },
     "Decision": {
         "Size": 50,

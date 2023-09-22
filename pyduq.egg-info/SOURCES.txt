@@ -1,3 +1,4 @@
+LICENSE
 MANIFEST.in
 README.md
 setup.py
@@ -19,6 +20,7 @@ pyduq.egg-info/SOURCES.txt
 pyduq.egg-info/dependency_links.txt
 pyduq.egg-info/requires.txt
 pyduq.egg-info/top_level.txt
+pyduq/doc/EBNF-Visualizer.exe
 pyduq/doc/expression.GIF
 pyduq/doc/ident.GIF
 pyduq/doc/int.GIF
@@ -30,6 +32,11 @@ pyduq/doc/term.GIF
 pyduq/tests/README.txt
 pyduq/tests/SA development application register.csv
 pyduq/tests/SA development application register_meta.json
+pyduq/tests/SA development application register_profile.xlsx
+pyduq/tests/SA development application register_summary.xlsx
+pyduq/tests/bubble_chart.html
+pyduq/tests/counters.xlsx
+pyduq/tests/summary.xlsx
 pyduq/tests/testTemplate.py
 pyduq/tests/testValidator.ipynb
 pyduq/tests/validate.bat

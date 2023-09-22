@@ -70,21 +70,24 @@ class DUQValidator(AbstractDUQValidator):
                 
                 # format check (must provide a regex)
                 if (MetaUtils.exists(meta_attribute_definition, "Format")):
-                    re.purge()
-                    regex=re.compile(meta_attribute_definition["Format"])
-                    
-                    for row_count in range(len(attribute)):
-                        if (not primary_key_values is None):
-                            primary_key_value = primary_key_values[row_count]
-                        else:
-                            primary_key_value = "Row: " + str(row_count+1)
-                    
-                        value = attribute[row_count]
+                        re.purge()
+                        regex=re.compile(meta_attribute_definition["Format"])
                         
-                        isMatch = (not regex.match(value) is None)
+                        for row_count in range(len(attribute)):
+                            if (not primary_key_values is None):
+                                primary_key_value = primary_key_values[row_count]
+                            else:
+                                primary_key_value = "Row: " + str(row_count+1)
                         
-                        if ( (not isMatch) and (not MetaUtils.isAllowBlank(meta_attribute_definition)) ):
-                            self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex #'" + meta_attribute_definition["Format"] + "'"))
+                            value = attribute[row_count]
+                            #if the value is blank then ignore it
+                            
+                            if ( not (MetaUtils.isBlankOrNull(value))) :
+                            
+                                isMatch = (not regex.match(value) is None)
+                            
+                                if (not isMatch):
+                                    self.addDataQualityError(DataQualityError(meta_attribute_key,error_dimension=DataQualityDimension.FORMATCONSISTENCY.value, description="Error: Value '" + value + "' does not match regex #'" + meta_attribute_definition["Format"] + "'"))
 
                    
                 # unique field check        
